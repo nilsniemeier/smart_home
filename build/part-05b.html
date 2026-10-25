@@ -1,0 +1,135 @@
+<section class="slide" data-transition="fade">
+  <p class="kicker">Home Assistant</p>
+  <h2>Home Assistant</h2>
+  <figure>
+    <img src="images/img-060-051.png" alt="Werbebanner von Home Assistant mit weißem Logo auf hellblauem Muster aus Smart-Home-Symbolen.">
+  </figure>
+  <p>Viele Protokolle sprechen nicht miteinander – eine Software und ein Server vereinen die verschiedenen Dienste und Anbieter. Home Assistant ist dafür ein Beispiel.</p>
+  <div class="notes">Es gibt eine Fülle an Protokollen auf dem Markt, die nicht miteinander kommunizieren. Deshalb ist eine Software sinnvoll, die die Dienste und Anbieter vereint. Home Assistant ist dafür ein Beispiel.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Home Assistant</p>
+  <h2>Home Assistant: Dashboards &amp; Automationen</h2>
+  <ul>
+    <li data-fragment="1"><strong>Smarte Automationen:</strong> Komplexe Bedingungen (z.B. Zeit, Anwesenheit, Helligkeit) verknüpfen</li>
+    <li data-fragment="2"><strong>Individuelle Dashboards:</strong> Vollständig anpassbare Oberflächen für Handys, Tablets oder Wanddisplays</li>
+    <li data-fragment="3"><strong>Integriertes Energiedashboard:</strong> Live-Überwachung von Stromverbrauch, PV-Anlage und Gas</li>
+    <li data-fragment="4"><strong>Lokale Sprachsteuerung:</strong> Private Sprachassistenten ganz ohne Amazon oder Google Clouds</li>
+  </ul>
+  <div class="notes">Vier Stärken im Überblick: Automationen, Dashboards, Energiedashboard, lokale Sprachsteuerung. Die Dashboards zeigen wir gleich als Screenshots.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Home Assistant</p>
+  <h2>Home Assistant: Grundprinzipien</h2>
+  <ul>
+    <li data-fragment="1">Open-Source-Software für die Hausautomatisierung</li>
+    <li data-fragment="2"><strong>Lokaler Fokus:</strong> Läuft autark ohne zwingende Cloudanbindung</li>
+    <li data-fragment="3"><strong>Herstellerunabhängig:</strong> Vereint Zigbee, Matter, Z-Wave, WLAN &amp; Co.</li>
+    <li data-fragment="4"><strong>Hoher Datenschutz:</strong> Sensordaten und Kamerastreams bleiben im Haus</li>
+  </ul>
+  <div class="notes">Vier Grundprinzipien: Open Source, lokaler Fokus, Herstellerunabhängigkeit und Datenschutz. Als Nächstes: auf welcher Hardware das läuft.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Home Assistant</p>
+  <h2>Hardware für Home Assistant OS</h2>
+  <p class="lead">Home Assistant OS ist ein eigenständiges Linux Betriebssystem auf einem lokalen Server. Es hat nur geringe Anforderung an Hardware.</p>
+  <div class="cols cols--4">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Einplatinencomputer</h3>
+      <p>Sehr beliebt auf dem Raspberry Pi 4 oder 5.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Mini-PCs</h3>
+      <p>x86-Plattformen wie ein Intel NUC oder gebrauchte Office-PCs (Thin Clients), die mehr Leistung bieten.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Fertigsysteme</h3>
+      <p>Hauseigene Hardware wie der Home Assistant Green oder Yellow.</p>
+    </div>
+    <div class="card" data-fragment="4" data-fragment-style="grow">
+      <h3>Virtuelle Maschinen (VM)</h3>
+      <p>Für fortgeschrittene Nutzer läuft HAOS auch hervorragend als VM auf Server-Systemen wie Proxmox.</p>
+    </div>
+  </div>
+  <div class="notes">Vier Wege, Home Assistant OS zu betreiben: Einplatinencomputer, Mini-PC, Fertigsystem oder VM. Die Anforderungen an die Hardware sind gering. Zu Raspberry Pi und Proxmox gibt es gleich je ein Bild.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Hardware</p>
+  <h2>Einplatinencomputer: Raspberry Pi</h2>
+  <figure>
+    <img src="images/img-063-052.png" alt="Raspberry Pi als Einplatinencomputer mit Gehäuse, Netzteil und Kühlkörpern.">
+  </figure>
+  <div class="notes">Der Raspberry Pi ist die Einplatinencomputer-Option als Hardwarebasis für Home Assistant OS. Auf dem Bild: Platine, Netzteil, Kühlkörper und ein Gehäuse mit Lüfter.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Hardware</p>
+  <h2>Virtuelle Maschine auf Proxmox</h2>
+  <figure>
+    <img src="images/img-063-054.png" alt="Server-Umgebung mit Serverracks, NAS, Switch und Laptop mit Proxmox.">
+  </figure>
+  <div class="notes">Home Assistant OS läuft auch als virtuelle Maschine auf einem Server, hier mit Proxmox. Gedacht für fortgeschrittene Nutzer.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Home Assistant</p>
+  <h2>Unterschied zu anderen Varianten (z.B. Docker / Core)</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Docker (Home Assistant Container)</h3>
+      <p>Das Linux-Betriebssystem und alle Updates verwaltest du selbst über die Kommandozeile.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Home Assistant OS (HAOS)</h3>
+      <p>HAOS nimmt dir diese Arbeit komplett ab. Dafür ist das System „abgeriegelt“: Du kannst keine anderen, Smart-Home-fremden Programme installieren.</p>
+    </div>
+  </div>
+  <div class="notes">Docker bedeutet mehr Kontrolle, aber auch Betriebssystem und Updates selbst verwalten. HAOS ist bequemer, dafür geschlossen.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Home Assistant</p>
+  <h2>Home Assistant: Integrationen</h2>
+  <figure>
+    <img src="images/img-065-055.png" alt="Screenshot der Home-Assistant-Integrationsseite mit Kategorien und Logo-Raster.">
+  </figure>
+  <div class="notes">Die Integrationsseite zeigt die Herstellerunabhängigkeit der Plattform: Logos unterstützter Systeme wie Philips Hue, Shelly, Sonos, Matter, Z-Wave und Zigbee Home Automation.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Home Assistant</p>
+  <h2>Home Assistant: Dashboard</h2>
+  <figure>
+    <img src="images/img-066-056.png" alt="Screenshot eines Home-Assistant-Dashboards mit Beleuchtung, Thermostat und Medienkarten.">
+  </figure>
+  <div class="notes">Das Dashboard besteht aus frei gestaltbaren Karten, zum Beispiel für Beleuchtung, Thermostat, Sicherheit und Unterhaltung.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Home Assistant</p>
+  <h2>Home Assistant auf Smartphone und Smartwatch</h2>
+  <figure>
+    <img src="images/img-067-057.png" alt="Smartphone mit Home-Assistant-App neben einer Smartwatch auf einem Holztisch.">
+  </figure>
+  <div class="notes">Die Steuerung ist mobil auf Handy und Uhr möglich. Die App zeigt Kacheln für Licht, Temperaturen und Kamera-Vorschauen.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Home Assistant</p>
+  <h2>Home Assistant: Wanddisplay / Tablet-Dashboard</h2>
+  <figure>
+    <img src="images/img-068-058.png" alt="Tablet mit Home-Assistant-Dashboard für Wohnzimmer, Küche, Schlafzimmer und Nutzung.">
+  </figure>
+  <div class="notes">Ein fest installiertes Wanddisplay mit individuellen Räumen und Statusinformationen. Das Dashboard ist hier nach Räumen gegliedert.</div>
+</section>
+
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">Home Assistant</p>
+  <h2>Fazit Home Assistant</h2>
+  <p class="lead">Home Assistant bietet maximale Freiheit, absolute Datensicherheit und wächst flexibel mit jedem Projekt – vom Einsteiger bis zum Experten.</p>
+  <div class="notes">Das Fazit bezieht sich nur auf Home Assistant. Das Gesamt-Fazit des Vortrags folgt später auf Folie 106.</div>
+</section>

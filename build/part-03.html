@@ -1,0 +1,363 @@
+<!-- Teil 3 — Systeme im Vergleich (Folien 25–42) -->
+
+<!-- Folie 25 -->
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">TEIL 3</p>
+  <h1>Systeme im Vergleich</h1>
+  <p class="lead">Drei Systeme, drei Philosophien: Tuya → Zigbee → Matter.</p>
+  <div class="notes">Kapiteltrennung. Drei Systeme, drei Philosophien – wir gehen sie der Reihe nach durch: Tuya, Zigbee, Matter.</div>
+</section>
+
+<!-- Folie 26 (1/4): Dramaturgie -->
+<section class="slide" data-transition="slide">
+  <p class="kicker">Teil 3 · Vergleich</p>
+  <h2>Die Dramaturgie dieses Teils</h2>
+  <p class="lead">Von Cloud-abhängig und billig (Tuya) über lokal und sparsam (Zigbee) zu lokal, sparsam und herstelleroffen (Matter).</p>
+  <p>Schlecht, gut, besser. Wer das im Kopf behält, braucht sich die 16 folgenden Detailfolien nicht zu merken.</p>
+  <div class="notes">Die Reihenfolge der drei Systeme ist bewusst gewählt: schlecht, gut, besser. Als Nächstes die Vergleichsmatrix in zwei Teilen.</div>
+</section>
+
+<!-- Folie 26 (2/4): Vergleichsmatrix Kriterien 1–2 -->
+<section class="slide" data-transition="slide">
+  <p class="kicker">Teil 3 · Vergleich</p>
+  <h2>Vergleichsmatrix: Tuya, Zigbee, Matter (1/3)</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Tuya</h3>
+      <ul>
+        <li><strong>Lokaler Betrieb:</strong> nein — Steuerung läuft über die Tuya Cloud</li>
+        <li><strong>Hub / Zentrale nötig:</strong> bei WLAN-Geräten nein; für Zigbee-Geräte ein Tuya-Gateway</li>
+      </ul>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Zigbee</h3>
+      <ul>
+        <li><strong>Lokaler Betrieb:</strong> ja — Befehle werden direkt im Haus verarbeitet</li>
+        <li><strong>Hub / Zentrale nötig:</strong> ja, zwingend (Bridge oder Zigbee-USB-Stick)</li>
+      </ul>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Matter</h3>
+      <ul>
+        <li><strong>Lokaler Betrieb:</strong> ja — Steuerung komplett lokal im Heimnetzwerk</li>
+        <li><strong>Hub / Zentrale nötig:</strong> ja — Matter-Controller; für Thread zusätzlich ein Thread Border Router</li>
+      </ul>
+    </div>
+  </div>
+  <div class="notes">Kriterien 1 und 2: lokaler Betrieb und Hub. Die Werte sind ausschließlich aus den Vorteile/Nachteile-Folien der drei Systeme abgeleitet, es sind keine zusätzlichen Daten hinzugefügt.</div>
+</section>
+
+<!-- Folie 26 (3/4): Vergleichsmatrix Kriterien 3–4 -->
+<section class="slide" data-transition="slide">
+  <p class="kicker">Teil 3 · Vergleich</p>
+  <h2>Vergleichsmatrix: Tuya, Zigbee, Matter (2/3)</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Tuya</h3>
+      <ul>
+        <li><strong>Cloud-Zwang:</strong> ja — ohne Internet fallen Routinen und Fernsteuerung aus</li>
+        <li><strong>Herstelleroffen:</strong> nur innerhalb des Tuya-Ökosystems (viele White-Label-Marken, eine Plattform)</li>
+      </ul>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Zigbee</h3>
+      <ul>
+        <li><strong>Cloud-Zwang:</strong> nein — funktioniert unabhängig vom Internet</li>
+        <li><strong>Herstelleroffen:</strong> teilweise — „Kompatibilitäts-Inseln“, nicht immer an derselben Zentrale anlernbar</li>
+      </ul>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Matter</h3>
+      <ul>
+        <li><strong>Cloud-Zwang:</strong> nein — keine Cloud-Verbindung für die Schaltung nötig</li>
+        <li><strong>Herstelleroffen:</strong> ja — garantierter Parallelbetrieb mit Apple Home, Google Home, Alexa, SmartThings („Multi-Admin“)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="notes">Kriterien 3 und 4: Cloud-Zwang und Herstelleroffenheit. Zigbee-Inseln: Geräte verschiedener Hersteller lassen sich nicht immer an derselben Zentrale anlernen.</div>
+</section>
+
+<!-- Folie 26 (4/4): Vergleichsmatrix Kriterien 5–6 -->
+<section class="slide" data-transition="slide">
+  <p class="kicker">Teil 3 · Vergleich</p>
+  <h2>Vergleichsmatrix: Tuya, Zigbee, Matter (3/3)</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Tuya</h3>
+      <ul>
+        <li><strong>Energiebedarf:</strong> hoch — WLAN verbraucht mehr Strom und belastet den Router</li>
+        <li><strong>Preisniveau:</strong> sehr günstig</li>
+      </ul>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Zigbee</h3>
+      <ul>
+        <li><strong>Energiebedarf:</strong> sehr niedrig — Batteriesensoren halten oft jahrelang mit einer Knopfzelle</li>
+        <li><strong>Preisniveau:</strong> günstig</li>
+      </ul>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Matter</h3>
+      <ul>
+        <li><strong>Energiebedarf:</strong> niedrig über Thread, höher über WLAN</li>
+        <li><strong>Preisniveau:</strong> höher — Matter-Hardware aktuell meist teurer als Tuya oder reines Zigbee</li>
+      </ul>
+    </div>
+  </div>
+  <div class="notes">Kriterien 5 und 6: Energiebedarf und Preisniveau. Matter-Hardware ist aktuell meist teurer als einfache Tuya- oder reine Zigbee-Komponenten.</div>
+</section>
+
+<!-- Folie 27 -->
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Tuya</p>
+  <h2>Tuya: Vorteile</h2>
+  <p>Tuya liefert die Software-Infrastruktur für tausende White-Label-Hersteller (wie Lidl Livarno, Luminea, Nedis).</p>
+  <ul>
+    <li data-fragment="1"><strong>Riesige Produktauswahl:</strong> extrem viele, sehr günstige Geräte (Leuchtmittel, Stecker, Kameras)</li>
+    <li data-fragment="2"><strong>Einfacher Einstieg:</strong> einfaches WLAN, oft keine teure separate Zentrale (Bridge/Hub) nötig</li>
+    <li data-fragment="3"><strong>Gute App-Funktionen:</strong> umfangreiche Automatisierungsmöglichkeiten und Szenen</li>
+  </ul>
+  <div class="notes">Gesteuert wird meist über die Tuya Smart oder die Smart Life App. Die Vorteile liegen bei Auswahl, Preis und niedriger Einstiegshürde.</div>
+</section>
+
+<!-- Folie 28 -->
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Tuya</p>
+  <h2>Tuya: Nachteile</h2>
+  <ul>
+    <li data-fragment="1"><strong>Cloud-Zwang:</strong> ohne Internet oder Tuya-Cloud fallen Routinen und Fernsteuerung aus</li>
+    <li data-fragment="2"><strong>Datenschutz:</strong> globale Cloud-Plattform, Nutzungsdaten wandern über externe Server</li>
+    <li data-fragment="3"><strong>WLAN-Überlastung:</strong> viele günstige WLAN-Geräte können den Router schnell überlasten</li>
+  </ul>
+  <div class="notes">Der Cloud-Zwang ist der Hauptkritikpunkt und der Übergang zu den nächsten Folien: Wie laufen die Kommunikationswege bei Tuya?</div>
+</section>
+
+<!-- Folie 29 -->
+<section class="slide" data-transition="slide">
+  <p class="kicker">Tuya</p>
+  <h2>Tuya: Die drei Kommunikationswege</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Standard-Weg (WLAN-Geräte)</h3>
+      <p>Smartphone App → Internet → Tuya Cloud → Internet/Router → Tuya WLAN-Gerät</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Brücken-Weg (Zigbee/Bluetooth-Geräte)</h3>
+      <p>Smartphone App → Internet → Tuya Cloud → Internet → Tuya Zigbee Gateway → Lokaler Funk → Zigbee-Sensor</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Drittanbieter-Weg (Sprachassistenten)</h3>
+      <p>Sprachbefehl („Alexa...“) → Amazon/Google Cloud → Cloud-to-Cloud Kopplung → Tuya Cloud → Endgerät</p>
+    </div>
+  </div>
+  <div class="notes">Alle drei Wege führen über die Tuya Cloud. Nur die letzte Strecke vom Gateway zum Zigbee-Sensor ist lokaler Funk. Das Diagramm auf der nächsten Folie zeigt das Gesamtbild.</div>
+</section>
+
+<!-- Folie 30 -->
+<section class="slide" data-transition="fade">
+  <p class="kicker">Tuya</p>
+  <h2>Tuya System-Architektur &amp; Kommunikationswege</h2>
+  <figure>
+    <img src="images/img-030-015.png" alt="Netzwerkdiagramm mit der Tuya Cloud als zentralem Knoten, an dem Smartphone-App, Sprachassistenten, WLAN-Geräte und Zigbee-Gateway hängen.">
+  </figure>
+  <div class="notes">Alle primären Wege laufen über die Tuya Cloud; ohne Internet verlieren App und WLAN-Geräte die Verbindung. Nur die Strecke vom Gateway zum Zigbee-Endgerät ist rein lokal.</div>
+</section>
+
+<!-- Folie 31 -->
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Zigbee</p>
+  <h2>Zigbee: Vorteile</h2>
+  <p>Zigbee ist ein etablierter, energiesparender Funkstandard, genutzt u. a. von Philips Hue, IKEA Home smart und Aqara.</p>
+  <ul>
+    <li data-fragment="1"><strong>Lokaler Betrieb:</strong> Befehle direkt im Haus verarbeitet, extrem schnell, unabhängig vom Internet</li>
+    <li data-fragment="2"><strong>Mesh-Netzwerk:</strong> Dauerstrom-Geräte (z. B. Lampen) wirken als Signalverstärker, Reichweite steigt enorm</li>
+    <li data-fragment="3"><strong>Extrem energiesparend:</strong> Batteriesensoren halten oft jahrelang mit einer Knopfzelle</li>
+  </ul>
+  <div class="notes">Zigbee ist der Gegenentwurf zu Tuya: lokal, sparsam, mit Mesh. Jedes dauerhaft am Strom hängende Zigbee-Gerät verstärkt das Signal.</div>
+</section>
+
+<!-- Folie 32 -->
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Zigbee</p>
+  <h2>Zigbee: Nachteile</h2>
+  <ul>
+    <li data-fragment="1"><strong>Hub/Zentrale:</strong> zwingend ein Gateway, z. B. Philips Hue Bridge oder Zigbee-USB-Stick</li>
+    <li data-fragment="2"><strong>Kompatibilitäts-Inseln:</strong> Geräte verschiedener Hersteller lassen sich nicht immer an derselben Zentrale anlernen</li>
+  </ul>
+  <div class="notes">Obwohl alle „Zigbee“ nutzen, lassen sich Geräte verschiedener Hersteller nicht immer ohne Weiteres an derselben Zentrale anlernen. Das löst später Matter.</div>
+</section>
+
+<!-- Folie 33 -->
+<section class="slide" data-transition="fade">
+  <p class="kicker">Zigbee</p>
+  <h2>Zigbee-Architektur &amp; Lokaler Kommunikationsgraph</h2>
+  <figure>
+    <img src="images/img-032-016.png" alt="Netzwerkdiagramm der Zigbee-Architektur: Smartphone-App und lokales IP-Netzwerk verbinden sich mit der Zigbee-Zentrale, die über zwei Router ein lokales Mesh mit einem Batterie-Sensor bildet.">
+  </figure>
+  <div class="notes">Das lokale Mesh-Netzwerk braucht kein Internet. Die Router (Lampe, Steckdose) hängen am Dauerstrom, der Batterie-Sensor ist energiearmes Endgerät.</div>
+</section>
+
+<!-- Folie 34 -->
+<section class="slide" data-transition="slide">
+  <p class="kicker">Matter</p>
+  <h2>Matter</h2>
+  <p class="lead">Der neueste, vom Branchenkonsortium (Apple, Google, Amazon, Samsung u. a.) entwickelte Standard.</p>
+  <p>Er soll die Fragmentierung des Smart-Homes endgültig beenden.</p>
+  <p>Transportwege: bestehendes WLAN oder das moderne, energiesparende <strong>Thread</strong>-Funknetzwerk.</p>
+  <div class="notes">Matter ist das dritte System. Wichtig sind zwei Dinge: das Branchenkonsortium dahinter und die zwei Transportwege WLAN und Thread.</div>
+</section>
+
+<!-- Folie 35 -->
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Matter</p>
+  <h2>Matter: Vorteile</h2>
+  <ul>
+    <li data-fragment="1"><strong>Herstellerübergreifend:</strong> Apple Home, Google Home, Amazon Alexa, Samsung SmartThings parallel („Multi-Admin“)</li>
+    <li data-fragment="2"><strong>Zukunftssicher und lokal:</strong> komplett lokal im Heimnetzwerk, schnell und ausfallsicher, ohne Cloud-Zwang</li>
+    <li data-fragment="3"><strong>Hohe Sicherheit:</strong> moderne Verschlüsselung und Sicherheitsmechanismen bei der Geräte-Inbetriebnahme</li>
+  </ul>
+  <div class="notes">Ein Matter-Gerät funktioniert garantiert mit Apple Home, Google Home, Amazon Alexa und Samsung SmartThings gleichzeitig. Maximale Geschwindigkeit und Ausfallsicherheit ohne Cloud-Zwang.</div>
+</section>
+
+<!-- Folie 36 -->
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Matter</p>
+  <h2>Matter: Nachteile</h2>
+  <ul>
+    <li data-fragment="1"><strong>Noch in Entwicklung:</strong> Geräteklassen wie komplexe Kameras oder Spezial-Sensoren nicht perfekt abgedeckt</li>
+    <li data-fragment="2"><strong>Updates:</strong> Updates der Hersteller verzögern sich oft</li>
+    <li data-fragment="3"><strong>Hardware-Anforderungen:</strong> Thread-Geräte brauchen einen kompatiblen „Thread Border Router“</li>
+    <li data-fragment="4"><strong>Beispiele:</strong> neuerer Apple HomePod, Google Nest Hub, Amazon Echo</li>
+    <li data-fragment="5"><strong>Höherer Preis:</strong> Matter-Hardware aktuell meist teurer als einfache Tuya- oder reine Zigbee-Komponenten</li>
+  </ul>
+  <div class="notes">Der Standard ist noch jung. Wer Thread-Geräte nutzt, braucht einen Thread Border Router, und die Hardware ist aktuell meist teurer.</div>
+</section>
+
+<!-- Folie 37 -->
+<section class="slide" data-transition="slide">
+  <p class="kicker">Matter</p>
+  <h2>Der Matter-Controller (Die Steuerzentrale)</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Funktion</h3>
+      <p>Das Gehirn, das die Geräte steuert, Automatisierungen ausführt und die Schnittstelle zu deiner App bildet. Beispiele sind ein Apple TV 4K, ein Google Nest Hub oder ein Amazon Echo.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Besonderheit („Multi-Admin“)</h3>
+      <p>Ein Matter-Netzwerk kann mehrere Controller gleichzeitig haben. Dieselbe Lampe lässt sich parallel über Apple Home (iPad) und Google Home (Android-Tablet) steuern.</p>
+    </div>
+  </div>
+  <div class="notes">Die Controller synchronisieren den Gerätestatus direkt lokal untereinander. Das ist der Kern von Multi-Admin.</div>
+</section>
+
+<!-- Folie 38 -->
+<section class="slide" data-transition="slide">
+  <p class="kicker">Matter</p>
+  <h2>Der Thread Border Router (Die Funk-Brücke)</h2>
+  <p data-fragment="1">Viele moderne, kleine Matter-Geräte funken nicht über das stromhungrige WLAN, sondern über das effiziente <strong>Thread</strong>-Funknetzwerk.</p>
+  <p data-fragment="2">Der Thread Border Router verbindet das Thread-Netzwerk nahtlos mit deinem Heimnetzwerk (WLAN/LAN).</p>
+  <p data-fragment="3">Oft ist diese Funktion direkt im Matter-Controller eingebaut (z. B. im Apple TV oder Nest Hub).</p>
+  <div class="notes">Der Border Router ist die Brücke zwischen Thread-Funknetz und normalem Heimnetz. Oft steckt er schon im Controller.</div>
+</section>
+
+<!-- Folie 39 -->
+<section class="slide" data-transition="slide">
+  <p class="kicker">Matter</p>
+  <h2>Die Matter-Endgeräte (WLAN oder Thread)</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Matter-über-WLAN</h3>
+      <p>Größere Geräte mit hohem Stromverbrauch oder Dauerstrom (z. B. smarte Steckdosen, Haushaltsgeräte) nutzen dein normales WLAN. Sie sprechen Matter direkt über deinen Router.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Matter-über-Thread (Router &amp; Endpoints)</h3>
+      <p>Stromsparende Geräte (Lampen, Sensoren) bauen untereinander ein stabiles Thread-Mesh-Netzwerk auf – ähnlich wie bei Zigbee. Lampen leiten Signale weiter (Router), Batterie-Sensoren senden nur bei Änderungen (Endpoints).</p>
+    </div>
+  </div>
+  <div class="notes">Große Stromverbraucher nutzen WLAN, kleine, sparsame Geräte Thread. Das Thread-Mesh funktioniert ähnlich wie bei Zigbee.</div>
+</section>
+
+<!-- Folie 40 -->
+<section class="slide" data-transition="slide">
+  <p class="kicker">Matter</p>
+  <h2>Ablauf eines typischen Schaltbefehls</h2>
+  <p>Matter basiert auf IP wie dein Computer oder Smartphone: Alle Geräte sprechen „dieselbe Sprache“ – egal ob per Kabel, WLAN oder Thread.</p>
+  <ol>
+    <li data-fragment="1">Smartphone App (z. B. Apple Home)</li>
+    <li data-fragment="2">Lokales WLAN → Matter Controller / Thread Border Router</li>
+    <li data-fragment="3">Lokaler Thread-Funk → Thread-Router (Lampe im Wohnzimmer)</li>
+    <li data-fragment="4">Lokaler Thread-Funk → Matter-Heizkörperthermostat</li>
+  </ol>
+  <div class="notes">Der gesamte Weg bleibt lokal. Der Befehl springt von der App über den Controller und die Lampe als Thread-Router bis zum Heizkörperthermostat.</div>
+</section>
+
+<!-- Folie 41 -->
+<section class="slide" data-transition="rise">
+  <p class="kicker">Teil 3</p>
+  <h2>Lokal vs. Cloud: Der entscheidende Vorteil</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Zigbee</h3>
+      <p>Dieser gesamte Datenverkehr verlässt niemals dein Haus. Selbst bei Störung des Internetanbieters oder ohne Strom am Router läuft der Funkgraph autark weiter.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Matter</h3>
+      <p>Wie bei Zigbee bleibt die gesamte Kommunikation zu 100 % lokal, ganz ohne Cloud-Verbindung. Das Zigbee-Problem getrennter Bridges (z. B. Hue und Aqara) entfällt.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Und Tuya?</h3>
+      <p>Genau umgekehrt: Alle primären Wege laufen über die Tuya Cloud. Ohne Internet verlieren App und WLAN-Geräte die Verbindung.</p>
+    </div>
+  </div>
+  <div class="notes">Bei Matter fließen alle Daten nahtlos durch dieselbe lokale Netzwerkstruktur. Tuya ist das Gegenteil (siehe Folien zu den Kommunikationswegen). Das ist der Übergang zu Teil 4.</div>
+</section>
+
+<!-- Folie 42 -->
+<section class="slide" data-transition="rise">
+  <p class="kicker">Teil 3</p>
+  <h2>Abschluss Teil 3: Die Vergleichsmatrix</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Tuya</h3>
+      <ul>
+        <li><strong>Lokaler Betrieb:</strong> nein</li>
+        <li><strong>Hub / Zentrale nötig:</strong> nur für Zigbee-Geräte</li>
+        <li><strong>Cloud-Zwang:</strong> ja</li>
+        <li><strong>Herstelleroffen:</strong> nein (Tuya-Ökosystem)</li>
+        <li><strong>Energiebedarf:</strong> hoch (WLAN)</li>
+        <li><strong>Preisniveau:</strong> sehr günstig</li>
+      </ul>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Zigbee</h3>
+      <ul>
+        <li><strong>Lokaler Betrieb:</strong> ja</li>
+        <li><strong>Hub / Zentrale nötig:</strong> ja, zwingend</li>
+        <li><strong>Cloud-Zwang:</strong> nein</li>
+        <li><strong>Herstelleroffen:</strong> teilweise (Kompatibilitäts-Inseln)</li>
+        <li><strong>Energiebedarf:</strong> sehr niedrig</li>
+        <li><strong>Preisniveau:</strong> günstig</li>
+      </ul>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Matter</h3>
+      <ul>
+        <li><strong>Lokaler Betrieb:</strong> ja</li>
+        <li><strong>Hub / Zentrale nötig:</strong> ja (Controller, für Thread + Border Router)</li>
+        <li><strong>Cloud-Zwang:</strong> nein</li>
+        <li><strong>Herstelleroffen:</strong> ja (Multi-Admin)</li>
+        <li><strong>Energiebedarf:</strong> niedrig (Thread) / höher (WLAN)</li>
+        <li><strong>Preisniveau:</strong> höher</li>
+      </ul>
+    </div>
+  </div>
+  <div class="notes">Werte identisch zur Einstiegsmatrix; dort stehen die ausführliche Begründung und die Herkunft jedes Eintrags. Der Merksatz folgt auf der nächsten Folie.</div>
+</section>
+
+<!-- Folie 42 (Merksatz) -->
+<section class="slide slide--center" data-transition="fade">
+  <p class="kicker">Teil 3</p>
+  <h2>Merksatz</h2>
+  <p class="lead" data-fragment="1">Je weiter rechts, desto unabhängiger vom Internet und vom Hersteller — und desto teurer in der Anschaffung.</p>
+  <div class="notes">Von Tuya über Zigbee zu Matter: mehr Unabhängigkeit vom Internet und vom Hersteller, dafür höherer Preis. Übergang zu Teil 4.</div>
+</section>

@@ -1,0 +1,88 @@
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">TEIL 2</p>
+  <h1>Exkurs: Wie die Zentrale denkt</h1>
+  <p class="lead">Für alle, die wissen wollen, was auf Schicht 3 (der Zentrale) tatsächlich passiert.</p>
+  <div class="notes">Die folgenden Folien zeigen die Logik hinter einer Automatisierung, an einem minimalen Python-Beispiel und am Begriff der Hysterese. Der Teil ist ein Exkurs: Wer nur Systeme und Anbieter vergleichen will, springt direkt zu Teil 3; für das Verständnis von Teil 3 bis 7 ist er nicht zwingend nötig.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Exkurs</p>
+  <h2>Einfaches Python Script</h2>
+  <figure>
+    <img src="images/img-017-006.png" alt="Python-Quelltext: Zufallstemperatur und Endlosschleife zur Heizungssteuerung">
+  </figure>
+  <div class="notes">Minimale, simulierte Steuerungslogik ohne echte Hardware: Zufallstemperatur zwischen 18,0 und 22,0 °C. Ab 20,0 °C „AUS“, sonst „EIN“, danach 60 Sekunden warten.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Exkurs</p>
+  <h2>Hysterese</h2>
+  <p>Die <strong>Hysterese</strong> (auch Schalthysterese) bei einer Heizung ist der Temperaturbereich zwischen dem Ein- und Ausschaltpunkt des Wärmeerzeugers.</p>
+  <p><strong>Zweck:</strong> Sie verhindert das ständige, nervige An- und Ausschalten („Takten“ oder „Relais-Rattern“) der Heizung bei winzigen Temperaturschwankungen.</p>
+  <div class="notes">Definition der Hysterese und ihr Zweck. Übergang: gleich ein konkretes Zahlenbeispiel.</div>
+</section>
+
+<section class="slide" data-transition="rise">
+  <p class="kicker">Hysterese · Beispiel</p>
+  <h2>Solltemperatur 22 °C, Hysterese 0,5 °C</h2>
+  <div class="cols">
+    <div data-fragment="1">
+      <div class="metric">21,5 °C</div>
+      <p>Die Heizung schaltet ein, wenn die Temperatur auf 21,5 °C fällt</p>
+    </div>
+    <div data-fragment="2">
+      <div class="metric">22,5 °C</div>
+      <p>Die Heizung schaltet ab, wenn die Temperatur 22,5 °C erreicht</p>
+    </div>
+  </div>
+  <div class="notes">Zwischen 21,5 °C und 22,5 °C bleibt der Zustand der Heizung unverändert, deshalb kein ständiges Takten. Übergang: dasselbe als Python-Script.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Exkurs</p>
+  <h2>Einfaches Python Script mit Hysterese</h2>
+  <figure>
+    <img src="images/img-019-007.png" alt="Python-Quelltext mit Konfiguration von Soll-Temperatur und Hysterese">
+  </figure>
+  <div class="notes">Oben werden SOLL_TEMPERATUR = 20.0 und HYSTERESE = 0.5 konfiguriert, daraus entstehen EINSCHALT_PUNKT (19,5 °C) und AUSSCHALT_PUNKT (20,5 °C). Startzustand: heizung_ist_an ist False.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Exkurs</p>
+  <h2>Die Scriptlogik (Python)</h2>
+  <figure>
+    <img src="images/img-020-008.png" alt="Python-Quelltext der Hysterese-Regelungslogik mit Schleife">
+  </figure>
+  <div class="notes">Bei eingeschalteter Heizung wird erst ab dem Ausschaltpunkt abgeschaltet, bei ausgeschalteter erst unterhalb des Einschaltpunkts wieder eingeschaltet. Jede Aktion gibt eine Statusmeldung aus, danach wartet das Skript 60 Sekunden.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Exkurs</p>
+  <h2>Beispiel: Automatisierung „Keller Bad“</h2>
+  <div class="cols">
+    <figure>
+      <img src="images/img-021-009.png" alt="Tuya-App: Automatisierung „Keller Bad an“ mit Feuchtigkeit größer als 80 %">
+    </figure>
+    <figure>
+      <img src="images/img-021-010.png" alt="Tuya-App: Automatisierung „Keller Bad aus“ mit Feuchtigkeit unter 77 %">
+    </figure>
+  </div>
+  <div class="notes">Zwei Automatisierungen in der Tuya-Smart-App: „Keller Bad an“ bei Feuchtigkeit größer als 80 %, „Keller Bad aus“ bei weniger als 77 %. Beide schalten Switch 1.</div>
+</section>
+
+<section class="slide" data-transition="rise">
+  <p class="kicker">Exkurs</p>
+  <h2>Feuchtigkeit: 80 % an, 77 % aus</h2>
+  <div class="cols">
+    <div data-fragment="1">
+      <div class="metric">80 %</div>
+      <p>Feuchtigkeit größer als 80 %: Switch 1 ON</p>
+    </div>
+    <div data-fragment="2">
+      <div class="metric">77 %</div>
+      <p>Feuchtigkeit weniger als 77 %: Switch 1 OFF</p>
+    </div>
+  </div>
+  <p data-fragment="3">Die Abstufung bildet eine Hysterese, damit das Gerät nicht bei einem Wert um die Schwelle ständig schaltet.</p>
+  <div class="notes">Gleiches Prinzip wie bei der Heizung, nur mit Feuchtigkeit statt Temperatur. Ende des Exkurses, weiter mit Teil 3.</div>
+</section>

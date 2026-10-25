@@ -1,0 +1,302 @@
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">TEIL 6 · WORKSHOP</p>
+  <h1>Workshop: drei Fälle</h1>
+  <p class="lead">Interaktiver Teil: drei Aufgaben, jede mit anschließender Auflösung.</p>
+  <div class="notes">Kapitelwechsel: Ab jetzt ist das Publikum gefragt. Drei Aufgaben, jeweils mit Auflösung im Anschluss.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">TEIL 6 · WORKSHOP</p>
+  <h2>Drei Fälle, absteigende Eingriffstiefe</h2>
+  <ol>
+    <li data-fragment="1"><strong>Neubau</strong> — Einfamilienhaus wird neu errichtet</li>
+    <li data-fragment="2"><strong>Kernsanierung</strong> — Einfamilienhaus Baujahr ~1960 wird saniert</li>
+    <li data-fragment="3"><strong>Mietwohnung</strong> — Eigentums- oder Mietwohnung wird nachgerüstet</li>
+  </ol>
+  <div class="notes">Reihenfolge nach absteigender Eingriffstiefe. Der Neubau kommt zuerst, weil er die Referenz ist: Die Sanierungs-Folien erklären jeden Punkt als Vergleich zum Neubau.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">WORKSHOP · RASTER</p>
+  <h2>Das Raster für alle drei Fälle</h2>
+  <p class="lead">Alle drei Fälle werden nach demselben Raster durchgegangen. So ist vergleichbar, was in welchem Fall möglich ist — und was nicht.</p>
+  <div class="cols cols--4">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>1. Infrastruktur</h3>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>2. Heizung, Lüftung &amp; Klima</h3>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>3. Beleuchtung &amp; Beschattung</h3>
+    </div>
+    <div class="card" data-fragment="4" data-fragment-style="grow">
+      <h3>4. Sicherheit &amp; Zutritt</h3>
+    </div>
+  </div>
+  <div class="notes">Dieses Raster wiederholt sich in jedem der drei Fälle. Die nächsten beiden Folien zeigen die Werte im Vergleich; sie sind aus den späteren Detailfolien abgeleitet.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">WORKSHOP · RASTER</p>
+  <h2>Raster im Vergleich: Infrastruktur, HVAC</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>1. Infrastruktur</h3>
+      <p><strong>Neubau:</strong> volle Freiheit: Bus, Sternverkabelung, Netzwerk</p>
+      <p><strong>Kernsanierung:</strong> möglich, aber Statik und Platz setzen Grenzen</p>
+      <p><strong>Mietwohnung:</strong> entfällt — kein Eingriff in die Bausubstanz</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>2. Heizung, Lüftung &amp; Klima</h3>
+      <p><strong>Neubau:</strong> kabelgebundene Einzelraumregelung</p>
+      <p><strong>Kernsanierung:</strong> kabelgebunden, sofern Bodenaufbau es zulässt</p>
+      <p><strong>Mietwohnung:</strong> Funk-Thermostate, zerstörungsfrei getauscht</p>
+    </div>
+  </div>
+  <div class="notes">Vergleich der ersten beiden Gewerke über alle drei Fälle. Die Details folgen in den Falllösungen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">WORKSHOP · RASTER</p>
+  <h2>Raster im Vergleich: Licht, Sicherheit</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>3. Beleuchtung &amp; Beschattung</h3>
+      <p><strong>Neubau:</strong> zentrale Dimm-Aktoren, Rollladenmotoren ab Werk</p>
+      <p><strong>Kernsanierung:</strong> nachrüstbar, Rollladenkästen oft zu eng</p>
+      <p><strong>Mietwohnung:</strong> Leuchtmittel, Zwischenstecker, geklebte Taster; Beschattung entfällt</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>4. Sicherheit &amp; Zutritt</h3>
+      <p><strong>Neubau:</strong> Motorschloss, Reed-Kontakte ab Werk, PoE-Kameras</p>
+      <p><strong>Kernsanierung:</strong> Motorschloss ja, Fensterkontakte schwierig</p>
+      <p><strong>Mietwohnung:</strong> Aufsatz-Türschloss, geklebte Sensoren; PoE-Kameras entfallen</p>
+    </div>
+  </div>
+  <div class="notes">Vergleich der letzten beiden Gewerke. Auffällig: In der Mietwohnung entfallen Beschattung und PoE-Kameras.</div>
+</section>
+
+<section class="slide slide--center" data-transition="fade" data-fragment-mode="dim-prior">
+  <p class="kicker">WORKSHOP · RASTER</p>
+  <h2>Eingriffstiefe</h2>
+  <ul>
+    <li data-fragment="1"><strong>Neubau</strong> = weißes Blatt</li>
+    <li data-fragment="2"><strong>Kernsanierung</strong> = bestehende Substanz</li>
+    <li data-fragment="3"><strong>Mietwohnung</strong> = nichts darf beschädigt werden</li>
+  </ul>
+  <div class="notes">Die Eingriffstiefe erklärt die Unterschiede im Raster. Übergang: Wir starten mit Fall 1, dem Neubau.</div>
+</section>
+
+<section class="slide slide--center" data-transition="rise" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · AUFGABE</p>
+  <h2>Ein Einfamilienhaus wird neu errichtet</h2>
+  <ol>
+    <li data-fragment="1">Welche Ausstattung ist möglich?</li>
+    <li data-fragment="2">Welcher Übertragungsweg?</li>
+    <li data-fragment="3">Welche Smarthome Komponenten machen in euren Augen Sinn?</li>
+  </ol>
+  <div class="notes">Hier ist das Publikum dran: Fragen einzeln einblenden, antworten lassen, Ideen sammeln. Die Lösung steht erst auf den Folgefolien.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Ausgangslage: das weiße Blatt Papier</h2>
+  <ul>
+    <li data-fragment="1">Keine bestehende Substanz, keine Statik-Rücksicht, keine Raumhöhen-Begrenzung, kein Vermieter</li>
+    <li data-fragment="2">Neubau ist der Referenzfall: alles möglich, was technisch sinnvoll ist</li>
+    <li data-fragment="3">Kernsanierung und Mietwohnung sind Einschränkungen gegenüber diesem Idealfall</li>
+  </ul>
+  <div class="notes">Der Neubau ist die Referenz, an der die beiden folgenden Fälle gemessen werden. Übergang: Welcher Übertragungsweg liegt nahe?</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Übertragungsweg: kabelgebunden</h2>
+  <ul>
+    <li data-fragment="1">Bus-System (KNX oder Loxone) ist die naheliegende Wahl</li>
+    <li data-fragment="2">Die Wände sind ohnehin offen</li>
+    <li data-fragment="3">Nächste Folien: Infrastruktur → HVAC → Beleuchtung &amp; Beschattung → Sicherheit &amp; Zutritt</li>
+  </ul>
+  <div class="notes">Verweis auf die frühere Folie: Bus-Systeme sind ideal für Neubau und Kernsanierung. Jetzt geht es Gewerk für Gewerk durch das Raster.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Infrastruktur (Das Fundament)</h2>
+  <ul>
+    <li data-fragment="1"><strong>Bus-System (KNX oder Loxone):</strong> grüne KNX-Busleitungen zu allen Schaltern, Sensoren, Präsenzmeldern</li>
+    <li data-fragment="2">Weltweiter Standard: extrem stabil, autark vom Internet, hält jahrzehntelang</li>
+    <li data-fragment="3"><strong>Sternverkabelung:</strong> Lichtauslässe, Steckdosen und Rollladenmotoren direkt in den zentralen Schaltschrank</li>
+    <li data-fragment="4"><strong>Tiefe Unterputzdosen:</strong> überall tiefe Elektronikdosen (z.B. von Kaiser) für spätere Aktoren oder smarte Klemmen</li>
+  </ul>
+  <div class="notes">Alle Leitungen laufen sternförmig im Schaltschrank zusammen. Tiefe Dosen halten die Nachrüstung von Aktoren oder smarten Klemmen offen.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Infrastruktur: Netzwerk (Forts.)</h2>
+  <ul>
+    <li data-fragment="1">In jedes Zimmer mindestens zwei Cat.7 oder Cat.8 Netzwerkkabel</li>
+    <li data-fragment="2">Kabelauslässe an den Decken für zentrale WLAN-Access-Points (PoE) einplanen</li>
+    <li data-fragment="3">Ziel: perfekter Empfang im ganzen Haus</li>
+  </ul>
+  <div class="notes">Netzwerk-Infrastruktur gehört von Anfang an in die Planung, auch die Deckenauslässe für die Access-Points.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Infrastruktur: Statik und Schaltschrank (Forts.)</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Statik, Wände und Schlitze klopfen</h3>
+      <p>Der Architekt plant Schlitze und Durchbrüche direkt im Beton oder Mauerwerk ein. Kabeltrassen laufen über den Rohboden, bevor der Estrich gegossen wird; es gibt keine Einschränkungen bei Schaltern oder Displays.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Platz für den Schaltschrank</h3>
+      <p>Der Hausanschlussraum wird von Anfang an groß genug geplant. Ein smarter Schaltschrank ist oft doppelt oder dreimal so groß wie ein Standard-Zählerkasten, da alle Aktoren und Netzteile dort Platz finden müssen.</p>
+    </div>
+  </div>
+  <div class="notes">Im Neubau gibt es hier keine Einschränkungen. In der Kernsanierung werden diese beiden Punkte zu den Knackpunkten.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Heizung, Lüftung &amp; Klima (HVAC)</h2>
+  <ul>
+    <li data-fragment="1"><strong>Smarte Heizungsaktoren:</strong> Einzelraumregelung ist Pflicht</li>
+    <li data-fragment="2">Kabelgebundene Stellventile im Heizkreisverteiler arbeiten präziser als Funk-Thermostate</li>
+    <li data-fragment="3"><strong>Raumklimasensoren:</strong> dezente Taster mit Temperatur- und Luftfeuchtigkeitssensoren statt klobiger Thermostate</li>
+    <li data-fragment="4"><strong>Schnittstelle zur Wärmepumpe / Lüftungsanlage:</strong> Modbus, LAN oder SG-Ready-Kontakte</li>
+    <li data-fragment="5">So wird PV-Strom optimal genutzt</li>
+  </ul>
+  <div class="notes">Stellventile werden zentral über Smart-Home-Aktoren gesteuert. Auf die Schnittstelle der neuen Heizung achten.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>HVAC: Fußbodenaufbau und Heizung (Forts.)</h2>
+  <ul>
+    <li data-fragment="1">Fußbodenaufbau (Dämmung + Estrich) ist hoch genug, meist 14–16 cm</li>
+    <li data-fragment="2">Kabel und Rohre der Fußbodenheizung haben nebeneinander perfekt Platz</li>
+  </ul>
+  <div class="notes">Im Neubau passen Kabel und Heizungsrohre problemlos in den Bodenaufbau. In der Kernsanierung ist das die Grenze.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Beleuchtung &amp; Beschattung</h2>
+  <ul>
+    <li data-fragment="1"><strong>Zentrale Dimm-Aktoren:</strong> 24V-LED-Beleuchtung (DALI oder KNX), dimmbar und flackerfrei</li>
+    <li data-fragment="2">Netzteile sitzen im Schaltschrank, nicht in der Decke</li>
+    <li data-fragment="3"><strong>Rollladen- / Jalousiemotoren:</strong> einfache, robuste 230V-Motoren ohne eigenen Funk</li>
+    <li data-fragment="4">Intelligenz im Schaltschrank: Steuerung nach Sonnenstand, Raumtemperatur und Windwächter</li>
+  </ul>
+  <div class="notes">Die Intelligenz sitzt zentral im Schaltschrank, nicht im Motor. So ist die Beschattung vollautomatisch steuerbar.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Beleuchtung &amp; Beschattung (Forts.)</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Präsenzmelder statt Bewegungsmelder</h3>
+      <p>In Durchgangsräumen (Flur, Bad, Küche, Abstellraum) echte Präsenzmelder an der Decke einplanen. Sie erkennen auch, wenn du still am Schreibtisch sitzt oder in der Badewanne liegst, und machen klassische Lichtschalter fast überflüssig.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Fenster und Verschattung</h3>
+      <p>Fensterkontakte (Reed-Kontakte) und die Stromzuleitungen für Raffstores/Rollläden werden direkt ab Werk in die Maße der Rohbauöffnungen integriert.</p>
+    </div>
+  </div>
+  <div class="notes">Die Fensterkontakte gehören funktional zu Sicherheit &amp; Zutritt, werden aber im selben Arbeitsgang mit der Verschattung bestellt und stehen deshalb hier.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Sicherheit &amp; Zutritt</h2>
+  <ul>
+    <li data-fragment="1"><strong>Motorschloss:</strong> kabelgebunden (z.B. von Fuhr oder KFV) direkt in die Haustür einbauen</li>
+    <li data-fragment="2">Mit Fingerprint-Reader oder Keypad schlüssellos und sicher öffnen</li>
+    <li data-fragment="3"><strong>Fensterkontakte:</strong> neue Fenster ab Werk mit kabelgebundenen Reed-Kontakten im Rahmen bestellen</li>
+    <li data-fragment="4">Status offen, gekippt, verriegelt — essenziell für Alarmanlage und Heizungsabschaltung beim Lüften</li>
+  </ul>
+  <div class="notes">Tür und Fenster: Das Schloss und die Reed-Kontakte werden von Anfang an kabelgebunden eingeplant.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Sicherheit &amp; Zutritt: Kameras (Forts.)</h2>
+  <ul>
+    <li data-fragment="1">PoE-Kabel (Power over Ethernet) an den Hausecken einplanen</li>
+    <li data-fragment="2">Kabelgebundene Kameras sind absolut manipulationssicher</li>
+    <li data-fragment="3">Sie benötigen keine Batterien</li>
+  </ul>
+  <div class="notes">Letztes Gewerk im Raster. Übergang: Drei Planungs-Tipps, die über alle Gewerke hinweg gelten.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Wichtige Planungs-Tipps für die Praxis</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>1. Gewerkeübergreifend denken</h3>
+      <p>Lass den Elektriker und den Heizungsbauer nicht isoliert arbeiten. Die Heizung muss wissen, was die Verschattung tut, und das Licht muss mit den Präsenzmeldern harmonieren.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>2. Der „Alles-Aus“-Schalter</h3>
+      <p>Plane neben der Haustür und dem Ehebett einen Taster ein, der mit einem Klick das gesamte Licht im Haus ausschaltet, die Heizung absenkt und die Beschattung in den Nachtmodus versetzt.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>3. Leerrohre, Leerrohre, Leerrohre</h3>
+      <p>Man kann nie genug haben. Vor allem zum Dachboden (für spätere PV-Anlagen) und in den Garten/Garage (für Wallboxen und Außenbeleuchtung).</p>
+    </div>
+  </div>
+  <div class="notes">Diese drei Tipps gelten für die Kernsanierung genauso. Dort wiegt Tipp 3 doppelt: Jedes Leerrohr, das jetzt nicht gelegt wird, bedeutet später wieder aufgeschlitzte Wände.</div>
+</section>
+
+<section class="slide slide--center" data-transition="rise" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 2 · AUFGABE</p>
+  <h2>Einfamilienhaus Baujahr ~1960 wird saniert</h2>
+  <ol>
+    <li data-fragment="1">Welche Nachrüstung ist möglich?</li>
+    <li data-fragment="2">Welcher Übertragungsweg?</li>
+    <li data-fragment="3">Welche Smarthome Komponenten machen in euren Augen Sinn?</li>
+  </ol>
+  <div class="notes">Hier ist das Publikum dran: Fragen einzeln einblenden, antworten lassen, Ideen sammeln. Die Lösung folgt auf den nächsten Folien.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 2 · KERNSANIERUNG</p>
+  <h2>Kernsanierung als Chance</h2>
+  <ul>
+    <li data-fragment="1">Einmalige Chance: Komponenten direkt unter Putz verlegen</li>
+    <li data-fragment="2">Kabelgebundene, zukunftssichere Basis</li>
+    <li data-fragment="3">Spart später teure Batteriewechsel</li>
+    <li data-fragment="4">Verhindert Funklöcher</li>
+    <li data-fragment="5">Steigert den Wiederverkaufswert der Immobilie massiv</li>
+  </ul>
+  <div class="notes">Die Gewerke-Übersicht für die Kernsanierung steht bereits auf den Neubau-Folien und gilt unverändert, weil beide Fälle ein kabelgebundenes System erlauben. Danach zeigen wir nur noch, wo die Kernsanierung vom Neubau abweicht.</div>
+</section>
+
+<section class="slide slide--center" data-transition="rise">
+  <p class="kicker">FRAGE · SANIERUNG VS. NEUBAU</p>
+  <h2>Unterscheidet sich die Planung: Sanierung gegenüber Neubau?</h2>
+  <div class="notes">Hier ist das Publikum dran: Meinungen einsammeln, bevor die Antwort kommt.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">ANTWORT · SANIERUNG VS. NEUBAU</p>
+  <h2>Ja, die Planung unterscheidet sich</h2>
+  <p class="lead">In einigen wesentlichen Punkten, obwohl beide Projekte die Chance auf ein kabelgebundenes System (wie KNX oder Loxone) bieten.</p>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Neubau</h3>
+      <p>Du planst auf einem weißen Blatt Papier.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Kernsanierung</h3>
+      <p>Du musst immer mit der bestehenden Substanz klar kommen.</p>
+    </div>
+  </div>
+  <div class="notes">Auflösung der Frage. Die folgenden Folien gehen Gewerk für Gewerk durch, wo die Kernsanierung vom Neubau abweicht.</div>
+</section>

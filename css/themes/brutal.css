@@ -1,0 +1,87 @@
+/* ===== Theme: Brutal =====
+   Maximum contrast, hard edges, offset shadows. Loud on purpose —
+   good for keynote punchlines and large rooms. */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600;700&display=swap');
+
+:root {
+  --bg: #f5e400;
+  --bg-alt: #ffffff;
+  --fg: #0a0a0a;
+  --fg-dim: #3d3a22;
+  --accent: #1500ff;
+  --accent-2: #ff2d00;
+  --rule: #0a0a0a;
+  --font-head: 'Archivo Black', Impact, sans-serif;
+  --font-body: 'Archivo', system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --head-weight: 400;
+  --head-spacing: -0.035em;
+  --radius: 0px;
+  --shadow: 14px 14px 0 var(--fg);
+  --dur: 380ms;
+}
+
+.deck {
+  background:
+    repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.055) 0 2px, transparent 2px 22px),
+    var(--bg);
+}
+
+.slide { padding: 76px 96px; }
+
+/* Uppercase Archivo Black runs much wider than the base font, so the
+   scale sits below core.css to keep dense slides inside the frame. */
+.slide h1 { font-size: 132px; text-transform: uppercase; line-height: 0.9; }
+.slide h2 { font-size: 72px; text-transform: uppercase; line-height: 0.95; }
+.slide h3 { font-size: 34px; text-transform: uppercase; }
+
+.slide .kicker {
+  display: inline-block;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 10px 18px;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  align-self: flex-start;
+}
+.slide--center .kicker { align-self: center; }
+
+.slide p, .slide li { font-size: 30px; font-weight: 600; }
+.card { padding: 28px 30px; }
+.card p { font-size: 25px; }
+.slide ul li { padding: 10px 0; border-bottom-width: 3px; }
+.metric + p { font-size: 20px; }
+.slide .lead { color: var(--fg); font-weight: 700; }
+.slide strong { color: var(--accent); }
+
+.card {
+  border: 5px solid var(--fg);
+  background: var(--bg-alt);
+  box-shadow: var(--shadow);
+  padding: 36px;
+}
+.card p { color: var(--fg); font-weight: 400; }
+
+.metric {
+  font-size: 164px;
+  color: var(--accent);
+  -webkit-text-stroke: 0;
+}
+.metric + p { color: var(--fg); font-weight: 700; text-transform: uppercase; font-size: 22px; letter-spacing: 0.08em; }
+
+.slide ul { list-style: none; padding: 0; }
+.slide ul li { border-bottom: 4px solid var(--fg); padding: 14px 0; }
+
+/* Hard cut rather than a soft fade — matches the rest of the theme. */
+[data-fragment] { transform: translateX(-26px); }
+[data-fragment].is-shown { transform: none; }
+
+.deck-progress { height: 14px; background: var(--accent); border-top: 4px solid var(--fg); }
+.deck-counter, .deck-timer { color: var(--fg); opacity: 1; font-weight: 700; }
+.deck-toast { background: var(--fg); color: var(--bg); border: 4px solid var(--fg); border-radius: 0; }
+.deck-themes { border: 4px solid var(--fg); border-radius: 0; background: var(--bg-alt); box-shadow: 10px 10px 0 var(--fg); }
+.deck-themes button { border-radius: 0; border: 2px solid var(--fg); color: var(--fg); font-weight: 700; }
+.deck-help__panel { border: 6px solid var(--fg); border-radius: 0; box-shadow: 18px 18px 0 var(--accent); }
+
+input[type="range"] { accent-color: var(--accent); }

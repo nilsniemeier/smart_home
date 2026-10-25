@@ -1,0 +1,89 @@
+/* ===== Theme: Terminal =====
+   Monospace everything, phosphor green, scanlines and a blinking
+   caret on titles. For technical talks. */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  --bg: #05090a;
+  --bg-alt: #0b1416;
+  --fg: #c8f7d4;
+  --fg-dim: #5c8c70;
+  --accent: #22ff88;
+  --accent-2: #ffcc33;
+  --rule: rgba(34, 255, 136, 0.22);
+  --font-head: 'JetBrains Mono', ui-monospace, monospace;
+  --font-body: 'JetBrains Mono', ui-monospace, monospace;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --head-weight: 700;
+  --head-spacing: -0.02em;
+  --radius: 2px;
+  --shadow: 0 0 0 1px var(--rule), 0 20px 60px rgba(0, 0, 0, 0.6);
+  --dur: 300ms;
+}
+
+.deck {
+  background:
+    radial-gradient(1200px 800px at 50% 40%, rgba(34, 255, 136, 0.07), transparent 70%),
+    var(--bg);
+}
+
+/* Scanlines + faint glow. Purely decorative. */
+.deck::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.26) 0 1px, transparent 1px 3px);
+  mix-blend-mode: multiply;
+}
+
+.slide { padding: 100px 120px; text-shadow: 0 0 16px rgba(34, 255, 136, 0.25); }
+
+.slide h1 { font-size: 92px; }
+.slide h2 { font-size: 62px; }
+.slide h1::after, .slide h2::after {
+  content: '█';
+  color: var(--accent);
+  margin-left: 0.18em;
+  animation: term-blink 1.05s steps(1) infinite;
+}
+@keyframes term-blink { 50% { opacity: 0; } }
+
+.slide .kicker { color: var(--accent-2); }
+.slide .kicker::before { content: '$ '; color: var(--fg-dim); }
+
+.slide p, .slide li { font-size: 30px; }
+.slide .lead { font-size: 36px; }
+
+.slide ul { list-style: none; padding: 0; }
+.slide ul li::before { content: '> '; color: var(--accent); }
+
+.card {
+  border: 1px solid var(--rule);
+  background: var(--bg-alt);
+  position: relative;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 28px;
+  background: rgba(34, 255, 136, 0.08);
+  border-bottom: 1px solid var(--rule);
+}
+.card h3 { font-size: 32px; margin-top: 18px; }
+
+.metric { font-size: 120px; color: var(--accent); }
+.metric + p { color: var(--fg-dim); }
+
+[data-fragment] { transform: none; }
+.deck-progress { height: 3px; background: var(--accent); box-shadow: 0 0 14px var(--accent); }
+.deck-counter, .deck-timer { color: var(--accent); opacity: 0.7; }
+.deck-toast { background: var(--bg-alt); border-color: var(--rule); color: var(--accent); border-radius: 2px; }
+.deck-themes { border-radius: 2px; }
+.deck-themes button { border-radius: 2px; }
+.deck-help__panel { border-radius: 2px; }
+
+input[type="range"] { accent-color: var(--accent); }

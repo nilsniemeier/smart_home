@@ -1,0 +1,3193 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Home — Nils Niemeier</title>
+<link rel="stylesheet" href="css/core.css?v=58">
+<link rel="stylesheet" href="css/themes/aurora.css" id="theme-css">
+</head>
+<body>
+
+<div class="deck-stage">
+  <div class="deck">
+
+    <!-- ===== part-01 ===== -->
+
+<section class="slide slide--center" data-transition="zoom">
+  <h1>Smart Home</h1>
+  <img class="avatar" src="images/nils.jpg" alt="Porträt von Nils Niemeier">
+  <p class="lead">NILS NIEMEIER</p>
+  <div class="notes">Titelfolie. Begrüßung und Einstieg in den Vortrag.</div>
+</section>
+
+<section class="slide slide--hero" data-transition="zoom">
+  <p class="kicker">TEIL 0 · NILS NIEMEIER</p>
+  <h1>Einstieg</h1>
+  <p class="lead">Was Smart Home ist, wozu es gut ist und was heute auf dem Programm steht.</p>
+  <figure>
+    <img src="images/img-001-000.png" alt="Isometrische Illustration eines Hauses aus Binärcode mit Schaltplan-Raster und Smartphone">
+  </figure>
+  <div class="notes">Kapiteltrennfolie und Einstiegsbild in einem. Die Grafik steht für Vernetzung und Digitalisierung eines Gebäudes: Haus aus Binärcode, Geräte-Symbole mit Leitungen, Smartphone rechts oben. Kurzer Rahmen, dann direkt zur Agenda.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Agenda</p>
+  <h2>Agenda</h2>
+  <div class="cols agenda">
+    <ul data-fragment="1">
+      <li><span class="num">0</span><span class="body"><span class="title">Einstieg</span><span class="sub">Was ist Smart Home, was ist der Zweck</span></span></li>
+      <li><span class="num">1</span><span class="body"><span class="title">Aufbau</span><span class="sub">Die vier Schichten — von der Hardware bis zur Bedienung</span></span></li>
+      <li><span class="num">2</span><span class="body"><span class="title">Exkurs</span><span class="sub">Wie die Zentrale denkt (Logik &amp; Hysterese)</span></span></li>
+      <li><span class="num">3</span><span class="body"><span class="title">Systeme im Vergleich</span><span class="sub">Tuya, Zigbee, Matter</span></span></li>
+    </ul>
+    <ul data-fragment="2">
+      <li><span class="num">4</span><span class="body"><span class="title">Risiken</span><span class="sub">Cloud-Abhängigkeit, Datenschutz, IT-Sicherheit, Lebensdauer</span></span></li>
+      <li><span class="num">5</span><span class="body"><span class="title">Anbieter</span><span class="sub">DSGVO-konform, Cloud-basiert, und Home Assistant</span></span></li>
+      <li><span class="num">6</span><span class="body"><span class="title">Workshop (interaktiv)</span><span class="sub">Neubau → Kernsanierung → Mietwohnung</span></span></li>
+      <li><span class="num">7</span><span class="body"><span class="title">Entscheidungshilfe</span><span class="sub">Fazit, Quellen, Fragen</span></span></li>
+    </ul>
+  </div>
+  <div class="notes">Agenda auf einer Folie, zwei Spalten. Erster Klick: Teil 0 bis 3 (linke Spalte). Zweiter Klick: Teil 4 bis 7 (rechte Spalte). Teil 6 ist ein interaktiver Workshop mit drei Aufgaben. Er macht etwa ein Viertel des Vortrags aus und sollte entsprechend Zeit bekommen.</div>
+</section>
+
+<section class="slide slide--media" data-transition="slide">
+  <figure>
+    <img src="images/img-002-001.png" alt="Gerendertes modernes Wohnhaus bei Nacht mit transparenter Fassade und LED-Lichtleisten">
+  </figure>
+  <div>
+    <p class="kicker">Teil 0 · Einstieg</p>
+    <h2>Was ist Smart Home?</h2>
+    <p><strong>Haus- und Gebäudeautomation</strong>, bzw. Domotik und Domotronik. Im Bauwesen die Gesamtheit der Einrichtungen in Gebäuden zur:</p>
+    <ul class="icon-list">
+      <li data-fragment="1">
+        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 12S5 5.5 12 5.5 22.5 12 22.5 12 19 18.5 12 18.5 1.5 12 1.5 12Z"/><circle cx="12" cy="12" r="3.2"/></svg></span>
+        <span class="label">Überwachung<span class="sub">Zustände messen und melden</span></span>
+      </li>
+      <li data-fragment="2">
+        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h12M19 7h2M3 17h6M13 17h8"/><circle cx="17" cy="7" r="2.4"/><circle cx="11" cy="17" r="2.4"/></svg></span>
+        <span class="label">Steuerung<span class="sub">Befehle an Geräte geben</span></span>
+      </li>
+      <li data-fragment="3">
+        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M21 3.5v4h-4"/><path d="M12 8.5V12l2.6 1.8"/></svg></span>
+        <span class="label">Regelung<span class="sub">Soll und Ist nachführen</span></span>
+      </li>
+      <li data-fragment="4">
+        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V4"/><path d="M3 20h18"/><path d="M6.5 16.5 11 11l3.2 3 5.3-6.3"/><path d="M19.5 7.7h-3.4M19.5 7.7v3.4"/></svg></span>
+        <span class="label">Optimierung<span class="sub">Energie und Abläufe verbessern</span></span>
+      </li>
+    </ul>
+  </div>
+  <div class="notes">Definition und Bild auf einer Folie. Gerendertes zweistöckiges Wohnhaus in Abendstimmung: Wohnzimmer, Küche und Schlafzimmer sichtbar, blaue Symbol-Overlays deuten vernetzte Gebäudetechnik an. Die vier Funktionen nacheinander einblenden: Überwachung, Steuerung, Regelung, Optimierung.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Teil 0 · Einstieg</p>
+  <h2>Was ist ihr Zweck?</h2>
+  <ul class="num-list">
+    <li data-fragment="1">
+      <span class="n">1</span>
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 10.6 12 3.6l8.5 7"/><path d="M5.5 9.2V20h13V9.2"/><path d="M12 16.8c-1.9-1.4-3-2.4-3-3.6a1.7 1.7 0 0 1 3-1 1.7 1.7 0 0 1 3 1c0 1.2-1.1 2.2-3 3.6Z"/></svg></span>
+      <span class="label">Wohn- und Lebensqualität verbessern<span class="sub">Komfort</span></span>
+    </li>
+    <li data-fragment="2">
+      <span class="n">2</span>
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8 20 6v6c0 4.6-3.3 7.6-8 9.2-4.7-1.6-8-4.6-8-9.2V6Z"/><path d="m8.6 12.1 2.3 2.3 4.5-4.6"/></svg></span>
+      <span class="label">Sicherheit erhöhen<span class="sub">Schutz vor Einbruch, Rauch, Wasser</span></span>
+    </li>
+    <li data-fragment="3">
+      <span class="n">3</span>
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.4 2.5 4.6 13.6h6L10.2 21.5l9-11.4h-6.1Z"/></svg></span>
+      <span class="label">Effiziente Energienutzung gewährleisten<span class="sub">Heizen und Strom nach Bedarf</span></span>
+    </li>
+    <li data-fragment="4">
+      <span class="n">4</span>
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.4"/><circle cx="4.6" cy="5.4" r="2"/><circle cx="19.4" cy="5.4" r="2"/><circle cx="4.6" cy="18.6" r="2"/><circle cx="19.4" cy="18.6" r="2"/><path d="M6.3 6.7 10.2 10.4M17.7 6.7 13.8 10.4M6.3 17.3 10.2 13.6M17.7 17.3 13.8 13.6"/></svg></span>
+      <span class="label">Auf Basis vernetzter und fernsteuerbarer Geräte<span class="sub">Installationen und automatisierbare Abläufe</span></span>
+    </li>
+  </ul>
+  <div class="notes">Drei Ziele: Komfort, Sicherheit, Effizienz. Punkt 4 ist kein viertes Ziel, sondern die Grundlage: vernetzte, fernsteuerbare Geräte und Installationen sowie automatisierbare Abläufe. Die vier Punkte nacheinander einblenden.</div>
+</section>
+
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">TEIL 1</p>
+  <h1>Aufbau: Die vier Schichten</h1>
+  <p class="lead">Ein Smart Home ist kein einzelnes Produkt, sondern ein Zusammenspiel aus Hardware, Übertragungswegen, zentraler Logik und Bedienung. Erst wenn alle vier Teile zusammenpassen, funktioniert das Ganze.</p>
+  <div class="notes">Kapiteltrennfolie. Nur der Rahmen, keine Aufzählung: Die Gliederung in die vier Schichten — Feldebene, Übertragungsebene, Steuerungsebene, Bedienebene — kommt auf der Folgefolie. Die vier Schichten sind der rote Faden für Teil 1.</div>
+</section>
+
+<section class="slide slide--split" data-transition="slide">
+  <div>
+    <p class="kicker">Teil 1 · Aufbau</p>
+    <h2>Der Aufbau von SH</h2>
+    <p>Der <strong>Aufbau eines Smart Homes</strong> lässt sich am besten als ein Vier-Schichten-Modell verstehen.</p>
+    <p>Damit aus normalen Geräten ein intelligentes Zuhause wird, müssen Hardware, Übertragungswege, die zentrale Logik und die Benutzeroberfläche nahtlos zusammenarbeiten.</p>
+  </div>
+  <ol class="layers layers--stack">
+    <li data-fragment="4">
+      <span class="num">4</span>
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.6" y="2.4" width="10.8" height="19.2" rx="2.2"/><path d="M10.4 5.4h3.2"/><circle cx="12" cy="18" r="1.2"/></svg></span>
+      <span class="body">
+        <span class="title">Bedienebene</span>
+        <span class="sub">Die Benutzeroberfläche — App, Taster, Sprache, Automatik.</span>
+      </span>
+    </li>
+    <li data-fragment="3">
+      <span class="num">3</span>
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3"/><rect x="9.4" y="9.4" width="5.2" height="5.2" rx="1.2"/><path d="M9.4 2.6v2.4M14.6 2.6v2.4M9.4 19v2.4M14.6 19v2.4M2.6 9.4H5M2.6 14.6H5M19 9.4h2.4M19 14.6h2.4"/></svg></span>
+      <span class="body">
+        <span class="title">Steuerungsebene</span>
+        <span class="sub">Die Zentrale — hier liegt die Logik, die aus Messwerten Entscheidungen macht.</span>
+      </span>
+    </li>
+    <li data-fragment="2">
+      <span class="num">2</span>
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.6 9.4a14 14 0 0 1 18.8 0"/><path d="M5.9 12.9a9.4 9.4 0 0 1 12.2 0"/><path d="M9.1 16.4a4.8 4.8 0 0 1 5.8 0"/><circle cx="12" cy="19.8" r="1.1"/></svg></span>
+      <span class="body">
+        <span class="title">Übertragungsebene</span>
+        <span class="sub">Protokolle — die Sprache. Funksysteme (ideal zum Nachrüsten) und Kabelsysteme (ideal für Neubau und Kernsanierung).</span>
+      </span>
+    </li>
+    <li data-fragment="1">
+      <span class="num">1</span>
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2.4"/><path d="M8.6 9.6h6.8M8.6 14.4h4.2"/><path d="M2.6 12H5M19 12h2.4M12 2.6V5M12 19v2.4"/></svg></span>
+      <span class="body">
+        <span class="title">Feldebene</span>
+        <span class="sub">Sensoren und Aktoren — die Hardware. Sensoren („Sinnesorgane“) messen, Aktoren („Muskeln“) schalten.</span>
+      </span>
+    </li>
+  </ol>
+  <div class="notes">Überblick über das Vier-Schichten-Modell: Hardware, Übertragungswege, zentrale Logik, Benutzeroberfläche. Der Stapel wird von unten nach oben aufgebaut: Schicht 1 (Feldebene) erscheint zuerst und trägt alles, Schicht 4 (Bedienebene) liegt ganz oben. Die vier Schichten einzeln einblenden. Zur Feldebene im Detail: Sensoren messen Bewegung, Rauch, Fensterkontakt, Temperatur; Aktoren schalten Unterputz-Relais, Heizkörperthermostate, Rollo-Motoren, smarte Steckdosen. Details: Sensoren messen, Aktoren schalten — Beispiele aus dem Alltag nennen. Bei Schicht 2 die zwei Systemarten unterscheiden; zuerst die Funksysteme, danach die Kabelsysteme (Folien dazu folgen).</div>
+</section>
+
+<section class="slide slide--autostagger" data-transition="slide">
+  <p class="kicker">Schicht 2 · Übertragungsebene</p>
+  <h2>Funksysteme</h2>
+  <p class="subhead">Ideal zum Nachrüsten</p>
+  <div class="cols cols--3">
+    <div class="card card--icon auto-in" style="--i:0">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 20.5 8v8L12 20.5 3.5 16V8L12 3.5Z"/><path d="M12 3.5v17M3.5 8l17 8M20.5 8l-17 8"/></svg></span>
+      <h3>Matter</h3>
+      <p>Der moderne, herstellerübergreifende IP-Standard (oft in Kombination mit Thread).</p>
+    </div>
+    <div class="card card--icon auto-in" style="--i:1">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.3"/><circle cx="4.5" cy="5.5" r="2"/><circle cx="19.5" cy="5.5" r="2"/><circle cx="4.5" cy="18.5" r="2"/><circle cx="19.5" cy="18.5" r="2"/><path d="M6.2 6.8 10.2 10.4M17.8 6.8 13.8 10.4M6.2 17.2 10.2 13.6M17.8 17.2 13.8 13.6"/></svg></span>
+      <h3>Zigbee / Z-Wave</h3>
+      <p>Sehr energiesparende Funknetze (Mesh-Netzwerke), ideal für batteriebetriebene Sensoren.</p>
+    </div>
+    <div class="card card--icon auto-in" style="--i:2">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 9.2a14 14 0 0 1 19 0"/><path d="M5.8 12.7a9.4 9.4 0 0 1 12.4 0"/><path d="M9 16.2a4.8 4.8 0 0 1 6 0"/><circle cx="12" cy="19.6" r="1.1"/></svg></span>
+      <h3>WLAN / Bluetooth</h3>
+      <p>Einfach einzurichten, verbraucht aber mehr Strom und belastet den Router bei vielen Geräten.</p>
+    </div>
+  </div>
+  <div class="notes">Die drei Funkstandards bauen sich beim Aufschlagen der Folie automatisch nacheinander auf — kein Klick nötig. Die zweite Hälfte dieser Schicht sind die Kabelsysteme, siehe die folgende Folie.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Schicht 2 (Forts.) · Übertragungsebene</p>
+  <h2>Kabelsysteme</h2>
+  <p class="subhead">Ideal für Neubau und Kernsanierung</p>
+  <p class="lead"><strong>KNX oder Loxone</strong> — die stabilste, langlebigste, aber auch teuerste Variante, bei der grüne Bus-Kabel direkt in der Wand verlegt werden.</p>
+  <div class="img-row">
+    <figure>
+      <img src="images/img-009-002.png" alt="Foto eines Kabels mit grüner Ummantelung und aufgefächerten, verdrillten Adernpaaren">
+      <figcaption>Netzwerkkabel</figcaption>
+    </figure>
+    <figure>
+      <img src="images/img-010-003.png" alt="Produktfoto einer grünen EIB-Busleitung auf der Rolle mit abisoliertem Kabelende">
+      <figcaption>Busleitung</figcaption>
+    </figure>
+    <figure>
+      <img src="images/img-011-004.png" alt="Geöffneter Schaltschrank mit Sicherungsautomaten, Netzteilen und grünen Busmodulen">
+      <figcaption>Schaltschrank</figcaption>
+    </figure>
+  </div>
+  <div class="notes">Unterpunkt von Schicht 2, mit den drei Bildern direkt auf der Folie. Netzwerkkabel: innerer Aufbau eines verdrillten Adernkabels, zwei verdrillte Paare plus zwei einzelne Adern. Busleitung: grüne „EIB-Y(St) Y 2x2x0,8 mm“ für EIB-/KNX-Installationen; EIB ist der Vorläufer von KNX. Schaltschrank: Smart-Home-Verteilung im Detail — Hutschienen, Sicherungsautomaten, Busmodule, Netzwerkkabel, Überspannungsschutz. Danach folgt das Praxisbeispiel zum Aufbau des Schaltschranks.</div>
+</section>
+
+<section class="slide slide--bg" data-transition="fade">
+  <div class="slide-bg" style="background-image: url('images/verteiler-modern.jpg')"></div>
+  <div class="tile">
+    <p class="kicker">Schicht 2 (Forts.) · Praxisbeispiel</p>
+    <h2>Aufbau des Schaltschranks</h2>
+    <p>Der Verteiler ist der Ort, an dem ein Kabelsystem sichtbar wird. Was bei Funk in jeder Steckdose steckt, sitzt hier gebündelt auf Hutschienen.</p>
+    <ul>
+      <li><strong>Hutschienen</strong> tragen alle Reiheneinbaugeräte</li>
+      <li><strong>Sicherungsautomaten</strong> sichern die einzelnen Stromkreise ab</li>
+      <li><strong>Überspannungsschutz</strong> schützt die Elektronik dahinter</li>
+    </ul>
+  </div>
+  <p class="credit">Foto: Mark Kats, Unsplash</p>
+  <div class="notes">Ersetzt den früheren Instagram-Screenshot durch ein frei lizenziertes Foto. Inhaltlich derselbe Punkt: ein realer Verteiler als Beleg für eine Kabelinstallation, vom leeren Verteiler bis zur fertigen Installation. Hintergrund ist eine moderne Unterverteilung mit Reiheneinbaugeräten und sauber aufgelegten N/PE-Schienen. Bildnachweis unten rechts: Unsplash-Lizenz, Namensnennung nicht zwingend, aber üblich.</div>
+</section>
+
+<section class="slide slide--bg slide--bg--right" data-transition="fade">
+  <div class="slide-bg" style="background-image: url('images/verteiler-automation.jpg')"></div>
+  <div class="tile">
+    <p class="kicker">Schicht 2 (Forts.) · Praxisbeispiel</p>
+    <h2>Warum der Verteiler entscheidet</h2>
+    <p>Beim Kabelsystem liegt die Intelligenz zentral: Jeder Aktor sitzt im Verteiler, nicht im Raum.</p>
+    <ul>
+      <li><strong>Platz einplanen</strong> — deutlich größer als ein klassischer Verteiler</li>
+      <li><strong>Zugänglich bleiben</strong> — Erweiterungen laufen über denselben Schrank</li>
+      <li><strong>Sauber beschriften</strong> — sonst blickt in zehn Jahren niemand durch</li>
+    </ul>
+  </div>
+  <p class="credit">Foto: Aleksandr Lyaptsev, Unsplash</p>
+  <div class="notes">Zweite Folie zum selben Motiv, Kachel rechts. Die drei Punkte sind die praktischen Konsequenzen der zentralen Bauweise: Platzbedarf, Zugänglichkeit, Beschriftung. Hintergrund ist ein Automationsschrank: Hutschienen-Aktoren, Dimmermodule und ein DALI-Gateway — genau die Bauweise, um die es hier geht. Bildnachweis unten rechts: Unsplash-Lizenz.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Die 4 Schichten des Smart Homes</p>
+  <h2>3. Die Steuerungsebene: Das Gateway / Hub (Das Gehirn)</h2>
+  <p>Die <strong>Zentrale (auch Gateway, Bridge oder Hub genannt)</strong> ist das Herzstück des Smart Homes. Sie übersetzt die Signale der verschiedenen Geräte und führt die automatischen Logiken aus.</p>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Lokale Zentralen</h3>
+      <p>Systeme wie <strong>Home Assistant</strong> oder <strong>ioBroker</strong> laufen auf eigener Hardware (z. B. einem Raspberry Pi) im Haus. Ihre Daten bleiben lokal und funktionieren oft auch ohne Internet.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Cloud-Zentralen</h3>
+      <p>Systeme wie <strong>Philips Hue Bridge</strong> oder <strong>Bosch Smart Home</strong> senden Daten oft in eine Cloud, bieten dafür aber eine sehr einfache Plug-and-Play-Einrichtung.</p>
+    </div>
+  </div>
+  <div class="notes">Die beiden „Dein Haus“-Schaubilder wurden entfernt, weil der Text damit oben aus der Folie lief. Die Zentrale ist das Gehirn: Sie übersetzt zwischen den Geräten und führt die Logik aus. Erster Klick: lokale Zentralen — Daten bleiben im Haus. Zweiter Klick: Cloud-Zentralen — bequem, aber Daten gehen oft nach außen. Das Thema Cloud-Abhängigkeit kommt in Teil 4 wieder.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Die 4 Schichten des Smart Homes</p>
+  <h2>4. Die Bedienebene: Benutzerschnittstellen (Die Bedienung)</h2>
+  <p>Hier interagiert der Mensch mit dem System. Das System läuft zwar im Idealfall vollautomatisch, kann aber jederzeit übersteuert werden durch:</p>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Apps</h3>
+      <p>Auf dem Smartphone oder Tablet.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Sprachassistenten</h3>
+      <p>Z. B. Apple Siri, Amazon Alexa, Google Assistant.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Klassische Taster</h3>
+      <p>An der Wand, digital umprogrammiert (z. B. „Ein Klick = Licht an, Doppelklick = Alles aus im Raum“).</p>
+    </div>
+  </div>
+  <div class="notes">Fachliche Korrektur gegenüber dem Original: Die Schicht hieß dort „Unternehmensebene“, ein Begriff aus der Automatisierungspyramide (ISA-95) für die ERP-/Betriebsleitebene. Für die Bedienoberfläche im Wohnhaus ist „Bedienebene“ korrekt.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Die 4 Schichten des Smart Homes</p>
+  <p class="slide-badge">Layout-Vorschlag A</p>
+  <h2>4. Die Bedienebene</h2>
+  <div class="spectrum">
+    <div class="spectrum__default">
+      <span class="tag">Normalfall</span>
+      <p>Das System läuft automatisch — <strong>niemand bedient etwas</strong>. Die Bedienebene ist der Weg, das zu übersteuern.</p>
+    </div>
+    <div class="spectrum__axis">
+      <div class="spectrum__ends">
+        <span>beiläufig, ohne Gerät</span>
+        <span>volle Kontrolle</span>
+      </div>
+      <div class="spectrum__stops">
+        <div class="spectrum__stop" data-fragment="1">
+          <span class="dot"></span>
+          <h3>Klassische Taster</h3>
+          <p>An der Wand, digital umprogrammiert.</p>
+          <span class="how">Ein Klick = Licht an</span>
+        </div>
+        <div class="spectrum__stop" data-fragment="2">
+          <span class="dot"></span>
+          <h3>Sprachassistenten</h3>
+          <p>Apple Siri, Amazon Alexa, Google Assistant.</p>
+          <span class="how">Hände bleiben frei</span>
+        </div>
+        <div class="spectrum__stop" data-fragment="3">
+          <span class="dot"></span>
+          <h3>Apps</h3>
+          <p>Auf dem Smartphone oder Tablet.</p>
+          <span class="how">Jede Einstellung erreichbar</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="notes">LAYOUT-VORSCHLAG A zur Bedienebene — Alternative zur Folie davor, nur eine der drei Fassungen behalten. Idee: Die drei Bedienwege sind keine gleichwertigen Kästen, sondern Punkte auf einer Skala von beiläufig bis volle Kontrolle. Davor steht der eigentliche Punkt: Im Normalfall bedient niemand etwas, die Bedienebene ist die Übersteuerung. Fachliche Korrektur gegenüber dem Original: Die Schicht hieß dort „Unternehmensebene“, ein Begriff aus der Automatisierungspyramide (ISA-95) für die ERP-/Betriebsleitebene. Für die Bedienoberfläche im Wohnhaus ist „Bedienebene“ korrekt.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Die 4 Schichten des Smart Homes</p>
+  <p class="slide-badge">Layout-Vorschlag B</p>
+  <h2>4. Die Bedienebene</h2>
+  <p class="lead">Drei Wege, ein Ergebnis: Die Schnittstelle ist austauschbar — der Befehl, der unten ankommt, ist derselbe.</p>
+  <div class="converge">
+    <div class="converge__inputs">
+      <div class="converge__in" data-fragment="1">
+        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.6" y="2.4" width="10.8" height="19.2" rx="2.2"/><path d="M10.4 5.4h3.2"/><circle cx="12" cy="18" r="1.2"/></svg></span>
+        <span><b>Apps</b><span>Auf dem Smartphone oder Tablet</span></span>
+      </div>
+      <div class="converge__in" data-fragment="2">
+        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="2.6" width="6" height="11" rx="3"/><path d="M5.4 11.4a6.6 6.6 0 0 0 13.2 0"/><path d="M12 18v3.4M9.2 21.4h5.6"/></svg></span>
+        <span><b>Sprachassistenten</b><span>Apple Siri, Amazon Alexa, Google Assistant</span></span>
+      </div>
+      <div class="converge__in" data-fragment="3">
+        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3.4" width="14" height="17.2" rx="2.6"/><path d="M9.4 9.4h5.2"/><path d="M9.4 14.6h5.2"/></svg></span>
+        <span><b>Klassische Taster</b><span>An der Wand, digital umprogrammiert</span></span>
+      </div>
+    </div>
+    <div class="converge__wires">
+      <svg viewBox="0 0 230 300" aria-hidden="true" preserveAspectRatio="none">
+        <path class="cw" d="M4 48 C 110 48, 120 150, 210 150"></path>
+        <path class="cw" d="M4 150 H 210"></path>
+        <path class="cw" d="M4 252 C 110 252, 120 150, 210 150"></path>
+        <path class="cw" d="M198 142l12 8-12 8"></path>
+      </svg>
+    </div>
+    <div class="converge__out" data-fragment="4">
+      <span class="tag">Dieselbe Aktion</span>
+      <strong>Licht aus im Wohnzimmer</strong>
+      <p>Die Zentrale bekommt denselben Befehl — egal, worüber er ausgelöst wurde.</p>
+    </div>
+  </div>
+  <p class="converge-foot" data-fragment="4">Das System läuft im Idealfall vollautomatisch und kann <strong>jederzeit übersteuert</strong> werden.</p>
+  <div class="notes">LAYOUT-VORSCHLAG B zur Bedienebene — Alternative zur Folie davor, nur eine der drei Fassungen behalten. Idee: Nicht die drei Geräte sind die Aussage, sondern dass alle drei im selben Befehl münden. Die Schnittstelle ist austauschbar, die Aktion nicht. Fachliche Korrektur gegenüber dem Original: Die Schicht hieß dort „Unternehmensebene“, ein Begriff aus der Automatisierungspyramide (ISA-95) für die ERP-/Betriebsleitebene. Für die Bedienoberfläche im Wohnhaus ist „Bedienebene“ korrekt.</div>
+</section>
+
+<section class="slide" data-transition="rise">
+  <p class="kicker">Zusammenfassung Teil 1</p>
+  <h2>Ablauf von Smart Home</h2>
+  <div class="cols cols--4">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>1. Geräte</h3>
+      <p>Sensoren (Messen) &amp; Aktoren (Schalten)</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>2. Protokoll</h3>
+      <p>Funk (Zigbee, Matter) oder Kabel (KNX)</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>3. Zentrale</h3>
+      <p>Smart Home Gateway / Hub (die „Zentrale“)</p>
+    </div>
+    <div class="card" data-fragment="4" data-fragment-style="grow">
+      <h3>4. Steuerung</h3>
+      <p>Smartphone, Sprachassistent, Wandschalter</p>
+    </div>
+  </div>
+  <div class="notes">Wiederholung der vier Schichten, keine neuen Inhalte. Stufe 4 heißt hier „Steuerung“ und entspricht der zuvor korrigierten Bedienebene.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Zusammenfassung Teil 1</p>
+  <h2>Beispiel für den Ablauf</h2>
+  <figure>
+    <img src="images/pages/page-16.png" alt="Vierstufiger Ablauf mit Pfeil-Kacheln: Sensor, Protokoll, Zentrale, Aktor">
+  </figure>
+  <div class="notes">Vier Pfeil-Kacheln von links nach rechts: Fenstersensor, Zigbee-Funk, Smart-Home-Gehirn, Heizkörperthermostat. Der Pfeil zeigt den Informationsfluss vom Messen bis zum Schalten.</div>
+</section>
+
+<section class="slide" data-transition="rise">
+  <p class="kicker">Zusammenfassung Teil 1 · Details</p>
+  <h2>Beispiel für den Ablauf</h2>
+  <div class="cols cols--4">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <span class="layer-tag">Schicht 1</span>
+      <h3>Sensor</h3>
+      <p>Der Fenstersensor registriert, dass das Fenster im Schlafzimmer geöffnet wird.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <span class="layer-tag">Schicht 2</span>
+      <h3>Protokoll</h3>
+      <p>Er sendet diese Information via Zigbee-Funk an die Zentrale.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <span class="layer-tag">Schicht 3</span>
+      <h3>Zentrale</h3>
+      <p>Das Smart-Home-Gehirn hat die Logik gespeichert: „Wenn Fenster offen, dann Heizung aus“. Es sendet einen Befehl zurück.</p>
+    </div>
+    <div class="card" data-fragment="4" data-fragment-style="grow">
+      <span class="layer-tag">Schicht 1</span>
+      <h3>Aktor</h3>
+      <p>Das Heizkörperthermostat empfängt den Befehl und dreht das Ventil zu.</p>
+    </div>
+  </div>
+  <div class="notes">Beispiel Schritt für Schritt: Fenster auf, Zigbee-Funk, Zentrale wendet die Regel an, Thermostat schließt das Ventil. Übergang zu Teil 2: Wie die Zentrale denkt.</div>
+</section>
+
+    <!-- ===== part-02 ===== -->
+
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">TEIL 2</p>
+  <h1>Exkurs: Wie die Zentrale denkt</h1>
+  <p class="lead">Für alle, die wissen wollen, was auf Schicht 3 (der Zentrale) tatsächlich passiert.</p>
+  <div class="notes">Die folgenden Folien zeigen die Logik hinter einer Automatisierung, an einem minimalen Python-Beispiel und am Begriff der Hysterese. Der Teil ist ein Exkurs: Wer nur Systeme und Anbieter vergleichen will, springt direkt zu Teil 3; für das Verständnis von Teil 3 bis 7 ist er nicht zwingend nötig.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Exkurs</p>
+  <h2>Einfaches Python Script</h2>
+  <figure>
+    <img src="images/img-017-006.png" alt="Python-Quelltext: Zufallstemperatur und Endlosschleife zur Heizungssteuerung">
+  </figure>
+  <div class="notes">Minimale, simulierte Steuerungslogik ohne echte Hardware: Zufallstemperatur zwischen 18,0 und 22,0 °C. Ab 20,0 °C „AUS“, sonst „EIN“, danach 60 Sekunden warten.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Exkurs</p>
+  <h2>Hysterese</h2>
+  <p>Die <strong>Hysterese</strong> (auch Schalthysterese) bei einer Heizung ist der Temperaturbereich zwischen dem Ein- und Ausschaltpunkt des Wärmeerzeugers.</p>
+  <p><strong>Zweck:</strong> Sie verhindert das ständige, nervige An- und Ausschalten („Takten“ oder „Relais-Rattern“) der Heizung bei winzigen Temperaturschwankungen.</p>
+  <div class="notes">Definition der Hysterese und ihr Zweck. Übergang: gleich ein konkretes Zahlenbeispiel.</div>
+</section>
+
+<section class="slide" data-transition="rise">
+  <p class="kicker">Hysterese · Beispiel</p>
+  <h2>Solltemperatur 22 °C, Hysterese 0,5 °C</h2>
+  <div class="hy" data-hysterese>
+    <svg viewBox="-80 0 1600 580" role="img" aria-label="Animiertes Diagramm: Temperaturverlauf zwischen Einschaltpunkt 21,5 Grad und Ausschaltpunkt 22,5 Grad, darunter der Schaltzustand der Heizung mit und ohne Hysterese">
+      <!-- hysteresis band between the two switch points -->
+      <rect class="hy-band" x="190" y="155" width="1280" height="170"></rect>
+
+      <!-- switch points and setpoint -->
+      <line class="hy-off-l" x1="190" y1="155" x2="1470" y2="155"></line>
+      <line class="hy-soll"  x1="190" y1="240" x2="1470" y2="240"></line>
+      <line class="hy-on-l"  x1="190" y1="325" x2="1470" y2="325"></line>
+
+      <line class="hy-grid" x1="190" y1="70"  x2="1470" y2="70"></line>
+      <line class="hy-grid" x1="190" y1="410" x2="1470" y2="410"></line>
+      <line class="hy-axis" x1="190" y1="70"  x2="190"  y2="410"></line>
+
+      <text class="hy-label hy-label--off" x="178" y="148" text-anchor="end">22,5 °C · AUS</text>
+      <text class="hy-label"               x="178" y="233" text-anchor="end">22,0 °C · SOLL</text>
+      <text class="hy-label hy-label--on"  x="178" y="318" text-anchor="end">21,5 °C · EIN</text>
+
+      <!-- temperature curve, drawn step by step -->
+      <polyline class="hy-curve" data-el="curve" points=""></polyline>
+      <circle class="hy-dot hy-dot--off" data-el="dot" cx="190" cy="240" opacity="0"></circle>
+
+      <g class="hy-badge" data-el="badge" opacity="0">
+        <rect x="14" y="-54" width="226" height="40"></rect>
+        <text data-el="badge-text" x="28" y="-27">EIN bei 21,5 °C</text>
+      </g>
+
+      <!-- heater state, with hysteresis -->
+      <text class="hy-strip-label" x="178" y="470" text-anchor="end">mit Hysterese</text>
+      <g data-el="state"></g>
+
+      <!-- heater state, same controller without hysteresis -->
+      <text class="hy-strip-label" x="178" y="530" text-anchor="end">ohne Hysterese</text>
+      <g data-el="rattle"></g>
+    </svg>
+    <div class="hy-foot">
+      <div class="hy-read">
+        <span class="hy-read__key">Ist-Temperatur</span>
+        <span class="hy-read__val" data-el="read-temp">–,– °C</span>
+      </div>
+      <div class="hy-read">
+        <span class="hy-read__key">Zustand</span>
+        <span class="hy-read__val" data-el="read-state">—</span>
+      </div>
+      <div class="hy-read">
+        <span class="hy-read__key">Einschaltvorgänge mit</span>
+        <span class="hy-read__val" data-el="count-hyst">0×</span>
+      </div>
+      <div class="hy-read">
+        <span class="hy-read__key">Einschaltvorgänge ohne</span>
+        <span class="hy-read__val" data-el="count-nohyst">0×</span>
+      </div>
+      <button class="hy-replay" type="button" data-el="replay">▸ nochmal</button>
+    </div>
+  </div>
+  <div class="notes">Die Animation läuft beim Aufschlagen der Folie automatisch los, „nochmal“ startet sie erneut. Die Kurve kühlt ab, bis sie den Einschaltpunkt 21,5 °C erreicht, heizt dann bis 22,5 °C und schaltet wieder ab. Zwischen den beiden Punkten bleibt der Zustand der Heizung unverändert, deshalb kein ständiges Takten. Der untere Streifen zeigt denselben Regler ohne Hysterese: bei exakt 22,0 °C reicht schon das Sensorrauschen für Dauer-Takten — das ist das „Relais-Rattern“. Die beiden Zähler rechts machen den Unterschied in Zahlen sichtbar. Übergang: dasselbe als Python-Script.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Exkurs</p>
+  <h2>Einfaches Python Script mit Hysterese</h2>
+  <figure>
+    <img src="images/img-019-007.png" alt="Python-Quelltext mit Konfiguration von Soll-Temperatur und Hysterese">
+  </figure>
+  <div class="notes">Oben werden SOLL_TEMPERATUR = 20.0 und HYSTERESE = 0.5 konfiguriert, daraus entstehen EINSCHALT_PUNKT (19,5 °C) und AUSSCHALT_PUNKT (20,5 °C). Startzustand: heizung_ist_an ist False.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Exkurs</p>
+  <h2>Die Scriptlogik (Python)</h2>
+  <figure>
+    <img src="images/img-020-008.png" alt="Python-Quelltext der Hysterese-Regelungslogik mit Schleife">
+  </figure>
+  <div class="notes">Bei eingeschalteter Heizung wird erst ab dem Ausschaltpunkt abgeschaltet, bei ausgeschalteter erst unterhalb des Einschaltpunkts wieder eingeschaltet. Jede Aktion gibt eine Statusmeldung aus, danach wartet das Skript 60 Sekunden.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Exkurs</p>
+  <h2>Beispiel: Automatisierung „Keller Bad“</h2>
+  <div class="cols">
+    <figure>
+      <img src="images/img-021-009.png" alt="Tuya-App: Automatisierung „Keller Bad an“ mit Feuchtigkeit größer als 80 %">
+    </figure>
+    <figure>
+      <img src="images/img-021-010.png" alt="Tuya-App: Automatisierung „Keller Bad aus“ mit Feuchtigkeit unter 77 %">
+    </figure>
+  </div>
+  <div class="notes">Zwei Automatisierungen in der Tuya-Smart-App: „Keller Bad an“ bei Feuchtigkeit größer als 80 %, „Keller Bad aus“ bei weniger als 77 %. Beide schalten Switch 1.</div>
+</section>
+
+<section class="slide" data-transition="rise">
+  <p class="kicker">Exkurs · Wenn-Dann-Logik</p>
+  <h2>Feuchtigkeit: 80 % an, 77 % aus</h2>
+  <div class="ift" data-ifttt>
+    <div class="ift-sensor">
+      <p class="ift-cap">Sensor · Keller Bad</p>
+      <p class="ift-value" data-el="value">—</p>
+      <svg viewBox="0 0 330 470" role="img" aria-label="Feuchtigkeitssäule mit Einschaltschwelle bei 80 Prozent und Ausschaltschwelle bei 77 Prozent">
+        <rect class="ift-bar-track" x="96" y="60" width="92" height="370"></rect>
+        <rect class="ift-bar-fill" data-el="fill" x="96" y="430" width="92" height="0"></rect>
+        <!-- dead band: between 77 % and 80 % nothing is switched -->
+        <rect class="ift-dead" x="96" y="218.6" width="92" height="79.3"></rect>
+        <line class="ift-th ift-th--on"  x1="86" y1="218.6" x2="198" y2="218.6"></line>
+        <line class="ift-th ift-th--off" x1="86" y1="297.9" x2="198" y2="297.9"></line>
+        <text class="ift-th-label" x="208" y="213">80 % · EIN</text>
+        <text class="ift-th-label" x="208" y="316">77 % · AUS</text>
+        <text class="ift-th-label" x="208" y="263">Totband</text>
+        <g class="ift-marker" data-el="marker" transform="translate(0,430)">
+          <line x1="80" y1="0" x2="204" y2="0"></line>
+          <circle cx="80" cy="0"></circle>
+        </g>
+      </svg>
+    </div>
+
+    <div>
+      <div class="ift-rules">
+        <div class="ift-rule" data-el="rule-on">
+          <span class="ift-rule__tag">WENN</span>
+          <span class="ift-rule__body">
+            Feuchtigkeit <b>größer als 80 %</b>
+            <span class="ift-rule__then">DANN Switch 1 → EIN</span>
+          </span>
+        </div>
+        <div class="ift-rule" data-el="rule-off">
+          <span class="ift-rule__tag">WENN</span>
+          <span class="ift-rule__body">
+            Feuchtigkeit <b>kleiner als 77 %</b>
+            <span class="ift-rule__then">DANN Switch 1 → AUS</span>
+          </span>
+        </div>
+      </div>
+      <div class="ift-wire"><span class="ift-pulse" data-el="pulse"></span></div>
+    </div>
+
+    <div class="ift-device" data-el="device">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"></circle>
+        <g class="ift-fan">
+          <path d="M12 12c0-3.4 1.2-5.2 3.4-5.2 1.7 0 2.6 1.3 2 2.9-.7 1.8-2.5 2.3-5.4 2.3Z"></path>
+          <path d="M12 12c2.9 1.7 3.6 3.7 2.5 5.6-.9 1.5-2.5 1.6-3.5.2-1.2-1.6-.7-3.4 1-5.8Z"></path>
+          <path d="M12 12c-2.9-1.7-4.8-1.4-5.9.5-.9 1.5-.1 2.9 1.6 3.1 1.9.2 3.3-1.1 4.3-3.6Z"></path>
+        </g>
+        <circle cx="12" cy="12" r="1.6"></circle>
+      </svg>
+      <p class="ift-device__name">Switch 1 · Lüfter</p>
+      <p class="ift-device__state is-off" data-el="device-state">AUS</p>
+    </div>
+    <div class="ift-foot">
+      <ul class="ift-log" data-el="log"></ul>
+      <button class="ift-replay" type="button" data-el="replay">▸ nochmal</button>
+    </div>
+  </div>
+  <div class="notes">Die Animation läuft beim Aufschlagen der Folie automatisch los, „nochmal“ startet sie erneut. Links die gemessene Feuchtigkeit, in der Mitte die zwei Regeln aus der Tuya-App, rechts der geschaltete Lüfter. Die Kurve ist eine echte Regelstrecke: Die Dusche bringt laufend Feuchtigkeit ein, der Lüfter zieht sie ab — aber erst nach einer Totzeit, und er läuft langsam hoch. Deshalb steigt der Wert nach dem Einschalten bei 80 % noch bis gut 82 % weiter und sinkt nach dem Abschalten bei 77 % noch bis etwa 74 % nach. Genau dieses Überschwingen ist der Grund, warum man die beiden Schaltpunkte auseinanderzieht: Das graue Totband zwischen 77 % und 80 % fängt es auf, ohne dass der Lüfter taktet. Gleiches Prinzip wie bei der Heizung, nur mit Feuchtigkeit statt Temperatur. Ende des Exkurses, weiter mit Teil 3.</div>
+</section>
+
+    <!-- ===== part-03 ===== -->
+
+<!-- Teil 3 — Systeme im Vergleich (Folien 25–42) -->
+
+<!-- Folie 25 -->
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">TEIL 3</p>
+  <h1>Systeme im Vergleich</h1>
+  <p class="lead">Drei Systeme, drei Philosophien: Tuya → Zigbee → Matter.</p>
+  <div class="notes">Kapiteltrennung. Drei Systeme, drei Philosophien – wir gehen sie der Reihe nach durch: Tuya, Zigbee, Matter.</div>
+</section>
+
+<!-- Folie 26 (1/4): Dramaturgie -->
+<section class="slide" data-transition="slide">
+  <p class="kicker">Teil 3 · Vergleich</p>
+  <h2>Drei Systeme auf einen Blick</h2>
+  <p class="lead">Von Cloud-abhängig und billig (Tuya) über lokal und sparsam (Zigbee) zu lokal, sparsam und herstelleroffen (Matter).</p>
+  <p>Schlecht, gut, besser. Wer das im Kopf behält, braucht sich die folgenden Detailfolien nicht zu merken.</p>
+  <div class="notes">Die Reihenfolge der drei Systeme ist bewusst gewählt: schlecht, gut, besser. Als Nächstes die Vergleichsmatrix auf einer Folie.</div>
+</section>
+
+<!-- Folie 26 (2/4): Vergleichsmatrix Kriterien 1–2 -->
+<section class="slide" data-transition="slide">
+  <p class="kicker">Teil 3 · Vergleich</p>
+  <h2>Vergleichsmatrix: Tuya, Zigbee, Matter</h2>
+  <table class="matrix">
+    <colgroup><col class="c-dim"><col><col><col></colgroup>
+    <thead>
+      <tr>
+        <th scope="col"><span class="m-dim">Dimension</span></th>
+        <th scope="col"><span class="m-sys">Tuya<small>Cloud, billig</small></span></th>
+        <th scope="col"><span class="m-sys">Zigbee<small>lokal, sparsam</small></span></th>
+        <th scope="col"><span class="m-sys">Matter<small>lokal, offen</small></span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><span class="m-dim">Lokaler Betrieb<small>Läuft die Schaltung im Haus?</small></span></th>
+        <td><div class="m-cell"><span class="m-rate m-rate--bad">nein</span><span class="m-note">Steuerung läuft über die Tuya Cloud</span></div></td>
+        <td><div class="m-cell"><span class="m-rate m-rate--good">ja</span><span class="m-note">Befehle direkt im Haus verarbeitet</span></div></td>
+        <td><div class="m-cell"><span class="m-rate m-rate--good">ja</span><span class="m-note">komplett lokal im Heimnetzwerk</span></div></td>
+      </tr>
+      <tr>
+        <th scope="row"><span class="m-dim">Cloud-Zwang<small>Was passiert ohne Internet?</small></span></th>
+        <td><div class="m-cell"><span class="m-rate m-rate--bad">ja</span><span class="m-note">Routinen und Fernsteuerung fallen aus</span></div></td>
+        <td><div class="m-cell"><span class="m-rate m-rate--good">nein</span><span class="m-note">funktioniert unabhängig vom Internet</span></div></td>
+        <td><div class="m-cell"><span class="m-rate m-rate--good">nein</span><span class="m-note">keine Cloud für die Schaltung nötig</span></div></td>
+      </tr>
+      <tr>
+        <th scope="row"><span class="m-dim">Herstelleroffen<small>Mit anderen Ökosystemen kombinierbar?</small></span></th>
+        <td><div class="m-cell"><span class="m-rate m-rate--bad">nein</span><span class="m-note">Marken mischen ja, Ökosysteme nein — alles bleibt an der Tuya-Plattform</span></div></td>
+        <td><div class="m-cell"><span class="m-rate m-rate--mid">teilweise</span><span class="m-note">„Kompatibilitäts-Inseln“: nicht jedes Gerät lässt sich an jeder Zentrale anlernen</span></div></td>
+        <td><div class="m-cell"><span class="m-rate m-rate--good">ja</span><span class="m-note">Multi-Admin: Apple Home, Google Home, Alexa, SmartThings parallel</span></div></td>
+      </tr>
+      <tr>
+        <th scope="row"><span class="m-dim">Hub / Zentrale nötig<small>Wie teuer ist der Einstieg?</small></span></th>
+        <td><div class="m-cell"><span class="m-rate m-rate--good">kaum</span><span class="m-note">bei WLAN-Geräten keiner; nur für Zigbee-Geräte ein Tuya-Gateway</span></div></td>
+        <td><div class="m-cell"><span class="m-rate m-rate--mid">ja</span><span class="m-note">zwingend: Bridge oder Zigbee-USB-Stick</span></div></td>
+        <td><div class="m-cell"><span class="m-rate m-rate--mid">ja</span><span class="m-note">Matter-Controller; für Thread zusätzlich ein Border Router</span></div></td>
+      </tr>
+      <tr>
+        <th scope="row"><span class="m-dim">Energiebedarf<small>Wie lange hält eine Batterie?</small></span></th>
+        <td><div class="m-cell"><span class="m-rate m-rate--bad">hoch</span><span class="m-note">WLAN verbraucht mehr Strom und belastet den Router</span></div></td>
+        <td><div class="m-cell"><span class="m-rate m-rate--good">niedrig</span><span class="m-note">Batteriesensoren oft jahrelang mit einer Knopfzelle</span></div></td>
+        <td><div class="m-cell"><span class="m-rate m-rate--mid">gemischt</span><span class="m-note">niedrig über Thread, höher über WLAN</span></div></td>
+      </tr>
+      <tr>
+        <th scope="row"><span class="m-dim">Preisniveau<small>Was kostet die Hardware?</small></span></th>
+        <td><div class="m-cell"><span class="m-rate m-rate--good">günstig</span><span class="m-note">günstige Geräte in großer Auswahl</span></div></td>
+        <td><div class="m-cell"><span class="m-rate m-rate--good">günstig</span><span class="m-note">günstig</span></div></td>
+        <td><div class="m-cell"><span class="m-rate m-rate--bad">höher</span><span class="m-note">aktuell meist teurer als Tuya oder reines Zigbee</span></div></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th scope="row"><span class="m-dim">Stärken insgesamt<small>Verteilung über die 6 Dimensionen</small></span></th>
+        <td><div class="m-pie">
+          <svg viewBox="0 0 120 120" role="img" aria-label="Tuya: 2 von 6 Dimensionen gut, 0 okay, 4 schlecht">
+          <path class="pie-good" d="M60 60 L60 6 A54 54 0 0 1 106.77 87 Z"></path>
+          <path class="pie-bad" d="M60 60 L106.77 87 A54 54 0 1 1 60 6 Z"></path>
+          </svg>
+          <ul class="m-pie__legend">
+            <li class="m-key--good"><span class="m-key__dot"></span><b>2</b><span>gut</span></li>
+            <li class="m-key--mid"><span class="m-key__dot"></span><b>0</b><span>ok</span></li>
+            <li class="m-key--bad"><span class="m-key__dot"></span><b>4</b><span>schlecht</span></li>
+          </ul>
+        </div></td>
+        <td><div class="m-pie">
+          <svg viewBox="0 0 120 120" role="img" aria-label="Zigbee: 4 von 6 Dimensionen gut, 2 okay, 0 schlecht">
+          <path class="pie-good" d="M60 60 L60 6 A54 54 0 1 1 13.23 87 Z"></path>
+          <path class="pie-mid" d="M60 60 L13.23 87 A54 54 0 0 1 60 6 Z"></path>
+          </svg>
+          <ul class="m-pie__legend">
+            <li class="m-key--good"><span class="m-key__dot"></span><b>4</b><span>gut</span></li>
+            <li class="m-key--mid"><span class="m-key__dot"></span><b>2</b><span>ok</span></li>
+            <li class="m-key--bad"><span class="m-key__dot"></span><b>0</b><span>schlecht</span></li>
+          </ul>
+        </div></td>
+        <td><div class="m-pie">
+          <svg viewBox="0 0 120 120" role="img" aria-label="Matter: 3 von 6 Dimensionen gut, 2 okay, 1 schlecht">
+          <path class="pie-good" d="M60 60 L60 6 A54 54 0 0 1 60 114 Z"></path>
+          <path class="pie-mid" d="M60 60 L60 114 A54 54 0 0 1 13.23 33 Z"></path>
+          <path class="pie-bad" d="M60 60 L13.23 33 A54 54 0 0 1 60 6 Z"></path>
+          </svg>
+          <ul class="m-pie__legend">
+            <li class="m-key--good"><span class="m-key__dot"></span><b>3</b><span>gut</span></li>
+            <li class="m-key--mid"><span class="m-key__dot"></span><b>2</b><span>ok</span></li>
+            <li class="m-key--bad"><span class="m-key__dot"></span><b>1</b><span>schlecht</span></li>
+          </ul>
+        </div></td>
+      </tr>
+    </tfoot>
+  </table>
+  <div class="notes">Diese Folie fasst die Detailfolien 28 bis 37 zusammen, die damit entfallen können; die tragen das Badge „alt-fallen-raus“. Alle sechs Kriterien auf einer Folie, damit pro Zeile sofort sichtbar ist, wer vorn liegt. Die Werte sind ausschließlich aus den Vorteile/Nachteile-Folien der drei Systeme abgeleitet, es sind keine zusätzlichen Daten hinzugefügt. Zu den Zeilen im Detail: Lokaler Betrieb — Tuya nein, Steuerung läuft über die Tuya Cloud; Zigbee ja, Befehle werden direkt im Haus verarbeitet; Matter ja, Steuerung komplett lokal im Heimnetzwerk. Hub / Zentrale — Tuya bei WLAN-Geräten nein, für Zigbee-Geräte ein Tuya-Gateway; Zigbee ja, zwingend (Bridge oder Zigbee-USB-Stick); Matter ja, Matter-Controller, für Thread zusätzlich ein Thread Border Router. Cloud-Zwang — Tuya ja, ohne Internet fallen Routinen und Fernsteuerung aus; Zigbee nein, funktioniert unabhängig vom Internet; Matter nein, keine Cloud-Verbindung für die Schaltung nötig. Herstelleroffen — die Zeile fragt bewusst nach Ökosystemen, nicht nach Marken: Über Marken hinweg ist Tuya sogar offen, Lidl, Nedis und Luminea liegen in derselben App. Gebunden ist man an die Tuya-Plattform selbst, eine Kombination mit Apple Home oder Google Home als gleichberechtigter Steuerung gibt es nicht. Einschränkung für die Vorbereitung: Neuere Tuya-Geräte können teilweise Matter sprechen und sind dann doch einbindbar — wer danach gefragt wird, sollte das erwähnen. Zigbee teilweise, Zigbee teilweise, „Kompatibilitäts-Inseln“, Geräte verschiedener Hersteller lassen sich nicht immer an derselben Zentrale anlernen; Matter ja, garantierter Parallelbetrieb mit Apple Home, Google Home, Alexa, SmartThings („Multi-Admin“). Energiebedarf — Tuya hoch, WLAN verbraucht mehr Strom und belastet den Router; Zigbee niedrig, Batteriesensoren halten oft jahrelang mit einer Knopfzelle; Matter niedrig über Thread, höher über WLAN. Preisniveau — Tuya günstig; Zigbee günstig; Matter höher, Matter-Hardware ist aktuell meist teurer als einfache Tuya- oder reine Zigbee-Komponenten. Die Tortendiagramme unten zeigen, wie sich die sechs Bewertungen je System verteilen: Tuya 2 gut / 0 okay / 4 schlecht, Zigbee 4 / 2 / 0, Matter 3 / 2 / 1. Das ist eine Verteilung der sechs Zeilen, keine Gesamtnote.</div>
+</section>
+
+<!-- Folie 26 (3/4): Vergleichsmatrix Kriterien 3–4 -->
+<!-- Folie 26 (4/4): Vergleichsmatrix Kriterien 5–6 -->
+<!-- Folie 27 -->
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Tuya</p>
+  <p class="slide-badge">alt-fallen-raus</p>
+  <h2>Tuya: Vorteile</h2>
+  <p>Tuya liefert die Software-Infrastruktur für tausende White-Label-Hersteller (wie Lidl Livarno, Luminea, Nedis).</p>
+  <ul>
+    <li data-fragment="1"><strong>Riesige Produktauswahl:</strong> extrem viele, sehr günstige Geräte (Leuchtmittel, Stecker, Kameras)</li>
+    <li data-fragment="2"><strong>Einfacher Einstieg:</strong> einfaches WLAN, oft keine teure separate Zentrale (Bridge/Hub) nötig</li>
+    <li data-fragment="3"><strong>Gute App-Funktionen:</strong> umfangreiche Automatisierungsmöglichkeiten und Szenen</li>
+  </ul>
+  <div class="notes">Gesteuert wird meist über die Tuya Smart oder die Smart Life App. Die Vorteile liegen bei Auswahl, Preis und niedriger Einstiegshürde.</div>
+</section>
+
+<!-- Folie 28 -->
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Tuya</p>
+  <p class="slide-badge">alt-fallen-raus</p>
+  <h2>Tuya: Nachteile</h2>
+  <ul>
+    <li data-fragment="1"><strong>Cloud-Zwang:</strong> ohne Internet oder Tuya-Cloud fallen Routinen und Fernsteuerung aus</li>
+    <li data-fragment="2"><strong>Datenschutz:</strong> globale Cloud-Plattform, Nutzungsdaten wandern über externe Server</li>
+    <li data-fragment="3"><strong>WLAN-Überlastung:</strong> viele günstige WLAN-Geräte können den Router schnell überlasten</li>
+  </ul>
+  <div class="notes">Der Cloud-Zwang ist der Hauptkritikpunkt und der Übergang zu den nächsten Folien: Wie laufen die Kommunikationswege bei Tuya?</div>
+</section>
+
+<!-- Folie 29 -->
+<section class="slide" data-transition="slide">
+  <p class="kicker">Tuya</p>
+  <p class="slide-badge">alt-fallen-raus</p>
+  <h2>Die drei Kommunikationswege</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Standard-Weg (WLAN-Geräte)</h3>
+      <p>Smartphone App → Internet → Tuya Cloud → Internet/Router → Tuya WLAN-Gerät</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Brücken-Weg (Zigbee/Bluetooth-Geräte)</h3>
+      <p>Smartphone App → Internet → Tuya Cloud → Internet → Tuya Zigbee Gateway → Lokaler Funk → Zigbee-Sensor</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Drittanbieter-Weg (Sprachassistenten)</h3>
+      <p>Sprachbefehl („Alexa...“) → Amazon/Google Cloud → Cloud-to-Cloud Kopplung → Tuya Cloud → Endgerät</p>
+    </div>
+  </div>
+  <div class="notes">Alle drei Wege führen über die Tuya Cloud. Nur die letzte Strecke vom Gateway zum Zigbee-Sensor ist lokaler Funk. Das Diagramm auf der nächsten Folie zeigt das Gesamtbild.</div>
+</section>
+
+<!-- Folie 30 -->
+<section class="slide" data-transition="fade">
+  <p class="kicker">Tuya</p>
+  <h2>System-Architektur &amp; Kommunikationswege</h2>
+  <div class="archfig">
+    <svg viewBox="0 0 1660 700" role="img" aria-label="Netzwerkdiagramm: Die Tuya Cloud ist der zentrale Knoten. Smartphone-App, Sprachassistenten, WLAN-Geräte und das Zigbee-Gateway hängen alle über das Internet an ihr. Nur die Strecke vom Gateway zum Zigbee-Endgerät läuft lokal.">
+      <!-- zone divider: everything above needs the internet -->
+      <line class="af-divider" x1="40" y1="310" x2="1620" y2="310"></line>
+      <text class="af-zone af-zone--wan"   x="40" y="298">WAN · Internet, cloud-abhängig</text>
+      <text class="af-zone af-zone--local" x="40" y="336">Lokales Netzwerk · LAN / WPAN</text>
+
+      <!-- the hub everything depends on -->
+      <rect class="af-node af-node--cloud" x="630" y="16" width="400" height="94" rx="12"></rect>
+      <text class="af-title" x="830" y="56" text-anchor="middle">Zentraler Knoten</text>
+      <text class="af-sub"   x="830" y="84" text-anchor="middle">Tuya Cloud</text>
+
+      <rect class="af-node" x="60" y="176" width="380" height="94" rx="12"></rect>
+      <text class="af-title" x="250" y="216" text-anchor="middle">Smartphone-App</text>
+      <text class="af-sub"   x="250" y="244" text-anchor="middle">Smart Life / Tuya</text>
+
+      <rect class="af-node" x="1220" y="176" width="380" height="94" rx="12"></rect>
+      <text class="af-title" x="1410" y="216" text-anchor="middle">Sprachassistenten</text>
+      <text class="af-sub"   x="1410" y="244" text-anchor="middle">Alexa / Google</text>
+
+      <rect class="af-node" x="230" y="392" width="380" height="94" rx="12"></rect>
+      <text class="af-title" x="420" y="432" text-anchor="middle">Tuya WLAN-Geräte</text>
+      <text class="af-sub"   x="420" y="460" text-anchor="middle">direkte IP-Verbindung</text>
+
+      <rect class="af-node" x="1050" y="392" width="380" height="94" rx="12"></rect>
+      <text class="af-title" x="1240" y="432" text-anchor="middle">Tuya Zigbee-Gateway</text>
+      <text class="af-sub"   x="1240" y="460" text-anchor="middle">Brücke zur Cloud</text>
+
+      <rect class="af-node af-node--local" x="1050" y="580" width="380" height="94" rx="12"></rect>
+      <text class="af-title" x="1240" y="620" text-anchor="middle">Tuya Zigbee-Endgerät</text>
+      <text class="af-sub"   x="1240" y="648" text-anchor="middle">Sensor oder Aktor</text>
+
+      <!-- every red path leaves the house -->
+      <path class="af-cloudline" d="M630 74 H 520 Q 470 74 460 120 L 450 168"></path>
+      <path class="af-cloudline" d="M444 158l6 18 16-10"></path>
+      <text class="af-edge" x="470" y="130">HTTPS / MQTT (Internet)</text>
+
+      <path class="af-cloudline" d="M1030 74 H 1140 Q 1190 74 1200 120 L 1210 168"></path>
+      <path class="af-cloudline" d="M1194 158l22 10 2-18"></path>
+      <text class="af-edge" x="1056" y="130">Cloud-to-Cloud API</text>
+
+      <path class="af-cloudline" d="M760 110 L 470 384"></path>
+      <path class="af-cloudline" d="M470 362l4 24 22-8"></path>
+      <text class="af-edge" x="540" y="250">Direktes MQTT über Internet</text>
+
+      <path class="af-cloudline" d="M900 110 L 1190 384"></path>
+      <path class="af-cloudline" d="M1190 362l-4 24-22-8"></path>
+      <text class="af-edge" x="928" y="250">MQTT über Internet (Steuerbefehle)</text>
+
+      <!-- the only leg that stays inside -->
+      <path class="af-localline" d="M1240 486 V 572"></path>
+      <path class="af-localline" d="M1230 560l10 14 10-14"></path>
+      <text class="af-edge" x="1264" y="536">Lokaler Zigbee-Funk</text>
+    </svg>
+  </div>
+  <p class="arch-note">
+    <span class="tag">Erkenntnis</span>
+    Alle primären Wege laufen zwingend über die Tuya Cloud. Ohne Internet verlieren App, WLAN-Geräte und Gateway die Verbindung — einzig die Strecke vom Gateway zum Zigbee-Endgerät bleibt rein lokal.
+  </p>
+  <p class="arch-source">Eigene Darstellung nach der Tuya-Entwicklerdokumentation (developer.tuya.com): „Zigbee Gateway“ und „Tuya MQTT Standard Protocol“</p>
+  <div class="notes">Grafik ist jetzt nativ auf der Folie, nicht mehr als Screenshot — dadurch skaliert sie sauber und folgt dem Theme. Rot heißt: Der Weg verlässt das Haus. Grün heißt: bleibt im Haus. Alle primären Wege laufen über die Tuya Cloud; ohne Internet verlieren App und WLAN-Geräte die Verbindung. Nur die Strecke vom Gateway zum Zigbee-Endgerät ist rein lokal. Quellenlage: Die Architektur ist durch Tuyas eigene Entwicklerdokumentation gedeckt — Geräte ohne eigenen Internetzugang (Zigbee, Bluetooth) hängen als Sub-Devices an einem Gateway, das selbst per MQTT mit der Cloud spricht. Belege: developer.tuya.com, Seiten „Zigbee Gateway“ und „Tuya MQTT Standard Protocol“.</div>
+</section>
+
+<!-- Folie 31 -->
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Zigbee</p>
+  <p class="slide-badge">alt-fallen-raus</p>
+  <h2>Zigbee: Vorteile</h2>
+  <p>Zigbee ist ein etablierter, energiesparender Funkstandard, genutzt u. a. von Philips Hue, IKEA Home smart und Aqara.</p>
+  <ul>
+    <li data-fragment="1"><strong>Lokaler Betrieb:</strong> Befehle direkt im Haus verarbeitet, extrem schnell, unabhängig vom Internet</li>
+    <li data-fragment="2"><strong>Mesh-Netzwerk:</strong> Dauerstrom-Geräte (z. B. Lampen) wirken als Signalverstärker, Reichweite steigt enorm</li>
+    <li data-fragment="3"><strong>Extrem energiesparend:</strong> Batteriesensoren halten oft jahrelang mit einer Knopfzelle</li>
+  </ul>
+  <div class="notes">Zigbee ist der Gegenentwurf zu Tuya: lokal, sparsam, mit Mesh. Jedes dauerhaft am Strom hängende Zigbee-Gerät verstärkt das Signal.</div>
+</section>
+
+<!-- Folie 32 -->
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Zigbee</p>
+  <p class="slide-badge">alt-fallen-raus</p>
+  <h2>Zigbee: Nachteile</h2>
+  <ul>
+    <li data-fragment="1"><strong>Hub/Zentrale:</strong> zwingend ein Gateway, z. B. Philips Hue Bridge oder Zigbee-USB-Stick</li>
+    <li data-fragment="2"><strong>Kompatibilitäts-Inseln:</strong> Geräte verschiedener Hersteller lassen sich nicht immer an derselben Zentrale anlernen</li>
+  </ul>
+  <div class="notes">Obwohl alle „Zigbee“ nutzen, lassen sich Geräte verschiedener Hersteller nicht immer ohne Weiteres an derselben Zentrale anlernen. Das löst später Matter.</div>
+</section>
+
+<!-- Folie 33 -->
+<section class="slide" data-transition="fade">
+  <p class="kicker">Zigbee</p>
+  <h2>Architektur &amp; lokaler Kommunikationsgraph</h2>
+  <div class="archfig">
+    <svg viewBox="0 0 1660 700" role="img" aria-label="Netzwerkdiagramm: Die Smartphone-App spricht über das lokale IP-Netz mit der Zigbee-Zentrale. Darunter spannt sich ein Mesh aus zwei Routern am Dauerstrom und einem Batterie-Endgerät — ohne Internet.">
+      <rect class="af-node" x="60" y="20" width="360" height="92" rx="12"></rect>
+      <text class="af-title" x="240" y="60" text-anchor="middle">Smartphone-App</text>
+      <text class="af-sub"   x="240" y="88" text-anchor="middle">Steuerung</text>
+
+      <rect class="af-node" x="560" y="20" width="400" height="92" rx="12"></rect>
+      <text class="af-title" x="760" y="60" text-anchor="middle">Lokales IP-Netzwerk</text>
+      <text class="af-sub"   x="760" y="88" text-anchor="middle">WLAN / LAN</text>
+
+      <path class="af-iplines" d="M420 66 H 548"></path>
+      <path class="af-iplines" d="M436 58l-14 8 14 8M532 58l14 8-14 8"></path>
+      <text class="af-edge" x="432" y="46">bidirektional</text>
+
+      <path class="af-iplines" d="M760 112 V 188"></path>
+      <path class="af-iplines" d="M750 176l10 14 10-14"></path>
+      <text class="af-edge" x="784" y="158">IP-Verbindung</text>
+
+      <!-- everything inside this frame works without internet -->
+      <rect class="af-zonebox" x="40" y="206" width="1580" height="470" rx="16"></rect>
+      <text class="af-zonelabel" x="70" y="242">Lokales Mesh-Netzwerk · kein Internet nötig</text>
+
+      <rect class="af-node af-node--local" x="560" y="276" width="400" height="92" rx="12"></rect>
+      <text class="af-title" x="760" y="316" text-anchor="middle">Zigbee-Zentrale</text>
+      <text class="af-sub"   x="760" y="344" text-anchor="middle">Coordinator / Bridge</text>
+
+      <rect class="af-node" x="120" y="520" width="380" height="92" rx="12"></rect>
+      <text class="af-title" x="310" y="560" text-anchor="middle">Zigbee-Router 1</text>
+      <text class="af-sub"   x="310" y="588" text-anchor="middle">Dauerstrom · Lampe</text>
+
+      <rect class="af-node" x="640" y="520" width="380" height="92" rx="12"></rect>
+      <text class="af-title" x="830" y="560" text-anchor="middle">Zigbee-Router 2</text>
+      <text class="af-sub"   x="830" y="588" text-anchor="middle">Dauerstrom · Steckdose</text>
+
+      <rect class="af-node" x="1160" y="520" width="380" height="92" rx="12"></rect>
+      <text class="af-title" x="1350" y="560" text-anchor="middle">Zigbee-Endgerät</text>
+      <text class="af-sub"   x="1350" y="588" text-anchor="middle">Batterie · Sensor</text>
+
+      <path class="af-meshline" d="M640 368 L 360 512"></path>
+      <path class="af-meshline" d="M360 490l6 24 18-14M628 358l16 12-10 18"></path>
+      <text class="af-edge" x="396" y="432">Zigbee-Funk</text>
+
+      <path class="af-meshline" d="M880 368 L 1000 512"></path>
+      <path class="af-meshline" d="M1000 490l-2 24-22-10M892 358l-16 12 10 18"></path>
+      <text class="af-edge" x="920" y="432">Zigbee-Funk</text>
+
+      <path class="af-meshline" d="M500 566 H 632"></path>
+      <path class="af-meshline" d="M516 558l-14 8 14 8M616 558l14 8-14 8"></path>
+      <text class="af-edge" x="508" y="546">Mesh-Link</text>
+
+      <path class="af-meshline" d="M1020 566 H 1152"></path>
+      <path class="af-meshline" d="M1036 558l-14 8 14 8M1136 558l14 8-14 8"></path>
+      <text class="af-edge" x="1034" y="546">energiearm</text>
+    </svg>
+  </div>
+  <p class="arch-note arch-note--ok">
+    <span class="tag">Erkenntnis</span>
+    Geräte am Dauerstrom arbeiten als Router und reichen Signale weiter — das vergrößert die Reichweite. Der Batterie-Sensor bleibt Endgerät und spart Strom. Der gesamte Verkehr verlässt das Haus nie.
+  </p>
+  <p class="arch-source">Eigene Darstellung nach der Zigbee-Spezifikation der Connectivity Standards Alliance (Geräterollen Coordinator, Router, End Device)</p>
+  <div class="notes">Grafik ist jetzt nativ auf der Folie statt als Screenshot. Grün umrandet: alles, was ohne Internet funktioniert. Der Mesh braucht kein Internet; Router (Lampe, Steckdose) hängen am Dauerstrom und leiten weiter, der Batterie-Sensor ist Endgerät und schläft dazwischen. Die App erreicht die Zentrale über das lokale IP-Netz. Quellenlage: Die drei Geräterollen Coordinator, Router und End Device sind in der Zigbee-Spezifikation der Connectivity Standards Alliance definiert; für den Vortrag genügt der Verweis darauf.</div>
+</section>
+
+<!-- Folie 34 -->
+<section class="slide" data-transition="slide">
+  <p class="kicker">Matter</p>
+  <p class="slide-badge">alt-fallen-raus</p>
+  <h2>Matter</h2>
+  <p class="lead">Der neueste, vom Branchenkonsortium (Apple, Google, Amazon, Samsung u. a.) entwickelte Standard.</p>
+  <p>Er soll die Fragmentierung des Smart-Homes endgültig beenden.</p>
+  <p>Transportwege: bestehendes WLAN oder das moderne, energiesparende <strong>Thread</strong>-Funknetzwerk.</p>
+  <div class="notes">Matter ist das dritte System. Wichtig sind zwei Dinge: das Branchenkonsortium dahinter und die zwei Transportwege WLAN und Thread.</div>
+</section>
+
+<!-- Folie 35 -->
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Matter</p>
+  <p class="slide-badge">alt-fallen-raus</p>
+  <h2>Matter: Vorteile</h2>
+  <ul>
+    <li data-fragment="1"><strong>Herstellerübergreifend:</strong> Apple Home, Google Home, Amazon Alexa, Samsung SmartThings parallel („Multi-Admin“)</li>
+    <li data-fragment="2"><strong>Zukunftssicher und lokal:</strong> komplett lokal im Heimnetzwerk, schnell und ausfallsicher, ohne Cloud-Zwang</li>
+    <li data-fragment="3"><strong>Hohe Sicherheit:</strong> moderne Verschlüsselung und Sicherheitsmechanismen bei der Geräte-Inbetriebnahme</li>
+  </ul>
+  <div class="notes">Ein Matter-Gerät funktioniert garantiert mit Apple Home, Google Home, Amazon Alexa und Samsung SmartThings gleichzeitig. Maximale Geschwindigkeit und Ausfallsicherheit ohne Cloud-Zwang.</div>
+</section>
+
+<!-- Folie 36 -->
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Matter</p>
+  <p class="slide-badge">alt-fallen-raus</p>
+  <h2>Matter: Nachteile</h2>
+  <ul>
+    <li data-fragment="1"><strong>Noch in Entwicklung:</strong> Geräteklassen wie komplexe Kameras oder Spezial-Sensoren nicht perfekt abgedeckt</li>
+    <li data-fragment="2"><strong>Updates:</strong> Updates der Hersteller verzögern sich oft</li>
+    <li data-fragment="3"><strong>Hardware-Anforderungen:</strong> Thread-Geräte brauchen einen kompatiblen „Thread Border Router“</li>
+    <li data-fragment="4"><strong>Beispiele:</strong> neuerer Apple HomePod, Google Nest Hub, Amazon Echo</li>
+    <li data-fragment="5"><strong>Höherer Preis:</strong> Matter-Hardware aktuell meist teurer als einfache Tuya- oder reine Zigbee-Komponenten</li>
+  </ul>
+  <div class="notes">Der Standard ist noch jung. Wer Thread-Geräte nutzt, braucht einen Thread Border Router, und die Hardware ist aktuell meist teurer.</div>
+</section>
+
+<!-- Folie 37 -->
+<section class="slide" data-transition="slide">
+  <p class="kicker">Teil 3 · Gliederung</p>
+  <h2>Matter und Thread: zwei Dinge, die oft verwechselt werden</h2>
+  <p class="lead">Matter ist die Sprache, Thread ist der Funk. Sie konkurrieren nicht — sie arbeiten auf verschiedenen Ebenen.</p>
+  <div class="duo">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16M4 12h16M4 17.5h10"/><circle cx="18" cy="17.5" r="2.2"/></svg></span>
+      <h3>Matter</h3>
+      <p class="role">Die Sprache · Anwendungsebene</p>
+      <p>Legt fest, <strong>was</strong> ein Gerät sagen kann: „Lampe an“, „Thermostat auf 21 °C“. Weil alle dieselben Begriffe nutzen, versteht jede Zentrale jedes Gerät.</p>
+      <p>Setzt auf IP auf und läuft daher über <strong>WLAN, Ethernet oder Thread</strong>.</p>
+      <p class="nope">Matter ist kein eigener Funkstandard.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><circle cx="4.6" cy="5.4" r="1.9"/><circle cx="19.4" cy="5.4" r="1.9"/><circle cx="4.6" cy="18.6" r="1.9"/><circle cx="19.4" cy="18.6" r="1.9"/><path d="M6.3 6.7 10.3 10.3M17.7 6.7 13.7 10.3M6.3 17.3 10.3 13.7M17.7 17.3 13.7 13.7M4.6 7.3v9.4M19.4 7.3v9.4"/></svg></span>
+      <h3>Thread</h3>
+      <p class="role">Der Funk · Übertragungsebene</p>
+      <p>Legt fest, <strong>wie</strong> die Nachricht ankommt: ein stromsparendes <strong>Mesh-Netz</strong>, in dem Geräte am Dauerstrom die Signale weiterreichen — technisch ähnlich wie Zigbee.</p>
+      <p>Ideal für Lampen und Batteriesensoren, die jahrelang halten sollen.</p>
+      <p class="nope">Thread allein sagt nichts darüber, was die Geräte sprechen.</p>
+    </div>
+  </div>
+  <ol class="roadmap">
+    <li data-fragment="3"><span class="n">1</span><span><span class="title">Der Controller</span><span class="sub">Das Gehirn: führt Automatisierungen aus, Multi-Admin</span></span></li>
+    <li data-fragment="4"><span class="n">2</span><span><span class="title">Der Thread Border Router</span><span class="sub">Die Brücke zwischen Thread-Funk und WLAN/LAN</span></span></li>
+    <li data-fragment="5"><span class="n">3</span><span><span class="title">Die Endgeräte</span><span class="sub">Matter über WLAN oder über Thread</span></span></li>
+  </ol>
+  <div class="notes">Gliederungsfolie für den Matter-Teil. Kernsatz: Matter ist die Sprache (Anwendungsebene, sagt WAS gesprochen wird), Thread ist der Funk (Übertragungsebene, sagt WIE es ankommt). Deshalb ist „Matter oder Thread?“ die falsche Frage — ein Thread-Gerät spricht in aller Regel Matter über Thread. Matter setzt auf IP auf und läuft auch über WLAN oder Ethernet; Thread ist ein Mesh wie Zigbee, in dem Dauerstrom-Geräte weiterleiten und Batteriegeräte Endpunkte bleiben. Die drei nummerierten Punkte unten sind die Agenda der folgenden Folien: erst der Controller, dann der Thread Border Router, dann die Endgeräte — und danach der Ablauf eines typischen Schaltbefehls, der alle drei zusammenbringt.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Matter</p>
+  <h2>Der Matter-Controller (Die Steuerzentrale)</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Funktion</h3>
+      <p>Das Gehirn, das die Geräte steuert, Automatisierungen ausführt und die Schnittstelle zu deiner App bildet. Beispiele sind ein Apple TV 4K, ein Google Nest Hub oder ein Amazon Echo.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Besonderheit („Multi-Admin“)</h3>
+      <p>Ein Matter-Netzwerk kann mehrere Controller gleichzeitig haben. Dieselbe Lampe lässt sich parallel über Apple Home (iPad) und Google Home (Android-Tablet) steuern.</p>
+    </div>
+  </div>
+  <div class="notes">Die Controller synchronisieren den Gerätestatus direkt lokal untereinander. Das ist der Kern von Multi-Admin.</div>
+</section>
+
+<!-- Folie 38 -->
+<section class="slide" data-transition="slide">
+  <p class="kicker">Matter</p>
+  <h2>Der Thread Border Router (Die Funk-Brücke)</h2>
+  <p data-fragment="1">Viele moderne, kleine Matter-Geräte funken nicht über das stromhungrige WLAN, sondern über das effiziente <strong>Thread</strong>-Funknetzwerk.</p>
+  <p data-fragment="2">Der Thread Border Router verbindet das Thread-Netzwerk nahtlos mit deinem Heimnetzwerk (WLAN/LAN).</p>
+  <p data-fragment="3">Oft ist diese Funktion direkt im Matter-Controller eingebaut (z. B. im Apple TV oder Nest Hub).</p>
+  <div class="notes">Der Border Router ist die Brücke zwischen Thread-Funknetz und normalem Heimnetz. Oft steckt er schon im Controller.</div>
+</section>
+
+<!-- Folie 39 -->
+<section class="slide" data-transition="slide">
+  <p class="kicker">Matter</p>
+  <h2>Die Matter-Endgeräte (WLAN oder Thread)</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Matter-über-WLAN</h3>
+      <p>Größere Geräte mit hohem Stromverbrauch oder Dauerstrom (z. B. smarte Steckdosen, Haushaltsgeräte) nutzen dein normales WLAN. Sie sprechen Matter direkt über deinen Router.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Matter-über-Thread (Router &amp; Endpoints)</h3>
+      <p>Stromsparende Geräte (Lampen, Sensoren) bauen untereinander ein stabiles Thread-Mesh-Netzwerk auf – ähnlich wie bei Zigbee. Lampen leiten Signale weiter (Router), Batterie-Sensoren senden nur bei Änderungen (Endpoints).</p>
+    </div>
+  </div>
+  <div class="notes">Große Stromverbraucher nutzen WLAN, kleine, sparsame Geräte Thread. Das Thread-Mesh funktioniert ähnlich wie bei Zigbee.</div>
+</section>
+
+<!-- Folie 40 -->
+<section class="slide" data-transition="slide">
+  <p class="kicker">Matter</p>
+  <h2>Ablauf eines typischen Schaltbefehls</h2>
+  <p>Matter basiert auf IP wie dein Computer oder Smartphone: Alle Geräte sprechen „dieselbe Sprache“ – egal ob per Kabel, WLAN oder Thread.</p>
+  <div class="flow">
+    <div class="flow-step" data-fragment="1">
+      <span class="n">Schritt 1</span>
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.6" y="2.4" width="10.8" height="19.2" rx="2.2"/><path d="M10.4 5.4h3.2"/><circle cx="12" cy="18" r="1.2"/></svg></span>
+      <span class="title">Smartphone-App</span>
+      <span class="sub">z. B. Apple Home</span>
+    </div>
+
+    <div class="flow-link" data-fragment="2">
+      <span class="flow-link__label">Lokales WLAN</span>
+      <svg viewBox="0 0 120 22" aria-hidden="true" preserveAspectRatio="none"><path d="M2 11h112"/><path d="M104 4l10 7-10 7"/></svg>
+    </div>
+    <div class="flow-step" data-fragment="2">
+      <span class="n">Schritt 2</span>
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.4" y="4.4" width="15.2" height="15.2" rx="3"/><rect x="9.2" y="9.2" width="5.6" height="5.6" rx="1.3"/><path d="M9.2 2v2.4M14.8 2v2.4M9.2 19.6V22M14.8 19.6V22M2 9.2h2.4M2 14.8h2.4M19.6 9.2H22M19.6 14.8H22"/></svg></span>
+      <span class="title">Controller &amp; Border Router</span>
+      <span class="sub">übersetzt vom WLAN in den Thread-Funk</span>
+    </div>
+
+    <div class="flow-link" data-fragment="3">
+      <span class="flow-link__label">Thread-Funk</span>
+      <svg viewBox="0 0 120 22" aria-hidden="true" preserveAspectRatio="none"><path d="M2 11h112"/><path d="M104 4l10 7-10 7"/></svg>
+    </div>
+    <div class="flow-step" data-fragment="3">
+      <span class="n">Schritt 3</span>
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.3 15.2a5.6 5.6 0 1 1 7.4 0c-.8.7-1.2 1.4-1.3 2.3H9.6c-.1-.9-.5-1.6-1.3-2.3Z"/><path d="M9.8 20.2h4.4M10.4 22h3.2"/></svg></span>
+      <span class="title">Lampe als Thread-Router</span>
+      <span class="sub">am Dauerstrom, reicht das Signal weiter</span>
+    </div>
+
+    <div class="flow-link" data-fragment="4">
+      <span class="flow-link__label">Thread-Funk</span>
+      <svg viewBox="0 0 120 22" aria-hidden="true" preserveAspectRatio="none"><path d="M2 11h112"/><path d="M104 4l10 7-10 7"/></svg>
+    </div>
+    <div class="flow-step" data-fragment="4">
+      <span class="n">Schritt 4</span>
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13.6V4.6a2 2 0 0 1 4 0v9a3.4 3.4 0 1 1-4 0Z"/><circle cx="12" cy="17.4" r="1.6"/><path d="M16.4 6.4h3M16.4 10h3"/></svg></span>
+      <span class="title">Heizkörperthermostat</span>
+      <span class="sub">führt den Befehl aus</span>
+    </div>
+  </div>
+  <p class="flow-foot" data-fragment="4">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 10.6 12 3.8l8.6 6.8"/><path d="M5.4 9.2V20h13.2V9.2"/></svg>
+    Der gesamte Weg bleibt im Haus — keine Cloud beteiligt
+  </p>
+  <div class="notes">Der Ablauf als Prozesskette, Schritt für Schritt einblenden. Beschriftet sind die Übergänge, denn darum geht es: von der App über lokales WLAN zum Controller, der zugleich Thread Border Router ist; von dort per Thread-Funk zur Lampe, die am Dauerstrom hängt und deshalb als Thread-Router weiterleitet; von der Lampe per Thread-Funk zum Heizkörperthermostat, das den Befehl ausführt. Der gesamte Weg bleibt lokal, keine Cloud beteiligt.</div>
+</section>
+
+<!-- Folie 41 -->
+<section class="slide" data-transition="rise">
+  <p class="kicker">Teil 3</p>
+  <h2>Lokal vs. Cloud: Der entscheidende Vorteil</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Zigbee</h3>
+      <p>Dieser gesamte Datenverkehr verlässt niemals dein Haus. Selbst bei Störung des Internetanbieters oder ohne Strom am Router läuft der Funkgraph autark weiter.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Matter</h3>
+      <p>Wie bei Zigbee bleibt die gesamte Kommunikation zu 100 % lokal, ganz ohne Cloud-Verbindung. Das Zigbee-Problem getrennter Bridges (z. B. Hue und Aqara) entfällt.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Und Tuya?</h3>
+      <p>Genau umgekehrt: Alle primären Wege laufen über die Tuya Cloud. Ohne Internet verlieren App und WLAN-Geräte die Verbindung.</p>
+    </div>
+  </div>
+  <div class="notes">Bei Matter fließen alle Daten nahtlos durch dieselbe lokale Netzwerkstruktur. Tuya ist das Gegenteil (siehe Folien zu den Kommunikationswegen). Das ist der Übergang zu Teil 4.</div>
+</section>
+
+<!-- Folie 42 -->
+<section class="slide" data-transition="rise">
+  <p class="kicker">Teil 3</p>
+  <h2>Abschluss Teil 3: Die Vergleichsmatrix</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Tuya</h3>
+      <ul>
+        <li><strong>Lokaler Betrieb:</strong> nein</li>
+        <li><strong>Hub / Zentrale nötig:</strong> nur für Zigbee-Geräte</li>
+        <li><strong>Cloud-Zwang:</strong> ja</li>
+        <li><strong>Herstelleroffen:</strong> nein (Tuya-Ökosystem)</li>
+        <li><strong>Energiebedarf:</strong> hoch (WLAN)</li>
+        <li><strong>Preisniveau:</strong> sehr günstig</li>
+      </ul>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Zigbee</h3>
+      <ul>
+        <li><strong>Lokaler Betrieb:</strong> ja</li>
+        <li><strong>Hub / Zentrale nötig:</strong> ja, zwingend</li>
+        <li><strong>Cloud-Zwang:</strong> nein</li>
+        <li><strong>Herstelleroffen:</strong> teilweise (Kompatibilitäts-Inseln)</li>
+        <li><strong>Energiebedarf:</strong> sehr niedrig</li>
+        <li><strong>Preisniveau:</strong> günstig</li>
+      </ul>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Matter</h3>
+      <ul>
+        <li><strong>Lokaler Betrieb:</strong> ja</li>
+        <li><strong>Hub / Zentrale nötig:</strong> ja (Controller, für Thread + Border Router)</li>
+        <li><strong>Cloud-Zwang:</strong> nein</li>
+        <li><strong>Herstelleroffen:</strong> ja (Multi-Admin)</li>
+        <li><strong>Energiebedarf:</strong> niedrig (Thread) / höher (WLAN)</li>
+        <li><strong>Preisniveau:</strong> höher</li>
+      </ul>
+    </div>
+  </div>
+  <div class="notes">Werte identisch zur Einstiegsmatrix; dort stehen die ausführliche Begründung und die Herkunft jedes Eintrags. Der Merksatz folgt auf der nächsten Folie.</div>
+</section>
+
+<!-- Folie 42 (Merksatz) -->
+<section class="slide slide--center" data-transition="fade">
+  <p class="kicker">Teil 3</p>
+  <h2>Merksatz</h2>
+  <p class="lead" data-fragment="1">Je weiter rechts, desto unabhängiger vom Internet und vom Hersteller — und desto teurer in der Anschaffung.</p>
+  <div class="notes">Von Tuya über Zigbee zu Matter: mehr Unabhängigkeit vom Internet und vom Hersteller, dafür höherer Preis. Übergang zu Teil 4.</div>
+</section>
+
+    <!-- ===== part-04 ===== -->
+
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">TEIL 4</p>
+  <h1>Risiken</h1>
+  <p class="lead">Vier Risikoebenen, die bei der Systemwahl zusammen betrachtet werden müssen</p>
+  <div class="notes">Die Ebenen laut Quelle: 1. Cloud-Abhängigkeit &amp; Datenschutz — wohin gehen die Daten? 2. IT-Sicherheit — wer kommt von außen rein? 3. Lebensdauer — was passiert, wenn der Hersteller abschaltet?</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Teil 4 · Risiken</p>
+  <h2>Gefahren und Fallstricke von Cloudanbietern</h2>
+  <p class="subhead">Warum der Serverstandort wichtig, aber nicht alles ist</p>
+  <p>Beim Hosting und der Cloud-Nutzung müssen Unternehmen differenzieren, <strong>wo die Daten physisch liegen</strong> und <strong>wer theoretisch darauf zugreifen kann</strong>.</p>
+  <table class="ctable">
+    <colgroup><col class="c-crit"><col><col></colgroup>
+    <thead>
+      <tr>
+        <th scope="col"><span class="c-crit-label">Kriterium</span></th>
+        <th scope="col" class="col-eu"><span class="c-head">Server in Deutschland / EU</span></th>
+        <th scope="col" class="col-third"><span class="c-head">Server in Drittländern (z. B. USA)</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-fragment="1">
+        <th scope="row"><span class="c-crit-label">Drittlandtransfer</span></th>
+        <td class="col-eu"><span class="verdict verdict--ok">Nein.</span> Kein Transferrisiko im Sinne der Art. 44 ff. DSGVO.</td>
+        <td class="col-third"><span class="verdict verdict--bad">Ja.</span> Datenübermittlung erfordert rechtliche Absicherung (z. B. Angemessenheitsbeschluss wie das <em>EU-US Data Privacy Framework</em> oder Standardvertragsklauseln).</td>
+      </tr>
+      <tr data-fragment="2">
+        <th scope="row"><span class="c-crit-label">Rechtlicher Zugriff</span></th>
+        <td class="col-eu">Lokale Sicherheitsgesetze greifen.</td>
+        <td class="col-third">US-Behörden können über Gesetze wie den <strong>CLOUD Act</strong> Datenzugriff verlangen.</td>
+      </tr>
+      <tr data-fragment="3">
+        <th scope="row"><span class="c-crit-label">Herausforderung</span></th>
+        <td class="col-eu">Nutzt man US-Anbieter (wie AWS oder Microsoft) mit Servern in Frankfurt, bleibt das CLOUD-Act-Risiko über den Mutterkonzern bestehen.</td>
+        <td class="col-third">Das Datenschutzniveau gilt grundsätzlich als unsicherer, sofern keine speziellen Garantien greifen.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="notes">Ersetzt den früheren Screenshot durch echten Text auf der Folie, Inhalt unverändert. Die drei Zeilen einzeln einblenden. Kernpunkt ist die letzte Zeile links: Der Serverstandort allein genügt nicht — bei einem US-Anbieter mit Rechenzentrum in Frankfurt bleibt das CLOUD-Act-Risiko über den Mutterkonzern bestehen. Rechtlicher Rahmen: Art. 44 ff. DSGVO für den Drittlandtransfer, Absicherung über Angemessenheitsbeschluss (EU-US Data Privacy Framework) oder Standardvertragsklauseln.</div>
+</section>
+
+<section class="slide slide--photo" data-transition="rise">
+  <div class="slide-bg" style="background-image: url('images/china-flag.jpg')"></div>
+  <div class="band">
+    <p class="kicker">Teil 4 · Risiken</p>
+    <h2>Drittland-Risiko am Beispiel China</h2>
+    <p class="lead">Das Hosten von personenbezogenen Daten auf einem Server in China ist nach der DSGVO <strong>rechtlich extrem riskant</strong> und in den allermeisten Fällen <strong>unzulässig</strong>.</p>
+  </div>
+  <p class="credit">Foto: Sou Jest, Unsplash</p>
+  <div class="notes">Vollbild-Foto mit dunklem Balken hinter dem Text. Drei Gründe auf der nächsten Folie. Belegstatus: Rechtsaussagen ohne Quellenangabe in der Präsentation (Angemessenheitsbeschluss, Art. 7 chin. Geheimdienstgesetz, TIA-Pflicht); auf der Quellenfolie 107 als „zu belegen“ vermerkt und vor dem Vortrag durch eine zitierfähige Quelle zu stützen oder abzuschwächen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Teil 4 · Risiken</p>
+  <h2>Drittland-Risiko China: drei Gründe</h2>
+  <div class="reasons">
+    <div class="reason" data-fragment="1" data-fragment-style="grow">
+      <span class="n">1</span>
+      <h3>Kein Angemessenheits&shy;beschluss</h3>
+      <p>Die Europäische Kommission stuft das Datenschutzniveau in China nicht als gleichwertig mit dem europäischen Standard ein.</p>
+      <p class="why"><b>Folge</b>Der Transfer braucht eine eigene Rechtsgrundlage.</p>
+    </div>
+    <div class="reason" data-fragment="2" data-fragment-style="grow">
+      <span class="n">2</span>
+      <h3>Zugriff durch Behörden</h3>
+      <p>Artikel 7 des chinesischen Geheimdienstgesetzes verpflichtet dortige Organisationen und Unternehmen zur Kooperation mit den staatlichen Sicherheitsbehörden.</p>
+      <p class="why"><b>Folge</b>Schutz vor staatlichem Zugriff ist kaum zu garantieren.</p>
+    </div>
+    <div class="reason" data-fragment="3" data-fragment-style="grow">
+      <span class="n">3</span>
+      <h3>Standardvertrags&shy;klauseln tragen nicht</h3>
+      <p>Das zwingende Transfer Impact Assessment (TIA) muss prüfen, ob das Recht des Drittlandes die Einhaltung der SCCs aushebelt.</p>
+      <p class="why"><b>Folge</b>Deutsche Aufsichtsbehörden kommen fast immer zu einem negativen Ergebnis.</p>
+    </div>
+  </div>
+  <p class="reasons-foot" data-fragment="4">
+    <span class="flag">Noch zu belegen</span>
+    Alle drei Punkte sind Rechtsaussagen ohne Quelle — siehe Belegfolien am Ende.
+  </p>
+  <div class="notes">Drei gleich gebaute Karten: oben der Befund, unten jeweils die Folge — dadurch lesen sich die Punkte als ein Satz Argumente statt als drei verschieden lange Texte. Die Formulierungen sind dem Original entnommen und nicht verschärft. Ergänzende Details aus der Ursprungsfassung: Beim Zugriffsrisiko ging es ausdrücklich um das Geheimdienstgesetz; bei den SCCs darum, dass die chinesischen Überwachungsgesetze der Grund für das negative TIA-Ergebnis sind. Noch zu belegen (Quellenfolie 107): Angemessenheitsbeschluss, Art. 7 chin. Geheimdienstgesetz, TIA-Pflicht.</div>
+</section>
+
+<section class="slide slide--center" data-transition="fade">
+  <p class="kicker">Bezug zum Smart Home</p>
+  <h2>Tuya: Serverstandort wird praktisch relevant</h2>
+  <p class="lead">Tuya ist eine globale Cloud-Plattform: Nutzungsdaten wandern über externe Server. Genau hier wird die Frage des Serverstandorts praktisch relevant.</p>
+  <div class="notes">Rückbezug auf den Tuya-Teil. Der frühere Verweis auf „Folie 39“ war falsch und wurde entfernt — die Folienzahl stimmte nach den Umbauten nicht mehr. Überleitung zur Leitfrage: Welche Daten verlassen das Haus?</div>
+</section>
+
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">Drei Fragen, die jedes System beantworten muss</p>
+  <h2>Welche Daten verlassen das Haus?</h2>
+  <p class="lead" data-fragment="1">Wohin gehen sie?</p>
+  <p class="lead" data-fragment="2">Wer darf darauf zugreifen?</p>
+  <div class="notes">Leitfrage für den Rest von Teil 4. Zuerst klären, welche Daten überhaupt anfallen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Leitfrage</p>
+  <h2>Welche Daten verlassen das Haus?</h2>
+  <p class="lead">Sechs Datenarten, die in diesem Vortrag vorkommen — und was sie im Klartext über die Bewohner verraten.</p>
+  <div class="cols cols--3 data-grid">
+    <div class="card card--data" data-fragment="1" data-fragment-style="grow">
+      <h3>Temperatur &amp; Luftfeuchtigkeit pro Raum</h3>
+      <p><span class="tell">Verrät</span>welche Räume genutzt werden</p>
+    </div>
+    <div class="card card--data" data-fragment="2" data-fragment-style="grow">
+      <h3>Schaltvorgänge von Licht und Steckdosen</h3>
+      <p><span class="tell">Verrät</span>Tagesrhythmus, Aufstehen, Zubettgehen</p>
+    </div>
+    <div class="card card--data" data-fragment="3" data-fragment-style="grow">
+      <h3>Fenster- und Türkontakte</h3>
+      <p><span class="tell">Verrät</span>wann niemand zu Hause ist</p>
+    </div>
+    <div class="card card--data" data-fragment="4" data-fragment-style="grow">
+      <h3>Anwesenheit / Geofencing</h3>
+      <p><span class="tell">Verrät</span>Standort der Bewohner</p>
+    </div>
+    <div class="card card--data" data-fragment="5" data-fragment-style="grow">
+      <h3>Energieverbrauch über Monate</h3>
+      <p><span class="tell">Verrät</span>Urlaubszeiten, Haushaltsgröße</p>
+    </div>
+    <div class="card card--data" data-fragment="6" data-fragment-style="grow">
+      <h3>Kamerabilder vom Hauseingang</h3>
+      <p><span class="tell">Verrät</span>Gesichter, Besucher, Nachbarn</p>
+    </div>
+  </div>
+  <div class="notes">Die beiden früheren Folien auf einer, sechs Karten in zwei Reihen, einzeln einblendbar. Fundstellen im Vortrag: Temperatur und Luftfeuchtigkeit Folie 31 (Tuya-Automatisierung) sowie Folie 95/104 (Heizung, tado°); Schaltvorgänge Folie 89/92 (Xiaomi, Google Home); Fenster- und Türkontakte Folie 11, Folie 23, Folie 157; Anwesenheit/Geofencing Folie 104 (tado° „HOME Geofencing“); Energieverbrauch Folie 98/101 (Energiemonitoring); Kamerabilder Folie 107. Diese Folienangaben stammen aus der Quellnummerierung und sind nach den Umbauten nicht mehr deckungsgleich.</div>
+</section>
+
+<section class="slide" data-transition="rise">
+  <p class="kicker">Leitfrage</p>
+  <h2>Die Antwort hängt allein an der Architektur, nicht am Marketing</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Lokal</h3>
+      <p>Läuft die Schaltung lokal (Zigbee, Matter, Home Assistant), verlassen diese Daten das Haus gar nicht.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Cloud</h3>
+      <p>Läuft sie über eine Cloud (Tuya, Xiaomi, Google), verlassen sie es bei jedem Schaltvorgang.</p>
+    </div>
+  </div>
+  <div class="notes">Kernaussage zur Leitfrage: Entscheidend ist die Architektur, nicht das Marketing.</div>
+</section>
+
+<section class="slide slide--media slide--media--wide" data-transition="fade">
+  <figure>
+    <img src="images/kamera-haus.jpg" alt="Überwachungskamera unter dem Dachüberstand an der Ecke eines weiß verklinkerten Wohnhauses">
+  </figure>
+  <div>
+    <p class="kicker">Praxis-Hinweis</p>
+    <h2>Kameras erfassen regelmäßig auch Dritte</h2>
+    <p>Bei Kameras ist zusätzlich zu beachten, dass regelmäßig auch <strong>Dritte</strong> erfasst werden: Besucher, Nachbarn, Postboten.</p>
+    <p>Das ist keine neue Rechtsaussage dieses Vortrags, sondern der Punkt, an dem die <strong>Verantwortung des Betreibers</strong> beginnt.</p>
+    <p class="credit-inline">Foto: Turquo Cabbit, Unsplash</p>
+  </div>
+  <div class="notes">Bild links, Text rechts. Vor dem Vortrag mit einer belastbaren Quelle unterfüttern. Der Bildnachweis unten ist Teil der Unsplash-Höflichkeit, rechtlich nicht zwingend.</div>
+</section>
+
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">Teil 4 · Risiken</p>
+  <h2>IT-Sicherheit: die zweite Risikoebene</h2>
+  <p class="lead">Datenschutz fragt: <strong>Wer darf die Daten sehen?</strong> IT-Sicherheit fragt: <strong>Wer kommt ungefragt rein?</strong></p>
+  <div class="notes">Der Vortrag behandelte bisher nur die erste Frage. Es folgen die drei häufigsten Einfallstore im Heimnetz.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Die drei häufigsten Einfallstore im Heimnetz</p>
+  <h2>Offene Ports / Portweiterleitung</h2>
+  <div class="cols" style="grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 70px; align-items: center;">
+    <div>
+      <p>Wer die Kamera oder das Dashboard „von unterwegs“ erreichbar machen will und dafür im Router einen Port nach außen öffnet, stellt das Gerät dem gesamten Internet zur Verfügung.</p>
+      <ul>
+        <li data-fragment="1">Suchmaschinen für offene Geräte finden solche Ports binnen Stunden</li>
+        <li data-fragment="2">Richtiger Weg: VPN ins Heimnetz oder der Reverse-Proxy des Herstellers</li>
+        <li data-fragment="3">Keine direkte Portweiterleitung</li>
+      </ul>
+    </div>
+    <div class="portfig">
+      <svg viewBox="0 0 760 470" role="img" aria-label="Schaubild: Eine Portweiterleitung öffnet ein Loch in der Router-Firewall, durch das jeder aus dem Internet die Kamera erreicht; ein VPN-Tunnel führt stattdessen sicher ins Heimnetz">
+        <!-- the router is the wall between outside and inside -->
+        <line class="pf-wall" x1="380" y1="24" x2="380" y2="446"></line>
+        <text class="pf-sub" x="200" y="22" text-anchor="middle">INTERNET</text>
+        <text class="pf-sub" x="580" y="22" text-anchor="middle">HEIMNETZ</text>
+
+        <!-- the open port: a hole punched through the wall -->
+        <rect class="pf-hole" x="364" y="104" width="32" height="56"></rect>
+
+        <rect class="pf-box" x="330" y="200" width="100" height="70" rx="10"></rect>
+        <text class="pf-label" x="380" y="241" text-anchor="middle">Router</text>
+
+        <!-- attacker side -->
+        <rect class="pf-box" x="40" y="96" width="210" height="72" rx="10"></rect>
+        <text class="pf-label" x="60" y="128">Beliebiger Scanner</text>
+        <text class="pf-sub"   x="60" y="152">sucht offene Ports</text>
+        <path class="pf-bad" d="M250 132h120"></path>
+        <path class="pf-bad" d="M360 125l10 7-10 7"></path>
+        <path class="pf-bad" d="M396 132h104"></path>
+        <path class="pf-bad" d="M490 125l10 7-10 7"></path>
+        <text class="pf-bad-t" x="262" y="98">Port 8123 offen</text>
+
+        <!-- the device behind it -->
+        <rect class="pf-box" x="506" y="96" width="244" height="72" rx="10"></rect>
+        <text class="pf-label" x="524" y="128">Kamera / Dashboard</text>
+        <text class="pf-sub"   x="524" y="152">direkt erreichbar</text>
+
+        <!-- the safe alternative -->
+        <rect class="pf-box" x="40" y="330" width="210" height="72" rx="10"></rect>
+        <text class="pf-label" x="60" y="362">Dein Smartphone</text>
+        <text class="pf-sub"   x="60" y="386">unterwegs</text>
+        <path class="pf-ok" d="M250 366h120"></path>
+        <path class="pf-ok" d="M360 359l10 7-10 7"></path>
+        <path class="pf-ok" d="M396 366h104"></path>
+        <path class="pf-ok" d="M490 359l10 7-10 7"></path>
+        <text class="pf-ok-t" x="262" y="332">VPN-Tunnel</text>
+        <rect class="pf-box" x="506" y="330" width="244" height="72" rx="10"></rect>
+        <text class="pf-label" x="524" y="362">Heimnetz</text>
+        <text class="pf-sub"   x="524" y="386">kein offener Port</text>
+      </svg>
+    </div>
+  </div>
+  <div class="notes">Einfallstor 1 von 3. Das Schaubild ist selbst gezeichnet, nicht aus dem Netz übernommen — oben der rote Weg: eine Portweiterleitung schlägt ein Loch in die Router-Firewall, durch das jeder Scanner direkt auf Kamera oder Dashboard kommt. Unten der grüne Weg: ein VPN-Tunnel ins Heimnetz, ohne offenen Port. Allgemein anerkannter Sicherheitsgrundsatz; Beleg z. B. BSI-Empfehlungen zu Smart Home (Quellenfolie 107).</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Die drei häufigsten Einfallstore im Heimnetz</p>
+  <h2>Fehlende Firmware-Updates</h2>
+  <ul>
+    <li data-fragment="1">Billiggeräte erhalten oft nur wenige Monate Updates, manche nie</li>
+    <li data-fragment="2">Eine bekannte Lücke in einem Gerät, das nie wieder ein Update sieht, bleibt für die gesamte Nutzungsdauer offen</li>
+    <li data-fragment="3">Vor dem Kauf prüfen: Gibt es eine Update-Zusage, und wie lange?</li>
+  </ul>
+  <div class="clipping" data-fragment="4">
+    <p class="clipping__masthead">
+      <span class="clipping__paper">BleepingComputer</span>
+      <span class="clipping__date">März 2025 · IT-Sicherheit</span>
+    </p>
+    <p class="clipping__head">Akira-Ransomware verschlüsselt Firmennetz — über eine Webcam</p>
+    <p class="clipping__body">Als die Schutzsoftware auf den Windows-Rechnern den Verschlüsselungstrojaner stoppte, durchsuchten die Angreifer das Netz nach einem anderen Weg. Sie fanden eine <strong>ungepatchte Überwachungskamera</strong> mit bekannten kritischen Sicherheitslücken, die auf einem schlanken Linux lief und auf der keine Schutzsoftware installiert werden konnte. Über diese Kamera verschlüsselten sie die Dateifreigaben im gesamten Netzwerk. Weil niemand das Gerät überwachte, fiel der auffällige Datenverkehr der IT-Abteilung nicht auf. Analyse der Sicherheitsfirma S-RM.</p>
+    <p class="clipping__link">bleepingcomputer.com/news/security/akira-ransomware-encrypted-network-from-a-webcam-to-bypass-edr/</p>
+  </div>
+  <div class="notes">Einfallstor 2 von 3. Der Zeitungsausschnitt ist der Beleg für genau diese Folie: Ein Gerät ohne Updates wird zum Einstiegspunkt ins Netz. Ablauf des Falls: Die Angreifer waren über einen exponierten Fernzugang bereits im Netz, ihr Verschlüsselungstrojaner wurde auf den Windows-Rechnern aber von der Schutzsoftware blockiert. Daraufhin scannten sie das Netz, fanden eine ungepatchte Überwachungskamera mit bekannten kritischen Lücken, die auf einem schlanken Linux lief, und verschlüsselten über dieses Gerät die Dateifreigaben. Zwei Dinge kamen zusammen: fehlende Updates und fehlende Überwachung des Geräts. Quelle: BleepingComputer, März 2025, nach einer Analyse der Sicherheitsfirma S-RM; derselbe Fall wurde unter anderem von SecurityAffairs und ThaiCERT aufgegriffen. Allgemein anerkannter Sicherheitsgrundsatz; Beleg z. B. BSI-Empfehlungen zu Smart Home (Quellenfolie 107).</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Die drei häufigsten Einfallstore im Heimnetz</p>
+  <h2>Botnetze aus Billigkameras</h2>
+  <p>Unsichere Kameras und Rekorder mit Standardpasswörtern werden massenhaft gekapert und für Angriffe missbraucht. Das Gerät funktioniert dabei äußerlich normal weiter — der Betreiber merkt nichts.</p>
+  <h3>Gegenmittel</h3>
+  <ul>
+    <li data-fragment="1">Standardpasswörter sofort ändern</li>
+    <li data-fragment="2">Geräte in ein eigenes Netzsegment (Gäste-WLAN / VLAN) legen</li>
+    <li data-fragment="3">Internetzugang für Geräte sperren, die ihn nicht brauchen</li>
+  </ul>
+  <div class="notes">Einfallstor 3 von 3. Allgemein anerkannter Sicherheitsgrundsatz; Beleg z. B. BSI-Empfehlungen zu Smart Home (Quellenfolie 107).</div>
+</section>
+
+<section class="slide slide--center" data-transition="fade">
+  <p class="kicker">Die praktische Relevanz</p>
+  <h2 data-fragment="1" data-fragment-style="blur">Über lokale Geräte lassen sich viele dieser Probleme einfach umgehen.</h2>
+  <p class="lead" data-fragment="2">Wenn ein Gerät rein lokal arbeitet, hat es regelmäßig keinen Internetzugang und kann auch nicht gekapert werden.</p>
+  <div class="notes">Brücke zurück zu Teil 3 (lokale Systeme): Ein Gerät, das keine Cloud braucht, braucht auch keinen offenen Port — damit entfallen die eben gezeigten Einfallstore weitgehend. Danach das Lebensdauer-Risiko.</div>
+</section>
+
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">Teil 4 · Risiken</p>
+  <h2>Lebensdauer-Risiko: wenn der Hersteller abschaltet</h2>
+  <p class="lead">Beim Cloud-<strong>Ausfall</strong> gilt: Fällt das Internet oder die Tuya-Cloud aus, funktionieren viele Routinen und die Fernsteuerung nicht mehr. Das ist der harmlose Fall — er ist vorübergehend.</p>
+  <div class="notes">Abgrenzung: Ausfall ist vorübergehend, Abschaltung ist endgültig. Der frühere Verweis auf „Folie 39“ war falsch und wurde entfernt. Nächste Folie: der Härtefall.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Lebensdauer-Risiko</p>
+  <h2>Der Härtefall: die Cloud wird abgeschaltet</h2>
+  <p>Ein cloud-gebundenes Gerät ist nur so lange ein Gerät, wie der Hersteller den Server bezahlt. Wird der Dienst eingestellt — Insolvenz, Produktende, Strategiewechsel, Übernahme —, dann:</p>
+  <ul>
+    <li data-fragment="1">lässt sich das Gerät <strong>nicht mehr einrichten</strong>, auch nicht lokal</li>
+    <li data-fragment="2">fällt die App aus, und mit ihr <strong>jede Automatisierung</strong></li>
+    <li data-fragment="3">bleibt physisch intakte Hardware zurück, die <strong>nichts mehr tut</strong> — Elektroschrank statt Elektronik</li>
+  </ul>
+  <div class="notes">Konkrete Abschaltfälle nennt die Präsentation bewusst nicht; für den Vortrag ein belegtes Beispiel ergänzen (Quellenfolie 107). Mechanismus ergibt sich aus den Kommunikationswegen auf Folie 40/41.</div>
+</section>
+
+<section class="slide slide--center" data-transition="fade">
+  <p class="kicker">Lebensdauer-Risiko</p>
+  <h2 data-fragment="1" data-fragment-style="blur">Kein Update, kein Workaround, keine Garantie greift.</h2>
+  <p class="lead" data-fragment="2">Die Geräte sind nicht defekt, sie sind verwaist.</p>
+  <div class="notes">Pointe zum Härtefall: Hardware intakt, Funktion weg.</div>
+</section>
+
+<section class="slide" data-transition="rise">
+  <p class="kicker">Lebensdauer-Risiko</p>
+  <h2>Warum das das stärkste Argument für lokale Systeme ist</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Cloud-gebunden</h3>
+      <p class="card-sub">Tuya, Amazon Alexa, Google Assistant</p>
+      <ul>
+        <li>Hersteller stellt Dienst ein: Gerät wird unbrauchbar</li>
+        <li>Internet fällt aus: Steuerung fällt aus</li>
+        <li>Investitionsschutz: an die Lebensdauer eines Serverbetriebs gebunden</li>
+      </ul>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Lokal</h3>
+      <p class="card-sub">Zigbee, Matter, KNX, Home Assistant</p>
+      <ul>
+        <li>Hersteller stellt Dienst ein: Gerät funktioniert weiter</li>
+        <li>Internet fällt aus: Steuerung läuft weiter</li>
+        <li>Investitionsschutz: an die Lebensdauer der Hardware gebunden</li>
+      </ul>
+    </div>
+  </div>
+  <div class="notes">Gegenüberstellung in drei Zeilen: Dienst eingestellt, Internet-Ausfall, Investitionsschutz.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Lebensdauer-Risiko · Alternative</p>
+  <h2>Das stärkste Argument für lokale Systeme</h2>
+  <table class="ctable">
+    <colgroup><col class="c-crit"><col><col></colgroup>
+    <thead>
+      <tr>
+        <th scope="col"><span class="c-crit-label">Faktor</span></th>
+        <th scope="col" class="col-third"><span class="c-head">Cloud-gebunden</span><span class="c-sub">Tuya, Amazon Alexa, Google Assistant</span></th>
+        <th scope="col" class="col-eu"><span class="c-head">Lokal</span><span class="c-sub">Zigbee, Matter, KNX, Home Assistant</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-fragment="1">
+        <th scope="row"><span class="c-crit-label">Hersteller stellt Dienst ein</span></th>
+        <td class="col-third"><span class="verdict verdict--bad">Unbrauchbar.</span> Gerät wird unbrauchbar.</td>
+        <td class="col-eu"><span class="verdict verdict--ok">Läuft weiter.</span> Gerät funktioniert weiter.</td>
+      </tr>
+      <tr data-fragment="2">
+        <th scope="row"><span class="c-crit-label">Internet fällt aus</span></th>
+        <td class="col-third"><span class="verdict verdict--bad">Ausfall.</span> Steuerung fällt aus.</td>
+        <td class="col-eu"><span class="verdict verdict--ok">Läuft weiter.</span> Steuerung läuft weiter.</td>
+      </tr>
+      <tr data-fragment="3">
+        <th scope="row"><span class="c-crit-label">Investitionsschutz</span></th>
+        <td class="col-third">An die Lebensdauer eines Serverbetriebs gebunden.</td>
+        <td class="col-eu">An die Lebensdauer der Hardware gebunden.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="notes">Alternative zur Karten-Folie davor, gleiche drei Punkte als Tabelle: Faktoren links, Cloud-gebunden und Lokal als Spalten. Dienst eingestellt, Internet-Ausfall, Investitionsschutz.</div>
+</section>
+
+<section class="slide slide--center" data-transition="fade">
+  <p class="kicker">Für den Entscheider</p>
+  <h2>Bei KNX wird in Jahrzehnten gerechnet</h2>
+  <p class="lead">(siehe Folie 129: „hält jahrzehntelang“)</p>
+  <p class="lead" data-fragment="1">Bei einer Cloud-Plattform rechnet niemand in Jahrzehnten.</p>
+  <p class="lead" data-fragment="2">Wer eine Immobilie ausstattet, trifft damit keine Produkt-, sondern eine Zeithorizont-Entscheidung.</p>
+  <div class="notes">Schlusspunkt von Teil 4: Zeithorizont statt Produktwahl.</div>
+</section>
+
+    <!-- ===== part-05a ===== -->
+
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">TEIL 5</p>
+  <h1>Anbieter</h1>
+  <p class="lead">Drei Blöcke, bewusst getrennt: DSGVO-konform, verbreitet aber Cloud, Praxis-Screenshots.</p>
+  <div class="notes">Block A: deutsche Anbieter, Daten bleiben im EU-Rechtsraum. Block B: die Systeme, die faktisch im Einsatz sind. Block C: was im Betrieb tatsächlich zu sehen ist. Danach folgt Home Assistant als herstellerunabhängige Zentrale, die beide Welten zusammenführt.</div>
+</section>
+
+<section class="slide slide--center" data-transition="fade">
+  <h2 data-fragment="1" data-fragment-style="blur">Gibt es deutsche Anbieter?</h2>
+  <p class="lead" data-fragment="2">KLAR!</p>
+  <div class="notes">Kurze Pointe: Ja, es gibt deutsche Anbieter. Übergang zu Block A, dem DSGVO-konformen Teil.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Teil 5 · Block A · DSGVO-konform</p>
+  <h2>DSGVO-konform: der Vorteil</h2>
+  <figure class="seal">
+    <img src="images/img-047-018.png" alt="Rundes DSGVO-konform-Siegel mit zwölf gelben EU-Sternen auf dunkelblauem Ring.">
+  </figure>
+  <p class="seal-caption">Vorteil: Die Daten bleiben im Geltungsbereich der DSGVO.</p>
+  <div class="notes">Das Siegel steht für den Vorteil eines Anbieters im EU-Rechtsraum. Die nächste Folie sagt, was das praktisch heißt.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Teil 5 · Block A · DSGVO-konform</p>
+  <h2>Was der EU-Rechtsraum praktisch heißt</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Ansprechpartner</h3>
+      <p>Ein Ansprechpartner im Inland.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Betroffenenrechte</h3>
+      <p>Ein durchsetzbares Auskunfts- und Löschrecht.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Aufsicht</h3>
+      <p>Eine Aufsichtsbehörde, die zuständig ist.</p>
+    </div>
+  </div>
+  <div class="notes">Es entsteht kein Drittlandtransfer im Sinne der Art. 44 ff. DSGVO und damit keine Absicherungspflicht über Standardvertragsklauseln oder Angemessenheitsbeschluss (siehe Tabelle im Rechtsteil). Das ist abgeleitet aus dem Rechtsteil, keine zusätzliche Rechtsaussage.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Teil 5 · Block A · DSGVO-konform</p>
+  <h2>Deutsche Anbieter: AVM, tado° und Homematic IP</h2>
+  <div class="cols cols--3 trio">
+    <div class="card">
+      <h3>AVM FRITZ! Smart Home</h3>
+      <figure>
+        <img src="images/img-048-020.png" alt="Smartphone mit der FRITZ!-Smart-Home-App, die Raumkacheln und DECT-Steckdosen zeigt.">
+      </figure>
+    </div>
+    <div class="card">
+      <h3>tado°</h3>
+      <figure>
+        <img src="images/img-048-021.png" alt="Produktbild des tado°-Sets mit Bridge und Heizkörperthermostat-Kopf, markiert mit 6X.">
+      </figure>
+    </div>
+    <div class="card">
+      <h3>Homematic IP</h3>
+      <figure>
+        <img src="images/img-048-022.png" alt="Einfamilienhaus mit Beschriftungen Raumklima, Licht &amp; Schatten, Wetter &amp; Umwelt, Sicherheit &amp; Alarm.">
+      </figure>
+      <p>Raumklima, Licht &amp; Schatten, Wetter &amp; Umwelt, Sicherheit &amp; Alarm.</p>
+    </div>
+  </div>
+  <div class="notes">AVM: Smart-Home-System von AVM, erster von vier deutschen Anbietern, die kurz gezeigt werden. tado°: Bridge und Heizkörperthermostate; das Set auf dem Bild enthält sechs Thermostate. Zum tado° gibt es weiter hinten Screenshots aus dem Betrieb. Homematic IP: Das Bild zeigt, welche Funktionsbereiche abgedeckt sind.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Teil 5 · Block A · DSGVO-konform</p>
+  <h2>Deutsche Anbieter: homee und wibutler</h2>
+  <div class="cols">
+    <div class="card">
+      <figure class="center-fig logo-tile">
+        <img src="images/logo-white-homee.png" alt="Weißes homee-Logo mit Wolken-und-Dach-Symbol über dem Schriftzug homee.">
+      </figure>
+    </div>
+    <div class="card">
+      <figure class="center-fig logo-tile">
+        <img src="images/logo-white-wibutler.png" alt="Weißes wibutler-Logo mit stilisiertem Doppel-Dreieck-Symbol.">
+      </figure>
+    </div>
+  </div>
+  <p class="lead center">Einer der für uns wichtigsten deutschen Anbieter: wibutler.</p>
+  <div class="notes">Reines Markenlogo homee, der vierte deutsche Anbieter in dieser Übersicht. wibutler ist einer der für uns wichtigsten deutschen Anbieter. Als Nächstes: mit welchen Herstellern wibutler zusammenarbeitet.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Teil 5 · Block A · DSGVO-konform</p>
+  <h2>Partner von wibutler</h2>
+  <figure class="center-fig">
+    <img src="images/img-050-027.png" alt="Raster mit etwa 40 Herstellerlogos unter dem wibutler-Logo, darunter Daikin, Viessmann und Wilo.">
+  </figure>
+  <p class="center">Partnernetzwerk im Bereich Gebäudetechnik und Smart Home.</p>
+  <div class="notes">Erkennbar sind unter anderem Daikin, Busch-Jaeger, Grundfos, Kemper, Viessmann, Zehnder, Solvis, Tece und Wilo.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Teil 5 · Block A · DSGVO-konform</p>
+  <h2>Bosch Smart Home</h2>
+  <figure class="center-fig">
+    <img src="images/img-051-028.png" alt="App-Icon von Bosch Smart Home mit Haus-Piktogramm und BOSCH-Logo.">
+  </figure>
+  <p class="center">Deutscher Anbieter, aber cloud-gestützt. Entscheidend ist, in welchem Rechtsraum die Cloud betrieben wird.</p>
+  <div class="notes">Bosch Smart Home sendet laut dem Teil über Zentralen Daten oft in eine Cloud. Deutscher Anbieter und Cloud-Betrieb sind also keine Gegensätze. Das ist der Übergang zu Block B.</div>
+</section>
+
+<section class="slide slide--center" data-transition="fade">
+  <p class="kicker">Teil 5 · Block B</p>
+  <h2>Verbreitet, aber Cloud</h2>
+  <figure class="center-fig logo-sub logo-tile">
+    <img src="images/logo-white-wibutler.png" alt="Weißes wibutler-Logo mit stilisiertem Doppel-Dreieck-Symbol.">
+  </figure>
+  <div class="notes">Zwischenfolie zum Start von Block B. Das wibutler-Logo steht als Unterüberschrift für den Abschnitt; inhaltlich geht es ab hier um Cloud-Anbieter im Drittland.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Teil 5 · Block B · Verbreitet, aber Cloud</p>
+  <h2>Verbreitet, aber Cloud: die Spannung</h2>
+  <p>Xiaomi Home und Google Home sind genau der Fall aus Teil 4: keine deutschen Anbieter, keine lokale Steuerung, Betrieb über Konzern-Clouds außerhalb des deutschen Rechtsraums.</p>
+  <p><strong>Warum stehen sie dann im Vortrag?</strong> Weil sie real im Einsatz sind.</p>
+  <div class="notes">Teil 4 hat Cloud-Plattformen in Drittländern als Datenschutzproblem aufgebaut. Die Screenshots stammen aus einem laufenden Haushalt. Es wäre unredlich, in Teil 4 die Cloud zu problematisieren und zu verschweigen, dass die eigene Installation sie nutzt.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Teil 5 · Block B · Verbreitet, aber Cloud</p>
+  <h2>Was man bekommt und was es kostet</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Block A: DSGVO-konform</h3>
+      <ul>
+        <li>Einrichtung: aufwendiger, oft Fachbetrieb</li>
+        <li>Gerätepreis: höher</li>
+        <li>Daten: bleiben im EU-Rechtsraum</li>
+        <li>Ohne Internet: je nach System möglich</li>
+        <li>Lebensdauer: an die Hardware gebunden</li>
+      </ul>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Block B: Cloud, Drittland</h3>
+      <ul>
+        <li>Einrichtung: Plug-and-play, App-Login</li>
+        <li>Gerätepreis: sehr günstig, riesige Auswahl</li>
+        <li>Daten: verlassen den EU-Rechtsraum</li>
+        <li>Ohne Internet: fällt aus</li>
+        <li>Lebensdauer: an den Serverbetrieb gebunden</li>
+      </ul>
+    </div>
+  </div>
+  <div class="notes">Gegenüberstellung der beiden Welten. Zur Lebensdauer siehe die Folie zum Serverbetrieb in Teil 4.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Teil 5 · Block B · Verbreitet, aber Cloud</p>
+  <h2>Eine Abwägung, keine Richtig-Falsch-Frage</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Bewusst entschieden</h3>
+      <p>Cloud-Geräte sind möglich, etwa für unkritische Funktionen wie Stehlampen.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Alles in einer Cloud</h3>
+      <p>Wer Kamera, Türschloss und Anwesenheitsdaten in dieselbe Cloud legt, trifft eine andere Entscheidung, als er glaubt.</p>
+    </div>
+  </div>
+  <div class="notes">Das ist die ehrliche Antwort auf den Widerspruch. Teil 7 greift das als Entscheidungshilfe wieder auf.</div>
+</section>
+
+<section class="slide slide--media" data-transition="fade">
+  <figure>
+    <img src="images/img-052-032.png" alt="Startseite der Xiaomi-Home-App mit Reitern, Wetterkachel und Schaltern für Lampe, PC und Waschküche.">
+  </figure>
+  <div>
+    <p class="kicker">Teil 5 · Block B · Verbreitet, aber Cloud</p>
+    <h2>Xiaomi Home: Startseite</h2>
+    <p>Kachelansicht mit Wetter und Schaltern; aktive Schalter sind grün.</p>
+  </div>
+  <div class="notes">Screenshot aus dem laufenden Haushalt, oben ein Werbebanner.</div>
+</section>
+
+<section class="slide slide--media" data-transition="fade">
+  <figure>
+    <img src="images/img-052-033.png" alt="Geräteliste Winkelstraße mit Xiaomi Elektroroller 5 Max und Xiaomi Roboterstaubsauger.">
+  </figure>
+  <div>
+    <p class="kicker">Teil 5 · Block B · Verbreitet, aber Cloud</p>
+    <h2>Xiaomi Home: Geräteliste</h2>
+    <p>Xiaomi Elektroroller 5 Max und Xiaomi Roboterstaubsauger.</p>
+  </div>
+  <div class="notes">Unten die Navigation Xiaomi Home, Automatisierung, Store, Profil.</div>
+</section>
+
+<section class="slide slide--media" data-transition="fade">
+  <figure>
+    <img src="images/img-052-034.png" alt="Statusansicht des Roboterstaubsaugers X10+ mit farbiger Reinigungskarte der Wohnung.">
+  </figure>
+  <div>
+    <h2>Xiaomi Home: Roboterstaubsauger</h2>
+    <p>Die Karte zeigt einen vollständigen Grundriss der Wohnung. Das ist eine Datenart, die ein Cloud-Gerät nebenbei erzeugt.</p>
+  </div>
+  <div class="notes">Bezug zum Teil über Datenarten: Reinigungsfläche 33 m², Reinigungsdauer 44 Min. stehen oben im Bild. Der Grundriss ist das eigentlich Sensible.</div>
+</section>
+
+<section class="slide slide--media" data-transition="fade">
+  <figure>
+    <img src="images/img-053-035.png" alt="Dunkle Google-Home-Startseite mit Gerätekacheln für Büro, Makita und PC sowie offline markierten Geräten.">
+  </figure>
+  <div>
+    <p class="kicker">Teil 5 · Block B · Verbreitet, aber Cloud</p>
+    <h2>Google Home: Startseite</h2>
+    <p>Offline-Geräte sind grau und mit Warnsymbol markiert.</p>
+  </div>
+  <div class="notes">Navigation unten: Startseite, Aktivität, Automat.</div>
+</section>
+
+<section class="slide slide--media" data-transition="fade">
+  <figure>
+    <img src="images/img-053-036.png" alt="Klimaansicht mit Ofen-Regler, Ventilator, Keller Bad und Waschküche.">
+  </figure>
+  <div>
+    <p class="kicker">Teil 5 · Block B · Verbreitet, aber Cloud</p>
+    <h2>Google Home: Klima-Ansicht</h2>
+    <p>Ofen-Regler (Soll 18, Innen 21), Keller Bad 18,1 °C, Waschküche 15,9 °C.</p>
+  </div>
+  <div class="notes">Oben stehen 8 °C für Leopoldshöhe und ein Luftqualitätswert von 30 (AQI „Gut“).</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Teil 5 · Block C · Praxis-Screenshots</p>
+  <h2>Praxis-Screenshots aus dem Betrieb</h2>
+  <p class="lead">Oberflächen aus einer laufenden Installation, bewusst als eigener Block.</p>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Bosch-Heizungs-App</h3>
+      <p>Heizkreis, Zeitprogramm, Energiemonitoring, Anlagen-Monitoring eines Gas-Brennwertgeräts.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>tado°</h3>
+      <p>Raumtemperatur, Geofencing, Raumluft-Komfort, Strompreis.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Kamera</h3>
+      <p>Standbild einer Überwachungskamera am Hauseingang. Keine Zuordnung erkennbar.</p>
+    </div>
+  </div>
+  <div class="notes">Bewusst als eigener Block, weil sich im Original keine saubere Anbieterzuordnung aus den Folien ergibt. Bosch-Heizungs-App ist aus dem Bildinhalt abgeleitet; tado° ist im Titel benannt. Wichtig: Das Energiemonitoring ist die Datengrundlage, die für die Einsparungs-Aussage noch fehlt. Wer die Werte über zwei Heizperioden vergleicht, hat die fehlende Zahl.</div>
+</section>
+
+<section class="slide slide--media" data-transition="fade">
+  <figure class="phone-frame">
+    <img src="images/img-054-037.png" alt="Überblicksseite der Heizungs-App mit Außentemperatur 8 °C und Kacheln für Heizkreis, Warmwasser und Energiemonitoring.">
+  </figure>
+  <div>
+    <p class="kicker">Teil 5 · Block C · Praxis-Screenshots</p>
+    <h2>Heizkreis: Überblick</h2>
+    <p>Heizkreis (Status „Heizen“, Betriebsart Auto), Warmwasser 51 °, Energiemonitoring.</p>
+  </div>
+  <div class="notes">Außentemperatur 8 °C, Ort Leopoldshöhe. Die Kacheln zeigen die Geräteebenen der Wärmeerzeuger-Anlage.</div>
+</section>
+
+<section class="slide slide--media" data-transition="fade">
+  <figure class="phone-frame">
+    <img src="images/img-054-038.png" alt="Heizkreis-Detailansicht mit halbkreisförmigem Drehregler auf 21° und 24-Stunden-Zeitleiste.">
+  </figure>
+  <div>
+    <p class="kicker">Teil 5 · Block C · Praxis-Screenshots</p>
+    <h2>Heizkreis: Solltemperatur</h2>
+    <p>Solltemperatur 21°, Betriebsart Auto.</p>
+  </div>
+  <div class="notes">Die Zeitleiste zeigt Nacht- und Tagabschnitte über 24 Stunden.</div>
+</section>
+
+<section class="slide slide--media" data-transition="fade">
+  <figure class="phone-frame">
+    <img src="images/img-054-039.png" alt="Zeitprogramm B mit einer Zeile je Wochentag von Montag bis Sonntag, getrennt in Nacht und Tag.">
+  </figure>
+  <div>
+    <p class="kicker">Teil 5 · Block C · Praxis-Screenshots</p>
+    <h2>Heizkreis: Zeitprogramm B</h2>
+    <p>Eine Zeile je Wochentag, Nacht- und Tagabschnitt über 24 Stunden.</p>
+  </div>
+  <div class="notes">Samstag und Sonntag weichen im Nachtabschnitt ab.</div>
+</section>
+
+<section class="slide slide--media" data-transition="fade">
+  <figure class="phone-frame">
+    <img src="images/img-055-040.png" alt="Energiemonitoring mit Reiter Heute, Gesamtwert 38,9 kWh und vollständig gefülltem Ring für das Gas-Brennwertgerät.">
+  </figure>
+  <div>
+    <p class="kicker">Teil 5 · Block C · Praxis-Screenshots</p>
+    <h2>Energiemonitoring: Heute</h2>
+    <p>Heute: 38,9 kWh, 100 % Gas-Brennwertgerät.</p>
+  </div>
+  <div class="notes">Der Ring ist vollständig gefüllt, weil das Gas-Brennwertgerät den gesamten Wert trägt.</div>
+</section>
+
+<section class="slide slide--media" data-transition="fade">
+  <figure class="phone-frame">
+    <img src="images/img-055-041.png" alt="Energiemonitoring mit Reiter Diesen Monat und Gesamtwert 451,1 kWh.">
+  </figure>
+  <div>
+    <p class="kicker">Teil 5 · Block C · Praxis-Screenshots</p>
+    <h2>Energiemonitoring: Diesen Monat</h2>
+    <p>Diesen Monat: 451,1 kWh, 100 % Gas-Brennwertgerät.</p>
+  </div>
+  <div class="notes">Aufbau wie in der Tagesansicht.</div>
+</section>
+
+<section class="slide slide--media" data-transition="fade">
+  <figure class="phone-frame">
+    <img src="images/img-055-042.png" alt="Energiemonitoring mit Reiter Dieses Jahr und Gesamtwert 11311 kWh.">
+  </figure>
+  <div>
+    <p class="kicker">Teil 5 · Block C · Praxis-Screenshots</p>
+    <h2>Energiemonitoring: Dieses Jahr</h2>
+    <p>Dieses Jahr: 11311 kWh, 100 % Gas-Brennwertgerät.</p>
+  </div>
+  <div class="notes">Die Ansicht dient dem Vergleich der Zeiträume.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Teil 5 · Block C · Praxis-Screenshots</p>
+  <h2>Energiemonitoring: Jahresverlauf</h2>
+  <figure>
+    <img src="images/img-056-043.png" alt="Diagramm mit Gasverbrauch in kWh als Säulen von Januar bis Oktober 2026 und zwei Temperaturlinien.">
+  </figure>
+  <p>Gasverbrauch Januar bis Oktober 2026 mit Temperaturlinien.</p>
+  <div class="notes">Die Säulen fallen von Winter auf Sommer deutlich und steigen im Oktober wieder; im rechten Panel stehen die Oktober-Summe, die Außentemperatur von 11,9 °C und die Raumtemperatur. Die Werte im Diagramm sind grob abgelesen.</div>
+</section>
+
+<section class="slide slide--media" data-transition="fade">
+  <figure class="phone-frame">
+    <img src="images/img-057-045.png" alt="Menü Wärmeerzeuger mit den Gruppen Anlagen-Informationen, Konfigurationen und Geräteverwaltung.">
+  </figure>
+  <div>
+    <p class="kicker">Teil 5 · Block C · Praxis-Screenshots</p>
+    <h2>Wärmeerzeuger: Menü</h2>
+    <p>Gruppen: Anlagen-Informationen, Konfigurationen, Geräteverwaltung.</p>
+  </div>
+  <div class="notes">Anlagen-Monitoring und Konnektivitätsinformationen liegen unter Anlagen-Informationen. Der nächste Screenshot zeigt das Anlagen-Monitoring.</div>
+</section>
+
+<section class="slide slide--media" data-transition="fade">
+  <figure class="phone-frame">
+    <img src="images/img-057-046.png" alt="Liste Anlagen-Monitoring mit Messwerten wie Außentemperatur, Vorlauf, Rücklauf, Betriebsstunden und Anzahl der Starts.">
+  </figure>
+  <div>
+    <p class="kicker">Teil 5 · Block C · Praxis-Screenshots</p>
+    <h2>Anlagen-Monitoring: Messwerte</h2>
+    <p>Betriebsstunden 23829, Anzahl der Starts 348796.</p>
+  </div>
+  <div class="notes">Weitere Werte: Außentemperatur 8,9 °, Vorlauf 26,2 °, Rücklauf 28 °, Wunschtemperatur 21 °, Speichertemperatur 51,1 °.</div>
+</section>
+
+<section class="slide slide--media" data-transition="fade">
+  <figure class="phone-frame">
+    <img src="images/img-058-047.png" alt="tado°-Startseite mit Kacheln für Wohnzimmer, AI Assist, Raumluft-Komfort, HOME Geofencing, Energy IQ und Strompreis.">
+  </figure>
+  <div>
+    <p class="kicker">Teil 5 · Block C · Praxis-Screenshots</p>
+    <h2>tado°: Startseite</h2>
+    <p>Wohnzimmer 20,9 °, eingestellt auf 18 °, Luftfeuchte 57 %. Strompreis 19,9 ct.</p>
+  </div>
+  <div class="notes">Kacheln: AI Assist, Raumluft-Komfort, HOME Geofencing, Energy IQ.</div>
+</section>
+
+<section class="slide slide--media" data-transition="fade">
+  <figure class="phone-frame">
+    <img src="images/img-058-048.png" alt="Wohnzimmer-Detailansicht mit vertikalem Schieberegler, Ist-Temperatur 20,9 ° und Solltemperatur 18,0 °.">
+  </figure>
+  <div>
+    <p class="kicker">Teil 5 · Block C · Praxis-Screenshots</p>
+    <h2>tado°: Wohnzimmer-Regler</h2>
+    <p>Ist 20,9 °, Luftfeuchtigkeit 57 %, Soll 18,0 °.</p>
+  </div>
+  <div class="notes">Unten steht der Hinweis „Danach: 20,0° am 23. Okt., 07:00“.</div>
+</section>
+
+<section class="slide slide--media" data-transition="fade">
+  <figure class="phone-frame">
+    <img src="images/img-058-049.png" alt="Raumluft-Komfort-Ansicht mit Frischluft-Indikator und Kreisdiagramm mit den Achsen zu warm, trocken, feucht und kalt.">
+  </figure>
+  <div>
+    <p class="kicker">Teil 5 · Block C · Praxis-Screenshots</p>
+    <h2>tado°: Raumluft-Komfort</h2>
+    <p>Frischluft-Indikator: Raumluft mäßig. Wohnzimmer: ausgewogen.</p>
+  </div>
+  <div class="notes">Datenquelle des Frischluft-Indikators ist OpenWeather. Temperatur 20,0° und Luftfeuchtigkeit 57 %.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Teil 5 · Block C · Praxis-Screenshots</p>
+  <h2>Kamera Hauseingang</h2>
+  <figure>
+    <video src="video.mp4" poster="images/img-059-050.png" controls playsinline preload="metadata" aria-label="Video einer Überwachungskamera mit Blick auf einen Hauseingang mit zwei Türen und Backsteinwand."></video>
+  </figure>
+  <p>Videoaufnahme mit Zeitangabe 2025-05-21.</p>
+  <div class="notes">Keine Anbieterzuordnung erkennbar. Im Bild oben sind zwei dunkle Flugobjekte zu sehen, vermutlich Vögel.</div>
+</section>
+
+    <!-- ===== part-05b ===== -->
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Home Assistant</p>
+  <h2>Home Assistant</h2>
+  <figure>
+    <img src="images/img-060-051.png" alt="Werbebanner von Home Assistant mit weißem Logo auf hellblauem Muster aus Smart-Home-Symbolen.">
+  </figure>
+  <p>Viele Protokolle sprechen nicht miteinander – eine Software und ein Server vereinen die verschiedenen Dienste und Anbieter. Home Assistant ist dafür ein Beispiel.</p>
+  <div class="notes">Es gibt eine Fülle an Protokollen auf dem Markt, die nicht miteinander kommunizieren. Deshalb ist eine Software sinnvoll, die die Dienste und Anbieter vereint. Home Assistant ist dafür ein Beispiel.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Home Assistant</p>
+  <h2>Home Assistant: Dashboards &amp; Automationen</h2>
+  <ul>
+    <li data-fragment="1"><strong>Smarte Automationen:</strong> Komplexe Bedingungen (z.B. Zeit, Anwesenheit, Helligkeit) verknüpfen</li>
+    <li data-fragment="2"><strong>Individuelle Dashboards:</strong> Vollständig anpassbare Oberflächen für Handys, Tablets oder Wanddisplays</li>
+    <li data-fragment="3"><strong>Integriertes Energiedashboard:</strong> Live-Überwachung von Stromverbrauch, PV-Anlage und Gas</li>
+    <li data-fragment="4"><strong>Lokale Sprachsteuerung:</strong> Private Sprachassistenten ganz ohne Amazon oder Google Clouds</li>
+  </ul>
+  <div class="notes">Vier Stärken im Überblick: Automationen, Dashboards, Energiedashboard, lokale Sprachsteuerung. Die Dashboards zeigen wir gleich als Screenshots.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Home Assistant</p>
+  <h2>Home Assistant: Grundprinzipien</h2>
+  <ul>
+    <li data-fragment="1">Open-Source-Software für die Hausautomatisierung</li>
+    <li data-fragment="2"><strong>Lokaler Fokus:</strong> Läuft autark ohne zwingende Cloudanbindung</li>
+    <li data-fragment="3"><strong>Herstellerunabhängig:</strong> Vereint Zigbee, Matter, Z-Wave, WLAN &amp; Co.</li>
+    <li data-fragment="4"><strong>Hoher Datenschutz:</strong> Sensordaten und Kamerastreams bleiben im Haus</li>
+  </ul>
+  <div class="notes">Vier Grundprinzipien: Open Source, lokaler Fokus, Herstellerunabhängigkeit und Datenschutz. Als Nächstes: auf welcher Hardware das läuft.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Home Assistant</p>
+  <h2>Hardware für Home Assistant OS</h2>
+  <p class="lead">Home Assistant OS ist ein eigenständiges Linux Betriebssystem auf einem lokalen Server. Es hat nur geringe Anforderung an Hardware.</p>
+  <div class="cols cols--4">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Einplatinencomputer</h3>
+      <p>Sehr beliebt auf dem Raspberry Pi 4 oder 5.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Mini-PCs</h3>
+      <p>x86-Plattformen wie ein Intel NUC oder gebrauchte Office-PCs (Thin Clients), die mehr Leistung bieten.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Fertigsysteme</h3>
+      <p>Hauseigene Hardware wie der Home Assistant Green oder Yellow.</p>
+    </div>
+    <div class="card" data-fragment="4" data-fragment-style="grow">
+      <h3>Virtuelle Maschinen (VM)</h3>
+      <p>Für fortgeschrittene Nutzer läuft HAOS auch hervorragend als VM auf Server-Systemen wie Proxmox.</p>
+    </div>
+  </div>
+  <div class="notes">Vier Wege, Home Assistant OS zu betreiben: Einplatinencomputer, Mini-PC, Fertigsystem oder VM. Die Anforderungen an die Hardware sind gering. Zu Raspberry Pi und Proxmox gibt es gleich je ein Bild.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Hardware</p>
+  <h2>Einplatinencomputer: Raspberry Pi</h2>
+  <figure>
+    <img src="images/img-063-052.png" alt="Raspberry Pi als Einplatinencomputer mit Gehäuse, Netzteil und Kühlkörpern.">
+  </figure>
+  <div class="notes">Der Raspberry Pi ist die Einplatinencomputer-Option als Hardwarebasis für Home Assistant OS. Auf dem Bild: Platine, Netzteil, Kühlkörper und ein Gehäuse mit Lüfter.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Hardware</p>
+  <h2>Virtuelle Maschine auf Proxmox</h2>
+  <figure>
+    <img src="images/img-063-054.png" alt="Server-Umgebung mit Serverracks, NAS, Switch und Laptop mit Proxmox.">
+  </figure>
+  <div class="notes">Home Assistant OS läuft auch als virtuelle Maschine auf einem Server, hier mit Proxmox. Gedacht für fortgeschrittene Nutzer.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Home Assistant</p>
+  <h2>Unterschied zu anderen Varianten (z.B. Docker / Core)</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Docker (Home Assistant Container)</h3>
+      <p>Das Linux-Betriebssystem und alle Updates verwaltest du selbst über die Kommandozeile.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Home Assistant OS (HAOS)</h3>
+      <p>HAOS nimmt dir diese Arbeit komplett ab. Dafür ist das System „abgeriegelt“: Du kannst keine anderen, Smart-Home-fremden Programme installieren.</p>
+    </div>
+  </div>
+  <div class="notes">Docker bedeutet mehr Kontrolle, aber auch Betriebssystem und Updates selbst verwalten. HAOS ist bequemer, dafür geschlossen.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Home Assistant</p>
+  <h2>Home Assistant: Integrationen</h2>
+  <figure>
+    <img src="images/img-065-055.png" alt="Screenshot der Home-Assistant-Integrationsseite mit Kategorien und Logo-Raster.">
+  </figure>
+  <div class="notes">Die Integrationsseite zeigt die Herstellerunabhängigkeit der Plattform: Logos unterstützter Systeme wie Philips Hue, Shelly, Sonos, Matter, Z-Wave und Zigbee Home Automation.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Home Assistant</p>
+  <h2>Home Assistant: Dashboard</h2>
+  <figure>
+    <img src="images/img-066-056.png" alt="Screenshot eines Home-Assistant-Dashboards mit Beleuchtung, Thermostat und Medienkarten.">
+  </figure>
+  <div class="notes">Das Dashboard besteht aus frei gestaltbaren Karten, zum Beispiel für Beleuchtung, Thermostat, Sicherheit und Unterhaltung.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Home Assistant</p>
+  <h2>Home Assistant auf Smartphone und Smartwatch</h2>
+  <figure>
+    <img src="images/img-067-057.png" alt="Smartphone mit Home-Assistant-App neben einer Smartwatch auf einem Holztisch.">
+  </figure>
+  <div class="notes">Die Steuerung ist mobil auf Handy und Uhr möglich. Die App zeigt Kacheln für Licht, Temperaturen und Kamera-Vorschauen.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Home Assistant</p>
+  <h2>Home Assistant: Wanddisplay / Tablet-Dashboard</h2>
+  <figure>
+    <img src="images/img-068-058.png" alt="Tablet mit Home-Assistant-Dashboard für Wohnzimmer, Küche, Schlafzimmer und Nutzung.">
+  </figure>
+  <div class="notes">Ein fest installiertes Wanddisplay mit individuellen Räumen und Statusinformationen. Das Dashboard ist hier nach Räumen gegliedert.</div>
+</section>
+
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">Home Assistant</p>
+  <h2>Fazit Home Assistant</h2>
+  <p class="lead">Home Assistant bietet maximale Freiheit, absolute Datensicherheit und wächst flexibel mit jedem Projekt – vom Einsteiger bis zum Experten.</p>
+  <div class="notes">Das Fazit bezieht sich nur auf Home Assistant. Das Gesamt-Fazit des Vortrags folgt später auf Folie 176.</div>
+</section>
+
+    <!-- ===== part-06a ===== -->
+
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">TEIL 6 · WORKSHOP</p>
+  <h1>Workshop: drei Fälle</h1>
+  <p class="lead">Interaktiver Teil: drei Aufgaben, jede mit anschließender Auflösung.</p>
+  <div class="notes">Kapitelwechsel: Ab jetzt ist das Publikum gefragt. Drei Aufgaben, jeweils mit Auflösung im Anschluss.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">TEIL 6 · WORKSHOP</p>
+  <h2>Drei Fälle, absteigende Eingriffstiefe</h2>
+  <ol>
+    <li data-fragment="1"><strong>Neubau</strong> — Einfamilienhaus wird neu errichtet</li>
+    <li data-fragment="2"><strong>Kernsanierung</strong> — Einfamilienhaus Baujahr ~1960 wird saniert</li>
+    <li data-fragment="3"><strong>Mietwohnung</strong> — Eigentums- oder Mietwohnung wird nachgerüstet</li>
+  </ol>
+  <div class="notes">Reihenfolge nach absteigender Eingriffstiefe. Der Neubau kommt zuerst, weil er die Referenz ist: Die Sanierungs-Folien erklären jeden Punkt als Vergleich zum Neubau.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">WORKSHOP · RASTER</p>
+  <h2>Das Raster für alle drei Fälle</h2>
+  <p class="lead">Alle drei Fälle werden nach demselben Raster durchgegangen. So ist vergleichbar, was in welchem Fall möglich ist — und was nicht.</p>
+  <div class="cols cols--4">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>1. Infrastruktur</h3>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>2. Heizung, Lüftung &amp; Klima</h3>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>3. Beleuchtung &amp; Beschattung</h3>
+    </div>
+    <div class="card" data-fragment="4" data-fragment-style="grow">
+      <h3>4. Sicherheit &amp; Zutritt</h3>
+    </div>
+  </div>
+  <div class="notes">Dieses Raster wiederholt sich in jedem der drei Fälle. Die nächsten beiden Folien zeigen die Werte im Vergleich; sie sind aus den späteren Detailfolien abgeleitet.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">WORKSHOP · RASTER</p>
+  <h2>Raster im Vergleich: Infrastruktur, HVAC</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>1. Infrastruktur</h3>
+      <p><strong>Neubau:</strong> volle Freiheit: Bus, Sternverkabelung, Netzwerk</p>
+      <p><strong>Kernsanierung:</strong> möglich, aber Statik und Platz setzen Grenzen</p>
+      <p><strong>Mietwohnung:</strong> entfällt — kein Eingriff in die Bausubstanz</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>2. Heizung, Lüftung &amp; Klima</h3>
+      <p><strong>Neubau:</strong> kabelgebundene Einzelraumregelung</p>
+      <p><strong>Kernsanierung:</strong> kabelgebunden, sofern Bodenaufbau es zulässt</p>
+      <p><strong>Mietwohnung:</strong> Funk-Thermostate, zerstörungsfrei getauscht</p>
+    </div>
+  </div>
+  <div class="notes">Vergleich der ersten beiden Gewerke über alle drei Fälle. Die Details folgen in den Falllösungen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">WORKSHOP · RASTER</p>
+  <h2>Raster im Vergleich: Licht, Sicherheit</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>3. Beleuchtung &amp; Beschattung</h3>
+      <p><strong>Neubau:</strong> zentrale Dimm-Aktoren, Rollladenmotoren ab Werk</p>
+      <p><strong>Kernsanierung:</strong> nachrüstbar, Rollladenkästen oft zu eng</p>
+      <p><strong>Mietwohnung:</strong> Leuchtmittel, Zwischenstecker, geklebte Taster; Beschattung entfällt</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>4. Sicherheit &amp; Zutritt</h3>
+      <p><strong>Neubau:</strong> Motorschloss, Reed-Kontakte ab Werk, PoE-Kameras</p>
+      <p><strong>Kernsanierung:</strong> Motorschloss ja, Fensterkontakte schwierig</p>
+      <p><strong>Mietwohnung:</strong> Aufsatz-Türschloss, geklebte Sensoren; PoE-Kameras entfallen</p>
+    </div>
+  </div>
+  <div class="notes">Vergleich der letzten beiden Gewerke. Auffällig: In der Mietwohnung entfallen Beschattung und PoE-Kameras.</div>
+</section>
+
+<section class="slide slide--center" data-transition="fade" data-fragment-mode="dim-prior">
+  <p class="kicker">WORKSHOP · RASTER</p>
+  <h2>Eingriffstiefe</h2>
+  <ul>
+    <li data-fragment="1"><strong>Neubau</strong> = weißes Blatt</li>
+    <li data-fragment="2"><strong>Kernsanierung</strong> = bestehende Substanz</li>
+    <li data-fragment="3"><strong>Mietwohnung</strong> = nichts darf beschädigt werden</li>
+  </ul>
+  <div class="notes">Die Eingriffstiefe erklärt die Unterschiede im Raster. Übergang: Wir starten mit Fall 1, dem Neubau.</div>
+</section>
+
+<section class="slide slide--center" data-transition="rise" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · AUFGABE</p>
+  <h2>Ein Einfamilienhaus wird neu errichtet</h2>
+  <ol>
+    <li data-fragment="1">Welche Ausstattung ist möglich?</li>
+    <li data-fragment="2">Welcher Übertragungsweg?</li>
+    <li data-fragment="3">Welche Smarthome Komponenten machen in euren Augen Sinn?</li>
+  </ol>
+  <div class="notes">Hier ist das Publikum dran: Fragen einzeln einblenden, antworten lassen, Ideen sammeln. Die Lösung steht erst auf den Folgefolien.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Ausgangslage: das weiße Blatt Papier</h2>
+  <ul>
+    <li data-fragment="1">Keine bestehende Substanz, keine Statik-Rücksicht, keine Raumhöhen-Begrenzung, kein Vermieter</li>
+    <li data-fragment="2">Neubau ist der Referenzfall: alles möglich, was technisch sinnvoll ist</li>
+    <li data-fragment="3">Kernsanierung und Mietwohnung sind Einschränkungen gegenüber diesem Idealfall</li>
+  </ul>
+  <div class="notes">Der Neubau ist die Referenz, an der die beiden folgenden Fälle gemessen werden. Übergang: Welcher Übertragungsweg liegt nahe?</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Übertragungsweg: kabelgebunden</h2>
+  <ul>
+    <li data-fragment="1">Bus-System (KNX oder Loxone) ist die naheliegende Wahl</li>
+    <li data-fragment="2">Die Wände sind ohnehin offen</li>
+    <li data-fragment="3">Nächste Folien: Infrastruktur → HVAC → Beleuchtung &amp; Beschattung → Sicherheit &amp; Zutritt</li>
+  </ul>
+  <div class="notes">Verweis auf die frühere Folie: Bus-Systeme sind ideal für Neubau und Kernsanierung. Jetzt geht es Gewerk für Gewerk durch das Raster.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Infrastruktur (Das Fundament)</h2>
+  <ul>
+    <li data-fragment="1"><strong>Bus-System (KNX oder Loxone):</strong> grüne KNX-Busleitungen zu allen Schaltern, Sensoren, Präsenzmeldern</li>
+    <li data-fragment="2">Weltweiter Standard: extrem stabil, autark vom Internet, hält jahrzehntelang</li>
+    <li data-fragment="3"><strong>Sternverkabelung:</strong> Lichtauslässe, Steckdosen und Rollladenmotoren direkt in den zentralen Schaltschrank</li>
+    <li data-fragment="4"><strong>Tiefe Unterputzdosen:</strong> überall tiefe Elektronikdosen (z.B. von Kaiser) für spätere Aktoren oder smarte Klemmen</li>
+  </ul>
+  <div class="notes">Alle Leitungen laufen sternförmig im Schaltschrank zusammen. Tiefe Dosen halten die Nachrüstung von Aktoren oder smarten Klemmen offen.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Infrastruktur: Netzwerk (Forts.)</h2>
+  <ul>
+    <li data-fragment="1">In jedes Zimmer mindestens zwei Cat.7 oder Cat.8 Netzwerkkabel</li>
+    <li data-fragment="2">Kabelauslässe an den Decken für zentrale WLAN-Access-Points (PoE) einplanen</li>
+    <li data-fragment="3">Ziel: perfekter Empfang im ganzen Haus</li>
+  </ul>
+  <div class="notes">Netzwerk-Infrastruktur gehört von Anfang an in die Planung, auch die Deckenauslässe für die Access-Points.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Infrastruktur: Statik und Schaltschrank (Forts.)</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Statik, Wände und Schlitze klopfen</h3>
+      <p>Der Architekt plant Schlitze und Durchbrüche direkt im Beton oder Mauerwerk ein. Kabeltrassen laufen über den Rohboden, bevor der Estrich gegossen wird; es gibt keine Einschränkungen bei Schaltern oder Displays.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Platz für den Schaltschrank</h3>
+      <p>Der Hausanschlussraum wird von Anfang an groß genug geplant. Ein smarter Schaltschrank ist oft doppelt oder dreimal so groß wie ein Standard-Zählerkasten, da alle Aktoren und Netzteile dort Platz finden müssen.</p>
+    </div>
+  </div>
+  <div class="notes">Im Neubau gibt es hier keine Einschränkungen. In der Kernsanierung werden diese beiden Punkte zu den Knackpunkten.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Heizung, Lüftung &amp; Klima (HVAC)</h2>
+  <ul>
+    <li data-fragment="1"><strong>Smarte Heizungsaktoren:</strong> Einzelraumregelung ist Pflicht</li>
+    <li data-fragment="2">Kabelgebundene Stellventile im Heizkreisverteiler arbeiten präziser als Funk-Thermostate</li>
+    <li data-fragment="3"><strong>Raumklimasensoren:</strong> dezente Taster mit Temperatur- und Luftfeuchtigkeitssensoren statt klobiger Thermostate</li>
+    <li data-fragment="4"><strong>Schnittstelle zur Wärmepumpe / Lüftungsanlage:</strong> Modbus, LAN oder SG-Ready-Kontakte</li>
+    <li data-fragment="5">So wird PV-Strom optimal genutzt</li>
+  </ul>
+  <div class="notes">Stellventile werden zentral über Smart-Home-Aktoren gesteuert. Auf die Schnittstelle der neuen Heizung achten.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>HVAC: Fußbodenaufbau und Heizung (Forts.)</h2>
+  <ul>
+    <li data-fragment="1">Fußbodenaufbau (Dämmung + Estrich) ist hoch genug, meist 14–16 cm</li>
+    <li data-fragment="2">Kabel und Rohre der Fußbodenheizung haben nebeneinander perfekt Platz</li>
+  </ul>
+  <div class="notes">Im Neubau passen Kabel und Heizungsrohre problemlos in den Bodenaufbau. In der Kernsanierung ist das die Grenze.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Beleuchtung &amp; Beschattung</h2>
+  <ul>
+    <li data-fragment="1"><strong>Zentrale Dimm-Aktoren:</strong> 24V-LED-Beleuchtung (DALI oder KNX), dimmbar und flackerfrei</li>
+    <li data-fragment="2">Netzteile sitzen im Schaltschrank, nicht in der Decke</li>
+    <li data-fragment="3"><strong>Rollladen- / Jalousiemotoren:</strong> einfache, robuste 230V-Motoren ohne eigenen Funk</li>
+    <li data-fragment="4">Intelligenz im Schaltschrank: Steuerung nach Sonnenstand, Raumtemperatur und Windwächter</li>
+  </ul>
+  <div class="notes">Die Intelligenz sitzt zentral im Schaltschrank, nicht im Motor. So ist die Beschattung vollautomatisch steuerbar.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Beleuchtung &amp; Beschattung (Forts.)</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Präsenzmelder statt Bewegungsmelder</h3>
+      <p>In Durchgangsräumen (Flur, Bad, Küche, Abstellraum) echte Präsenzmelder an der Decke einplanen. Sie erkennen auch, wenn du still am Schreibtisch sitzt oder in der Badewanne liegst, und machen klassische Lichtschalter fast überflüssig.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Fenster und Verschattung</h3>
+      <p>Fensterkontakte (Reed-Kontakte) und die Stromzuleitungen für Raffstores/Rollläden werden direkt ab Werk in die Maße der Rohbauöffnungen integriert.</p>
+    </div>
+  </div>
+  <div class="notes">Die Fensterkontakte gehören funktional zu Sicherheit &amp; Zutritt, werden aber im selben Arbeitsgang mit der Verschattung bestellt und stehen deshalb hier.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Sicherheit &amp; Zutritt</h2>
+  <ul>
+    <li data-fragment="1"><strong>Motorschloss:</strong> kabelgebunden (z.B. von Fuhr oder KFV) direkt in die Haustür einbauen</li>
+    <li data-fragment="2">Mit Fingerprint-Reader oder Keypad schlüssellos und sicher öffnen</li>
+    <li data-fragment="3"><strong>Fensterkontakte:</strong> neue Fenster ab Werk mit kabelgebundenen Reed-Kontakten im Rahmen bestellen</li>
+    <li data-fragment="4">Status offen, gekippt, verriegelt — essenziell für Alarmanlage und Heizungsabschaltung beim Lüften</li>
+  </ul>
+  <div class="notes">Tür und Fenster: Das Schloss und die Reed-Kontakte werden von Anfang an kabelgebunden eingeplant.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Sicherheit &amp; Zutritt: Kameras (Forts.)</h2>
+  <ul>
+    <li data-fragment="1">PoE-Kabel (Power over Ethernet) an den Hausecken einplanen</li>
+    <li data-fragment="2">Kabelgebundene Kameras sind absolut manipulationssicher</li>
+    <li data-fragment="3">Sie benötigen keine Batterien</li>
+  </ul>
+  <div class="notes">Letztes Gewerk im Raster. Übergang: Drei Planungs-Tipps, die über alle Gewerke hinweg gelten.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">FALL 1 · NEUBAU</p>
+  <h2>Wichtige Planungs-Tipps für die Praxis</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>1. Gewerkeübergreifend denken</h3>
+      <p>Lass den Elektriker und den Heizungsbauer nicht isoliert arbeiten. Die Heizung muss wissen, was die Verschattung tut, und das Licht muss mit den Präsenzmeldern harmonieren.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>2. Der „Alles-Aus“-Schalter</h3>
+      <p>Plane neben der Haustür und dem Ehebett einen Taster ein, der mit einem Klick das gesamte Licht im Haus ausschaltet, die Heizung absenkt und die Beschattung in den Nachtmodus versetzt.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>3. Leerrohre, Leerrohre, Leerrohre</h3>
+      <p>Man kann nie genug haben. Vor allem zum Dachboden (für spätere PV-Anlagen) und in den Garten/Garage (für Wallboxen und Außenbeleuchtung).</p>
+    </div>
+  </div>
+  <div class="notes">Diese drei Tipps gelten für die Kernsanierung genauso. Dort wiegt Tipp 3 doppelt: Jedes Leerrohr, das jetzt nicht gelegt wird, bedeutet später wieder aufgeschlitzte Wände.</div>
+</section>
+
+<section class="slide slide--center" data-transition="rise" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 2 · AUFGABE</p>
+  <h2>Einfamilienhaus Baujahr ~1960 wird saniert</h2>
+  <ol>
+    <li data-fragment="1">Welche Nachrüstung ist möglich?</li>
+    <li data-fragment="2">Welcher Übertragungsweg?</li>
+    <li data-fragment="3">Welche Smarthome Komponenten machen in euren Augen Sinn?</li>
+  </ol>
+  <div class="notes">Hier ist das Publikum dran: Fragen einzeln einblenden, antworten lassen, Ideen sammeln. Die Lösung folgt auf den nächsten Folien.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 2 · KERNSANIERUNG</p>
+  <h2>Kernsanierung als Chance</h2>
+  <ul>
+    <li data-fragment="1">Einmalige Chance: Komponenten direkt unter Putz verlegen</li>
+    <li data-fragment="2">Kabelgebundene, zukunftssichere Basis</li>
+    <li data-fragment="3">Spart später teure Batteriewechsel</li>
+    <li data-fragment="4">Verhindert Funklöcher</li>
+    <li data-fragment="5">Steigert den Wiederverkaufswert der Immobilie massiv</li>
+  </ul>
+  <div class="notes">Die Gewerke-Übersicht für die Kernsanierung steht bereits auf den Neubau-Folien und gilt unverändert, weil beide Fälle ein kabelgebundenes System erlauben. Danach zeigen wir nur noch, wo die Kernsanierung vom Neubau abweicht.</div>
+</section>
+
+<section class="slide slide--center" data-transition="rise">
+  <p class="kicker">FRAGE · SANIERUNG VS. NEUBAU</p>
+  <h2>Unterscheidet sich die Planung: Sanierung gegenüber Neubau?</h2>
+  <div class="notes">Hier ist das Publikum dran: Meinungen einsammeln, bevor die Antwort kommt.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">ANTWORT · SANIERUNG VS. NEUBAU</p>
+  <h2>Ja, die Planung unterscheidet sich</h2>
+  <p class="lead">In einigen wesentlichen Punkten, obwohl beide Projekte die Chance auf ein kabelgebundenes System (wie KNX oder Loxone) bieten.</p>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Neubau</h3>
+      <p>Du planst auf einem weißen Blatt Papier.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Kernsanierung</h3>
+      <p>Du musst immer mit der bestehenden Substanz klar kommen.</p>
+    </div>
+  </div>
+  <div class="notes">Auflösung der Frage. Die folgenden Folien gehen Gewerk für Gewerk durch, wo die Kernsanierung vom Neubau abweicht.</div>
+</section>
+
+    <!-- ===== part-06b ===== -->
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 2 · KERNSANIERUNG</p>
+  <h2>Infrastruktur: Statik, Wände und Schlitze klopfen</h2>
+  <ul>
+    <li data-fragment="1">Statik setzt Grenzen: tragende Wände und alte Betondecken nicht unbegrenzt horizontal aufschlitzen</li>
+    <li data-fragment="2">Dicke Kabelbündel lassen sich so oft nicht verlegen</li>
+    <li data-fragment="3">Ausweichen auf Abhängdecken (Trockenbau) oder Vorsatzschalen für Busleitungen und Sternverkabelung</li>
+    <li data-fragment="4">Neubau (Folie 129): Schlitze und Durchbrüche von Anfang an eingeplant</li>
+    <li data-fragment="5">Kabeltrassen über den Rohboden, keine Einschränkung bei der Platzierung von Schaltern</li>
+  </ul>
+  <div class="notes">In der Kernsanierung setzt die Statik die Grenze fürs Schlitzen. Zum Vergleich der Neubau von Folie 129, wo der Architekt Schlitze und Durchbrüche von Anfang an einplant.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 2 · KERNSANIERUNG</p>
+  <h2>Infrastruktur: Platz für den Schaltschrank („Gehirn-Raum“)</h2>
+  <ul>
+    <li data-fragment="1"><strong>Platzmangel ist das größte Problem</strong></li>
+    <li data-fragment="2">Neuer, riesiger Schaltschrank muss oft in engen Kellerflur oder Nische</li>
+    <li data-fragment="3">Extrem präzise Platzplanung im Vorfeld nötig</li>
+    <li data-fragment="4">Manchmal Aktoren dezentral in tiefe Elektronikdosen in die Räume auslagern</li>
+    <li data-fragment="5">Neubau (Folie 129): Hausanschlussraum von Anfang an groß genug geplant</li>
+  </ul>
+  <div class="notes">Im Neubau ist der Hausanschlussraum groß genug für alle Aktoren und Netzteile. In der Kernsanierung entscheidet die Platzplanung vorab.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 2 · KERNSANIERUNG</p>
+  <h2>HVAC: Fußbodenaufbau und Heizung</h2>
+  <ul>
+    <li data-fragment="1">Raumhöhe oft begrenzt, alter Estrich nicht beliebig dick ersetzbar</li>
+    <li data-fragment="2">Bei nachträglicher Fußbodenheizung oder Dünnbettsystem: <strong>kein Platz auf dem Boden für Smart-Home-Kabel</strong></li>
+    <li data-fragment="3">Kabel müssen komplett über Decke oder Wände umgeleitet werden</li>
+    <li data-fragment="4">Neubau (Folie 132): Fußbodenaufbau meist 14–16 cm hoch, Kabel und Heizungsrohre nebeneinander</li>
+  </ul>
+  <div class="notes">Die Fußbodenheizung wird nachträglich eingefräst oder als Dünnbettsystem genutzt. Dann bleibt für Kabel nur der Weg über Decke oder Wände.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 2 · KERNSANIERUNG</p>
+  <h2>Beleuchtung &amp; Beschattung: Fenster und Verschattung</h2>
+  <ul>
+    <li data-fragment="1">Alte Fensterstürze (oft massiver Beton) bleiben erhalten</li>
+    <li data-fragment="2">Dann extrem wenig Platz für elektrische Rollladenkästen</li>
+    <li data-fragment="3">Kabel für Fensterkontakte nachträglich in bestehende Rahmen einbohren</li>
+    <li data-fragment="4">Erfordert chirurgische Präzision, damit die Dichtigkeit nicht leidet</li>
+    <li data-fragment="5">Neubau (Folie 134): Reed-Kontakte und Stromzuleitungen für Raffstores/Rollläden ab Werk integriert</li>
+  </ul>
+  <div class="notes">Im Neubau werden Reed-Kontakte und Zuleitungen ab Werk in die Maße der Rohbauöffnungen integriert. In der Kernsanierung geht das nur mit Präzisionsarbeit am Bestand.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 2 · KERNSANIERUNG</p>
+  <h2>Sicherheit &amp; Zutritt</h2>
+  <ul>
+    <li data-fragment="1">Motorschloss in der Haustür: unverändert möglich wie im Neubau (Folie 136)</li>
+    <li data-fragment="2">Fensterkontakte: nur unproblematisch, wenn auch die Fenster neu bestellt werden</li>
+    <li data-fragment="3">Bleiben die alten Rahmen, gilt die Einschränkung von Folie 146</li>
+    <li data-fragment="4">PoE-Kameras an Hausecken: möglich, wenn Weg für Kabelführung nach außen existiert</li>
+    <li data-fragment="5">Präsenzmelder an der Decke: nur mit abgehängter Decke oder Vorsatzschale wirtschaftlich</li>
+  </ul>
+  <div class="notes">Diese Folie ist abgeleitet, nicht aus dem Original übernommen; sie schließt die Lücke im Raster für alle drei Fälle. Die Haustür wird bei einer Kernsanierung in der Regel ohnehin ersetzt; als Kabelwege nach außen kommen Leerrohr, Durchbruch oder Fassadendämmung im gleichen Zug in Frage; Präsenzmelder siehe Folie 143.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">FALL 2 · KERNSANIERUNG</p>
+  <h2>Hybrid-Lösung: Der Geheimtipp für die Kernsanierung</h2>
+  <p>Schlitzen ist bei einer Sanierung extrem aufwendig und teuer, deshalb planen viele Sanierer ein <strong>Hybrid-System</strong>.</p>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Kabel (Bus)</h3>
+      <p>Für die kritischen, unbeweglichen Infrastrukturen: Schaltschrank, Heizungsventile, Rollladenmotoren und Decken-Präsenzmelder.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Funk</h3>
+      <p>Z.B. KNX-RF oder Homematic IP wired/funk kombiniert für die Lichtschalter an den Wänden. Kein vertikales Aufschlitzen mehr, stattdessen flache Funktaster aufkleben.</p>
+    </div>
+  </div>
+  <div class="notes">Kabel dort, wo es nicht anders geht, Funk für die Wandschalter. Damit spart man sich das Aufschlitzen der Wand zu jedem einzelnen Lichtschalter.</div>
+</section>
+
+<section class="slide slide--center" data-transition="fade">
+  <p class="kicker">FALL 3 · AUFGABE</p>
+  <h2>Aufgabe: Eine Eigentums- oder Mietwohnung wird nachgerüstet</h2>
+  <p class="lead" data-fragment="1">1. Welche Nachrüstung ist möglich?</p>
+  <p class="lead" data-fragment="2">2. Welcher Übertragungsweg?</p>
+  <p class="lead" data-fragment="3">3. Welche Smarthome Komponenten machen in euren Augen Sinn?</p>
+  <div class="notes">Aufgabenfolie: Hier ist das Publikum dran, keine Lösung vorwegnehmen. Fragen nacheinander einblenden und Antworten sammeln, bevor es mit der Mietwohnung weitergeht.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 3 · MIETWOHNUNG</p>
+  <h2>Mietwohnung: Ausgangslage</h2>
+  <ul>
+    <li data-fragment="1">Kabelgebundene Systeme wie KNX oder Loxone sind komplett vom Tisch</li>
+    <li data-fragment="2">Funk-Smart-Home ist hier der perfekte Weg</li>
+    <li data-fragment="3">Alles wird geklebt, gesteckt oder zerstörungsfrei ausgetauscht</li>
+    <li data-fragment="4">Beim Auszug nimmst du alles rückstandslos mit ins neue Zuhause</li>
+    <li data-fragment="5">Die folgenden Optionen machen am meisten Sinn, ohne Ärger mit dem Vermieter</li>
+  </ul>
+  <div class="notes">Titel der Folie ist ergänzt, im Original gab es keine Überschrift. Übergang zu den Gewerken in der Mietwohnung, beginnend mit dem Funksystem.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">FALL 3 · MIETWOHNUNG</p>
+  <h2>Infrastruktur: Das passende Funksystem wählen</h2>
+  <p>Setze auf etablierte Funkstandards, damit du herstellerunabhängig bleiben kannst.</p>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Matter &amp; Thread</h3>
+      <p>Der neueste, zukunftssicherste Standard. Geräte verschiedener Marken (Apple, Google, Amazon, Eve etc.) arbeiten direkt und extrem schnell zusammen.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Zigbee</h3>
+      <p>Der absolute Klassiker für smarte Beleuchtung und Sensoren (z.B. Philips Hue, IKEA Dirigera, Aqara). Extrem energiesparend, baut ein stabiles „Mesh-Netzwerk“ von Gerät zu Gerät auf.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Homematic IP / Bosch Smart Home</h3>
+      <p>Eigenständige Funksysteme, die ein eigenes Frequenzband nutzen. Extrem zuverlässig für Heizung und Sicherheit.</p>
+    </div>
+  </div>
+  <div class="notes">Drei etablierte Funkstandards zur Auswahl. Die nächste Folie zeigt, was in der Mietwohnung gegenüber Neubau und Sanierung entfällt.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 3 · MIETWOHNUNG</p>
+  <h2>Infrastruktur: Was entfällt</h2>
+  <ul>
+    <li data-fragment="1">Bus-System (KNX/Loxone)</li>
+    <li data-fragment="2">Sternverkabelung in den Schaltschrank</li>
+    <li data-fragment="3">Tiefe Unterputzdosen</li>
+    <li data-fragment="4">Verlegte Netzwerkkabel</li>
+    <li data-fragment="5">PoE-Access-Points in der Decke</li>
+  </ul>
+  <p>Jeder dieser Punkte erfordert einen Eingriff in die Bausubstanz und ist in der Mietwohnung nicht möglich. Das Funksystem <strong>ist</strong> hier die Infrastruktur.</p>
+  <div class="notes">Entfällt gegenüber Neubau und Sanierung. Entscheidend: Das Funksystem von der vorigen Folie ersetzt die gesamte Infrastruktur.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 3 · MIETWOHNUNG</p>
+  <h2>Heizung &amp; Klima</h2>
+  <ul>
+    <li data-fragment="1"><strong>Smarte Heizkörperthermostate:</strong> bringen in Mietwohnungen oft die größte Ersparnis</li>
+    <li data-fragment="2">Altes Thermostat per Hand (oder Rohrzange) ab-, neues anschrauben</li>
+    <li data-fragment="3">Z.B. Eve Thermo, Homematic IP oder tado°</li>
+    <li data-fragment="4"><strong>Wichtig:</strong> Die alten Thermostate unbedingt aufbewahren</li>
+  </ul>
+  <div class="notes">Die größte Ersparnis in der Mietwohnung kommt aus smarten Heizkörperthermostaten. Alte Thermostate fürs Zurückbauen beim Auszug aufheben.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 3 · MIETWOHNUNG</p>
+  <h2>Heizung &amp; Klima: Was entfällt</h2>
+  <ul>
+    <li data-fragment="1">Kabelgebundene Stellventile im Heizkreisverteiler</li>
+    <li data-fragment="2">Zentrale Heizungsaktoren im Schaltschrank</li>
+    <li data-fragment="3">Taster mit integrierten Raumklimasensoren</li>
+    <li data-fragment="4">Schnittstelle zur Wärmepumpe oder Lüftungsanlage (Modbus / SG-Ready)</li>
+    <li data-fragment="5">Alles setzt Zugriff auf Anlagentechnik voraus, die nicht dem Bewohner gehört</li>
+  </ul>
+  <p>Funk-Thermostate arbeiten laut Folie 132 weniger präzise als kabelgebundene Stellventile: der Preis der Rückbaubarkeit.</p>
+  <div class="notes">Alles Entfallende setzt Zugriff auf die Anlagentechnik voraus. Die geringere Präzision der Funk-Thermostate ist der Preis der Rückbaubarkeit.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">FALL 3 · MIETWOHNUNG</p>
+  <h2>Beleuchtung &amp; Strom</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Smarte Leuchtmittel (Plug &amp; Play)</h3>
+      <p>Vorhandene Glühbirnen gegen smarte LEDs tauschen (z.B. Philips Hue oder IKEA Tradfri). Alte Leuchtmittel für den Auszug aufbewahren.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Smarte Zwischenstecker (Plugs)</h3>
+      <p>Machen Stehlampen, Kaffeemaschinen oder Ventilator fit fürs Smart Home. Einfach in die Steckdose stecken.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Smarte Schalter zum Überkleben</h3>
+      <p>Halterungen oder flache Funktaster (z.B. von Hue oder Senic) über oder neben die alten Schalter kleben. So schaltet niemand smarte Lampen stromlos und offline.</p>
+    </div>
+  </div>
+  <div class="notes">Drei Bausteine für Licht und Strom ohne Eingriff in die Wohnung. Der geklebte Schalter verhindert, dass jemand den physischen Lichtschalter ausschaltet und die smarten Lampen offline gehen.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 3 · MIETWOHNUNG</p>
+  <h2>Beleuchtung &amp; Strom: Was entfällt</h2>
+  <ul>
+    <li data-fragment="1">Die gesamte <strong>Beschattung</strong>: Rollladen- und Jalousiemotoren, Windwächter, Sonnenstands-Automatik</li>
+    <li data-fragment="2">Beschattung gehört zum Gebäude, nicht zur Wohnung: Gewerk entfällt vollständig</li>
+    <li data-fragment="3">Zentrale Dimm-Aktoren im Schaltschrank, 24V-DALI/KNX-Beleuchtung</li>
+    <li data-fragment="4">Decken-Präsenzmelder (Bohren in die Decke, Stromzuführung)</li>
+    <li data-fragment="5">Ersatz: freistehende oder geklebte Funk-Bewegungsmelder</li>
+  </ul>
+  <p>Einschränkung (Folie 134): Bewegungsmelder erkennen stillsitzende Personen nicht.</p>
+  <div class="notes">Die Beschattung entfällt als Gewerk komplett. Für Präsenzmelder gibt es nur den Ersatz durch Funk-Bewegungsmelder, mit der bekannten Einschränkung.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 3 · MIETWOHNUNG</p>
+  <h2>Zutritt &amp; Sicherheit</h2>
+  <ul>
+    <li data-fragment="1"><strong>Smarte Türschlösser (Nachrüst-Sets):</strong> Nuki Smart Lock oder Yale Linus</li>
+    <li data-fragment="2">Von innen auf den bestehenden Schließzylinder aufgesetzt, oft nur geklemmt oder geklebt</li>
+    <li data-fragment="3">Von außen sieht man nichts, der Schlüssel funktioniert weiter, kein Schloss tauschen</li>
+    <li data-fragment="4"><strong>Geklebte Sensoren:</strong> Fenster- und Türkontakte sowie Bewegungsmelder (Aqara, Eve)</li>
+    <li data-fragment="5">Winzig und mit spurlos ablösbaren Klebestreifen befestigt</li>
+  </ul>
+  <div class="notes">Titel aus dem Original übernommen, vierte Position im Gewerke-Raster. Nachrüst-Schloss und geklebte Sensoren hinterlassen keine Spuren.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">FALL 3 · MIETWOHNUNG</p>
+  <h2>Zutritt &amp; Sicherheit: Was entfällt</h2>
+  <ul>
+    <li data-fragment="1">Kabelgebundenes Motorschloss in der Haustür (Folie 136)</li>
+    <li data-fragment="2">Wohnungstür darf nicht umgebaut werden, Haustür gehört allen Mietern</li>
+    <li data-fragment="3">Reed-Kontakte ab Werk im Fensterrahmen</li>
+    <li data-fragment="4">PoE-Überwachungskameras an den Hausecken</li>
+    <li data-fragment="5">Außenkameras erfassen Gemeinschaftsflächen und Nachbarn: kein Alleingang des Mieters</li>
+  </ul>
+  <p>Vorher mit Vermieter und Hausgemeinschaft klären, was zulässig ist.</p>
+  <div class="notes">Hier ist vorher mit Vermieter und Hausgemeinschaft zu klären, was zulässig ist. Außenkameras sind in einem Mehrparteienhaus kein Alleingang des Mieters.</div>
+</section>
+
+<section class="slide" data-transition="rise">
+  <p class="kicker">FALL 3 · MIETWOHNUNG</p>
+  <h2>Was entfällt: die ehrliche Bilanz</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Infrastruktur</h3>
+      <p>Bus-System, Sternverkabelung, Schaltschrank, verlegtes Netzwerk, PoE-Access-Points</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Heizung &amp; Klima</h3>
+      <p>Kabelgebundene Stellventile, zentrale Aktoren, Anlagen-Schnittstellen (Modbus/SG-Ready)</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Beleuchtung &amp; Strom</h3>
+      <p><strong>Beschattung komplett</strong>, zentrale Dimm-Aktoren, 24V-DALI/KNX, Decken-Präsenzmelder</p>
+    </div>
+    <div class="card" data-fragment="4" data-fragment-style="grow">
+      <h3>Zutritt &amp; Sicherheit</h3>
+      <p>Motorschloss, Reed-Kontakte ab Werk, PoE-Außenkameras</p>
+    </div>
+  </div>
+  <div class="notes">Die ehrliche Bilanz: Pro Gewerk steht, was in der Mietwohnung wegfällt. Nicht beschönigen, besonders die Beschattung entfällt komplett.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">FALL 3 · MIETWOHNUNG</p>
+  <h2>Was in der Mietwohnung möglich ist</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Infrastruktur</h3>
+      <p>Funkstandard als Infrastruktur: Matter/Thread, Zigbee, Homematic IP</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Heizung &amp; Klima</h3>
+      <p>Funk-Heizkörperthermostate (alte aufbewahren!)</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Beleuchtung &amp; Strom</h3>
+      <p>Smarte Leuchtmittel, Zwischenstecker, geklebte Funktaster, geklebte Bewegungsmelder</p>
+    </div>
+    <div class="card" data-fragment="4" data-fragment-style="grow">
+      <h3>Zutritt &amp; Sicherheit</h3>
+      <p>Aufsatz-Türschloss, geklebte Fenster-/Türkontakte</p>
+    </div>
+  </div>
+  <div class="notes">Gegenstück zur Bilanz: Was pro Gewerk in der Mietwohnung geht. Übergang zur Leitlinie für diesen Fall.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">FALL 3 · MIETWOHNUNG</p>
+  <h2>Die Leitlinie für diesen Fall</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Leitlinie</h3>
+      <p><strong>Alles muss rückstandslos entfernbar sein.</strong> Geklebt, gesteckt oder von Hand getauscht, nichts gebohrt, nichts geschlitzt, nichts an der Anlagentechnik.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Preis dafür</h3>
+      <p>Geringere Präzision bei der Heizungsregelung, Batterien statt Dauerstrom, kein Zugriff auf Beschattung und Anlagentechnik.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Vorteil dafür</h3>
+      <p>Beim Auszug zieht das ganze Smart Home mit um. Bei KNX bleibt es in der Wand.</p>
+    </div>
+  </div>
+  <div class="notes">Abschluss von Fall 3: rückstandslos entfernbar, Preis und Vorteil nebeneinander. Pointe: Beim Auszug zieht das Smart Home mit um, bei KNX bleibt es in der Wand.</div>
+</section>
+
+    <!-- ===== part-07 ===== -->
+
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">TEIL 7</p>
+  <h1>Entscheidung &amp; Abschluss</h1>
+  <p class="lead">Entscheidungshilfe, Kosten, Energieeinsparung, Fazit, Quellen, Fragen</p>
+  <div class="notes">Letzter Teil: Aus allem Bisherigen wird eine Entscheidungshilfe. Danach kommen die offenen Punkte (Kosten, Energie, Belege) ehrlich auf den Tisch.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Entscheidungshilfe</p>
+  <h2>Entscheidungshilfe: Welches System für welchen Fall?</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Neubau</h3>
+      <p><strong>Kabel (Bus):</strong> KNX oder Loxone, Zentrale lokal (z. B. Home Assistant).</p>
+      <p>Wände offen → einmalige Chance; „extrem stabil, autark vom Internet, hält jahrzehntelang“.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Kernsanierung</h3>
+      <p><strong>Kabel, wo möglich; sonst Hybrid:</strong> Bus für Festinstallation + Funk für Wandtaster.</p>
+      <p>Statik und Platz setzen Grenzen; Schlitzen ist der Kostentreiber.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Mietwohnung</h3>
+      <p><strong>Funk:</strong> Matter/Thread oder Zigbee.</p>
+      <p>Lokal, energiesparend, rückstandslos entfernbar.</p>
+    </div>
+  </div>
+  <div class="notes">Die Systemwahl folgt aus dem Gebäude, nicht aus der Vorliebe. Die drei Workshop-Fälle aus Teil 6 sind hier zusammengeführt. Weiter mit den zwei Sonderfällen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Entscheidungshilfe · weitere Fälle</p>
+  <h2>Welches System für welchen Fall?</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Einzelne Geräte, Einstieg, Budget</h3>
+      <p><strong>WLAN:</strong> Tuya — bewusst und nur für Unkritisches.</p>
+      <p>Sehr günstig, riesige Auswahl, aber Cloud-Zwang.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Datenschutz ist das Hauptkriterium</h3>
+      <p><strong>Übertragungsweg beliebig:</strong> lokale Zentrale: Home Assistant, oder deutscher Anbieter (Teil 5, Block A).</p>
+      <p>Daten verlassen das Haus nicht.</p>
+    </div>
+  </div>
+  <div class="notes">Zwei Fälle, die quer zur Gebäudefrage liegen: Einstieg mit kleinem Budget und Datenschutz als Hauptkriterium. Tuya nur für Unkritisches.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Entscheidungshilfe</p>
+  <h2>Die drei Fragen, die die Entscheidung tragen</h2>
+  <ol>
+    <li data-fragment="1">Wie tief darf ich in das Gebäude eingreifen? → Kabel oder Funk</li>
+    <li data-fragment="2">Muss das System ohne Internet funktionieren? → lokal oder Cloud</li>
+    <li data-fragment="3">Über welchen Zeitraum soll es halten? → Bus/lokal (Jahrzehnte) oder Cloud (Serverbetrieb)</li>
+  </ol>
+  <p data-fragment="4"><strong>Faustregel:</strong> Je unbeweglicher die Komponente, desto eher Kabel. Je kritischer die Funktion (Türschloss, Kamera, Heizung), desto eher lokal.</p>
+  <div class="notes">Drei Fragen genügen für die Vorentscheidung. Die Faustregel zum Mitnehmen: unbeweglich gleich Kabel, kritisch gleich lokal.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Kosten · Platzhalter</p>
+  <h2>Kosten: Größenordnungen</h2>
+  <p class="lead"><strong>Alle Zahlen auf dieser Folie sind Platzhalter.</strong></p>
+  <p>Die Original-Präsentation enthält keine einzige Kostenangabe.</p>
+  <p>Die Felder müssen vor dem Vortrag mit eigenen, belegbaren Zahlen gefüllt werden — aus Angeboten, Preislisten oder abgerechneten Projekten.</p>
+  <p>Erfundene Zahlen sind an dieser Stelle schlimmer als keine: Die Kostenfrage kommt im Publikum sofort, eine falsche Zahl beschädigt den ganzen Vortrag.</p>
+  <div class="notes">Hier stehen bewusst keine Beträge. Vor dem Vortrag mit eigenen Angeboten, Preislisten oder abgerechneten Projekten füllen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Kosten · Platzhalter · zu befüllen</p>
+  <h2>Gesamtkosten je Fall</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Neubau (KNX/Bus)</h3>
+      <ul>
+        <li>Material gesamt, Einfamilienhaus ~150 m²: ___ €</li>
+        <li>Installation / Elektriker-Stunden: ___ €</li>
+        <li>Programmierung / Inbetriebnahme: ___ €</li>
+        <li>Zentrale (Hub / Server): ___ €</li>
+        <li><strong>Summe: ___ €</strong></li>
+      </ul>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Kernsanierung (Hybrid)</h3>
+      <ul>
+        <li>Material gesamt, Einfamilienhaus ~150 m²: ___ €</li>
+        <li>Installation / Elektriker-Stunden: ___ €</li>
+        <li>Programmierung / Inbetriebnahme: ___ €</li>
+        <li>Zentrale (Hub / Server): ___ €</li>
+        <li><strong>Summe: ___ €</strong></li>
+      </ul>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Mietwohnung (Funk)</h3>
+      <ul>
+        <li>Material gesamt, Einfamilienhaus ~150 m²: ___ €</li>
+        <li>Installation / Elektriker-Stunden: entfällt (Eigenleistung)</li>
+        <li>Programmierung / Inbetriebnahme: entfällt</li>
+        <li>Zentrale (Hub / Server): ___ €</li>
+        <li><strong>Summe: ___ €</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="notes">Alle Felder (___ €) sind noch leer und müssen mit belegbaren Zahlen gefüllt werden. Ohne Zahlen nicht präsentieren.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Kosten · Platzhalter · zu befüllen</p>
+  <h2>Einzelpositionen, die das Publikum konkret fragt</h2>
+  <div class="cols">
+    <div data-fragment="1">
+      <ul>
+        <li>KNX-Schaltaktor (Reihe): ___ € — Quelle: zu ergänzen</li>
+        <li>KNX-Taster mit Sensorik: ___ € — Quelle: zu ergänzen</li>
+        <li>Zigbee-Heizkörperthermostat: ___ € — Quelle: zu ergänzen</li>
+        <li>Matter-Steckdose: ___ € — Quelle: zu ergänzen</li>
+      </ul>
+    </div>
+    <div data-fragment="2">
+      <ul>
+        <li>Tuya-WLAN-Steckdose: ___ € — Quelle: zu ergänzen</li>
+        <li>Aufsatz-Türschloss (Nuki / Yale): ___ € — Quelle: zu ergänzen</li>
+        <li>Raspberry Pi 5 + Zubehör für HAOS: ___ € — Quelle: zu ergänzen</li>
+        <li>Busleitung pro Meter: ___ € — Quelle: zu ergänzen</li>
+      </ul>
+    </div>
+  </div>
+  <div class="notes">Preisspannen (___ €) und Quellen fehlen noch vollständig und müssen vor dem Vortrag ergänzt werden.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Kosten</p>
+  <h2>Was sich ohne Zahlen schon sagen lässt</h2>
+  <ul>
+    <li data-fragment="1">Kabel (KNX/Loxone) ist die „teuerste Variante“</li>
+    <li data-fragment="2">Matter-Hardware ist „meist teurer“ als einfache Tuya- oder reine Zigbee-Komponenten</li>
+    <li data-fragment="3">Tuya ist „sehr günstig“ bei „extrem vielen“ Geräten</li>
+    <li data-fragment="4">Sanierung: Kostentreiber ist das Schlitzen der Wände, nicht die Hardware</li>
+  </ul>
+  <p data-fragment="5"><strong>Reihenfolge nach Preisniveau (ohne Beträge):</strong> Tuya &lt; Zigbee &lt; Matter &lt; KNX/Loxone</p>
+  <div class="notes">Diese Rangfolge steht bereits im Original und braucht keine Preisangabe. Deshalb gibt es für die Sanierung das Hybrid-System: Kostentreiber ist das Schlitzen, nicht die Hardware.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Energieeinsparung · Platzhalter</p>
+  <h2>Energieeinsparung: was noch zu belegen ist</h2>
+  <p class="lead"><strong>Keine Einsparungszahl im Vortrag belegt.</strong></p>
+  <p>Effizientere Energienutzung ist einer von vier Zwecken des Smart Homes; das Energiemonitoring zeigt echte Werte.</p>
+  <p>Eine Einsparungszahl wird nirgends genannt — weder in Prozent noch in Euro noch in kWh.</p>
+  <p><strong>Diese Folie ist ein Platzhalter. Die Zahl darf nicht geschätzt werden.</strong></p>
+  <div class="notes">Keine Prozentzahl nennen, die nicht belegt ist. Die nächsten Folien zeigen, was als Beleg taugt und welche Daten schon vorliegen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Energieeinsparung · Belege</p>
+  <h2>Was konkret zu belegen ist</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>„Einzelraumregelung spart ___ %“</h3>
+      <p>Beleg: eigener Verbrauchsvergleich vor/nach Umbau, gleiche Heizperiode, witterungsbereinigt.</p>
+      <p><strong>Status: offen</strong></p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>„Smarte Thermostate in der Mietwohnung bringen die größte Ersparnis“</h3>
+      <p>Beleg: Messung in mindestens einer Heizperiode.</p>
+      <p><strong>Status: Aussage steht im Original, unbelegt</strong></p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>„Automatische Beschattung senkt den Kühlbedarf um ___ %“</h3>
+      <p>Beleg: Studie oder Herstellerangabe mit Messmethode.</p>
+      <p><strong>Status: offen</strong></p>
+    </div>
+    <div class="card" data-fragment="4" data-fragment-style="grow">
+      <h3>„Abschaltung beim Lüften über Fensterkontakte spart ___ kWh“</h3>
+      <p>Beleg: Verbrauchsdaten mit/ohne Automatik.</p>
+      <p><strong>Status: offen</strong></p>
+    </div>
+  </div>
+  <div class="notes">Vier Aussagen, keine davon belegt. Die Thermostat-Aussage zur Mietwohnung steht im Original, ist aber bislang nicht gemessen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Energieeinsparung · Datengrundlage</p>
+  <h2>Die Datengrundlage liegt schon vor</h2>
+  <p>Die eigene Anlage protokolliert bereits alles Nötige.</p>
+  <ul>
+    <li data-fragment="1">Tages-, Monats- und Jahresverbrauch des Gas-Brennwertgeräts</li>
+    <li data-fragment="2">Jahresverlauf Januar bis Oktober mit Außen- und Raumtemperatur</li>
+    <li data-fragment="3">Betriebsstunden und Anzahl der Brennerstarts</li>
+  </ul>
+  <p data-fragment="4"><strong>Vorbehalt:</strong> Die Werte sind aus den Screenshots abgelesen, nicht aus der Anlage exportiert — vor Verwendung am Gerät oder in der App gegenprüfen.</p>
+  <div class="notes">Die Messdaten stammen aus den Monitoring-Folien. Wichtig: abgelesen, nicht exportiert — vor Verwendung am Gerät prüfen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Energieeinsparung</p>
+  <h2>Der ehrliche Vorschlag für den Vortrag</h2>
+  <ul>
+    <li data-fragment="1">Statt geschätzter Prozentzahl: eigene Monatswerte zweier Heizperioden gegenüberstellen</li>
+    <li data-fragment="2">Sagen, was die Automatik verändert hat</li>
+    <li data-fragment="3">Grenzen der Messung benennen: anderes Wetter, anderes Nutzerverhalten</li>
+  </ul>
+  <p data-fragment="4">Das ist belegbar und überzeugender als eine Zahl aus einer Werbebroschüre.</p>
+  <div class="notes">Statt einer Prozentzahl die eigenen Messwerte zeigen und die Grenzen der Messung offen benennen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Energieeinsparung · Aufhänger</p>
+  <h2>Möglicher Aufhänger: erst prüfen, dann zeigen</h2>
+  <p>Das Anlagen-Monitoring zeigt Betriebsstunden und Brennerstarts nebeneinander. Setzt man beide ins Verhältnis, ergibt sich eine auffällig hohe Zahl von Starts pro Betriebsstunde — genau das „Takten“, das die Hysterese aus Teil 2 verhindern soll.</p>
+  <p class="lead" data-fragment="1"><strong>Diese Rechnung ist nicht belegt.</strong></p>
+  <ul>
+    <li data-fragment="2">Ausgangswerte aus einem Screenshot abgelesen, nicht aus der Anlage exportiert</li>
+    <li data-fragment="3">Zählweise des Geräts unbekannt: Brennerstarts, Pumpenstarts oder Reglerzyklen? Über welchen Zeitraum?</li>
+    <li data-fragment="4">Vor dem Vortrag am Gerät verifizieren</li>
+  </ul>
+  <div class="notes">Nur ein Aufhänger, kein Beleg. Die Zahl erst nennen, wenn sie am Gerät verifiziert ist.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Energieeinsparung · Aufhänger</p>
+  <h2>Aufhänger: Trägt die Zahl?</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Trägt die Zahl</h3>
+      <p>Das ist der stärkste Aufhänger für den Hysterese-Exkurs, den dieser Foliensatz hat — mit eigenen Anlagendaten statt einer fremden Studie.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Trägt sie nicht</h3>
+      <p>Der Exkurs bleibt ohne diesen Einstieg bestehen.</p>
+    </div>
+  </div>
+  <div class="notes">Erst nach der Prüfung am Gerät entscheiden, ob dieser Einstieg in den Hysterese-Exkurs genutzt wird.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Gesamt-Fazit</p>
+  <h2>Die vier Sätze, die aus diesem Vortrag bleiben sollten</h2>
+  <ul>
+    <li data-fragment="1">Smart Home ist ein Vier-Schichten-Modell, nicht ein Produkt</li>
+    <li data-fragment="2">Die wichtigste Entscheidung ist lokal gegen Cloud</li>
+    <li data-fragment="3">Der Bau bestimmt die Technik, nicht umgekehrt</li>
+    <li data-fragment="4">Die Risiken sind nicht nur Datenschutz</li>
+  </ul>
+  <div class="notes">Vier Kernaussagen, nacheinander einblenden. Auf den folgenden Folien jeweils kurz begründet.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Fazit 1 von 4</p>
+  <h2>Smart Home ist ein Vier-Schichten-Modell, nicht ein Produkt</h2>
+  <ol>
+    <li data-fragment="1">Feldebene (Sensoren/Aktoren)</li>
+    <li data-fragment="2">Übertragungsebene (Funk oder Kabel)</li>
+    <li data-fragment="3">Steuerungsebene (die Zentrale)</li>
+    <li data-fragment="4">Bedienebene (App, Sprache, Taster)</li>
+  </ol>
+  <p data-fragment="5">Wer eine Entscheidung trifft, trifft sie immer auf einer dieser vier Schichten — und meistens auf der zweiten.</p>
+  <div class="notes">Die vier Schichten als Ordnungsrahmen. Entscheidungen fallen meist auf der Übertragungsebene.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Fazit 2 von 4</p>
+  <h2>Die wichtigste Entscheidung ist lokal gegen Cloud</h2>
+  <p>Nicht die Marke, nicht die App, nicht der Preis.</p>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Lokal</h3>
+      <p>Zigbee, Matter, KNX, Home Assistant: funktioniert ohne Internet, Daten bleiben im Haus, Gerät überlebt den Hersteller.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Cloud</h3>
+      <p>Komfort beim Einrichten, Abhängigkeit im Betrieb.</p>
+    </div>
+  </div>
+  <div class="notes">Das ist die zentrale Weichenstellung, wichtiger als Marke, App oder Preis.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Fazit 3 von 4</p>
+  <h2>Der Bau bestimmt die Technik, nicht umgekehrt</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Neubau</h3>
+      <p>Kabel</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Kernsanierung</h3>
+      <p>Hybrid</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Mietwohnung</h3>
+      <p>Funk</p>
+    </div>
+  </div>
+  <p data-fragment="4">Die Eingriffstiefe des Gebäudes entscheidet, nicht die Vorliebe für ein System.</p>
+  <div class="notes">Kurzfassung der Entscheidungshilfe: Der Eingriffstiefe des Gebäudes folgt die Technik.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Fazit 4 von 4</p>
+  <h2>Die Risiken sind nicht nur Datenschutz</h2>
+  <p class="lead" data-fragment="1">Datenschutz, IT-Sicherheit und Lebensdauer sind drei getrennte Risiken.</p>
+  <p data-fragment="2">Ein Gerät kann DSGVO-konform und trotzdem unsicher sein — oder sicher und trotzdem in drei Jahren Elektroschrott.</p>
+  <div class="notes">Drei getrennte Risiken, die man nicht gegeneinander ausspielen darf. Weiter mit dem, was in diesem Vortrag offen bleibt.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Gesamt-Fazit</p>
+  <h2>Was in diesem Vortrag offen bleibt</h2>
+  <ul>
+    <li data-fragment="1">Kosten — keine belegten Zahlen</li>
+    <li data-fragment="2">Energieeinsparung — keine belegte Zahl, aber die Messdaten liegen vor</li>
+    <li data-fragment="3">Rechtsaussagen in Teil 4 — unbelegt, zu prüfen</li>
+  </ul>
+  <p data-fragment="4">Diese drei Punkte offen zu benennen ist seriöser, als sie zu füllen.</p>
+  <div class="notes">Die drei offenen Punkte bewusst benennen statt mit Zahlen zu füllen. Details auf den Quellen-Folien.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Quellen</p>
+  <h2>Im Vortrag verwendete Abbildungen</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Screenshots</h3>
+      <p>Alle Screenshots aus Teil 5 (Folien 89–107) und Teil 2 (Folien 26, 22–24) stammen aus der eigenen Installation des Vortragenden.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Produktbilder und Logos</h3>
+      <p>Folien 79–85 und 108: Herstellermaterial.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Instagram-Beispiel</h3>
+      <p>Folie 18: vom Elektrobetrieb domhoeferelektrotechnik.</p>
+    </div>
+  </div>
+  <div class="notes">Herkunft der Abbildungen. Folienangaben beziehen sich auf die Nummerierung der Quelle.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Offene Belege · 1 von 5</p>
+  <h2>Offene Belege — vor dem Vortrag zu klären</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>1 · Hysterese (Folie 27)</h3>
+      <p>Definition und Zweck der Hysterese. Das Original verwies auf „[1, 2]“; ein Literaturverzeichnis existiert nicht, die Marker lösen nirgends auf.</p>
+      <p><strong>Quelle nachzutragen</strong> (Fachliteratur Heizungstechnik oder Herstellerdokumentation).</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>2 · China-Hosting (Folie 57)</h3>
+      <p>„Hosten personenbezogener Daten in China … in den allermeisten Fällen unzulässig“.</p>
+      <p><strong>Rechtsaussage ohne Quelle.</strong> Zu belegen über eine Veröffentlichung der Aufsichtsbehörden oder des EDSA — oder abzuschwächen.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>3 · Angemessenheitsbeschluss (Folie 57)</h3>
+      <p>Kein Angemessenheitsbeschluss der EU-Kommission für China.</p>
+      <p><strong>Zu belegen</strong> (Liste der Angemessenheitsbeschlüsse der EU-Kommission).</p>
+    </div>
+  </div>
+  <div class="notes">Belege 1 bis 3. Jeweils vor dem Vortrag klären. Folienangaben beziehen sich auf die Nummerierung der Quelle.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Offene Belege · 2 von 5</p>
+  <h2>Offene Belege — vor dem Vortrag zu klären</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>4 · Geheimdienstgesetz (Folie 57)</h3>
+      <p>„Artikel 7 des chinesischen Geheimdienstgesetzes“ verpflichtet zur Kooperation.</p>
+      <p><strong>Zu belegen</strong> über den Gesetzestext bzw. eine zitierfähige Übersetzung. Artikelnummer und Wortlaut prüfen.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>5 · TIA-Pflicht (Folie 57)</h3>
+      <p>Zwingende TIA-Pflicht und „fast immer negatives Ergebnis“ deutscher Aufsichtsbehörden.</p>
+      <p><strong>Zu belegen.</strong> „Fast immer“ ist eine quantitative Aussage ohne Grundlage in der Präsentation.</p>
+    </div>
+  </div>
+  <div class="notes">Belege 4 und 5: Gesetzesartikel und TIA-Aussage. Beide müssen vor dem Vortrag belegt oder abgeschwächt werden.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Offene Belege · 3 von 5</p>
+  <h2>Offene Belege — vor dem Vortrag zu klären</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>6 · CLOUD Act (Folie 56, Bildinhalt)</h3>
+      <p>CLOUD-Act-Risiko bei US-Anbietern mit Servern in Frankfurt. Stammt aus der abgebildeten Tabelle.</p>
+      <p><strong>Primärquelle der Tabelle nicht genannt.</strong></p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>7 · IT-Sicherheit (Folie 65)</h3>
+      <p>IT-Sicherheitsgrundsätze (offene Ports, Firmware-Updates, Botnetze). Neu ergänzt, ohne Zitat.</p>
+      <p><strong>Mit BSI-Empfehlungen zu Smart Home / IoT unterfüttern.</strong></p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>8 · Abgeschaltete Cloud (Folie 70)</h3>
+      <p>Konkreter Fall einer abgeschalteten Hersteller-Cloud.</p>
+      <p><strong>Bewusst kein Beispiel benannt</strong>, weil die Präsentation keines nennt. Für den Vortrag ein belegtes Beispiel ergänzen.</p>
+    </div>
+  </div>
+  <div class="notes">Belege 6 bis 8: Tabellenquelle, BSI-Empfehlungen und ein belegtes Beispiel einer abgeschalteten Cloud fehlen noch.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Offene Belege · 4 von 5</p>
+  <h2>Offene Belege — vor dem Vortrag zu klären</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>9 · Kostenangaben (Folie 166)</h3>
+      <p><strong>Vollständig offen</strong>, alle Felder Platzhalter.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>10 · Einsparungszahlen (Folie 170)</h3>
+      <p><strong>Vollständig offen</strong>; Datengrundlage aus dem eigenen Energiemonitoring vorhanden.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>10a · Takten (Folie 170)</h3>
+      <p>Verhältnis Brennerstarts zu Betriebsstunden. <strong>Nicht belegt.</strong> Ausgangswerte aus einem Screenshot abgelesen, nicht exportiert; Zählweise des Geräts unbekannt.</p>
+      <p>Am Gerät verifizieren, bevor die Zahl im Vortrag genannt wird.</p>
+    </div>
+  </div>
+  <div class="notes">Belege 9, 10 und 10a: Kosten und Einsparungen sind vollständig offen, die Takten-Rechnung ist unbelegt.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Offene Belege · 5 von 5</p>
+  <h2>Offene Belege — vor dem Vortrag zu klären</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>11 · „Moonshot AI (Kimi K3)“ (Anhang, gestrichene F43)</h3>
+      <p><strong>Modellbezeichnung zweifelhaft — nicht bestätigen.</strong></p>
+      <p>Die Passage ist aus dem Vortrag herausgenommen; falls sie zurückkehrt, ist die Bezeichnung zu prüfen.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>12 · Praxis-Screenshots (Folien 94–107)</h3>
+      <p>Zuordnung der Screenshots zu Anbietern: teilweise nur aus dem Bildinhalt abgeleitet.</p>
+      <p><strong>Anbieter vom Vortragenden bestätigen lassen.</strong></p>
+    </div>
+  </div>
+  <div class="notes">Belege 11 und 12: Modellbezeichnung nicht bestätigen, Anbieterzuordnung vom Vortragenden bestätigen lassen.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Quellen</p>
+  <h2>Hinweis zur Rechtslage</h2>
+  <p>Die rechtlichen Aussagen in Teil 4 sind der Original-Präsentation entnommen und in dieser Fassung nicht verschärft und nicht erweitert worden.</p>
+  <p><strong>Sie sind keine Rechtsberatung.</strong></p>
+  <p>Für eine belastbare Bewertung eines konkreten Systems ist eine datenschutzrechtliche Prüfung erforderlich.</p>
+  <div class="notes">Ausdrücklich keine Rechtsberatung. Für ein konkretes System braucht es eine datenschutzrechtliche Prüfung.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Fragen / Q&amp;A</p>
+  <h2>Was gern gefragt werden darf</h2>
+  <ul>
+    <li data-fragment="1">Welches System für meinen konkreten Fall? → Folie 163</li>
+    <li data-fragment="2">Was kostet das? → Folie 166 (Zahlen offen, ehrlich gesagt)</li>
+    <li data-fragment="3">Spart das wirklich Energie? → Folie 170 (Messdaten vorhanden, Zahl noch nicht gerechnet)</li>
+    <li data-fragment="4">Was passiert mit meinen Daten? → Folie 60</li>
+  </ul>
+  <div class="notes">Erwartbare Fragen mit Verweis auf die passende Folie. Folienangaben beziehen sich auf die Nummerierung der Quelle.</div>
+</section>
+
+<section class="slide slide--center" data-transition="zoom">
+  <h1>Fragen?</h1>
+  <p class="lead">Danke für die Aufmerksamkeit.</p>
+  <figure>
+    <img src="images/img-097-061.png" alt="Humorvolle Retro-Illustration mit einem türkisfarbenen Delfin vor einer roten Zielscheibe als Abschiedsgruß.">
+  </figure>
+  <div class="notes">Dank und Übergang in die Fragerunde. Das Abschiedsmotiv hat keinen inhaltlichen Bezug zum Thema.</div>
+</section>
+  </div>
+</div>
+
+<!-- engine chrome -->
+<div class="deck-chrome">
+  <div class="deck-progress"></div>
+  <div class="deck-counter"></div>
+  <div class="deck-timer">00:00</div>
+  <div class="deck-toast"></div>
+</div>
+
+<canvas class="deck-ink"></canvas>
+<div class="deck-spot"></div>
+<div class="deck-laser"></div>
+<div class="deck-themes"></div>
+
+<div class="deck-help">
+  <div class="deck-help__panel">
+    <h2>Shortcuts</h2>
+    <div class="deck-help__cols">
+      <table>
+        <tr><td><kbd>→</kbd> <kbd>Space</kbd> <kbd>Klick</kbd></td><td>vor (Fragment oder Folie)</td></tr>
+        <tr><td><kbd>←</kbd></td><td>zurück</td></tr>
+        <tr><td><kbd>1</kbd>–<kbd>9</kbd></td><td>Folie direkt</td></tr>
+        <tr><td><kbd>Home</kbd> <kbd>End</kbd></td><td>erste / letzte Folie</td></tr>
+        <tr><td><kbd>O</kbd> <kbd>Tab</kbd></td><td>Übersicht (Raster)</td></tr>
+        <tr><td><kbd>F</kbd></td><td>Vollbild</td></tr>
+        <tr><td><kbd>B</kbd></td><td>Schwarzbild</td></tr>
+        <tr><td><kbd>T</kbd></td><td>Timer start / stop</td></tr>
+      </table>
+      <table>
+        <tr><td><kbd>D</kbd></td><td>Zeichnen an / aus</td></tr>
+        <tr><td><kbd>1</kbd>–<kbd>6</kbd> <span style="opacity:.6">(beim Zeichnen)</span></td><td>Farbe / Marker</td></tr>
+        <tr><td><kbd>Z</kbd> <kbd>X</kbd> <kbd>⇧X</kbd></td><td>Strich zurück / Folie / alles</td></tr>
+        <tr><td><kbd>L</kbd></td><td>Laserpointer</td></tr>
+        <tr><td><kbd>M</kbd></td><td>Spotlight (Rad = Größe)</td></tr>
+        <tr><td><kbd>C</kbd></td><td>Theme-Auswahl</td></tr>
+        <tr><td><kbd>V</kbd></td><td>nächstes Theme</td></tr>
+        <tr><td><kbd>S</kbd></td><td>Referentenansicht</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Werkzeug / Modus beenden</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="js/engine.js"></script>
+<script src="js/tools.js"></script>
+<script src="js/hysterese.js?v=58"></script>
+<script src="js/ifttt.js?v=58"></script>
+</body>
+</html>

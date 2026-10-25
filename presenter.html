@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Referentenansicht</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: #0c0c11;
+    color: #eceef4;
+    font: 16px/1.5 system-ui, sans-serif;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 18px;
+    padding: 22px;
+  }
+  header { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; }
+  h1 { font-size: 20px; margin: 0; letter-spacing: -0.01em; }
+  .pos, .clock { font-family: ui-monospace, monospace; color: #8c93a8; }
+  .clock { font-size: 34px; color: #eceef4; margin-left: auto; }
+  .grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 18px; min-height: 0; }
+  .panel {
+    background: #15151d;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 14px;
+    padding: 20px 22px;
+    overflow: auto;
+  }
+  .panel h2 {
+    font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    color: #8c93a8; margin: 0 0 14px;
+  }
+  #notes { font-size: 19px; }
+  #notes:empty::after { content: 'Keine Notizen auf dieser Folie.'; color: #6b7183; }
+  #title { font-size: 26px; font-weight: 700; margin: 0 0 20px; }
+  #nextTitle { font-size: 18px; color: #9aa1b5; }
+  footer { display: flex; gap: 10px; }
+  button {
+    font: inherit; font-weight: 600;
+    background: #1e1f2b; color: #eceef4;
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 10px; padding: 12px 22px; cursor: pointer;
+  }
+  button:hover { border-color: #7c8cff; }
+  .warn { color: #ffb86b; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Referentenansicht</h1>
+  <span class="pos" id="pos">–</span>
+  <span class="clock" id="clock">00:00</span>
+</header>
+
+<div class="grid">
+  <div class="panel">
+    <h2>Notizen</h2>
+    <p id="title"></p>
+    <div id="notes"></div>
+  </div>
+  <div class="panel">
+    <h2>Als nächstes</h2>
+    <p id="nextTitle"></p>
+    <h2 style="margin-top:28px">Status</h2>
+    <p class="pos" id="meta"></p>
+    <p class="warn" id="warn"></p>
+  </div>
+</div>
+
+<footer>
+  <button data-cmd="prev">← Zurück</button>
+  <button data-cmd="next">Weiter →</button>
+  <button data-cmd="timer">Timer</button>
+</footer>
+
+<script>
+// Same-origin only: the presenter window talks to the deck over a
+// BroadcastChannel, so no server-side state is involved.
+const ch = 'BroadcastChannel' in window ? new BroadcastChannel('deck') : null;
+if (!ch) {
+  document.getElementById('warn').textContent =
+    'Dieser Browser unterstützt BroadcastChannel nicht — Steuerung inaktiv.';
+}
+
+const el = (id) => document.getElementById(id);
+const pad = (n) => String(n).padStart(2, '0');
+
+if (ch) {
+  ch.onmessage = (e) => {
+    const m = e.data || {};
+    if (m.type !== 'state') return;
+    el('pos').textContent = 'Folie ' + (m.index + 1) + ' / ' + m.total +
+      (m.fragments ? '  ·  Schritt ' + m.fragment + '/' + m.fragments : '');
+    el('title').textContent = m.title;
+    el('notes').innerHTML = m.notes || '';
+    el('nextTitle').textContent = m.nextTitle || '— Ende der Präsentation —';
+    el('meta').textContent = 'Theme: ' + m.theme;
+    const s = Math.floor((m.elapsed || 0) / 1000);
+    el('clock').textContent = pad(Math.floor(s / 60)) + ':' + pad(s % 60);
+  };
+
+  document.querySelectorAll('button[data-cmd]').forEach((b) =>
+    b.addEventListener('click', () => ch.postMessage({ type: 'cmd', cmd: b.dataset.cmd })));
+
+  // Arrow keys work from this window too.
+  document.addEventListener('keydown', (e) => {
+    if (['ArrowRight', ' ', 'PageDown'].includes(e.key)) ch.postMessage({ type: 'cmd', cmd: 'next' });
+    if (['ArrowLeft', 'PageUp'].includes(e.key)) ch.postMessage({ type: 'cmd', cmd: 'prev' });
+  });
+
+  ch.postMessage({ type: 'cmd', cmd: 'hello' });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,472 @@
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">TEIL 7</p>
+  <h1>Entscheidung &amp; Abschluss</h1>
+  <p class="lead">Entscheidungshilfe, Kosten, Energieeinsparung, Fazit, Quellen, Fragen</p>
+  <div class="notes">Letzter Teil: Aus allem Bisherigen wird eine Entscheidungshilfe. Danach kommen die offenen Punkte (Kosten, Energie, Belege) ehrlich auf den Tisch.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Entscheidungshilfe</p>
+  <h2>Entscheidungshilfe: Welches System für welchen Fall?</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Neubau</h3>
+      <p><strong>Kabel (Bus):</strong> KNX oder Loxone, Zentrale lokal (z. B. Home Assistant).</p>
+      <p>Wände offen → einmalige Chance; „extrem stabil, autark vom Internet, hält jahrzehntelang“.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Kernsanierung</h3>
+      <p><strong>Kabel, wo möglich; sonst Hybrid:</strong> Bus für Festinstallation + Funk für Wandtaster.</p>
+      <p>Statik und Platz setzen Grenzen; Schlitzen ist der Kostentreiber.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Mietwohnung</h3>
+      <p><strong>Funk:</strong> Matter/Thread oder Zigbee.</p>
+      <p>Lokal, energiesparend, rückstandslos entfernbar.</p>
+    </div>
+  </div>
+  <div class="notes">Die Systemwahl folgt aus dem Gebäude, nicht aus der Vorliebe. Die drei Workshop-Fälle aus Teil 6 sind hier zusammengeführt. Weiter mit den zwei Sonderfällen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Entscheidungshilfe · weitere Fälle</p>
+  <h2>Welches System für welchen Fall?</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Einzelne Geräte, Einstieg, Budget</h3>
+      <p><strong>WLAN:</strong> Tuya — bewusst und nur für Unkritisches.</p>
+      <p>Sehr günstig, riesige Auswahl, aber Cloud-Zwang.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Datenschutz ist das Hauptkriterium</h3>
+      <p><strong>Übertragungsweg beliebig:</strong> lokale Zentrale: Home Assistant, oder deutscher Anbieter (Teil 5, Block A).</p>
+      <p>Daten verlassen das Haus nicht.</p>
+    </div>
+  </div>
+  <div class="notes">Zwei Fälle, die quer zur Gebäudefrage liegen: Einstieg mit kleinem Budget und Datenschutz als Hauptkriterium. Tuya nur für Unkritisches.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Entscheidungshilfe</p>
+  <h2>Die drei Fragen, die die Entscheidung tragen</h2>
+  <ol>
+    <li data-fragment="1">Wie tief darf ich in das Gebäude eingreifen? → Kabel oder Funk</li>
+    <li data-fragment="2">Muss das System ohne Internet funktionieren? → lokal oder Cloud</li>
+    <li data-fragment="3">Über welchen Zeitraum soll es halten? → Bus/lokal (Jahrzehnte) oder Cloud (Serverbetrieb)</li>
+  </ol>
+  <p data-fragment="4"><strong>Faustregel:</strong> Je unbeweglicher die Komponente, desto eher Kabel. Je kritischer die Funktion (Türschloss, Kamera, Heizung), desto eher lokal.</p>
+  <div class="notes">Drei Fragen genügen für die Vorentscheidung. Die Faustregel zum Mitnehmen: unbeweglich gleich Kabel, kritisch gleich lokal.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Kosten · Platzhalter</p>
+  <h2>Kosten: Größenordnungen</h2>
+  <p class="lead"><strong>Alle Zahlen auf dieser Folie sind Platzhalter.</strong></p>
+  <p>Die Original-Präsentation enthält keine einzige Kostenangabe.</p>
+  <p>Die Felder müssen vor dem Vortrag mit eigenen, belegbaren Zahlen gefüllt werden — aus Angeboten, Preislisten oder abgerechneten Projekten.</p>
+  <p>Erfundene Zahlen sind an dieser Stelle schlimmer als keine: Die Kostenfrage kommt im Publikum sofort, eine falsche Zahl beschädigt den ganzen Vortrag.</p>
+  <div class="notes">Hier stehen bewusst keine Beträge. Vor dem Vortrag mit eigenen Angeboten, Preislisten oder abgerechneten Projekten füllen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Kosten · Platzhalter · zu befüllen</p>
+  <h2>Gesamtkosten je Fall</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Neubau (KNX/Bus)</h3>
+      <ul>
+        <li>Material gesamt, Einfamilienhaus ~150 m²: ___ €</li>
+        <li>Installation / Elektriker-Stunden: ___ €</li>
+        <li>Programmierung / Inbetriebnahme: ___ €</li>
+        <li>Zentrale (Hub / Server): ___ €</li>
+        <li><strong>Summe: ___ €</strong></li>
+      </ul>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Kernsanierung (Hybrid)</h3>
+      <ul>
+        <li>Material gesamt, Einfamilienhaus ~150 m²: ___ €</li>
+        <li>Installation / Elektriker-Stunden: ___ €</li>
+        <li>Programmierung / Inbetriebnahme: ___ €</li>
+        <li>Zentrale (Hub / Server): ___ €</li>
+        <li><strong>Summe: ___ €</strong></li>
+      </ul>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Mietwohnung (Funk)</h3>
+      <ul>
+        <li>Material gesamt, Einfamilienhaus ~150 m²: ___ €</li>
+        <li>Installation / Elektriker-Stunden: entfällt (Eigenleistung)</li>
+        <li>Programmierung / Inbetriebnahme: entfällt</li>
+        <li>Zentrale (Hub / Server): ___ €</li>
+        <li><strong>Summe: ___ €</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="notes">Alle Felder (___ €) sind noch leer und müssen mit belegbaren Zahlen gefüllt werden. Ohne Zahlen nicht präsentieren.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Kosten · Platzhalter · zu befüllen</p>
+  <h2>Einzelpositionen, die das Publikum konkret fragt</h2>
+  <div class="cols">
+    <div data-fragment="1">
+      <ul>
+        <li>KNX-Schaltaktor (Reihe): ___ € — Quelle: zu ergänzen</li>
+        <li>KNX-Taster mit Sensorik: ___ € — Quelle: zu ergänzen</li>
+        <li>Zigbee-Heizkörperthermostat: ___ € — Quelle: zu ergänzen</li>
+        <li>Matter-Steckdose: ___ € — Quelle: zu ergänzen</li>
+      </ul>
+    </div>
+    <div data-fragment="2">
+      <ul>
+        <li>Tuya-WLAN-Steckdose: ___ € — Quelle: zu ergänzen</li>
+        <li>Aufsatz-Türschloss (Nuki / Yale): ___ € — Quelle: zu ergänzen</li>
+        <li>Raspberry Pi 5 + Zubehör für HAOS: ___ € — Quelle: zu ergänzen</li>
+        <li>Busleitung pro Meter: ___ € — Quelle: zu ergänzen</li>
+      </ul>
+    </div>
+  </div>
+  <div class="notes">Preisspannen (___ €) und Quellen fehlen noch vollständig und müssen vor dem Vortrag ergänzt werden.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Kosten</p>
+  <h2>Was sich ohne Zahlen schon sagen lässt</h2>
+  <ul>
+    <li data-fragment="1">Kabel (KNX/Loxone) ist die „teuerste Variante“</li>
+    <li data-fragment="2">Matter-Hardware ist „meist teurer“ als einfache Tuya- oder reine Zigbee-Komponenten</li>
+    <li data-fragment="3">Tuya ist „sehr günstig“ bei „extrem vielen“ Geräten</li>
+    <li data-fragment="4">Sanierung: Kostentreiber ist das Schlitzen der Wände, nicht die Hardware</li>
+  </ul>
+  <p data-fragment="5"><strong>Reihenfolge nach Preisniveau (ohne Beträge):</strong> Tuya &lt; Zigbee &lt; Matter &lt; KNX/Loxone</p>
+  <div class="notes">Diese Rangfolge steht bereits im Original und braucht keine Preisangabe. Deshalb gibt es für die Sanierung das Hybrid-System: Kostentreiber ist das Schlitzen, nicht die Hardware.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Energieeinsparung · Platzhalter</p>
+  <h2>Energieeinsparung: was noch zu belegen ist</h2>
+  <p class="lead"><strong>Keine Einsparungszahl im Vortrag belegt.</strong></p>
+  <p>Effizientere Energienutzung ist einer von vier Zwecken des Smart Homes; das Energiemonitoring zeigt echte Werte.</p>
+  <p>Eine Einsparungszahl wird nirgends genannt — weder in Prozent noch in Euro noch in kWh.</p>
+  <p><strong>Diese Folie ist ein Platzhalter. Die Zahl darf nicht geschätzt werden.</strong></p>
+  <div class="notes">Keine Prozentzahl nennen, die nicht belegt ist. Die nächsten Folien zeigen, was als Beleg taugt und welche Daten schon vorliegen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Energieeinsparung · Belege</p>
+  <h2>Was konkret zu belegen ist</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>„Einzelraumregelung spart ___ %“</h3>
+      <p>Beleg: eigener Verbrauchsvergleich vor/nach Umbau, gleiche Heizperiode, witterungsbereinigt.</p>
+      <p><strong>Status: offen</strong></p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>„Smarte Thermostate in der Mietwohnung bringen die größte Ersparnis“</h3>
+      <p>Beleg: Messung in mindestens einer Heizperiode.</p>
+      <p><strong>Status: Aussage steht im Original, unbelegt</strong></p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>„Automatische Beschattung senkt den Kühlbedarf um ___ %“</h3>
+      <p>Beleg: Studie oder Herstellerangabe mit Messmethode.</p>
+      <p><strong>Status: offen</strong></p>
+    </div>
+    <div class="card" data-fragment="4" data-fragment-style="grow">
+      <h3>„Abschaltung beim Lüften über Fensterkontakte spart ___ kWh“</h3>
+      <p>Beleg: Verbrauchsdaten mit/ohne Automatik.</p>
+      <p><strong>Status: offen</strong></p>
+    </div>
+  </div>
+  <div class="notes">Vier Aussagen, keine davon belegt. Die Thermostat-Aussage zur Mietwohnung steht im Original, ist aber bislang nicht gemessen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Energieeinsparung · Datengrundlage</p>
+  <h2>Die Datengrundlage liegt schon vor</h2>
+  <p>Die eigene Anlage protokolliert bereits alles Nötige.</p>
+  <ul>
+    <li data-fragment="1">Tages-, Monats- und Jahresverbrauch des Gas-Brennwertgeräts</li>
+    <li data-fragment="2">Jahresverlauf Januar bis Oktober mit Außen- und Raumtemperatur</li>
+    <li data-fragment="3">Betriebsstunden und Anzahl der Brennerstarts</li>
+  </ul>
+  <p data-fragment="4"><strong>Vorbehalt:</strong> Die Werte sind aus den Screenshots abgelesen, nicht aus der Anlage exportiert — vor Verwendung am Gerät oder in der App gegenprüfen.</p>
+  <div class="notes">Die Messdaten stammen aus den Monitoring-Folien. Wichtig: abgelesen, nicht exportiert — vor Verwendung am Gerät prüfen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Energieeinsparung</p>
+  <h2>Der ehrliche Vorschlag für den Vortrag</h2>
+  <ul>
+    <li data-fragment="1">Statt geschätzter Prozentzahl: eigene Monatswerte zweier Heizperioden gegenüberstellen</li>
+    <li data-fragment="2">Sagen, was die Automatik verändert hat</li>
+    <li data-fragment="3">Grenzen der Messung benennen: anderes Wetter, anderes Nutzerverhalten</li>
+  </ul>
+  <p data-fragment="4">Das ist belegbar und überzeugender als eine Zahl aus einer Werbebroschüre.</p>
+  <div class="notes">Statt einer Prozentzahl die eigenen Messwerte zeigen und die Grenzen der Messung offen benennen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Energieeinsparung · Aufhänger</p>
+  <h2>Möglicher Aufhänger: erst prüfen, dann zeigen</h2>
+  <p>Das Anlagen-Monitoring zeigt Betriebsstunden und Brennerstarts nebeneinander. Setzt man beide ins Verhältnis, ergibt sich eine auffällig hohe Zahl von Starts pro Betriebsstunde — genau das „Takten“, das die Hysterese aus Teil 2 verhindern soll.</p>
+  <p class="lead" data-fragment="1"><strong>Diese Rechnung ist nicht belegt.</strong></p>
+  <ul>
+    <li data-fragment="2">Ausgangswerte aus einem Screenshot abgelesen, nicht aus der Anlage exportiert</li>
+    <li data-fragment="3">Zählweise des Geräts unbekannt: Brennerstarts, Pumpenstarts oder Reglerzyklen? Über welchen Zeitraum?</li>
+    <li data-fragment="4">Vor dem Vortrag am Gerät verifizieren</li>
+  </ul>
+  <div class="notes">Nur ein Aufhänger, kein Beleg. Die Zahl erst nennen, wenn sie am Gerät verifiziert ist.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Energieeinsparung · Aufhänger</p>
+  <h2>Aufhänger: Trägt die Zahl?</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Trägt die Zahl</h3>
+      <p>Das ist der stärkste Aufhänger für den Hysterese-Exkurs, den dieser Foliensatz hat — mit eigenen Anlagendaten statt einer fremden Studie.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Trägt sie nicht</h3>
+      <p>Der Exkurs bleibt ohne diesen Einstieg bestehen.</p>
+    </div>
+  </div>
+  <div class="notes">Erst nach der Prüfung am Gerät entscheiden, ob dieser Einstieg in den Hysterese-Exkurs genutzt wird.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Gesamt-Fazit</p>
+  <h2>Die vier Sätze, die aus diesem Vortrag bleiben sollten</h2>
+  <ul>
+    <li data-fragment="1">Smart Home ist ein Vier-Schichten-Modell, nicht ein Produkt</li>
+    <li data-fragment="2">Die wichtigste Entscheidung ist lokal gegen Cloud</li>
+    <li data-fragment="3">Der Bau bestimmt die Technik, nicht umgekehrt</li>
+    <li data-fragment="4">Die Risiken sind nicht nur Datenschutz</li>
+  </ul>
+  <div class="notes">Vier Kernaussagen, nacheinander einblenden. Auf den folgenden Folien jeweils kurz begründet.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Fazit 1 von 4</p>
+  <h2>Smart Home ist ein Vier-Schichten-Modell, nicht ein Produkt</h2>
+  <ol>
+    <li data-fragment="1">Feldebene (Sensoren/Aktoren)</li>
+    <li data-fragment="2">Übertragungsebene (Funk oder Kabel)</li>
+    <li data-fragment="3">Steuerungsebene (die Zentrale)</li>
+    <li data-fragment="4">Bedienebene (App, Sprache, Taster)</li>
+  </ol>
+  <p data-fragment="5">Wer eine Entscheidung trifft, trifft sie immer auf einer dieser vier Schichten — und meistens auf der zweiten.</p>
+  <div class="notes">Die vier Schichten als Ordnungsrahmen. Entscheidungen fallen meist auf der Übertragungsebene.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Fazit 2 von 4</p>
+  <h2>Die wichtigste Entscheidung ist lokal gegen Cloud</h2>
+  <p>Nicht die Marke, nicht die App, nicht der Preis.</p>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Lokal</h3>
+      <p>Zigbee, Matter, KNX, Home Assistant: funktioniert ohne Internet, Daten bleiben im Haus, Gerät überlebt den Hersteller.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Cloud</h3>
+      <p>Komfort beim Einrichten, Abhängigkeit im Betrieb.</p>
+    </div>
+  </div>
+  <div class="notes">Das ist die zentrale Weichenstellung, wichtiger als Marke, App oder Preis.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Fazit 3 von 4</p>
+  <h2>Der Bau bestimmt die Technik, nicht umgekehrt</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Neubau</h3>
+      <p>Kabel</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Kernsanierung</h3>
+      <p>Hybrid</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Mietwohnung</h3>
+      <p>Funk</p>
+    </div>
+  </div>
+  <p data-fragment="4">Die Eingriffstiefe des Gebäudes entscheidet, nicht die Vorliebe für ein System.</p>
+  <div class="notes">Kurzfassung der Entscheidungshilfe: Der Eingriffstiefe des Gebäudes folgt die Technik.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Fazit 4 von 4</p>
+  <h2>Die Risiken sind nicht nur Datenschutz</h2>
+  <p class="lead" data-fragment="1">Datenschutz, IT-Sicherheit und Lebensdauer sind drei getrennte Risiken.</p>
+  <p data-fragment="2">Ein Gerät kann DSGVO-konform und trotzdem unsicher sein — oder sicher und trotzdem in drei Jahren Elektroschrott.</p>
+  <div class="notes">Drei getrennte Risiken, die man nicht gegeneinander ausspielen darf. Weiter mit dem, was in diesem Vortrag offen bleibt.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Gesamt-Fazit</p>
+  <h2>Was in diesem Vortrag offen bleibt</h2>
+  <ul>
+    <li data-fragment="1">Kosten — keine belegten Zahlen</li>
+    <li data-fragment="2">Energieeinsparung — keine belegte Zahl, aber die Messdaten liegen vor</li>
+    <li data-fragment="3">Rechtsaussagen in Teil 4 — unbelegt, zu prüfen</li>
+  </ul>
+  <p data-fragment="4">Diese drei Punkte offen zu benennen ist seriöser, als sie zu füllen.</p>
+  <div class="notes">Die drei offenen Punkte bewusst benennen statt mit Zahlen zu füllen. Details auf den Quellen-Folien.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Quellen</p>
+  <h2>Im Vortrag verwendete Abbildungen</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Screenshots</h3>
+      <p>Alle Screenshots aus Teil 5 (Folien 57–65) und Teil 2 (Folien 20, 22–24) stammen aus der eigenen Installation des Vortragenden.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Produktbilder und Logos</h3>
+      <p>Folien 52–55 und 66: Herstellermaterial.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Instagram-Beispiel</h3>
+      <p>Folie 14: vom Elektrobetrieb domhoeferelektrotechnik.</p>
+    </div>
+  </div>
+  <div class="notes">Herkunft der Abbildungen. Folienangaben beziehen sich auf die Nummerierung der Quelle.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Offene Belege · 1 von 5</p>
+  <h2>Offene Belege — vor dem Vortrag zu klären</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>1 · Hysterese (Folie 21)</h3>
+      <p>Definition und Zweck der Hysterese. Das Original verwies auf „[1, 2]“; ein Literaturverzeichnis existiert nicht, die Marker lösen nirgends auf.</p>
+      <p><strong>Quelle nachzutragen</strong> (Fachliteratur Heizungstechnik oder Herstellerdokumentation).</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>2 · China-Hosting (Folie 45)</h3>
+      <p>„Hosten personenbezogener Daten in China … in den allermeisten Fällen unzulässig“.</p>
+      <p><strong>Rechtsaussage ohne Quelle.</strong> Zu belegen über eine Veröffentlichung der Aufsichtsbehörden oder des EDSA — oder abzuschwächen.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>3 · Angemessenheitsbeschluss (Folie 45)</h3>
+      <p>Kein Angemessenheitsbeschluss der EU-Kommission für China.</p>
+      <p><strong>Zu belegen</strong> (Liste der Angemessenheitsbeschlüsse der EU-Kommission).</p>
+    </div>
+  </div>
+  <div class="notes">Belege 1 bis 3. Jeweils vor dem Vortrag klären. Folienangaben beziehen sich auf die Nummerierung der Quelle.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Offene Belege · 2 von 5</p>
+  <h2>Offene Belege — vor dem Vortrag zu klären</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>4 · Geheimdienstgesetz (Folie 45)</h3>
+      <p>„Artikel 7 des chinesischen Geheimdienstgesetzes“ verpflichtet zur Kooperation.</p>
+      <p><strong>Zu belegen</strong> über den Gesetzestext bzw. eine zitierfähige Übersetzung. Artikelnummer und Wortlaut prüfen.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>5 · TIA-Pflicht (Folie 45)</h3>
+      <p>Zwingende TIA-Pflicht und „fast immer negatives Ergebnis“ deutscher Aufsichtsbehörden.</p>
+      <p><strong>Zu belegen.</strong> „Fast immer“ ist eine quantitative Aussage ohne Grundlage in der Präsentation.</p>
+    </div>
+  </div>
+  <div class="notes">Belege 4 und 5: Gesetzesartikel und TIA-Aussage. Beide müssen vor dem Vortrag belegt oder abgeschwächt werden.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Offene Belege · 3 von 5</p>
+  <h2>Offene Belege — vor dem Vortrag zu klären</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>6 · CLOUD Act (Folie 44, Bildinhalt)</h3>
+      <p>CLOUD-Act-Risiko bei US-Anbietern mit Servern in Frankfurt. Stammt aus der abgebildeten Tabelle.</p>
+      <p><strong>Primärquelle der Tabelle nicht genannt.</strong></p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>7 · IT-Sicherheit (Folie 47)</h3>
+      <p>IT-Sicherheitsgrundsätze (offene Ports, Firmware-Updates, Botnetze). Neu ergänzt, ohne Zitat.</p>
+      <p><strong>Mit BSI-Empfehlungen zu Smart Home / IoT unterfüttern.</strong></p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>8 · Abgeschaltete Cloud (Folie 48)</h3>
+      <p>Konkreter Fall einer abgeschalteten Hersteller-Cloud.</p>
+      <p><strong>Bewusst kein Beispiel benannt</strong>, weil die Präsentation keines nennt. Für den Vortrag ein belegtes Beispiel ergänzen.</p>
+    </div>
+  </div>
+  <div class="notes">Belege 6 bis 8: Tabellenquelle, BSI-Empfehlungen und ein belegtes Beispiel einer abgeschalteten Cloud fehlen noch.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Offene Belege · 4 von 5</p>
+  <h2>Offene Belege — vor dem Vortrag zu klären</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>9 · Kostenangaben (Folie 104)</h3>
+      <p><strong>Vollständig offen</strong>, alle Felder Platzhalter.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>10 · Einsparungszahlen (Folie 105)</h3>
+      <p><strong>Vollständig offen</strong>; Datengrundlage aus dem eigenen Energiemonitoring vorhanden.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>10a · Takten (Folie 105)</h3>
+      <p>Verhältnis Brennerstarts zu Betriebsstunden. <strong>Nicht belegt.</strong> Ausgangswerte aus einem Screenshot abgelesen, nicht exportiert; Zählweise des Geräts unbekannt.</p>
+      <p>Am Gerät verifizieren, bevor die Zahl im Vortrag genannt wird.</p>
+    </div>
+  </div>
+  <div class="notes">Belege 9, 10 und 10a: Kosten und Einsparungen sind vollständig offen, die Takten-Rechnung ist unbelegt.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Offene Belege · 5 von 5</p>
+  <h2>Offene Belege — vor dem Vortrag zu klären</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>11 · „Moonshot AI (Kimi K3)“ (Anhang, gestrichene F43)</h3>
+      <p><strong>Modellbezeichnung zweifelhaft — nicht bestätigen.</strong></p>
+      <p>Die Passage ist aus dem Vortrag herausgenommen; falls sie zurückkehrt, ist die Bezeichnung zu prüfen.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>12 · Praxis-Screenshots (Folien 59–65)</h3>
+      <p>Zuordnung der Screenshots zu Anbietern: teilweise nur aus dem Bildinhalt abgeleitet.</p>
+      <p><strong>Anbieter vom Vortragenden bestätigen lassen.</strong></p>
+    </div>
+  </div>
+  <div class="notes">Belege 11 und 12: Modellbezeichnung nicht bestätigen, Anbieterzuordnung vom Vortragenden bestätigen lassen.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Quellen</p>
+  <h2>Hinweis zur Rechtslage</h2>
+  <p>Die rechtlichen Aussagen in Teil 4 sind der Original-Präsentation entnommen und in dieser Fassung nicht verschärft und nicht erweitert worden.</p>
+  <p><strong>Sie sind keine Rechtsberatung.</strong></p>
+  <p>Für eine belastbare Bewertung eines konkreten Systems ist eine datenschutzrechtliche Prüfung erforderlich.</p>
+  <div class="notes">Ausdrücklich keine Rechtsberatung. Für ein konkretes System braucht es eine datenschutzrechtliche Prüfung.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Fragen / Q&amp;A</p>
+  <h2>Was gern gefragt werden darf</h2>
+  <ul>
+    <li data-fragment="1">Welches System für meinen konkreten Fall? → Folie 103</li>
+    <li data-fragment="2">Was kostet das? → Folie 104 (Zahlen offen, ehrlich gesagt)</li>
+    <li data-fragment="3">Spart das wirklich Energie? → Folie 105 (Messdaten vorhanden, Zahl noch nicht gerechnet)</li>
+    <li data-fragment="4">Was passiert mit meinen Daten? → Folie 46</li>
+  </ul>
+  <div class="notes">Erwartbare Fragen mit Verweis auf die passende Folie. Folienangaben beziehen sich auf die Nummerierung der Quelle.</div>
+</section>
+
+<section class="slide slide--center" data-transition="zoom">
+  <h1>Fragen?</h1>
+  <p class="lead">Danke für die Aufmerksamkeit.</p>
+  <figure>
+    <img src="images/img-097-061.png" alt="Humorvolle Retro-Illustration mit einem türkisfarbenen Delfin vor einer roten Zielscheibe als Abschiedsgruß.">
+  </figure>
+  <div class="notes">Dank und Übergang in die Fragerunde. Das Abschiedsmotiv hat keinen inhaltlichen Bezug zum Thema.</div>
+</section>

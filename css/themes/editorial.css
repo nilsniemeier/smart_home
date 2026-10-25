@@ -1,0 +1,80 @@
+/* ===== Theme: Editorial =====
+   Light, typographic, print-magazine. Serif headlines, hairline
+   rules, lots of air. Reads well on a bright room projector. */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #fbf9f4;
+  --bg-alt: #f2eee4;
+  --fg: #16150f;
+  --fg-dim: #6c675a;
+  --accent: #a4441f;
+  --accent-2: #1f5a4a;
+  --rule: rgba(22, 21, 15, 0.16);
+  --font-head: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --head-weight: 600;
+  --head-spacing: -0.015em;
+  --radius: 4px;
+  --shadow: none;
+  --dur: 560ms;
+}
+
+.deck { background: var(--bg); }
+
+.slide { padding: 120px 160px; }
+
+.slide h1 { font-size: 108px; font-variation-settings: 'opsz' 120, 'SOFT' 0; }
+.slide h2 { font-size: 72px; }
+.slide h2::after {
+  content: '';
+  display: block;
+  width: 108px;
+  height: 2px;
+  background: var(--accent);
+  margin: 34px 0 10px;
+}
+.slide--center h2::after { margin-left: auto; margin-right: auto; }
+
+.slide .kicker {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  color: var(--accent);
+  border-top: 1px solid var(--rule);
+  padding-top: 18px;
+}
+
+.slide p, .slide li { font-size: 32px; }
+.slide .lead { font-family: var(--font-head); font-size: 42px; font-weight: 400; color: var(--fg); font-style: italic; }
+
+.card {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: transparent;
+  padding: 40px 38px;
+}
+.card h3 { font-size: 34px; }
+
+.metric { font-size: 148px; color: var(--fg); font-weight: 800; }
+.metric + p { font-size: 24px; }
+
+.slide ul { list-style: none; padding-left: 0; }
+.slide ul li { padding-left: 52px; position: relative; }
+.slide ul li::before {
+  content: counter(list-item, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.22em;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  color: var(--accent);
+}
+
+.deck-progress { height: 3px; background: var(--accent); }
+.deck-counter, .deck-timer { color: var(--fg-dim); opacity: 0.8; }
+.deck-toast { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+input[type="range"] { accent-color: var(--accent); }

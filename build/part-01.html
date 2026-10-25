@@ -1,0 +1,294 @@
+<section class="slide slide--center" data-transition="zoom">
+  <h1>Smart Home</h1>
+  <p class="lead">NILS NIEMEIER</p>
+  <div class="notes">Titelfolie. Begrüßung und Einstieg in den Vortrag.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">NILS NIEMEIER</p>
+  <h2>Smart Home</h2>
+  <figure>
+    <img src="images/img-001-000.png" alt="Isometrische Illustration eines Hauses aus Binärcode mit Schaltplan-Raster und Smartphone">
+  </figure>
+  <div class="notes">Die Grafik steht für Vernetzung und Digitalisierung eines Gebäudes: Haus aus Binärcode, Geräte-Symbole mit Leitungen, Smartphone rechts oben.</div>
+</section>
+
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">TEIL 0</p>
+  <h1>Einstieg</h1>
+  <p class="lead">Was Smart Home ist, wozu es gut ist und was heute auf dem Programm steht.</p>
+  <div class="notes">Kapiteltrennfolie. Kurzer Rahmen, dann direkt zur Agenda.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Agenda</p>
+  <h2>Agenda: Teil 0 bis 3</h2>
+  <ul>
+    <li data-fragment="1"><strong>0</strong> Einstieg: Was ist Smart Home, was ist der Zweck</li>
+    <li data-fragment="2"><strong>1</strong> Aufbau: Die vier Schichten — von der Hardware bis zur Bedienung</li>
+    <li data-fragment="3"><strong>2</strong> Exkurs: Wie die Zentrale denkt (Logik &amp; Hysterese)</li>
+    <li data-fragment="4"><strong>3</strong> Systeme im Vergleich: Tuya, Zigbee, Matter</li>
+  </ul>
+  <div class="notes">Erste Hälfte der Agenda. Die Agenda ist hier auf zwei Folien aufgeteilt.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Agenda</p>
+  <h2>Agenda: Teil 4 bis 7</h2>
+  <ul>
+    <li data-fragment="1"><strong>4</strong> Risiken: Cloud-Abhängigkeit, Datenschutz, IT-Sicherheit, Lebensdauer</li>
+    <li data-fragment="2"><strong>5</strong> Anbieter: DSGVO-konform, Cloud-basiert, und Home Assistant</li>
+    <li data-fragment="3"><strong>6</strong> Workshop (interaktiv): Neubau → Kernsanierung → Mietwohnung</li>
+    <li data-fragment="4"><strong>7</strong> Entscheidungshilfe, Fazit, Quellen, Fragen</li>
+  </ul>
+  <div class="notes">Teil 6 ist ein interaktiver Workshop mit drei Aufgaben. Er macht etwa ein Viertel des Vortrags aus und sollte entsprechend Zeit bekommen.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Agenda</p>
+  <h2>Smart Home</h2>
+  <figure>
+    <img src="images/img-002-001.png" alt="Gerendertes modernes Wohnhaus bei Nacht mit transparenter Fassade und LED-Lichtleisten">
+  </figure>
+  <div class="notes">Gerendertes zweistöckiges Wohnhaus in Abendstimmung: Wohnzimmer, Küche und Schlafzimmer sichtbar, blaue Symbol-Overlays deuten vernetzte Gebäudetechnik an. Das Bild vermittelt ein komfortables, automatisiertes Zuhause.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Teil 0 · Einstieg</p>
+  <h2>Was ist Smart Home?</h2>
+  <p><strong>Smart Home ist die Haus- und Gebäudeautomation, bzw. Domotik und Domotronik.</strong> <strong>Im Bauwesen bezeichnet sie die Gesamtheit der:</strong></p>
+  <ul>
+    <li data-fragment="1">Überwachungs-</li>
+    <li data-fragment="2">Steuer-</li>
+    <li data-fragment="3">Regel- und</li>
+    <li data-fragment="4">Optimierungseinrichtungen in Gebäuden</li>
+  </ul>
+  <div class="notes">Definition: Smart Home meint Haus- und Gebäudeautomation. Die vier Funktionen nacheinander einblenden.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Teil 0 · Einstieg</p>
+  <h2>Was ist ihr Zweck?</h2>
+  <ul>
+    <li data-fragment="1">Wohn- und Lebensqualität verbessern</li>
+    <li data-fragment="2">Sicherheit erhöhen</li>
+    <li data-fragment="3">effizienter Energienutzung gewährleisten</li>
+    <li data-fragment="4">auf Basis vernetzter und fernsteuerbarer Geräte und Installationen sowie automatisierbarer Abläufe</li>
+  </ul>
+  <div class="notes">Drei Ziele: Komfort, Sicherheit, Effizienz. Die Basis dafür sind vernetzte, fernsteuerbare Geräte und automatisierbare Abläufe.</div>
+</section>
+
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">TEIL 1</p>
+  <h1>Aufbau: Die vier Schichten</h1>
+  <p class="lead">Feldebene → Übertragungsebene → Steuerungsebene → Bedienebene. Vier Schichten, die zusammenarbeiten müssen.</p>
+  <div class="notes">Kapiteltrennfolie. Die vier Schichten sind der rote Faden für Teil 1.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Teil 1 · Aufbau</p>
+  <h2>Der Aufbau von SH</h2>
+  <p>Der <strong>Aufbau eines Smart Homes</strong> lässt sich am besten als ein Vier-Schichten-Modell verstehen.</p>
+  <p>Damit aus normalen Geräten ein intelligentes Zuhause wird, müssen Hardware, Übertragungswege, die zentrale Logik und die Benutzeroberfläche nahtlos zusammenarbeiten.</p>
+  <div class="notes">Überblick: Hardware, Übertragungswege, zentrale Logik, Benutzeroberfläche. Danach werden die vier Schichten einzeln durchgegangen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Die 4 Schichten des Smart Homes</p>
+  <h2>1. Die Feldebene: Sensoren und Aktoren (Die Hardware)</h2>
+  <p>Die physischen Geräte im Haus werden in zwei Hauptgruppen unterteilt:</p>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Sensoren (Die „Sinnesorgane“)</h3>
+      <p>Sie nehmen Informationen aus der Umwelt auf und senden sie weiter. Beispiele: Bewegungsmelder, Rauchmelder, Fensterkontakte, Temperatursensoren.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Aktoren (Die „Muskeln“)</h3>
+      <p>Sie empfangen Befehle und führen eine Aktion aus. Beispiele: Smarte Unterputz-Relais (für Licht), Heizkörperthermostate, motorisierte Rollo-Motoren, smarte Steckdosen.</p>
+    </div>
+  </div>
+  <div class="notes">Sensoren messen, Aktoren schalten. Beispiele aus dem Alltag nennen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Die 4 Schichten des Smart Homes</p>
+  <h2>2. Die Übertragungsebene: Protokolle (Die Sprache)</h2>
+  <p>Damit die Geräte miteinander kommunizieren können, nutzen sie ein gemeinsames Protokoll. Hier wird grundsätzlich zwischen zwei Systemen unterschieden:</p>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Funksysteme</h3>
+      <p>Ideal zum Nachrüsten.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Kabelsysteme</h3>
+      <p>Ideal für Neubau und Kernsanierung.</p>
+    </div>
+  </div>
+  <div class="notes">Zwei Systemarten: Funk und Kabel. Zuerst die Funksysteme, danach die Kabelsysteme (Folien dazu folgen).</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Schicht 2 · Übertragungsebene</p>
+  <h2>Funksysteme (Ideal zum Nachrüsten)</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Matter</h3>
+      <p>Der moderne, herstellerübergreifende IP-Standard (oft in Kombination mit Thread).</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Zigbee / Z-Wave</h3>
+      <p>Sehr energiesparende Funknetze (Mesh-Netzwerke), ideal für batteriebetriebene Sensoren.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>WLAN / Bluetooth</h3>
+      <p>Einfach einzurichten, verbraucht aber mehr Strom und belastet den Router bei vielen Geräten.</p>
+    </div>
+  </div>
+  <div class="notes">Die zweite Hälfte dieser Schicht sind die Kabelsysteme, siehe die folgenden Folien.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Schicht 2 (Forts.) · Übertragungsebene</p>
+  <h2>Kabelsysteme (Ideal für Neubau und Kernsanierung)</h2>
+  <h3>KNX oder Loxone</h3>
+  <p class="lead">Die stabilste, langlebigste, aber auch teuerste Variante, bei der grüne Bus-Kabel direkt in der Wand verlegt werden.</p>
+  <div class="notes">Unterpunkt von Schicht 2. Es folgen drei Bildfolien: Netzwerkkabel, Busleitung, Schaltschrank.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Schicht 2 (Forts.)</p>
+  <h2>Netzwerkkabel</h2>
+  <figure>
+    <img src="images/img-009-002.png" alt="Foto eines Kabels mit grüner Ummantelung und aufgefächerten, verdrillten Adernpaaren">
+  </figure>
+  <div class="notes">Zeigt den inneren Aufbau eines verdrillten Adernkabels: zwei verdrillte Paare plus zwei einzelne Adern. Welches Smart-Home-Protokoll dahintersteckt, lässt das Bild offen.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Schicht 2 (Forts.)</p>
+  <h2>Busleitung</h2>
+  <figure>
+    <img src="images/img-010-003.png" alt="Produktfoto einer grünen EIB-Busleitung auf der Rolle mit abisoliertem Kabelende">
+  </figure>
+  <div class="notes">Grüne Busleitung „EIB-Y(St) Y 2x2x0,8 mm“ für EIB-/KNX-Installationen. EIB ist der Vorläufer von KNX; die Zuordnung ist aus dem Etikett abgeleitet.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Schicht 2 (Forts.) · Praxisbeispiel</p>
+  <h2>Schaltschrank</h2>
+  <figure>
+    <img src="images/img-011-004.png" alt="Geöffneter Schaltschrank mit Sicherungsautomaten, Netzteilen und grünen Busmodulen">
+  </figure>
+  <div class="notes">Strukturierter Aufbau einer Smart-Home-Verteilung im Detail: Hutschienen, Sicherungsautomaten, Busmodule, Netzwerkkabel, Überspannungsschutz.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Schicht 2 (Forts.) · Praxisbeispiel</p>
+  <h2>Aufbau des Schaltschranks</h2>
+  <figure>
+    <img src="images/img-012-005.png" alt="Screenshot eines Instagram-Beitrags mit Foto eines in die Wand eingelassenen KNX-Schaltschranks">
+  </figure>
+  <div class="notes">Beitrag des Elektrobetriebs domhoeferelektrotechnik als Beleg für eine reale KNX-Installation. Er kündigt den Aufbau vom leeren Verteiler bis zur fertigen Installation als Serie an.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Die 4 Schichten des Smart Homes</p>
+  <h2>3. Die Steuerungsebene: Das Gateway / Hub (Das Gehirn)</h2>
+  <p>Die <strong>Zentrale (auch Gateway, Bridge oder Hub genannt)</strong> ist das Herzstück des Smart Homes.</p>
+  <p>Sie übersetzt die Signale der verschiedenen Geräte und führt die automatischen Logiken aus.</p>
+  <div class="notes">Die Zentrale ist das Gehirn: Sie übersetzt zwischen den Geräten und führt die Logik aus. Danach: lokale gegenüber Cloud-Zentralen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Schicht 3 · Steuerungsebene</p>
+  <h2>Lokale oder Cloud-Zentrale</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Lokale Zentralen</h3>
+      <p>Systeme wie <strong>Home Assistant</strong> oder <strong>ioBroker</strong> laufen auf eigener Hardware (z. B. einem Raspberry Pi) im Haus. Ihre Daten bleiben lokal und funktionieren oft auch ohne Internet.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Cloud-Zentralen</h3>
+      <p>Systeme wie <strong>Philips Hue Bridge</strong> oder <strong>Bosch Smart Home</strong> senden Daten oft in eine Cloud, bieten dafür aber eine sehr einfache Plug-and-Play-Einrichtung.</p>
+    </div>
+  </div>
+  <div class="notes">Lokal: Daten bleiben im Haus. Cloud: bequem, aber Daten gehen oft nach außen. Das Thema Cloud-Abhängigkeit kommt in Teil 4 wieder.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Die 4 Schichten des Smart Homes</p>
+  <h2>4. Die Bedienebene: Benutzerschnittstellen (Die Bedienung)</h2>
+  <p>Hier interagiert der Mensch mit dem System. Das System läuft zwar im Idealfall vollautomatisch, kann aber jederzeit übersteuert werden durch:</p>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Apps</h3>
+      <p>Auf dem Smartphone oder Tablet.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Sprachassistenten</h3>
+      <p>Z. B. Apple Siri, Amazon Alexa, Google Assistant.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Klassische Taster</h3>
+      <p>An der Wand, digital umprogrammiert (z. B. „Ein Klick = Licht an, Doppelklick = Alles aus im Raum“).</p>
+    </div>
+  </div>
+  <div class="notes">Fachliche Korrektur gegenüber dem Original: Die Schicht hieß dort „Unternehmensebene“, ein Begriff aus der Automatisierungspyramide (ISA-95) für die ERP-/Betriebsleitebene. Für die Bedienoberfläche im Wohnhaus ist „Bedienebene“ korrekt.</div>
+</section>
+
+<section class="slide" data-transition="rise">
+  <p class="kicker">Zusammenfassung Teil 1</p>
+  <h2>Ablauf von Smart Home</h2>
+  <div class="cols cols--4">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>1. Geräte</h3>
+      <p>Sensoren (Messen) &amp; Aktoren (Schalten)</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>2. Protokoll</h3>
+      <p>Funk (Zigbee, Matter) oder Kabel (KNX)</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>3. Zentrale</h3>
+      <p>Smart Home Gateway / Hub (die „Zentrale“)</p>
+    </div>
+    <div class="card" data-fragment="4" data-fragment-style="grow">
+      <h3>4. Steuerung</h3>
+      <p>Smartphone, Sprachassistent, Wandschalter</p>
+    </div>
+  </div>
+  <div class="notes">Wiederholung der vier Schichten, keine neuen Inhalte. Stufe 4 heißt hier „Steuerung“ und entspricht der zuvor korrigierten Bedienebene.</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Zusammenfassung Teil 1</p>
+  <h2>Beispiel für den Ablauf</h2>
+  <figure>
+    <img src="images/pages/page-16.png" alt="Vierstufiger Ablauf mit Pfeil-Kacheln: Sensor, Protokoll, Zentrale, Aktor">
+  </figure>
+  <div class="notes">Vier Pfeil-Kacheln von links nach rechts: Fenstersensor, Zigbee-Funk, Smart-Home-Gehirn, Heizkörperthermostat. Der Pfeil zeigt den Informationsfluss vom Messen bis zum Schalten.</div>
+</section>
+
+<section class="slide" data-transition="rise">
+  <p class="kicker">Zusammenfassung Teil 1 · Details</p>
+  <h2>Beispiel für den Ablauf</h2>
+  <div class="cols cols--4">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Sensor (Schicht 1)</h3>
+      <p>Der Fenstersensor registriert, dass das Fenster im Schlafzimmer geöffnet wird.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Protokoll (Schicht 2)</h3>
+      <p>Er sendet diese Information via Zigbee-Funk an die Zentrale.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Zentrale (Schicht 3)</h3>
+      <p>Das Smart-Home-Gehirn hat die Logik gespeichert: „Wenn Fenster offen, dann Heizung aus“. Es sendet einen Befehl zurück.</p>
+    </div>
+    <div class="card" data-fragment="4" data-fragment-style="grow">
+      <h3>Aktor (Schicht 1)</h3>
+      <p>Das Heizkörperthermostat empfängt den Befehl und dreht das Ventil zu.</p>
+    </div>
+  </div>
+  <div class="notes">Beispiel Schritt für Schritt: Fenster auf, Zigbee-Funk, Zentrale wendet die Regel an, Thermostat schließt das Ventil. Übergang zu Teil 2: Wie die Zentrale denkt.</div>
+</section>

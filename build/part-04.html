@@ -1,0 +1,229 @@
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">TEIL 4</p>
+  <h1>Risiken</h1>
+  <p class="lead">Vier Risikoebenen, die bei der Systemwahl zusammen betrachtet werden müssen</p>
+  <div class="notes">Die Ebenen laut Quelle: 1. Cloud-Abhängigkeit &amp; Datenschutz — wohin gehen die Daten? 2. IT-Sicherheit — wer kommt von außen rein? 3. Lebensdauer — was passiert, wenn der Hersteller abschaltet?</div>
+</section>
+
+<section class="slide" data-transition="fade">
+  <p class="kicker">Teil 4 · Risiken</p>
+  <h2>Gefahren und Fallstricke von Cloudanbietern</h2>
+  <figure>
+    <img src="images/img-038-017.png" alt="Vergleichstabelle Serverstandort: Deutschland/EU vs. Drittländer (z. B. USA)">
+  </figure>
+  <div class="notes">Tabelle „Warum der Serverstandort wichtig, aber nicht alles ist“: Für Deutschland/EU kein Transferrisiko im Sinne der Art. 44 ff. DSGVO, für Drittländer „Ja“ mit Absicherungspflicht (z. B. EU-US Data Privacy Framework oder Standardvertragsklauseln). Beim Hosting bei US-Anbietern mit Servern in Frankfurt bleibt laut Tabelle das CLOUD-Act-Risiko über den Mutterkonzern bestehen.</div>
+</section>
+
+<section class="slide slide--center" data-transition="rise">
+  <p class="kicker">Teil 4 · Risiken</p>
+  <h2>Drittland-Risiko am Beispiel China</h2>
+  <p class="lead">Das Hosten von personenbezogenen Daten auf einem Server in China ist nach der DSGVO <strong>rechtlich extrem riskant</strong> und in den allermeisten Fällen <strong>unzulässig</strong>.</p>
+  <div class="notes">Drei Gründe auf der nächsten Folie. Belegstatus: Rechtsaussagen ohne Quellenangabe in der Präsentation (Angemessenheitsbeschluss, Art. 7 chin. Geheimdienstgesetz, TIA-Pflicht); auf der Quellenfolie 107 als „zu belegen“ vermerkt und vor dem Vortrag durch eine zitierfähige Quelle zu stützen oder abzuschwächen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Teil 4 · Risiken</p>
+  <h2>Drittland-Risiko China: drei Gründe</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Kein Angemessenheitsbeschluss</h3>
+      <p>Die Europäische Kommission stuft das Datenschutzniveau in China nicht als gleichwertig mit dem europäischen Standard ein.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Zugriffsrisiko durch Behörden (Geheimdienstgesetz)</h3>
+      <p>Artikel 7 des chinesischen Geheimdienstgesetzes verpflichtet dortige Organisationen und Unternehmen zur Kooperation mit den staatlichen Sicherheitsbehörden. Ein wirksamer Schutz vor staatlichem Zugriff ist damit kaum zu garantieren.</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Scheitern von Standardvertragsklauseln (SCCs)</h3>
+      <p>Im Rahmen des zwingend erforderlichen Transfer Impact Assessments (TIA) muss geprüft werden, ob das Recht des Drittlandes die Einhaltung der SCCs aushebelt. Wegen der chinesischen Überwachungsgesetze kommen deutsche Aufsichtsbehörden hier fast immer zu einem negativen Ergebnis.</p>
+    </div>
+  </div>
+  <div class="notes">Die drei Punkte sind der Formulierung des Originals entnommen und nicht verschärft. Noch zu belegen (Quellenfolie 107): Angemessenheitsbeschluss, Art. 7 chin. Geheimdienstgesetz, TIA-Pflicht.</div>
+</section>
+
+<section class="slide slide--center" data-transition="fade">
+  <p class="kicker">Bezug zum Smart Home</p>
+  <h2>Tuya: Serverstandort wird praktisch relevant</h2>
+  <p class="lead">Tuya ist eine globale Cloud-Plattform (siehe Folie 28: „wandern Nutzungsdaten über externe Server“). Genau hier wird die Frage des Serverstandorts praktisch relevant.</p>
+  <div class="notes">Rückbezug auf die Tuya-Folie aus Teil 2. Überleitung zur Leitfrage: Welche Daten verlassen das Haus?</div>
+</section>
+
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">Drei Fragen, die jedes System beantworten muss</p>
+  <h2>Welche Daten verlassen das Haus?</h2>
+  <p class="lead" data-fragment="1">Wohin gehen sie?</p>
+  <p class="lead" data-fragment="2">Wer darf darauf zugreifen?</p>
+  <div class="notes">Leitfrage für den Rest von Teil 4. Zuerst klären, welche Daten überhaupt anfallen.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Leitfrage</p>
+  <h2>Welche Daten in diesem Vortrag überhaupt vorkommen</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Temperatur &amp; Luftfeuchtigkeit pro Raum</h3>
+      <p>Verrät im Klartext: welche Räume genutzt werden</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Schaltvorgänge von Licht und Steckdosen</h3>
+      <p>Verrät im Klartext: Tagesrhythmus, Aufstehen, Zubettgehen</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Fenster- und Türkontakte</h3>
+      <p>Verrät im Klartext: wann niemand zu Hause ist</p>
+    </div>
+  </div>
+  <div class="notes">Fundstellen im Vortrag: Temperatur und Luftfeuchtigkeit Folie 24 (Tuya-Automatisierung) sowie Folie 60/64 (Heizung, tado°); Schaltvorgänge Folie 57/58 (Xiaomi, Google Home); Fenster- und Türkontakte Folie 8, Folie 18, Folie 100.</div>
+</section>
+
+<section class="slide" data-transition="slide">
+  <p class="kicker">Leitfrage</p>
+  <h2>Welche Daten in diesem Vortrag überhaupt vorkommen</h2>
+  <div class="cols cols--3">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Anwesenheit / Geofencing</h3>
+      <p>Verrät im Klartext: Standort der Bewohner</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Energieverbrauch über Monate</h3>
+      <p>Verrät im Klartext: Urlaubszeiten, Haushaltsgröße</p>
+    </div>
+    <div class="card" data-fragment="3" data-fragment-style="grow">
+      <h3>Kamerabilder vom Hauseingang</h3>
+      <p>Verrät im Klartext: Gesichter, Besucher, Nachbarn</p>
+    </div>
+  </div>
+  <div class="notes">Fundstellen im Vortrag: Anwesenheit/Geofencing Folie 64 (tado° „HOME Geofencing“); Energieverbrauch Folie 61/62 (Energiemonitoring); Kamerabilder Folie 65.</div>
+</section>
+
+<section class="slide" data-transition="rise">
+  <p class="kicker">Leitfrage</p>
+  <h2>Die Antwort hängt allein an der Architektur, nicht am Marketing</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Lokal</h3>
+      <p>Läuft die Schaltung lokal (Zigbee, Matter, Home Assistant), verlassen diese Daten das Haus gar nicht.</p>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Cloud</h3>
+      <p>Läuft sie über eine Cloud (Tuya, Xiaomi, Google), verlassen sie es bei jedem Schaltvorgang.</p>
+    </div>
+  </div>
+  <div class="notes">Kernaussage zur Leitfrage: Entscheidend ist die Architektur, nicht das Marketing.</div>
+</section>
+
+<section class="slide slide--center" data-transition="fade">
+  <p class="kicker">Praxis-Hinweis</p>
+  <h2>Kameras erfassen regelmäßig auch Dritte</h2>
+  <p class="lead">Bei Kameras ist zusätzlich zu beachten, dass regelmäßig auch Dritte (Besucher, Nachbarn, Postboten) erfasst werden. Das ist keine neue Rechtsaussage dieses Vortrags, sondern der Punkt, an dem die Verantwortung des Betreibers beginnt.</p>
+  <div class="notes">Vor dem Vortrag mit einer belastbaren Quelle unterfüttern.</div>
+</section>
+
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">Teil 4 · Risiken</p>
+  <h2>IT-Sicherheit: die zweite Risikoebene</h2>
+  <p class="lead">Datenschutz fragt: <strong>Wer darf die Daten sehen?</strong> IT-Sicherheit fragt: <strong>Wer kommt ungefragt rein?</strong></p>
+  <div class="notes">Der Vortrag behandelte bisher nur die erste Frage. Es folgen die drei häufigsten Einfallstore im Heimnetz.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Die drei häufigsten Einfallstore im Heimnetz</p>
+  <h2>Offene Ports / Portweiterleitung</h2>
+  <p>Wer die Kamera oder das Dashboard „von unterwegs“ erreichbar machen will und dafür im Router einen Port nach außen öffnet, stellt das Gerät dem gesamten Internet zur Verfügung.</p>
+  <ul>
+    <li data-fragment="1">Suchmaschinen für offene Geräte finden solche Ports binnen Stunden</li>
+    <li data-fragment="2">Richtiger Weg: VPN ins Heimnetz oder der Reverse-Proxy des Herstellers</li>
+    <li data-fragment="3">Keine direkte Portweiterleitung</li>
+  </ul>
+  <div class="notes">Einfallstor 1 von 3. Allgemein anerkannter Sicherheitsgrundsatz; Beleg z. B. BSI-Empfehlungen zu Smart Home (Quellenfolie 107).</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Die drei häufigsten Einfallstore im Heimnetz</p>
+  <h2>Fehlende Firmware-Updates</h2>
+  <ul>
+    <li data-fragment="1">Billiggeräte erhalten oft nur wenige Monate Updates, manche nie</li>
+    <li data-fragment="2">Eine bekannte Lücke in einem Gerät, das nie wieder ein Update sieht, bleibt für die gesamte Nutzungsdauer offen</li>
+    <li data-fragment="3">Vor dem Kauf prüfen: Gibt es eine Update-Zusage, und wie lange?</li>
+  </ul>
+  <div class="notes">Einfallstor 2 von 3. Allgemein anerkannter Sicherheitsgrundsatz; Beleg z. B. BSI-Empfehlungen zu Smart Home (Quellenfolie 107).</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Die drei häufigsten Einfallstore im Heimnetz</p>
+  <h2>Botnetze aus Billigkameras</h2>
+  <p>Unsichere Kameras und Rekorder mit Standardpasswörtern werden massenhaft gekapert und für Angriffe missbraucht. Das Gerät funktioniert dabei äußerlich normal weiter — der Betreiber merkt nichts.</p>
+  <h3>Gegenmittel</h3>
+  <ul>
+    <li data-fragment="1">Standardpasswörter sofort ändern</li>
+    <li data-fragment="2">Geräte in ein eigenes Netzsegment (Gäste-WLAN / VLAN) legen</li>
+    <li data-fragment="3">Internetzugang für Geräte sperren, die ihn nicht brauchen</li>
+  </ul>
+  <div class="notes">Einfallstor 3 von 3. Allgemein anerkannter Sicherheitsgrundsatz; Beleg z. B. BSI-Empfehlungen zu Smart Home (Quellenfolie 107).</div>
+</section>
+
+<section class="slide slide--center" data-transition="fade">
+  <p class="kicker">Warum das in diesen Vortrag gehört</p>
+  <h2 data-fragment="1" data-fragment-style="blur">Jedes Argument für lokale Systeme aus Teil 3 wirkt doppelt</h2>
+  <p class="lead" data-fragment="2">Ein Gerät, das keine Cloud braucht, braucht auch keinen offenen Port.</p>
+  <div class="notes">Brücke zurück zu Teil 3 (lokale Systeme). Danach das Lebensdauer-Risiko.</div>
+</section>
+
+<section class="slide slide--center" data-transition="zoom">
+  <p class="kicker">Teil 4 · Risiken</p>
+  <h2>Lebensdauer-Risiko: wenn der Hersteller abschaltet</h2>
+  <p class="lead">Folie 28 nennt den Cloud-<strong>Ausfall</strong> bei Tuya: „Fällt das Internet oder die Tuya-Cloud aus, funktionieren viele Routinen und die Fernsteuerung nicht mehr.“ Das ist der harmlose Fall — er ist vorübergehend.</p>
+  <div class="notes">Abgrenzung: Ausfall ist vorübergehend, Abschaltung ist endgültig. Nächste Folie: der Härtefall.</div>
+</section>
+
+<section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
+  <p class="kicker">Lebensdauer-Risiko</p>
+  <h2>Der Härtefall: die Cloud wird abgeschaltet</h2>
+  <p>Ein cloud-gebundenes Gerät ist nur so lange ein Gerät, wie der Hersteller den Server bezahlt. Wird der Dienst eingestellt — Insolvenz, Produktende, Strategiewechsel, Übernahme —, dann:</p>
+  <ul>
+    <li data-fragment="1">lässt sich das Gerät <strong>nicht mehr einrichten</strong>, auch nicht lokal</li>
+    <li data-fragment="2">fällt die App aus, und mit ihr <strong>jede Automatisierung</strong></li>
+    <li data-fragment="3">bleibt physisch intakte Hardware zurück, die <strong>nichts mehr tut</strong> — Elektroschrank statt Elektronik</li>
+  </ul>
+  <div class="notes">Konkrete Abschaltfälle nennt die Präsentation bewusst nicht; für den Vortrag ein belegtes Beispiel ergänzen (Quellenfolie 107). Mechanismus ergibt sich aus den Kommunikationswegen auf Folie 29/30.</div>
+</section>
+
+<section class="slide slide--center" data-transition="fade">
+  <p class="kicker">Lebensdauer-Risiko</p>
+  <h2 data-fragment="1" data-fragment-style="blur">Kein Update, kein Workaround, keine Garantie greift.</h2>
+  <p class="lead" data-fragment="2">Die Geräte sind nicht defekt, sie sind verwaist.</p>
+  <div class="notes">Pointe zum Härtefall: Hardware intakt, Funktion weg.</div>
+</section>
+
+<section class="slide" data-transition="rise">
+  <p class="kicker">Lebensdauer-Risiko</p>
+  <h2>Warum das das stärkste Argument für lokale Systeme ist</h2>
+  <div class="cols">
+    <div class="card" data-fragment="1" data-fragment-style="grow">
+      <h3>Cloud-gebunden</h3>
+      <ul>
+        <li>Hersteller stellt Dienst ein: Gerät wird unbrauchbar</li>
+        <li>Internet fällt aus: Steuerung fällt aus</li>
+        <li>Investitionsschutz: an die Lebensdauer eines Serverbetriebs gebunden</li>
+      </ul>
+    </div>
+    <div class="card" data-fragment="2" data-fragment-style="grow">
+      <h3>Lokal (Zigbee, Matter, KNX, Home Assistant)</h3>
+      <ul>
+        <li>Hersteller stellt Dienst ein: Gerät funktioniert weiter</li>
+        <li>Internet fällt aus: Steuerung läuft weiter</li>
+        <li>Investitionsschutz: an die Lebensdauer der Hardware gebunden</li>
+      </ul>
+    </div>
+  </div>
+  <div class="notes">Gegenüberstellung in drei Zeilen: Dienst eingestellt, Internet-Ausfall, Investitionsschutz.</div>
+</section>
+
+<section class="slide slide--center" data-transition="fade">
+  <p class="kicker">Für den Entscheider</p>
+  <h2>Bei KNX wird in Jahrzehnten gerechnet</h2>
+  <p class="lead">(siehe Folie 80: „hält jahrzehntelang“)</p>
+  <p class="lead" data-fragment="1">Bei einer Cloud-Plattform rechnet niemand in Jahrzehnten.</p>
+  <p class="lead" data-fragment="2">Wer eine Immobilie ausstattet, trifft damit keine Produkt-, sondern eine Zeithorizont-Entscheidung.</p>
+  <div class="notes">Schlusspunkt von Teil 4: Zeithorizont statt Produktwahl.</div>
+</section>
