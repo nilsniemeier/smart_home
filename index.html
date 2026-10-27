@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Smart Home — Nils Niemeier</title>
-<link rel="stylesheet" href="css/core.css?v=63">
+<link rel="stylesheet" href="css/core.css?v=64">
 <link rel="stylesheet" href="css/themes/aurora.css" id="theme-css">
 </head>
 <body>
@@ -1992,193 +1992,344 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <div class="notes">Ein fest installiertes Wanddisplay mit individuellen Räumen und Statusinformationen. Das Dashboard ist hier nach Räumen gegliedert.</div>
 </section>
 
-<section class="slide" data-transition="fade">
+<section class="slide slide--os" data-transition="fade">
   <p class="kicker">Demo · zum Ausprobieren</p>
   <h2>Smart Home OS</h2>
-  <div class="shos" data-smarthome data-playing="0" data-night="0">
-    <div class="shos-ui">
-      <div class="shos-top">
-        <div class="shos-title">
-          <span class="shos-ico" data-icon="house"></span>
-          <div><b>Wohnzimmer</b><small>Lokal · simulierte Uhr</small></div>
-        </div>
-        <span class="shos-chip"><span data-icon="bolt"></span><span data-el="power">0 W</span></span>
-        <span class="shos-chip"><span data-icon="sun" class="ico-sun"></span><span data-icon="moon" class="ico-moon"></span><span data-el="clock">19:50</span></span>
-        <button class="shos-round" data-act="play" aria-label="Simulierte Uhr starten oder anhalten"><span data-icon="play" class="ico-play"></span><span data-icon="pause" class="ico-pause"></span></button>
-        <button data-act="ff"><span data-icon="ff"></span>Vorspulen</button>
+  <div class="shos" data-smarthome data-playing="0" data-night="0" data-weather="sunny">
+    <div class="shos-top">
+      <div class="shos-title">
+        <span class="shos-ico" data-icon="house"></span>
+        <div><b>Smart Home OS</b><small>Wohnzimmer · lokal · simulierte Uhr</small></div>
       </div>
-      <div class="shos-tabs">
-        <button class="is-on" data-act="tab" data-v="devices">Geräte</button>
-        <button data-act="tab" data-v="routines">Routinen <i data-el="routine-count">4</i></button>
-      </div>
-
-      <div class="shos-pane" data-pane="devices">
-        <div class="shos-grid">
-          <div class="shos-tile" data-tile="hvac">
-            <div class="shos-tile__head"><span class="shos-badge" data-icon="therm"></span><span>Klima</span><span class="shos-state" data-el="hvac-state">aus</span></div>
-            <div class="shos-temp">
-              <button class="shos-round" data-act="temp" data-v="-0.5" aria-label="Solltemperatur senken">−</button>
-              <div class="shos-temp__val"><b data-el="target">21,0 °C</b>Ist <span data-el="current">19,2 °C</span></div>
-              <button class="shos-round" data-act="temp" data-v="0.5" aria-label="Solltemperatur erhöhen">+</button>
-            </div>
-            <div class="shos-seg">
-              <button data-act="mode" data-v="heat">Heizen</button>
-              <button data-act="mode" data-v="cool">Kühlen</button>
-              <button data-act="mode" data-v="off">Aus</button>
-            </div>
-          </div>
-          <div class="shos-tile" data-tile="light">
-            <div class="shos-tile__head"><span class="shos-badge" data-icon="bulb"></span><span>Licht</span><span class="shos-state" data-el="light-state">aus</span></div>
-            <div class="shos-row"><span>Deckenlicht</span><button class="shos-sw" data-act="toggle" data-v="ceiling" aria-label="Deckenlicht schalten"></button></div>
-            <div class="shos-row"><span>Dimmer</span><button class="shos-round" data-act="dim" data-v="-10" aria-label="dunkler">−</button><div class="shos-meter shos-meter--s"><i data-el="bri-bar"></i></div><small data-el="bri">70 %</small><button class="shos-round" data-act="dim" data-v="10" aria-label="heller">+</button></div>
-            <div class="shos-row"><span>Stehlampe</span><button class="shos-sw" data-act="toggle" data-v="floor" aria-label="Stehlampe schalten"></button></div>
-          </div>
-          <div class="shos-tile" data-tile="plug">
-            <div class="shos-tile__head"><span class="shos-badge" data-icon="plug"></span><span>Steckdosen</span><span class="shos-state" data-el="plug-state">aus</span></div>
-            <div class="shos-row"><span>Kaffeemaschine</span><small data-el="coffee-w">0 W</small><button class="shos-sw" data-act="toggle" data-v="coffee" aria-label="Kaffeemaschine schalten"></button></div>
-            <div class="shos-row"><span>Fernseher</span><small data-el="tv-w">0 W</small><button class="shos-sw" data-act="toggle" data-v="tv" aria-label="Fernseher schalten"></button></div>
-          </div>
-          <div class="shos-tile" data-tile="blind">
-            <div class="shos-tile__head"><span class="shos-badge" data-icon="blinds"></span><span>Jalousie</span><span class="shos-state" data-el="blind-state">offen</span></div>
-            <div class="shos-row"><div class="shos-meter"><i data-el="blind-bar"></i></div><small data-el="blind-pct">0 %</small></div>
-            <div class="shos-seg">
-              <button data-act="blind" data-v="up">Auf</button>
-              <button data-act="blind" data-v="stop">Stopp</button>
-              <button data-act="blind" data-v="down">Ab</button>
-            </div>
-          </div>
-        </div>
-        <div class="shos-scenes"><span>Szenen</span>
-          <button data-act="scene" data-v="morning"><span data-icon="sun"></span>Morgen</button>
-          <button data-act="scene" data-v="cinema"><span data-icon="film"></span>Kino</button>
-          <button data-act="scene" data-v="off"><span data-icon="power"></span>Alles aus</button>
-        </div>
-      </div>
-
-      <div class="shos-pane" data-pane="routines" hidden>
-        <div class="shos-rts" data-el="routines"></div>
-        <div class="shos-foot">
-          <button data-act="save" data-el="save"><span data-icon="plus"></span>Aktuellen Zustand als Routine speichern</button>
-          <span>Auslöser: Uhrzeit, Temperatur oder Knopf</span>
-        </div>
-      </div>
+      <span class="shos-chip"><span data-icon="sun" class="ico-sun"></span><span data-icon="moon" class="ico-moon"></span><span data-el="clock">19:50</span></span>
+      <button class="shos-round" data-act="play" aria-label="Simulierte Uhr starten oder anhalten"><span data-icon="play" class="ico-play"></span><span data-icon="pause" class="ico-pause"></span></button>
+      <button data-act="ff"><span data-icon="ff"></span>Vorspulen</button>
+      <span class="shos-chip"><span data-icon="bolt"></span><span data-el="power">0 W</span></span>
     </div>
 
-    <div class="shos-room">
-      <div class="shos-banner" data-el="banner"><span data-icon="gear"></span><span>Lokal · läuft ohne Internet</span></div>
-      <svg class="sh-scene" viewBox="0 0 720 560" role="img" aria-label="Wohnzimmer mit Fenster und Jalousie, Deckenlicht, Stehlampe, Klimagerät, Fernseher und Kaffeemaschine. Die Geräte zeigen ihren Zustand, das Fenster zeigt Tag oder Nacht.">
-        <defs>
-          <radialGradient id="sh-glow"><stop offset="0" class="sh-stop0"></stop><stop offset="1" class="sh-stop1"></stop></radialGradient>
-          <linearGradient id="sh-cone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="sh-stop0"></stop><stop offset="1" class="sh-stop1"></stop></linearGradient>
-          <clipPath id="sh-win"><rect x="50" y="70" width="240" height="260"></rect></clipPath>
-        </defs>
+    <div class="shos-main">
+      <div class="shos-left">
+        <div class="shos-house">
+          <svg class="sh-hscene" viewBox="0 0 900 340" role="img" aria-label="Haus mit Garten. Himmel, Sonne und Mond, Wetter und die beleuchteten Fenster folgen Uhrzeit, Wetter und Schaltern der Oberfläche.">
+            <defs>
+              <linearGradient id="sh-h-sky" x1="0" y1="0" x2="0" y2="1"><stop data-el="sky0" offset="0" stop-color="#4a95e6"></stop><stop data-el="sky1" offset="1" stop-color="#c4e6ff"></stop></linearGradient>
+              <radialGradient id="sh-h-sunglow"><stop offset="0" stop-color="#fff2b0" stop-opacity="0.85"></stop><stop offset="1" stop-color="#fff2b0" stop-opacity="0"></stop></radialGradient>
+              <radialGradient id="sh-h-glow"><stop offset="0" class="sh-stop0"></stop><stop offset="1" class="sh-stop1"></stop></radialGradient>
+              <pattern id="sh-h-slats" width="6" height="6" patternUnits="userSpaceOnUse"><rect class="sh-slatfill" width="6" height="4.6"></rect></pattern>
+              <clipPath id="sh-h-win"><rect x="284" y="244" width="118" height="48"></rect></clipPath>
+              <path id="sh-h-cloud" d="M30 56C10 56 4 36 22 30C20 12 44 4 58 16C66 -2 100 0 106 20C128 14 146 30 136 44C134 52 126 56 118 56Z"></path>
+            </defs>
 
-        <!-- room shell -->
-        <rect class="sh-wall" x="0" y="0" width="720" height="500"></rect>
-        <rect class="sh-floorfill" x="0" y="500" width="720" height="60"></rect>
-        <path class="sh-plank" d="M130 500L100 560M300 500L290 560M470 500L480 560M640 500L670 560"></path>
-        <rect class="sh-base" x="0" y="488" width="720" height="12"></rect>
-        <line class="sh-line" x1="0" y1="500" x2="720" y2="500"></line>
+            <rect width="900" height="340" fill="url(#sh-h-sky)"></rect>
+            <g data-el="stars" opacity="0"></g>
+            <g data-el="sun" transform="translate(450,60)">
+              <circle r="70" fill="url(#sh-h-sunglow)"></circle>
+              <circle data-el="sun-disc" r="24" fill="#ffd95c"></circle>
+            </g>
+            <g data-el="moon" transform="translate(450,60)" display="none">
+              <circle r="20" class="sh-moondisc"></circle>
+              <circle cx="-6" cy="-5" r="3.2" class="sh-crater"></circle>
+              <circle cx="6" cy="6" r="4.2" class="sh-crater"></circle>
+            </g>
 
-        <!-- window: sky, sun or moon, daylight, blind -->
-        <rect class="sh-sky" x="50" y="70" width="240" height="260"></rect>
-        <g clip-path="url(#sh-win)">
-          <circle class="sh-sun" cx="225" cy="135" r="26"></circle>
-          <circle class="sh-moon" cx="225" cy="135" r="18"></circle>
-          <circle class="sh-star" cx="100" cy="120" r="2.5"></circle>
-          <circle class="sh-star" cx="150" cy="175" r="2"></circle>
-          <circle class="sh-star" cx="115" cy="240" r="2.5"></circle>
-          <circle class="sh-star" cx="255" cy="215" r="2"></circle>
-        </g>
-        <polygon class="sh-beam" data-el="beam" points="50,342 290,342 470,500 230,500" opacity="0.3"></polygon>
-        <g clip-path="url(#sh-win)">
-          <g data-el="blind" transform="translate(0,-260)">
-            <rect class="sh-slat" x="50" y="70"  width="240" height="14"></rect>
-            <rect class="sh-slat" x="50" y="90"  width="240" height="14"></rect>
-            <rect class="sh-slat" x="50" y="110" width="240" height="14"></rect>
-            <rect class="sh-slat" x="50" y="130" width="240" height="14"></rect>
-            <rect class="sh-slat" x="50" y="150" width="240" height="14"></rect>
-            <rect class="sh-slat" x="50" y="170" width="240" height="14"></rect>
-            <rect class="sh-slat" x="50" y="190" width="240" height="14"></rect>
-            <rect class="sh-slat" x="50" y="210" width="240" height="14"></rect>
-            <rect class="sh-slat" x="50" y="230" width="240" height="14"></rect>
-            <rect class="sh-slat" x="50" y="250" width="240" height="14"></rect>
-            <rect class="sh-slat" x="50" y="270" width="240" height="14"></rect>
-            <rect class="sh-slat" x="50" y="290" width="240" height="14"></rect>
-            <rect class="sh-slat" x="50" y="310" width="240" height="14"></rect>
+            <!-- clouds: drift across; the sunny sky keeps only two of them -->
+            <g transform="translate(0,26) scale(1.15)"><g class="sh-cloud sh-cloud--a" style="--d:170s;--dl:-60s"><use href="#sh-h-cloud"></use></g></g>
+            <g transform="translate(0,84) scale(0.8)"><g class="sh-cloud sh-cloud--a" style="--d:210s;--dl:-150s"><use href="#sh-h-cloud"></use></g></g>
+            <g transform="translate(0,8) scale(1.4)"><g class="sh-cloud sh-cloud--b" style="--d:230s;--dl:-40s"><use href="#sh-h-cloud"></use></g></g>
+            <g transform="translate(0,120) scale(1)"><g class="sh-cloud sh-cloud--b" style="--d:190s;--dl:-120s"><use href="#sh-h-cloud"></use></g></g>
+            <g transform="translate(0,52) scale(1.25)"><g class="sh-cloud sh-cloud--b" style="--d:250s;--dl:-200s"><use href="#sh-h-cloud"></use></g></g>
+            <g transform="translate(0,98) scale(0.7)"><g class="sh-cloud sh-cloud--b" style="--d:150s;--dl:-20s"><use href="#sh-h-cloud"></use></g></g>
+
+            <!-- ground -->
+            <path data-el="hills-far" d="M0 252C90 214 190 238 310 224C440 210 560 244 700 226C790 216 850 236 900 228L900 350L0 350Z" fill="#4f9760"></path>
+            <path data-el="hills-near" d="M0 290C150 272 300 284 450 280C600 276 750 288 900 278L900 350L0 350Z" fill="#5aa86a"></path>
+            <path class="sh-snowground" data-el="snow-ground" d="M0 252C90 214 190 238 310 224C440 210 560 244 700 226C790 216 850 236 900 228L900 350L0 350Z" fill="#eef3f9"></path>
+            <g data-el="trunks" fill="#7a5638"><rect x="126" y="240" width="9" height="46"></rect><rect x="786" y="246" width="7" height="38"></rect></g>
+            <g data-el="leaves" fill="#3f8f55">
+              <circle cx="130" cy="226" r="30"></circle><circle cx="110" cy="240" r="22"></circle><circle cx="152" cy="242" r="22"></circle>
+              <circle cx="790" cy="234" r="24"></circle><circle cx="774" cy="246" r="18"></circle><circle cx="806" cy="246" r="18"></circle>
+            </g>
+
+            <!-- the house (darkens at night; lit windows are drawn on top) -->
+            <g data-el="house" class="sh-house">
+              <path class="sh-path" d="M446 300H476L534 345H392Z"></path>
+              <rect class="sh-hobj" x="512" y="82" width="22" height="52"></rect>
+              <rect class="sh-hobj" x="262" y="150" width="336" height="150"></rect>
+              <line class="sh-hline" x1="262" y1="226" x2="598" y2="226"></line>
+              <polygon class="sh-roof" points="238,150 430,66 622,150"></polygon>
+              <polygon class="sh-roofsnow" points="246,146 430,72 614,146 598,146 430,86 262,146"></polygon>
+              <circle class="sh-glass" cx="430" cy="118" r="12"></circle>
+              <!-- upper floor -->
+              <rect class="sh-glass" x="292" y="166" width="78" height="46"></rect>
+              <line class="sh-hline" x1="331" y1="166" x2="331" y2="212"></line>
+              <rect class="sh-glass" x="404" y="172" width="52" height="40"></rect>
+              <rect class="sh-glass" x="490" y="166" width="60" height="46"></rect>
+              <line class="sh-hline" x1="520" y1="166" x2="520" y2="212"></line>
+              <!-- ground floor: living room with blind, door, kitchen -->
+              <rect class="sh-glass" x="284" y="244" width="118" height="48"></rect>
+              <g clip-path="url(#sh-h-win)"><rect data-el="h-blind" x="284" y="244" width="118" height="0" fill="url(#sh-h-slats)"></rect></g>
+              <line class="sh-hline" x1="343" y1="244" x2="343" y2="292"></line>
+              <rect class="sh-door" x="428" y="240" width="44" height="60"></rect>
+              <circle class="sh-knob" cx="464" cy="272" r="2.5"></circle>
+              <rect class="sh-glass" x="508" y="252" width="64" height="40"></rect>
+              <line class="sh-hline" x1="540" y1="252" x2="540" y2="292"></line>
+              <!-- heat pump: its fan turns while the HVAC works -->
+              <path class="sh-hline" d="M598 292H618"></path>
+              <rect class="sh-hobj" x="618" y="264" width="46" height="36" rx="3"></rect>
+              <circle class="sh-hline" cx="641" cy="282" r="12"></circle>
+              <g data-el="fan" class="sh-fan"><path class="sh-hline" d="M641 271V293M630 282H652"></path></g>
+              <circle data-el="smoke" class="sh-smoke" cx="523" cy="76" r="6"></circle>
+              <circle data-el="smoke" class="sh-smoke" cx="526" cy="76" r="5"></circle>
+              <circle data-el="smoke" class="sh-smoke" cx="520" cy="76" r="4"></circle>
+            </g>
+
+            <!-- light on top of the night dimming -->
+            <circle class="sh-glow" data-el="halo-living" cx="343" cy="268" r="95" opacity="0"></circle>
+            <circle class="sh-glow" data-el="halo-kitchen" cx="540" cy="272" r="62" opacity="0"></circle>
+            <circle class="sh-glow" data-el="halo-bedroom" cx="331" cy="189" r="74" opacity="0"></circle>
+            <rect class="sh-lit" data-el="lit-living" x="284" y="244" width="118" height="48" opacity="0"></rect>
+            <rect class="sh-tvflick" data-el="tv-flicker" x="284" y="244" width="118" height="48" opacity="0"></rect>
+            <rect class="sh-lit" data-el="lit-kitchen" x="508" y="252" width="64" height="40" opacity="0"></rect>
+            <rect class="sh-lit" data-el="lit-bedroom" x="292" y="166" width="78" height="46" opacity="0"></rect>
+            <circle class="sh-glow" data-el="halo-porch" cx="450" cy="232" r="38" opacity="0"></circle>
+            <circle class="sh-bulb" data-el="bulb-porch" cx="450" cy="232" r="4"></circle>
+            <line class="sh-hline" x1="690" y1="300" x2="690" y2="254"></line>
+            <circle class="sh-glow" data-el="halo-garden" cx="690" cy="248" r="66" opacity="0"></circle>
+            <circle class="sh-bulb" data-el="bulb-garden" cx="690" cy="248" r="6"></circle>
+
+            <!-- weather in front of everything -->
+            <g class="sh-rain" data-el="rain"></g>
+            <g class="sh-snow" data-el="snow"></g>
+            <rect class="sh-flash" width="900" height="340"></rect>
+            <polygon class="sh-bolt sh-bolt--a" points="716,0 694,86 712,86 686,180 742,70 722,70 746,0"></polygon>
+            <polygon class="sh-bolt sh-bolt--b" points="176,0 156,74 172,74 150,150 198,62 182,62 202,0"></polygon>
+          </svg>
+          <div class="shos-house__chips">
+            <span class="shos-chip shos-chip--glass"><span data-el="wx-icon" class="shos-wxicon"></span><span data-el="wx-label">Sonnig</span><b data-el="wx-temp">21 °C</b></span>
+            <span class="shos-chip shos-chip--glass"><span data-el="daypart">Abend</span></span>
+          </div>
+        </div>
+
+        <div class="shos-ui">
+          <div class="shos-tabrow">
+            <div class="shos-tabs">
+              <button class="is-on" data-act="tab" data-v="devices">Geräte</button>
+              <button data-act="tab" data-v="routines">Routinen <i data-el="routine-count">6</i></button>
+              <button data-act="tab" data-v="env">Umwelt</button>
+            </div>
+            <button data-act="save" data-el="save" hidden><span data-icon="plus"></span>Zustand als Routine speichern</button>
+          </div>
+
+          <div class="shos-pane" data-pane="devices">
+            <div class="shos-grid">
+              <div class="shos-col">
+                <div class="shos-tile" data-tile="hvac">
+                  <div class="shos-tile__head"><span class="shos-badge" data-icon="therm"></span><span>Klima</span><span class="shos-state" data-el="hvac-state">aus</span></div>
+                  <div class="shos-temp">
+                    <button class="shos-round" data-act="temp" data-v="-0.5" aria-label="Solltemperatur senken">−</button>
+                    <div class="shos-temp__val"><b data-el="target">21,0 °C</b>Ist <span data-el="current">19,2 °C</span></div>
+                    <button class="shos-round" data-act="temp" data-v="0.5" aria-label="Solltemperatur erhöhen">+</button>
+                  </div>
+                  <div class="shos-seg">
+                    <button data-act="mode" data-v="heat">Heizen</button>
+                    <button data-act="mode" data-v="cool">Kühlen</button>
+                    <button data-act="mode" data-v="off">Aus</button>
+                  </div>
+                </div>
+                <div class="shos-tile" data-tile="blind">
+                  <div class="shos-tile__head"><span class="shos-badge" data-icon="blinds"></span><span>Jalousie</span><span class="shos-state" data-el="blind-state">offen</span></div>
+                  <div class="shos-row"><div class="shos-meter"><i data-el="blind-bar"></i></div><small data-el="blind-pct">0 %</small></div>
+                  <div class="shos-seg">
+                    <button data-act="blind" data-v="up">Auf</button>
+                    <button data-act="blind" data-v="stop">Stopp</button>
+                    <button data-act="blind" data-v="down">Ab</button>
+                  </div>
+                </div>
+              </div>
+              <div class="shos-col">
+                <div class="shos-tile" data-tile="light">
+                  <div class="shos-tile__head"><span class="shos-badge" data-icon="bulb"></span><span>Licht</span><span class="shos-state" data-el="light-state">aus</span></div>
+                  <div class="shos-cbs">
+                    <button class="shos-cb" data-act="toggle" data-v="ceiling"><span data-icon="bulb"></span>Decke</button>
+                    <button class="shos-cb" data-act="toggle" data-v="floor"><span data-icon="lamp"></span>Stehlampe</button>
+                    <button class="shos-cb" data-act="toggle" data-v="bedroom"><span data-icon="bed"></span>Schlafzimmer</button>
+                    <button class="shos-cb" data-act="toggle" data-v="outdoor"><span data-icon="tree"></span>Außen</button>
+                  </div>
+                  <div class="shos-row"><span>Dimmer Decke</span><button class="shos-round" data-act="dim" data-v="-10" aria-label="dunkler">−</button><div class="shos-meter shos-meter--s"><i data-el="bri-bar"></i></div><small data-el="bri">70 %</small><button class="shos-round" data-act="dim" data-v="10" aria-label="heller">+</button></div>
+                </div>
+                <div class="shos-tile" data-tile="plug">
+                  <div class="shos-tile__head"><span class="shos-badge" data-icon="plug"></span><span>Steckdosen</span><span class="shos-state" data-el="plug-state">aus</span></div>
+                  <div class="shos-cbs">
+                    <button class="shos-cb shos-cb--w" data-act="toggle" data-v="coffee"><span data-icon="plug"></span><span class="shos-cb__t">Kaffeemaschine<small data-el="coffee-w">0 W</small></span></button>
+                    <button class="shos-cb shos-cb--w" data-act="toggle" data-v="tv"><span data-icon="film"></span><span class="shos-cb__t">Fernseher<small data-el="tv-w">0 W</small></span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="shos-scenes"><span>Szenen</span>
+              <button data-act="scene" data-v="morning"><span data-icon="sun"></span>Morgen</button>
+              <button data-act="scene" data-v="cinema"><span data-icon="film"></span>Kino</button>
+              <button data-act="scene" data-v="off"><span data-icon="power"></span>Alles aus</button>
+            </div>
+          </div>
+
+          <div class="shos-pane" data-pane="routines" hidden>
+            <div class="shos-rts" data-el="routines"></div>
+          </div>
+
+          <div class="shos-pane" data-pane="env" hidden>
+            <div class="shos-tile">
+              <div class="shos-tile__head"><span class="shos-badge" data-icon="cloud"></span><span>Wetter</span><span class="shos-state" data-el="wx-state">Sonnig · 21 °C</span></div>
+              <div class="shos-wxgrid">
+                <button class="shos-wx is-on" data-act="weather" data-v="sunny"><span data-icon="sun"></span>Sonnig</button>
+                <button class="shos-wx" data-act="weather" data-v="cloudy"><span data-icon="cloud"></span>Bewölkt</button>
+                <button class="shos-wx" data-act="weather" data-v="rain"><span data-icon="rain"></span>Regen</button>
+                <button class="shos-wx" data-act="weather" data-v="storm"><span data-icon="storm"></span>Gewitter</button>
+                <button class="shos-wx" data-act="weather" data-v="snow"><span data-icon="snow"></span>Schnee</button>
+              </div>
+            </div>
+            <div class="shos-tile">
+              <div class="shos-tile__head"><span class="shos-badge" data-icon="clock"></span><span>Tageszeit</span><span class="shos-state" data-el="part-state">Abend · 19:50</span></div>
+              <div class="shos-seg">
+                <button data-act="timeset" data-v="390">Sonnenaufgang</button>
+                <button data-act="timeset" data-v="720">Mittag</button>
+                <button data-act="timeset" data-v="1230">Sonnenuntergang</button>
+                <button data-act="timeset" data-v="1380">Nacht</button>
+              </div>
+            </div>
+            <div class="shos-tile">
+              <div class="shos-tile__head"><span class="shos-badge" data-icon="ff"></span><span>Zeitraffer</span><span class="shos-state">Minuten pro Sekunde</span></div>
+              <div class="shos-seg">
+                <button class="is-on" data-act="speed" data-v="normal">Normal · 5</button>
+                <button data-act="speed" data-v="fast">Schnell · 20</button>
+                <button data-act="speed" data-v="warp">Raffer · 80</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="shos-room">
+        <div class="shos-banner" data-el="banner"><span data-icon="gear"></span><span>Lokal · läuft ohne Internet</span></div>
+        <svg class="sh-scene" viewBox="0 0 720 560" role="img" aria-label="Wohnzimmer mit Fenster und Jalousie, Deckenlicht, Stehlampe, Klimagerät, Fernseher und Kaffeemaschine. Die Geräte zeigen ihren Zustand, das Fenster zeigt Wetter und Tageszeit.">
+          <defs>
+            <radialGradient id="sh-glow"><stop offset="0" class="sh-stop0"></stop><stop offset="1" class="sh-stop1"></stop></radialGradient>
+            <linearGradient id="sh-cone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="sh-stop0"></stop><stop offset="1" class="sh-stop1"></stop></linearGradient>
+            <linearGradient id="sh-isky" x1="0" y1="0" x2="0" y2="1"><stop data-el="isky0" offset="0" stop-color="#4a95e6"></stop><stop data-el="isky1" offset="1" stop-color="#c4e6ff"></stop></linearGradient>
+            <clipPath id="sh-win"><rect x="50" y="70" width="240" height="260"></rect></clipPath>
+          </defs>
+
+          <!-- room shell -->
+          <rect class="sh-wall" x="0" y="0" width="720" height="500"></rect>
+          <rect class="sh-floorfill" x="0" y="500" width="720" height="60"></rect>
+          <path class="sh-plank" d="M130 500L100 560M300 500L290 560M470 500L480 560M640 500L670 560"></path>
+          <rect class="sh-base" x="0" y="488" width="720" height="12"></rect>
+          <line class="sh-line" x1="0" y1="500" x2="720" y2="500"></line>
+
+          <!-- window: sky, sun or moon, rain, daylight, blind -->
+          <rect x="50" y="70" width="240" height="260" fill="url(#sh-isky)"></rect>
+          <g clip-path="url(#sh-win)">
+            <g data-el="i-stars" opacity="0">
+              <circle class="sh-star" cx="100" cy="120" r="2.5"></circle>
+              <circle class="sh-star" cx="150" cy="175" r="2"></circle>
+              <circle class="sh-star" cx="115" cy="240" r="2.5"></circle>
+              <circle class="sh-star" cx="255" cy="215" r="2"></circle>
+              <circle class="sh-star" cx="205" cy="100" r="2"></circle>
+            </g>
+            <g data-el="i-sun" transform="translate(170,120)"><circle r="26" fill="#ffd95c"></circle></g>
+            <g data-el="i-moon" transform="translate(170,120)" display="none"><circle r="18" class="sh-moondisc"></circle></g>
+            <g class="sh-wrain" data-el="win-rain"></g>
           </g>
-        </g>
-        <rect class="sh-frame" x="50" y="70" width="240" height="260"></rect>
-        <line class="sh-line" x1="170" y1="70" x2="170" y2="330"></line>
-        <rect class="sh-obj" x="40" y="330" width="260" height="12" rx="2"></rect>
-        <rect class="sh-obj" x="40" y="56" width="260" height="14" rx="3"></rect>
+          <polygon class="sh-beam" data-el="beam" points="50,342 290,342 470,500 230,500" opacity="0.3"></polygon>
+          <g clip-path="url(#sh-win)">
+            <g data-el="blind" transform="translate(0,-260)">
+              <rect class="sh-slat" x="50" y="70"  width="240" height="14"></rect>
+              <rect class="sh-slat" x="50" y="90"  width="240" height="14"></rect>
+              <rect class="sh-slat" x="50" y="110" width="240" height="14"></rect>
+              <rect class="sh-slat" x="50" y="130" width="240" height="14"></rect>
+              <rect class="sh-slat" x="50" y="150" width="240" height="14"></rect>
+              <rect class="sh-slat" x="50" y="170" width="240" height="14"></rect>
+              <rect class="sh-slat" x="50" y="190" width="240" height="14"></rect>
+              <rect class="sh-slat" x="50" y="210" width="240" height="14"></rect>
+              <rect class="sh-slat" x="50" y="230" width="240" height="14"></rect>
+              <rect class="sh-slat" x="50" y="250" width="240" height="14"></rect>
+              <rect class="sh-slat" x="50" y="270" width="240" height="14"></rect>
+              <rect class="sh-slat" x="50" y="290" width="240" height="14"></rect>
+              <rect class="sh-slat" x="50" y="310" width="240" height="14"></rect>
+            </g>
+          </g>
+          <rect class="sh-frame" x="50" y="70" width="240" height="260"></rect>
+          <line class="sh-line" x1="170" y1="70" x2="170" y2="330"></line>
+          <rect class="sh-obj" x="40" y="330" width="260" height="12" rx="2"></rect>
+          <rect class="sh-obj" x="40" y="56" width="260" height="14" rx="3"></rect>
 
-        <!-- kitchen counter, plant, coffee machine -->
-        <rect class="sh-obj" x="30" y="430" width="250" height="70"></rect>
-        <rect class="sh-obj" x="24" y="418" width="262" height="12" rx="3"></rect>
-        <line class="sh-line" x1="155" y1="434" x2="155" y2="498"></line>
-        <circle class="sh-bulb" cx="143" cy="466" r="3.5"></circle>
-        <circle class="sh-bulb" cx="167" cy="466" r="3.5"></circle>
-        <path class="sh-leaf" d="M60 394C44 384 42 366 50 354C58 364 62 378 60 394Z"></path>
-        <path class="sh-leaf" d="M60 394C72 382 76 366 70 354C62 364 58 378 60 394Z"></path>
-        <path class="sh-leaf" d="M60 394C55 376 57 362 60 346C66 362 66 380 60 394Z"></path>
-        <path class="sh-obj" d="M44 394H76L72 418H48Z"></path>
-        <path class="sh-steam" data-el="steam" d="M126 334q-9-11 0-22q9-11 0-22"></path>
-        <path class="sh-steam" data-el="steam" d="M146 334q-9-11 0-22q9-11 0-22"></path>
-        <rect class="sh-obj" x="92" y="340" width="84" height="78" rx="8"></rect>
-        <rect class="sh-obj" x="92" y="340" width="84" height="18" rx="8"></rect>
-        <rect class="sh-line" x="120" y="392" width="28" height="22" rx="3"></rect>
-        <circle class="sh-led" data-el="coffee-led" cx="162" cy="374" r="5"></circle>
+          <!-- kitchen counter, plant, coffee machine -->
+          <rect class="sh-obj" x="30" y="430" width="250" height="70"></rect>
+          <rect class="sh-obj" x="24" y="418" width="262" height="12" rx="3"></rect>
+          <line class="sh-line" x1="155" y1="434" x2="155" y2="498"></line>
+          <circle class="sh-bulb" cx="143" cy="466" r="3.5"></circle>
+          <circle class="sh-bulb" cx="167" cy="466" r="3.5"></circle>
+          <path class="sh-leaf" d="M60 394C44 384 42 366 50 354C58 364 62 378 60 394Z"></path>
+          <path class="sh-leaf" d="M60 394C72 382 76 366 70 354C62 364 58 378 60 394Z"></path>
+          <path class="sh-leaf" d="M60 394C55 376 57 362 60 346C66 362 66 380 60 394Z"></path>
+          <path class="sh-obj" d="M44 394H76L72 418H48Z"></path>
+          <path class="sh-steam" data-el="steam" d="M126 334q-9-11 0-22q9-11 0-22"></path>
+          <path class="sh-steam" data-el="steam" d="M146 334q-9-11 0-22q9-11 0-22"></path>
+          <rect class="sh-obj" x="92" y="340" width="84" height="78" rx="8"></rect>
+          <rect class="sh-obj" x="92" y="340" width="84" height="18" rx="8"></rect>
+          <rect class="sh-line" x="120" y="392" width="28" height="22" rx="3"></rect>
+          <circle class="sh-led" data-el="coffee-led" cx="162" cy="374" r="5"></circle>
 
-        <!-- sideboard with TV -->
-        <rect class="sh-obj" x="320" y="446" width="240" height="54"></rect>
-        <rect class="sh-obj" x="314" y="436" width="252" height="10" rx="3"></rect>
-        <line class="sh-line" x1="440" y1="450" x2="440" y2="498"></line>
-        <rect class="sh-obj" x="430" y="424" width="20" height="12"></rect>
-        <rect class="sh-screen" data-el="tv" x="350" y="326" width="180" height="98" rx="6"></rect>
-        <g class="sh-tvui" data-el="tv-ui">
-          <path d="M424 360l30 15-30 15z"></path>
-          <rect x="372" y="402" width="136" height="6" rx="3"></rect>
-        </g>
-        <circle class="sh-led" data-el="tv-led" cx="544" cy="472" r="5"></circle>
+          <!-- sideboard with TV -->
+          <rect class="sh-obj" x="320" y="446" width="240" height="54"></rect>
+          <rect class="sh-obj" x="314" y="436" width="252" height="10" rx="3"></rect>
+          <line class="sh-line" x1="440" y1="450" x2="440" y2="498"></line>
+          <rect class="sh-obj" x="430" y="424" width="20" height="12"></rect>
+          <rect class="sh-screen" data-el="tv" x="350" y="326" width="180" height="98" rx="6"></rect>
+          <g class="sh-tvui" data-el="tv-ui">
+            <path d="M424 360l30 15-30 15z"></path>
+            <rect x="372" y="402" width="136" height="6" rx="3"></rect>
+          </g>
+          <circle class="sh-led" data-el="tv-led" cx="544" cy="472" r="5"></circle>
 
-        <!-- HVAC wall unit -->
-        <rect class="sh-obj" x="560" y="40" width="140" height="54" rx="12"></rect>
-        <rect class="sh-vent" x="574" y="78" width="112" height="7" rx="3.5"></rect>
-        <text class="sh-temp" data-el="ac-temp" x="576" y="68">19,2°</text>
-        <circle class="sh-led" data-el="ac-led" cx="676" cy="58" r="5"></circle>
-        <path class="sh-air" data-el="air" d="M585 106q12 28 0 56"></path>
-        <path class="sh-air" data-el="air" d="M630 106q12 28 0 56"></path>
-        <path class="sh-air" data-el="air" d="M675 106q12 28 0 56"></path>
+          <!-- HVAC wall unit -->
+          <rect class="sh-obj" x="560" y="40" width="140" height="54" rx="12"></rect>
+          <rect class="sh-vent" x="574" y="78" width="112" height="7" rx="3.5"></rect>
+          <text class="sh-temp" data-el="ac-temp" x="576" y="68">19,2°</text>
+          <circle class="sh-led" data-el="ac-led" cx="676" cy="58" r="5"></circle>
+          <path class="sh-air" data-el="air" d="M585 106q12 28 0 56"></path>
+          <path class="sh-air" data-el="air" d="M630 106q12 28 0 56"></path>
+          <path class="sh-air" data-el="air" d="M675 106q12 28 0 56"></path>
 
-        <!-- floor lamp and ceiling lamp (bodies; light comes below) -->
-        <line class="sh-line" x1="650" y1="326" x2="650" y2="498"></line>
-        <ellipse class="sh-obj" cx="650" cy="498" rx="34" ry="6"></ellipse>
-        <path class="sh-obj" d="M628 280H672L690 326H610Z"></path>
-        <line class="sh-line" x1="470" y1="0" x2="470" y2="58"></line>
-        <path class="sh-obj" d="M440 58H500L522 100H418Z"></path>
+          <!-- floor lamp and ceiling lamp (bodies; light comes below) -->
+          <line class="sh-line" x1="650" y1="326" x2="650" y2="498"></line>
+          <ellipse class="sh-obj" cx="650" cy="498" rx="34" ry="6"></ellipse>
+          <path class="sh-obj" d="M628 280H672L690 326H610Z"></path>
+          <line class="sh-line" x1="470" y1="0" x2="470" y2="58"></line>
+          <path class="sh-obj" d="M440 58H500L522 100H418Z"></path>
 
-        <rect class="sh-dim" x="0" y="0" width="720" height="560"></rect>
+          <rect class="sh-dim" data-el="i-dim" x="0" y="0" width="720" height="560" opacity="0"></rect>
 
-        <!-- light on top of the night dimming -->
-        <polygon class="sh-cone" data-el="cone-ceiling" points="446,112 494,112 660,520 280,520" opacity="0"></polygon>
-        <circle class="sh-glow" data-el="halo-ceiling" cx="470" cy="108" r="130" opacity="0"></circle>
-        <circle class="sh-glow" data-el="halo-floor" cx="650" cy="318" r="150" opacity="0"></circle>
-        <circle class="sh-bulb" data-el="bulb-ceiling" cx="470" cy="106" r="11"></circle>
-        <circle class="sh-bulb" data-el="bulb-floor" cx="650" cy="332" r="9"></circle>
+          <!-- light on top of the night dimming -->
+          <polygon class="sh-cone" data-el="cone-ceiling" points="446,112 494,112 660,520 280,520" opacity="0"></polygon>
+          <circle class="sh-glow" data-el="halo-ceiling" cx="470" cy="108" r="130" opacity="0"></circle>
+          <circle class="sh-glow" data-el="halo-floor" cx="650" cy="318" r="150" opacity="0"></circle>
+          <circle class="sh-bulb" data-el="bulb-ceiling" cx="470" cy="106" r="11"></circle>
+          <circle class="sh-bulb" data-el="bulb-floor" cx="650" cy="332" r="9"></circle>
 
-        <!-- state labels -->
-        <g class="sh-tag" data-el="tag-blind" data-x="50" data-y="14" data-a="start" transform="translate(50,14)"><rect width="170" height="28" rx="14"></rect><circle cx="14" cy="14" r="4.5"></circle><text x="28" y="19">Jalousie · 0 %</text></g>
-        <g class="sh-tag" data-el="tag-ceiling" data-x="470" data-y="126" data-a="middle" transform="translate(375,126)"><rect width="190" height="28" rx="14"></rect><circle cx="14" cy="14" r="4.5"></circle><text x="28" y="19">Deckenlicht · aus</text></g>
-        <g class="sh-tag" data-el="tag-hvac" data-x="704" data-y="176" data-a="end" transform="translate(560,176)"><rect width="144" height="28" rx="14"></rect><circle cx="14" cy="14" r="4.5"></circle><text x="28" y="19">Klima · aus</text></g>
-        <g class="sh-tag" data-el="tag-coffee" data-x="36" data-y="516" data-a="start" transform="translate(36,516)"><rect width="220" height="28" rx="14"></rect><circle cx="14" cy="14" r="4.5"></circle><text x="28" y="19">Kaffeemaschine · aus</text></g>
-        <g class="sh-tag" data-el="tag-tv" data-x="440" data-y="516" data-a="middle" transform="translate(385,516)"><rect width="110" height="28" rx="14"></rect><circle cx="14" cy="14" r="4.5"></circle><text x="28" y="19">TV · aus</text></g>
-        <g class="sh-tag" data-el="tag-floor" data-x="704" data-y="516" data-a="end" transform="translate(514,516)"><rect width="190" height="28" rx="14"></rect><circle cx="14" cy="14" r="4.5"></circle><text x="28" y="19">Stehlampe · aus</text></g>
-      </svg>
-      <div class="shos-log" data-el="log"></div>
+          <!-- state labels -->
+          <g class="sh-tag" data-el="tag-blind" data-x="50" data-y="14" data-a="start" transform="translate(50,14)"><rect width="170" height="28" rx="14"></rect><circle cx="14" cy="14" r="4.5"></circle><text x="28" y="19">Jalousie · 0 %</text></g>
+          <g class="sh-tag" data-el="tag-ceiling" data-x="470" data-y="126" data-a="middle" transform="translate(375,126)"><rect width="190" height="28" rx="14"></rect><circle cx="14" cy="14" r="4.5"></circle><text x="28" y="19">Deckenlicht · aus</text></g>
+          <g class="sh-tag" data-el="tag-hvac" data-x="704" data-y="176" data-a="end" transform="translate(560,176)"><rect width="144" height="28" rx="14"></rect><circle cx="14" cy="14" r="4.5"></circle><text x="28" y="19">Klima · aus</text></g>
+          <g class="sh-tag" data-el="tag-coffee" data-x="36" data-y="516" data-a="start" transform="translate(36,516)"><rect width="220" height="28" rx="14"></rect><circle cx="14" cy="14" r="4.5"></circle><text x="28" y="19">Kaffeemaschine · aus</text></g>
+          <g class="sh-tag" data-el="tag-tv" data-x="440" data-y="516" data-a="middle" transform="translate(385,516)"><rect width="110" height="28" rx="14"></rect><circle cx="14" cy="14" r="4.5"></circle><text x="28" y="19">TV · aus</text></g>
+          <g class="sh-tag" data-el="tag-floor" data-x="704" data-y="516" data-a="end" transform="translate(514,516)"><rect width="190" height="28" rx="14"></rect><circle cx="14" cy="14" r="4.5"></circle><text x="28" y="19">Stehlampe · aus</text></g>
+        </svg>
+        <div class="shos-log" data-el="log"></div>
+      </div>
     </div>
   </div>
-  <div class="notes">Live-Demo einer Smart-Home-Oberfläche, läuft komplett offline im Browser, ohne Server-Logik und ohne echte Geräte. Links bedienen, rechts reagieren die Aktoren im Raum: Klima (Heizen/Kühlen, Solltemperatur in 0,5-°C-Schritten, die Ist-Temperatur läuft simuliert hinterher), Deckenlicht dimmbar und Stehlampe, zwei Zwischenstecker (Kaffeemaschine, Fernseher) und eine Jalousie mit Auf/Stopp/Ab. Die Szenen zeigen, dass ein Tastendruck mehrere Geräte zugleich schaltet: „Morgen“ öffnet die Jalousie, Licht auf 100 %, Kaffeemaschine an, Heizen auf 21 °C; „Kino“ schließt die Jalousie, Stehlampe und TV an; „Alles aus“ schaltet Licht, Steckdosen und Klima ab. Reiter „Routinen“: Eine Routine ist ein gespeicherter Satz von Aktionen mit einem Auslöser, nämlich einer Uhrzeit, einer Raumtemperatur oder einem Knopfdruck. Vorgegeben sind „Guten Morgen“ (07:00: Jalousie auf, Licht 100 %, Kaffeemaschine an, Heizen auf 21 °C), „Kino-Abend“ (20:00: Jalousie zu, Stehlampe und TV an), „Gute Nacht“ (22:30: alles aus, Jalousie zu) und „Hitzeschutz“ (Raumtemperatur über 24 °C: Jalousie auf 70 % zu, Klima kühlt auf 22 °C). Jede Routine lässt sich mit dem Schalter pausieren und mit dem Pfeil sofort starten; „Aktuellen Zustand als Routine speichern“ legt aus dem aktuellen Raumzustand eine eigene Routine an (bis zu sechs, mit dem Kreuz wieder löschbar). Die Uhr oben ist simuliert und startet bei 19:50; sie läuft erst nach Druck auf die Wiedergabetaste, „Vorspulen“ springt fünf Minuten vor die nächste Zeit-Routine und startet sie. Tag und Nacht im Fenster folgen der simulierten Uhrzeit (Sonne von 6:30 bis 20:30 Uhr). Für den Hitzeschutz im Reiter „Geräte“ Heizen wählen und die Solltemperatur auf 26 °C stellen: Sobald die Raumtemperatur 24 °C überschreitet, greift die Routine, kühlt und fährt die Jalousie teilweise zu. Die Zeile über dem Raum zeigt, welche Routine oder Szene zuletzt gelaufen ist, darunter steht das Ereignisprotokoll, wie es auch eine echte Zentrale führt. Die Watt-Angaben sind Beispielwerte, keine Messungen. Tasten auf der Folie fangen den Klick ab, weitergeblättert wird mit Pfeiltaste oder Klick neben die Oberfläche.</div>
+  <div class="notes">Live-Demo einer Smart-Home-Oberfläche als Vollbild, läuft komplett offline im Browser, ohne Server-Logik und ohne echte Geräte. Oben links das Haus im Garten: Der Himmel, Sonne und Mond, Wolken, Regen, Schnee und Gewitter folgen der simulierten Uhrzeit und dem gewählten Wetter; die Fenster leuchten, wenn drinnen das Licht an ist (Wohnzimmer, Schlafzimmer, Küche bei laufender Kaffeemaschine), nachts deutlich stärker. Das Außenlicht (Garten- und Hauslampe) leuchtet im Dunkeln, der Lüfter der Wärmepumpe dreht sich, solange die Klimaanlage arbeitet, und beim Heizen steigt Rauch aus dem Schornstein. Die Jalousie fährt im Wohnzimmerfenster des Hauses mit. Unten links das Dashboard mit drei Reitern. Reiter „Geräte“: Klima (Heizen/Kühlen, Solltemperatur in 0,5-°C-Schritten, die Ist-Temperatur läuft simuliert hinterher), vier Lichter (Deckenlicht dimmbar, Stehlampe, Schlafzimmer, Außenlicht), zwei Zwischenstecker (Kaffeemaschine, Fernseher) und die Jalousie mit Auf/Stopp/Ab. Die Szenen zeigen, dass ein Tastendruck mehrere Geräte zugleich schaltet: „Morgen“ öffnet die Jalousie, Licht auf 100 %, Kaffeemaschine an, Heizen auf 21 °C; „Kino“ schließt die Jalousie, Stehlampe und TV an; „Alles aus“ schaltet Licht, Steckdosen und Klima ab. Reiter „Routinen“: Eine Routine ist ein gespeicherter Satz von Aktionen mit einem Auslöser, nämlich einer Uhrzeit, Sonnenauf- und -untergang, einer Raumtemperatur, einem Wetterwechsel oder einem Knopfdruck. Vorgegeben sind „Guten Morgen“ (07:00: Jalousie auf, Licht 100 %, Kaffeemaschine an, Heizen auf 21 °C), „Außenlicht-Automatik“ (Außenlicht an bei Sonnenuntergang um 20:30 Uhr, aus bei Sonnenaufgang um 06:30 Uhr), „Kino-Abend“ (20:00: Jalousie zu, Stehlampe und TV an), „Gute Nacht“ (22:30: alles aus, Jalousie zu), „Hitzeschutz“ (Raumtemperatur über 24 °C: Jalousie auf 70 % zu, Klima kühlt auf 22 °C) und „Gewitterschutz“ (bei Gewitter: Jalousie zu, Kaffeemaschine und Fernseher aus). Jede Routine lässt sich mit dem Schalter pausieren und mit dem Pfeil sofort starten; „Zustand als Routine speichern“ legt aus dem aktuellen Zustand eine eigene Routine an (bis zu acht insgesamt, mit dem Kreuz wieder löschbar). Reiter „Umwelt“: Wetter wählen (Sonnig, Bewölkt, Regen, Gewitter, Schnee), die Tageszeit springen (Sonnenaufgang, Mittag, Sonnenuntergang, Nacht) und die Geschwindigkeit der Uhr einstellen. Die Uhr oben ist simuliert und startet bei 19:50; sie läuft erst nach Druck auf die Wiedergabetaste, „Vorspulen“ springt fünf Minuten vor die nächste Zeit-Routine und startet sie. Für den Hitzeschutz im Reiter „Geräte“ Heizen wählen und die Solltemperatur auf 26 °C stellen: Sobald die Raumtemperatur 24 °C überschreitet, greift die Routine, kühlt und fährt die Jalousie teilweise zu. Die Außentemperatur folgt Tageszeit und Wetter und wirkt auf die Raumtemperatur, wenn die Klimaanlage aus ist. Das Banner über dem Wohnzimmer zeigt, welche Routine oder Szene zuletzt gelaufen ist, darunter steht das Ereignisprotokoll, wie es auch eine echte Zentrale führt. Die Watt- und Temperaturangaben sind Beispielwerte, keine Messungen. Tasten auf der Folie fangen den Klick ab, weitergeblättert wird mit Pfeiltaste oder Klick neben die Oberfläche.</div>
 </section>
 
 <section class="slide slide--center" data-transition="zoom">
@@ -3309,8 +3460,8 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
 
 <script src="js/engine.js"></script>
 <script src="js/tools.js"></script>
-<script src="js/hysterese.js?v=63"></script>
-<script src="js/ifttt.js?v=63"></script>
-<script src="js/smarthome.js?v=63"></script>
+<script src="js/hysterese.js?v=64"></script>
+<script src="js/ifttt.js?v=64"></script>
+<script src="js/smarthome.js?v=64"></script>
 </body>
 </html>

@@ -1831,26 +1831,39 @@ body.overview .deck-ink { display: none; }
 }
 
 /* ---------- Smart-home OS demo (after the Home Assistant slides) ----------
-   Left a clickable dashboard (devices and routines), right a drawn room whose
-   actors react. Logic in js/smarthome.js. Warm light, night sky and moon are
-   physical colours, not theme colours, so they get their own variables;
-   everything else comes from the theme. The color-mix() tints are optional:
-   the plain fallbacks keep the demo readable without them. */
+   A full-slide "operating system": top bar, a house in its garden with live
+   weather and time of day, a clickable dashboard and the living room whose
+   actors react. Logic in js/smarthome.js. The slide title stays in the DOM
+   (outline, presenter view) but is hidden: the OS names itself.
+   Warm light, sky, night and moon are physical colours, not theme colours, so
+   they get their own variables; everything else comes from the theme. The
+   color-mix() tints are optional: the plain fallbacks keep the demo readable
+   without them. */
+
+.slide.slide--os { padding: 24px 24px 48px; justify-content: flex-start; }
+.slide.slide--os > .kicker,
+.slide.slide--os > h2 { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); }
 
 .slide .shos {
   --sh-warm: #ffc95c;
   --sh-night: #0b1226;
   --sh-moon: #e6eaff;
+  --sh-rain: #a9c6ee;
+  --sh-tv: #6fa8ff;
   --sh-tile: var(--bg);
   --sh-tile-on: var(--bg-alt);
   --sh-wall: var(--bg-alt);
   --sh-obj: var(--bg);
   --sh-floor: var(--bg);
+  --sh-hsolid: var(--bg);
+  --sh-path: var(--fg-dim);
+  --sh-roof: var(--fg-dim);
+  --sh-glass: var(--bg);
   --sh-track: var(--rule);
-  display: grid;
-  grid-template-columns: 880px minmax(0, 1fr);
-  gap: 40px;
-  align-items: start;
+  --sh-glasschip: var(--bg-alt);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
   font-family: var(--font-body);
 }
 @supports (color: color-mix(in srgb, red, blue)) {
@@ -1860,48 +1873,53 @@ body.overview .deck-ink { display: none; }
     --sh-wall: color-mix(in srgb, var(--fg) 3%, var(--bg-alt));
     --sh-obj: color-mix(in srgb, var(--fg) 9%, var(--bg-alt));
     --sh-floor: color-mix(in srgb, var(--fg) 10%, var(--bg-alt));
+    --sh-hsolid: color-mix(in srgb, var(--fg) 20%, var(--bg));
+    --sh-path: color-mix(in srgb, var(--fg) 32%, var(--bg));
+    --sh-roof: color-mix(in srgb, var(--fg) 40%, var(--bg));
+    --sh-glass: color-mix(in srgb, var(--accent) 24%, var(--bg));
     --sh-track: color-mix(in srgb, var(--fg) 16%, transparent);
+    --sh-glasschip: color-mix(in srgb, var(--bg-alt) 80%, transparent);
   }
 }
 
 .slide .shos [data-icon] { display: inline-flex; }
 .slide .shos svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 
-/* ----- dashboard card ----- */
+/* ----- top bar ----- */
 
-.slide .shos-ui {
+.slide .shos-top {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 22px;
+  align-items: center;
+  gap: 12px;
+  height: 72px;
+  padding: 0 20px;
   background: var(--bg-alt);
   border: 1px solid var(--rule);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
 }
-
-.slide .shos-top { display: flex; align-items: center; gap: 12px; }
 .slide .shos-title { display: flex; align-items: center; gap: 14px; margin-right: auto; min-width: 0; white-space: nowrap; }
 .slide .shos-title b { display: block; font-family: var(--font-head); font-weight: var(--head-weight); font-size: 30px; line-height: 1.1; letter-spacing: var(--head-spacing); color: var(--fg); }
-.slide .shos-title small { display: block; margin-top: 4px; font-family: var(--font-mono); font-size: 16px; color: var(--fg-dim); }
-.slide .shos-ico { display: grid; place-items: center; width: 50px; height: 50px; border-radius: min(14px, var(--radius)); background: var(--accent); color: var(--bg); flex: none; }
+.slide .shos-title small { display: block; margin-top: 3px; font-family: var(--font-mono); font-size: 16px; color: var(--fg-dim); }
+.slide .shos-ico { display: grid; place-items: center; width: 48px; height: 48px; border-radius: min(14px, var(--radius)); background: var(--accent); color: var(--bg); flex: none; }
 .slide .shos-ico svg.i { width: 28px; height: 28px; }
 
 .slide .shos-chip {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 14px;
+  padding: 8px 16px;
   border-radius: 999px;
   background: var(--sh-tile);
   border: 1px solid var(--rule);
   font-family: var(--font-mono);
-  font-size: 20px;
+  font-size: 21px;
   color: var(--fg);
   white-space: nowrap;
 }
-.slide .shos-chip svg.i { width: 20px; height: 20px; color: var(--accent); }
-.slide .shos-chip small { font-size: 15px; color: var(--fg-dim); }
+.slide .shos-chip svg.i { width: 22px; height: 22px; color: var(--accent); }
+.slide .shos-chip b { font-weight: 700; }
+.slide .shos-chip--glass { background: var(--sh-glasschip); backdrop-filter: blur(8px); }
+.slide .shos-wxicon svg.i { width: 24px; height: 24px; }
 
 /* ----- buttons ----- */
 
@@ -1911,7 +1929,7 @@ body.overview .deck-ink { display: none; }
   justify-content: center;
   gap: 8px;
   font: inherit;
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.1;
   color: var(--fg);
   background: var(--bg-alt);
@@ -1922,6 +1940,7 @@ body.overview .deck-ink { display: none; }
   transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 .slide .shos button:hover { border-color: var(--accent); }
+.slide .shos button[hidden] { display: none; }
 .slide .shos button:disabled { opacity: 0.4; cursor: default; }
 .slide .shos button:disabled:hover { border-color: var(--rule); }
 .slide .shos button.is-on { background: var(--accent); border-color: var(--accent); color: var(--bg); }
@@ -1940,30 +1959,53 @@ body.overview .deck-ink { display: none; }
 }
 .slide .shos button.shos-sw.is-on::after { transform: translateX(30px); background: var(--bg); }
 
+/* ----- layout ----- */
+
+.slide .shos-main { display: grid; grid-template-columns: 900px minmax(0, 1fr); gap: 24px; align-items: start; }
+.slide .shos-left { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+
+.slide .shos-house { position: relative; }
+.slide .shos-house .sh-hscene { width: 100%; height: auto; display: block; border: 1px solid var(--rule); border-radius: var(--radius); }
+.slide .shos-house__chips { position: absolute; top: 12px; left: 12px; right: 12px; display: flex; justify-content: space-between; pointer-events: none; }
+
+.slide .shos-ui {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  background: var(--bg-alt);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.slide .shos-tabrow { display: flex; align-items: center; gap: 12px; }
+.slide .shos-tabrow > button:last-child { margin-left: auto; padding: 9px 18px; }
 .slide .shos-tabs { display: flex; gap: 6px; padding: 5px; width: max-content; border-radius: 999px; background: var(--sh-tile); border: 1px solid var(--rule); }
 .slide .shos-tabs button { border-color: transparent; background: transparent; padding: 8px 24px; font-size: 21px; }
 .slide .shos-tabs button.is-on { background: var(--accent); border-color: var(--accent); }
 .slide .shos-tabs i { font-style: normal; font-family: var(--font-mono); font-size: 16px; padding: 1px 8px; border-radius: 999px; background: var(--sh-track); }
 
-/* ----- device tiles ----- */
-
-.slide .shos-pane { display: flex; flex-direction: column; gap: 16px; height: 492px; }
+.slide .shos-pane { display: flex; flex-direction: column; gap: 12px; height: 466px; }
 .slide .shos-pane[hidden] { display: none; }
 
-.slide .shos-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1.25fr 1fr; gap: 16px; flex: 1; min-height: 0; }
+/* ----- device tiles ----- */
+
+.slide .shos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; flex: 1; min-height: 0; }
+.slide .shos-col { display: flex; flex-direction: column; gap: 12px; min-height: 0; }
 .slide .shos-tile {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 12px;
-  padding: 16px 18px;
+  gap: 10px;
+  flex: 1 1 auto;
+  padding: 14px 16px;
   border: 1px solid var(--rule);
   border-radius: var(--radius);
   background: var(--sh-tile);
   transition: background 0.3s, border-color 0.3s;
 }
 .slide .shos-tile.is-active { background: var(--sh-tile-on); border-color: var(--accent); }
-.slide .shos-tile__head { display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 700; color: var(--fg); }
+.slide .shos-tile__head { display: flex; align-items: center; gap: 12px; font-size: 25px; font-weight: 700; color: var(--fg); }
 .slide .shos-tile__head .shos-state { margin-left: auto; }
 .slide .shos-badge {
   display: grid;
@@ -1979,48 +2021,64 @@ body.overview .deck-ink { display: none; }
 }
 .slide .shos-tile.is-active .shos-badge { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 
-.slide .shos-state { font-family: var(--font-mono); font-size: 18px; font-weight: 400; color: var(--fg-dim); letter-spacing: 0.04em; }
+.slide .shos-state { font-family: var(--font-mono); font-size: 19px; font-weight: 400; color: var(--fg-dim); letter-spacing: 0.04em; }
 .slide .shos-state.is-on { color: var(--accent); }
 .slide .shos-row { display: flex; align-items: center; gap: 10px; font-size: 21px; color: var(--fg); }
 .slide .shos-row > span:first-child { margin-right: auto; }
-.slide .shos-row small { font-family: var(--font-mono); font-size: 17px; color: var(--fg-dim); }
+.slide .shos-row small { font-family: var(--font-mono); font-size: 18px; color: var(--fg-dim); }
 .slide .shos-temp { display: flex; align-items: center; justify-content: space-between; }
 .slide .shos-temp__val { text-align: center; font-size: 22px; color: var(--fg-dim); }
 .slide .shos-temp__val b { display: block; font-family: var(--font-head); font-weight: var(--head-weight); font-size: 52px; line-height: 1; color: var(--fg); }
 .slide .shos-seg { display: flex; gap: 8px; }
-.slide .shos-seg button { flex: 1; padding: 8px 6px; }
+.slide .shos-seg button { flex: 1; padding: 9px 6px; }
 .slide .shos-meter { flex: 1; height: 10px; border-radius: 5px; background: var(--sh-track); overflow: hidden; }
 .slide .shos-meter--s { flex: 0 0 64px; }
 .slide .shos-meter i { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.25s; }
 
+.slide .shos-cbs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.slide .shos button.shos-cb { justify-content: flex-start; height: 46px; padding: 0 12px; font-size: 20px; border-radius: min(14px, var(--radius)); }
+.slide .shos button.shos-cb--w { height: 58px; }
+.slide .shos-cb__t { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-align: left; }
+.slide .shos-cb small { font-family: var(--font-mono); font-size: 15px; opacity: 0.75; }
+
 .slide .shos-scenes { display: flex; align-items: center; gap: 12px; }
-.slide .shos-scenes > span { margin-right: 4px; font-family: var(--font-mono); font-size: 17px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-dim); }
+.slide .shos-scenes > span { margin-right: 4px; font-family: var(--font-mono); font-size: 18px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-dim); }
 .slide .shos-scenes button { padding: 9px 20px; }
+
+/* ----- environment tab ----- */
+
+.slide .shos-wxgrid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.slide .shos button.shos-wx { flex-direction: column; gap: 8px; height: 92px; border-radius: min(16px, var(--radius)); font-size: 20px; }
+.slide .shos button.shos-wx svg.i { width: 34px; height: 34px; stroke-width: 1.6; }
 
 /* ----- routines ----- */
 
-.slide .shos-rts { display: flex; flex-direction: column; gap: 10px; flex: 1; min-height: 0; }
+.slide .shos-rts { display: flex; flex-direction: column; gap: 6px; flex: 1; min-height: 0; }
 .slide .shos-rt {
   display: flex;
   align-items: center;
-  gap: 14px;
-  height: 64px;
-  padding: 0 16px;
+  gap: 12px;
+  height: 52px;
+  padding: 0 12px;
   border: 1px solid var(--rule);
   border-radius: var(--radius);
   background: var(--sh-tile);
   transition: opacity 0.3s;
 }
+.slide .shos-rt .shos-badge { width: 36px; height: 36px; }
 .slide .shos-rt.is-off { opacity: 0.5; }
 .slide .shos-rt.is-fired { animation: sh-fire 1.8s ease-out; }
 .slide .shos-rt__txt { flex: 1; min-width: 0; }
-.slide .shos-rt__txt b { display: block; font-size: 22px; color: var(--fg); }
-.slide .shos-rt__txt small { display: block; font-size: 17px; color: var(--fg-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.slide .shos-rt__trig { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; min-width: 112px; font-family: var(--font-mono); }
-.slide .shos-rt__trig span { display: inline-flex; align-items: center; gap: 6px; font-size: 19px; color: var(--fg); }
+.slide .shos-rt__txt b { display: block; font-size: 21px; line-height: 1.15; color: var(--fg); }
+.slide .shos-rt__txt small { display: block; font-size: 16px; line-height: 1.2; color: var(--fg-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.slide .shos-rt__trig { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; min-width: 120px; font-family: var(--font-mono); }
+.slide .shos-rt__trig span { display: inline-flex; align-items: center; gap: 6px; font-size: 18px; color: var(--fg); }
 .slide .shos-rt__trig svg.i { width: 18px; height: 18px; color: var(--accent); }
-.slide .shos-rt__trig small { font-size: 15px; color: var(--fg-dim); }
-.slide .shos-foot { display: flex; align-items: center; gap: 16px; font-size: 17px; color: var(--fg-dim); }
+.slide .shos-rt__trig small { font-size: 14px; color: var(--fg-dim); }
+.slide .shos-rt button.shos-round { width: 38px; height: 38px; }
+.slide .shos-rt button.shos-sw { width: 58px; height: 32px; }
+.slide .shos-rt button.shos-sw::after { top: 4px; left: 4px; width: 24px; height: 24px; }
+.slide .shos-rt button.shos-sw.is-on::after { transform: translateX(26px); }
 @keyframes sh-fire { 0% { box-shadow: 0 0 0 5px var(--accent); border-color: var(--accent); } 100% { box-shadow: 0 0 0 0 transparent; } }
 
 /* Play/pause and sun/moon swap with the demo's data attributes. */
@@ -2029,9 +2087,9 @@ body.overview .deck-ink { display: none; }
 .slide .shos[data-night="1"] .ico-sun,
 .slide .shos[data-night="0"] .ico-moon { display: none; }
 
-/* ----- room column ----- */
+/* ----- living room column ----- */
 
-.slide .shos-room { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.slide .shos-room { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .slide .shos-banner {
   display: flex;
   align-items: center;
@@ -2042,7 +2100,7 @@ body.overview .deck-ink { display: none; }
   border: 1px solid var(--rule);
   background: var(--sh-tile);
   font-family: var(--font-mono);
-  font-size: 18px;
+  font-size: 19px;
   color: var(--fg-dim);
   transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
@@ -2050,10 +2108,66 @@ body.overview .deck-ink { display: none; }
 .slide .shos-banner.is-on { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 .slide .shos-room svg.sh-scene { width: 100%; height: auto; display: block; border: 1px solid var(--rule); border-radius: var(--radius); box-shadow: var(--shadow); }
 .slide .shos-log { font-family: var(--font-mono); }
-.slide .shos-log div { font-size: 18px; line-height: 1.4; color: var(--fg-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.slide .shos-log div { font-size: 19px; line-height: 1.4; color: var(--fg-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .slide .shos-log div:first-child { color: var(--fg); }
 
-/* ----- room drawing ----- */
+/* ----- the house and its weather ----- */
+
+/* The house stands in front of the sky, so its fills must be opaque (theme card colours may be translucent). */
+.sh-hobj      { fill: var(--sh-hsolid); stroke: var(--fg-dim); stroke-width: 2.5; }
+.sh-hline     { fill: none; stroke: var(--fg-dim); stroke-width: 2.5; stroke-linecap: round; }
+.sh-roof      { fill: var(--sh-roof); stroke: var(--fg-dim); stroke-width: 2.5; stroke-linejoin: round; }
+.sh-roofsnow  { fill: #f4f8fc; opacity: 0; transition: opacity 1s; }
+.sh-glass     { fill: var(--sh-glass); stroke: var(--fg-dim); stroke-width: 2.5; }
+.sh-door      { fill: var(--sh-path); stroke: var(--fg-dim); stroke-width: 2.5; }
+.sh-knob      { fill: var(--fg-dim); }
+.sh-path      { fill: var(--sh-path); }
+.sh-slatfill  { fill: var(--sh-hsolid); }
+.sh-lit       { fill: var(--sh-warm); }
+.sh-tvflick   { fill: var(--sh-tv); }
+.sh-tvflick.is-on { animation: sh-flick 1.3s steps(1) infinite; }
+.sh-moondisc  { fill: var(--sh-moon); }
+.sh-crater    { fill: #c3cae8; }
+.sh-star      { fill: var(--sh-moon); animation: sh-twinkle 3.2s ease-in-out infinite; }
+.sh-snowground { transition: opacity 1s; opacity: 0; }
+
+.sh-cloud     { fill: var(--cloud, #fff); opacity: 0.94; transition: opacity 1.2s; animation: sh-drift var(--d, 180s) linear infinite; animation-delay: var(--dl, 0s); }
+.shos[data-weather="sunny"] .sh-cloud--b { opacity: 0; }
+.shos[data-weather="snow"] .sh-roofsnow,
+.shos[data-weather="snow"] .sh-snowground { opacity: 1; }
+
+.sh-rain, .sh-snow, .sh-wrain { opacity: 0; transition: opacity 0.8s; }
+.shos[data-weather="rain"] .sh-rain, .shos[data-weather="storm"] .sh-rain { opacity: 0.8; }
+.shos[data-weather="rain"] .sh-wrain, .shos[data-weather="storm"] .sh-wrain { opacity: 0.85; }
+.shos[data-weather="snow"] .sh-snow { opacity: 1; }
+.sh-drop      { stroke: var(--sh-rain); stroke-width: 1.6; stroke-linecap: round; animation: sh-fall 0.8s linear infinite; }
+.sh-wdrop     { stroke: var(--sh-rain); stroke-width: 1.4; stroke-linecap: round; animation: sh-wfall 1s linear infinite; }
+.sh-flake     { fill: #fff; animation: sh-snowfall 8s linear infinite; }
+.sh-flash     { fill: #fff; opacity: 0; pointer-events: none; }
+.sh-bolt      { fill: #fff6b8; opacity: 0; pointer-events: none; }
+.shos[data-weather="storm"] .sh-flash   { animation: sh-flashing 7s linear infinite; }
+.shos[data-weather="storm"] .sh-bolt--a { animation: sh-bolt 7s linear infinite; }
+.shos[data-weather="storm"] .sh-bolt--b { animation: sh-bolt 9s linear infinite; animation-delay: -3.4s; }
+
+.sh-fan       { transform-box: fill-box; transform-origin: center; }
+.sh-fan.is-run { animation: sh-spin 0.7s linear infinite; }
+.sh-smoke     { fill: var(--fg-dim); opacity: 0; transform-box: fill-box; transform-origin: center; }
+.sh-smoke.is-on { animation: sh-smoke 3s ease-out infinite; }
+.sh-smoke.is-on + .sh-smoke.is-on { animation-delay: 1s; }
+.sh-smoke.is-on + .sh-smoke.is-on + .sh-smoke.is-on { animation-delay: 2s; }
+
+@keyframes sh-drift    { from { transform: translateX(-300px); } to { transform: translateX(1400px); } }
+@keyframes sh-fall     { from { transform: translate(0, -30px); } to { transform: translate(-40px, 380px); } }
+@keyframes sh-wfall    { from { transform: translate(0, 0); } to { transform: translate(-12px, 270px); } }
+@keyframes sh-snowfall { 0% { transform: translate(0, -10px); } 50% { transform: translate(14px, 180px); } 100% { transform: translate(-6px, 360px); } }
+@keyframes sh-flashing { 0%, 100% { opacity: 0; } 3% { opacity: 0.5; } 5% { opacity: 0.05; } 7% { opacity: 0.45; } 12% { opacity: 0; } }
+@keyframes sh-bolt     { 0%, 100% { opacity: 0; } 3% { opacity: 1; } 5% { opacity: 0.1; } 7% { opacity: 1; } 11% { opacity: 0; } }
+@keyframes sh-twinkle  { 0%, 100% { opacity: 0.45; } 50% { opacity: 1; } }
+@keyframes sh-spin     { to { transform: rotate(360deg); } }
+@keyframes sh-smoke    { 0% { opacity: 0; transform: translate(0, 0) scale(0.6); } 20% { opacity: 0.7; } 100% { opacity: 0; transform: translate(14px, -46px) scale(1.8); } }
+@keyframes sh-flick    { 0% { fill: #6fa8ff; } 25% { fill: #8cc0ff; } 50% { fill: #5b8ef0; } 75% { fill: #9fd0ff; } }
+
+/* ----- living-room drawing ----- */
 
 .sh-wall      { fill: var(--sh-wall); }
 .sh-floorfill { fill: var(--sh-floor); }
@@ -2064,15 +2178,8 @@ body.overview .deck-ink { display: none; }
 .sh-obj       { fill: var(--sh-obj); stroke: var(--fg-dim); stroke-width: 3; }
 .sh-slat      { fill: var(--sh-obj); stroke: var(--fg-dim); stroke-width: 2; }
 .sh-leaf      { fill: var(--ok); opacity: 0.85; }
-.sh-sky       { fill: var(--accent); opacity: 0.22; transition: opacity 0.8s; }
-.shos[data-night="1"] .sh-sky { fill: var(--sh-night); opacity: 0.92; }
-.sh-sun       { fill: var(--sh-warm); }
-.sh-moon, .sh-star { fill: var(--sh-moon); }
-.shos[data-night="0"] .sh-moon, .shos[data-night="0"] .sh-star { display: none; }
-.shos[data-night="1"] .sh-sun { display: none; }
 .sh-beam      { fill: var(--sh-warm); }
-.sh-dim       { fill: var(--sh-night); opacity: 0; transition: opacity 0.8s; pointer-events: none; }
-.shos[data-night="1"] .sh-dim { opacity: 0.4; }
+.sh-dim       { fill: var(--sh-night); pointer-events: none; transition: opacity 0.8s; }
 
 .sh-stop0     { stop-color: var(--sh-warm); stop-opacity: 0.6; }
 .sh-stop1     { stop-color: var(--sh-warm); stop-opacity: 0; }
@@ -2080,6 +2187,7 @@ body.overview .deck-ink { display: none; }
 .sh-cone      { fill: url(#sh-cone); transition: opacity 0.3s; }
 .sh-bulb      { fill: var(--fg-dim); transition: fill 0.3s; }
 .sh-bulb.is-on { fill: var(--sh-warm); }
+.sh-hscene .sh-glow { fill: url(#sh-h-glow); }
 
 .sh-led       { fill: var(--fg-dim); opacity: 0.35; }
 .sh-led.is-on { fill: var(--ok); opacity: 1; }

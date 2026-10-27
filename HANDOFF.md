@@ -1,6 +1,6 @@
 # Handoff — Iteration am Smart-Home-Deck
 
-Stand: 2026-10-27 · 173 Folien · Cache-Version 63
+Stand: 2026-10-27 · 173 Folien · Cache-Version 64
 
 ## Projekt
 
@@ -10,7 +10,7 @@ Stand: 2026-10-27 · 173 Folien · Cache-Version 63
   `build/part-*.html` sind historische Zwischenstände und werden **nicht** gepflegt.
 - `css/core.css` (Layout + alle Komponenten), `js/engine.js` (Navigation, Fragmente,
   Skalierung), `js/tools.js`, `js/hysterese.js`, `js/ifttt.js` (zwei animierte Schaubilder),
-  `js/smarthome.js` (bedienbare Smart-Home-OS-Demo mit Routinen und simulierter Uhr nach den Home-Assistant-Folien, `.shos`).
+  `js/smarthome.js` (bedienbare Vollbild-Smart-Home-OS-Demo nach den Home-Assistant-Folien, `.shos`, Folienklasse `slide--os`: Haus mit simuliertem Wetter, Tageszeit und Beleuchtung, Dashboard mit Routinen, Wohnzimmer).
 - Folien werden in 1920x1080 gesetzt und skaliert. Inhalt muss in 1080 px Höhe passen —
   Überlauf ist der häufigste Fehler.
 
