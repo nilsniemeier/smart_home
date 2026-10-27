@@ -28,9 +28,34 @@
   const DEAD_STEPS = 10;        // delay between switching and any effect
   const POWER_TAU  = 0.09;      // how fast the radiator warms up and cools
   const INERTIA    = 0.11;      // how fast the rate of change itself may change
+  /* The raw simulation turns fairly sharply at its peaks. What is drawn gets
+     a Gaussian smoothing of this width (in steps), which rounds the peaks off
+     while the controller itself keeps switching on the raw values. */
+  const SMOOTH_SIGMA = 14;
 
   const xAt = i => PLOT.x0 + (PLOT.x1 - PLOT.x0) * (i / STEPS);
   const yAt = t => PLOT.y1 - (PLOT.y1 - PLOT.y0) * ((t - T_MIN) / (T_MAX - T_MIN));
+
+  /* Gaussian smoothing, mirrored at both ends so the start and end values stay put. */
+  function smooth(values, sigma) {
+    const h = Math.ceil(sigma * 3), kernel = [], last = values.length - 1;
+    let sum = 0;
+    for (let j = -h; j <= h; j++) {
+      const w = Math.exp(-0.5 * (j / sigma) * (j / sigma));
+      kernel.push(w);
+      sum += w;
+    }
+    return values.map((_, i) => {
+      let acc = 0;
+      for (let j = -h; j <= h; j++) {
+        let k = i + j;
+        if (k < 0) k = -k;
+        if (k > last) k = 2 * last - k;
+        acc += kernel[j + h] * values[k];
+      }
+      return acc / sum;
+    });
+  }
 
   /* Pre-compute the whole run once: temperature and heater state per step. */
   function simulate() {
@@ -47,6 +72,8 @@
       vel += ((-LOSS_RATE + HEAT_RATE * power) - vel) * INERTIA;
       temp += vel;
     }
+    const soft = smooth(out.map(r => r.temp), SMOOTH_SIGMA);
+    out.forEach((r, i) => { r.temp = soft[i]; });
     return out;
   }
 
