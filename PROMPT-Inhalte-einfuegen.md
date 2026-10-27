@@ -6,7 +6,7 @@ eintragen und abschicken.
 --- PROMPT START ---
 
 Du baust vorgefertigte Inhalte in ein bestehendes HTML-Präsentationssystem ein.
-Arbeite ausschließlich in `/Users/Tim/Slides Nils`.
+Arbeite ausschließlich im Projektordner (Repo-Wurzel).
 
 ## Auftrag
 
@@ -170,7 +170,7 @@ Inline-Styles für Layout.
 
 ## Verifikation (verpflichtend, vor dem Bericht)
 
-1. Server starten: `cd "/Users/Tim/Slides Nils" && python3 -m http.server 8777`
+1. Server im Projektordner starten: `python -m http.server 8777`
 2. `http://localhost:8777` im Browser öffnen, Viewport 1600×900.
 3. **Jede** Folie einzeln ansteuern (`#/1`, `#/2`, …), alle Fragmente
    durchklicken, Screenshot machen. Prüfen:

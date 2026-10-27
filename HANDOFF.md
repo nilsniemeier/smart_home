@@ -1,11 +1,12 @@
 # Handoff — Iteration am Smart-Home-Deck
 
-Stand: 2026-10-25 · 182 Folien · Cache-Version 45
+Stand: 2026-10-27 · 181 Folien · Cache-Version 58
 
 ## Projekt
 
-- `/Users/Tim/Slides Nils` — kein Git-Repo.
-- `index.html` ist die **einzige** Quelle der Folien (182 `<section class="slide">`).
+- Git-Repo (Branch `master`), aktuell unter Windows ausgecheckt. `git` liegt dort nicht
+  im PATH der PowerShell.
+- `index.html` ist die **einzige** Quelle der Folien (181 `<section class="slide">`).
   `build/part-*.html` sind historische Zwischenstände und werden **nicht** gepflegt.
 - `css/core.css` (Layout + alle Komponenten), `js/engine.js` (Navigation, Fragmente,
   Skalierung), `js/tools.js`, `js/hysterese.js`, `js/ifttt.js` (zwei animierte Schaubilder).
@@ -14,8 +15,9 @@ Stand: 2026-10-25 · 182 Folien · Cache-Version 45
 
 ## Server und Verifikation
 
-Bash darf im Sandbox **keine Ports binden**. Server nur über das Preview-Tool starten:
-`preview_start` mit `name: "deck"` (aus `.claude/launch.json`, Port 8777).
+Server im Projektordner mit `python -m http.server 8777` starten. Falls die Sandbox
+keine Ports binden darf, über ein Preview-Tool starten (eine `.claude/launch.json` ist
+im aktuellen Checkout nicht vorhanden und müsste neu angelegt werden).
 Danach `http://localhost:8777/index.html?r=<version>#/<folie>` ansteuern.
 Der Server stirbt gelegentlich — bei leerem Screenshot zuerst `curl` prüfen und neu starten.
 

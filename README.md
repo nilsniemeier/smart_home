@@ -5,9 +5,13 @@ Reines HTML/CSS/JS, kein Build, keine Abhängigkeiten. Folien werden in
 
 ## Starten
 
+Im Projektordner:
+
 ```bash
-cd "/Users/Tim/Slides Nils" && python3 -m http.server 8777
+python -m http.server 8777
 ```
+
+(macOS/Linux ggf. `python3`.)
 
 Dann `http://localhost:8777` öffnen, **F** für Vollbild.
 
@@ -18,7 +22,7 @@ reicht nicht zuverlässig).
 
 | Pfad | Inhalt |
 |---|---|
-| `index.html` | Folien + Chrome-Markup (190 Folien, Vortrag „Smart Home") |
+| `index.html` | Folien + Chrome-Markup (181 Folien, Vortrag „Smart Home") |
 | `Smart Home - überarbeitet.md` | Inhaltsquelle, folienweise gegliedert |
 | `build/part-*.html` | Zwischenstände je Vortragsteil, aus denen `index.html` zusammengesetzt wurde |
 | `js/engine.js` | Navigation, Fragmente, Skalierung, Themes, Overview, Deep Links |
@@ -106,6 +110,6 @@ im `THEMES`-Array in `js/engine.js`.
 - Deep Link `#/3/2` setzt Folie und Fragment; die Fragmentzahl wandert
   beim Weiterklicken nicht in die URL.
 - Kein PDF-Export.
-- Nach CSS-Änderungen `DECK_VERSION` in `js/engine.js` hochzählen und
-  `css/core.css?v=` in `index.html` angleichen, sonst zieht der Browser
-  alte Stylesheets.
+- Nach CSS/JS-Änderungen `DECK_VERSION` in `js/engine.js` hochzählen und
+  in `index.html` `css/core.css?v=`, `js/hysterese.js?v=` und
+  `js/ifttt.js?v=` angleichen, sonst zieht der Browser alte Dateien.
