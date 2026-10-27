@@ -1,12 +1,12 @@
 # Handoff — Iteration am Smart-Home-Deck
 
-Stand: 2026-10-27 · 173 Folien · Cache-Version 59
+Stand: 2026-10-27 · 172 Folien · Cache-Version 60
 
 ## Projekt
 
 - Git-Repo (Branch `master`), aktuell unter Windows ausgecheckt. `git` liegt dort nicht
   im PATH der PowerShell.
-- `index.html` ist die **einzige** Quelle der Folien (173 `<section class="slide">`).
+- `index.html` ist die **einzige** Quelle der Folien (172 `<section class="slide">`).
   `build/part-*.html` sind historische Zwischenstände und werden **nicht** gepflegt.
 - `css/core.css` (Layout + alle Komponenten), `js/engine.js` (Navigation, Fragmente,
   Skalierung), `js/tools.js`, `js/hysterese.js`, `js/ifttt.js` (zwei animierte Schaubilder).
@@ -70,23 +70,24 @@ Themes stylen `.slide li` und `.slide p` — eigene Komponenten brauchen oft
 1. **Bedienebene dreifach.** Folie 13 (Original), 14 (Layout-Vorschlag A, Spektrum),
    15 (Layout-Vorschlag B, Konvergenz). Nils muss eine wählen; die anderen beiden samt
    Badges löschen. Empfehlung war B.
-2. **Veraltete Folienverweise** im sichtbaren Text auf 15 Folien: 58, 127–131, 138, 140,
-   142, 166–170, 173. Alle stammen aus der Nummerierung des Ursprungsdokuments und zeigen
+2. **Veraltete Folienverweise** im sichtbaren Text auf 15 Folien: 57, 126–130, 137, 139,
+   141, 165–169, 172. Alle stammen aus der Nummerierung des Ursprungsdokuments und zeigen
    nach den Umbauten ins Leere. Empfehlung: durch inhaltliche Formulierungen ersetzen
    („wie eben bei den Kommunikationswegen") statt umzurechnen — sonst bricht es beim
    nächsten Umbau erneut.
-3. **Folie 38 „Abschluss Teil 3"** wiederholt die Matrix von Folie 29 eins zu eins, mit
+3. **Folie 37 „Abschluss Teil 3"** wiederholt die Matrix von Folie 28 eins zu eins, mit
    veralteten Werten („sehr günstig" statt „günstig"). Angleichen oder streichen.
-4. **Unbelegte Rechtsaussagen** auf den China-Folien (ca. 42/43): Angemessenheitsbeschluss,
+4. **Unbelegte Rechtsaussagen** auf den China-Folien (ca. 41/42): Angemessenheitsbeschluss,
    Art. 7 chin. Geheimdienstgesetz, TIA-Ergebnis. Steht als offen auf den Belegfolien
    am Ende. Vor einem öffentlichen Vortrag belegen oder abschwächen.
 5. **Titelporträt** `images/nils.jpg` ist nur 96x96 px und wird auf 150 px hochskaliert —
    auf dem Beamer sichtbar weich. Höher aufgelöste Datei ersetzen.
 6. **Ungenutzte Bilddateien** in `images/`: `img-012-005`, `img-024-011`, `img-026-013`,
-   `img-030-015`, `img-032-016`, `img-038-017`, `img-051-030`, `img-090-059`.
-   Die ersten beiden Architektur-PNGs wurden durch natives SVG ersetzt; der Rest war schon
-   im Original nie eingebunden. Löschen oder behalten ist offen.
-7. **Vereinfachung** auf Folie 29, Zeile „Lokaler Betrieb": Tuya ist dort pauschal „nein".
+   `img-030-015`, `img-032-016`, `img-038-017`, `img-051-030`, `img-090-059`,
+   `pages/page-16.png`. Die ersten beiden Architektur-PNGs wurden durch natives SVG ersetzt;
+   `page-16.png` gehörte zur gelöschten Bildfolie „Beispiel für den Ablauf"; der Rest war
+   schon im Original nie eingebunden. Löschen oder behalten ist offen.
+7. **Vereinfachung** auf Folie 28, Zeile „Lokaler Betrieb": Tuya ist dort pauschal „nein".
    Über ein Zigbee-Gateway laufen manche Automatisierungen lokal, mit Home Assistant
    ohnehin. Vertretbar, aber angreifbar.
 

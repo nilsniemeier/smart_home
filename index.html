@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Smart Home — Nils Niemeier</title>
-<link rel="stylesheet" href="css/core.css?v=59">
+<link rel="stylesheet" href="css/core.css?v=60">
 <link rel="stylesheet" href="css/themes/aurora.css" id="theme-css">
 </head>
 <body>
@@ -377,15 +377,6 @@
   <div class="notes">Wiederholung der vier Schichten, keine neuen Inhalte. Stufe 4 heißt hier „Steuerung“ und entspricht der zuvor korrigierten Bedienebene.</div>
 </section>
 
-<section class="slide" data-transition="fade">
-  <p class="kicker">Zusammenfassung Teil 1</p>
-  <h2>Beispiel für den Ablauf</h2>
-  <figure>
-    <img src="images/pages/page-16.png" alt="Vierstufiger Ablauf mit Pfeil-Kacheln: Sensor, Protokoll, Zentrale, Aktor">
-  </figure>
-  <div class="notes">Vier Pfeil-Kacheln von links nach rechts: Fenstersensor, Zigbee-Funk, Smart-Home-Gehirn, Heizkörperthermostat. Der Pfeil zeigt den Informationsfluss vom Messen bis zum Schalten.</div>
-</section>
-
 <section class="slide" data-transition="rise">
   <p class="kicker">Zusammenfassung Teil 1 · Details</p>
   <h2>Beispiel für den Ablauf</h2>
@@ -411,7 +402,7 @@
       <p>Das Heizkörperthermostat empfängt den Befehl und dreht das Ventil zu.</p>
     </div>
   </div>
-  <div class="notes">Beispiel Schritt für Schritt: Fenster auf, Zigbee-Funk, Zentrale wendet die Regel an, Thermostat schließt das Ventil. Übergang zu Teil 2: Wie die Zentrale denkt.</div>
+  <div class="notes">Beispiel Schritt für Schritt: Fenster auf, Zigbee-Funk, Zentrale wendet die Regel an, Thermostat schließt das Ventil. Übergang zu Teil 2: Wie die Zentrale denkt. — Aus der entfallenen Bildfolie davor (gleiche Überschrift, Grafik images/pages/page-16.png): Vier Pfeil-Kacheln von links nach rechts: Fenstersensor, Zigbee-Funk, Smart-Home-Gehirn, Heizkörperthermostat. Der Pfeil zeigt den Informationsfluss vom Messen bis zum Schalten.</div>
 </section>
 
     <!-- ===== part-02 ===== -->
@@ -504,7 +495,7 @@
 <section class="slide" data-transition="fade">
   <p class="kicker">Exkurs</p>
   <h2>Einfaches Python Script mit Hysterese</h2>
-  <figure>
+  <figure class="shot">
     <img src="images/img-019-007.png" alt="Python-Quelltext mit Konfiguration von Soll-Temperatur und Hysterese">
   </figure>
   <div class="notes">Oben werden SOLL_TEMPERATUR = 20.0 und HYSTERESE = 0.5 konfiguriert, daraus entstehen EINSCHALT_PUNKT (19,5 °C) und AUSSCHALT_PUNKT (20,5 °C). Startzustand: heizung_ist_an ist False.</div>
@@ -513,7 +504,7 @@
 <section class="slide" data-transition="fade">
   <p class="kicker">Exkurs</p>
   <h2>Die Scriptlogik (Python)</h2>
-  <figure>
+  <figure class="shot">
     <img src="images/img-020-008.png" alt="Python-Quelltext der Hysterese-Regelungslogik mit Schleife">
   </figure>
   <div class="notes">Bei eingeschalteter Heizung wird erst ab dem Ausschaltpunkt abgeschaltet, bei ausgeschalteter erst unterhalb des Einschaltpunkts wieder eingeschaltet. Jede Aktion gibt eine Statusmeldung aus, danach wartet das Skript 60 Sekunden.</div>
@@ -522,12 +513,12 @@
 <section class="slide" data-transition="fade">
   <p class="kicker">Exkurs</p>
   <h2>Beispiel: Automatisierung „Keller Bad“</h2>
-  <div class="cols">
+  <div class="shot-pair">
     <figure>
-      <img src="images/img-021-009.png" alt="Tuya-App: Automatisierung „Keller Bad an“ mit Feuchtigkeit größer als 80 %">
+      <img src="images/img-021-010.png" alt="Tuya-App: Automatisierung „Keller Bad an“ mit Feuchtigkeit größer als 80 %">
     </figure>
     <figure>
-      <img src="images/img-021-010.png" alt="Tuya-App: Automatisierung „Keller Bad aus“ mit Feuchtigkeit unter 77 %">
+      <img src="images/img-021-009.png" alt="Tuya-App: Automatisierung „Keller Bad aus“ mit Feuchtigkeit unter 77 %">
     </figure>
   </div>
   <div class="notes">Zwei Automatisierungen in der Tuya-Smart-App: „Keller Bad an“ bei Feuchtigkeit größer als 80 %, „Keller Bad aus“ bei weniger als 77 %. Beide schalten Switch 1.</div>
@@ -3073,7 +3064,7 @@
 
 <script src="js/engine.js"></script>
 <script src="js/tools.js"></script>
-<script src="js/hysterese.js?v=59"></script>
-<script src="js/ifttt.js?v=59"></script>
+<script src="js/hysterese.js?v=60"></script>
+<script src="js/ifttt.js?v=60"></script>
 </body>
 </html>

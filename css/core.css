@@ -193,6 +193,12 @@ body.is-blacked > .deck-chrome { visibility: hidden; }
 /* Three-up image row: each image capped to the card height, no crop. */
 .slide .trio figure { margin: 0; }
 .slide .trio img { width: 100%; max-height: 520px; object-fit: contain; }
+/* Single screenshot (e.g. code), centred and scaled to a common height. */
+.slide figure.shot { align-self: center; }
+.slide figure.shot img { height: 620px; width: auto; max-height: none; }
+/* Two phone screenshots side by side, centred as a pair. */
+.slide .shot-pair { display: flex; justify-content: center; gap: 140px; }
+.slide .shot-pair img { height: 680px; width: auto; }
 
 /* Media slide: portrait screenshot on the left, text beside it.
    Expects exactly two children — <figure> and a <div> holding the text —
