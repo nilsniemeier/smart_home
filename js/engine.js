@@ -16,7 +16,7 @@
   'use strict';
 
   // Bump when CSS changes and a cached copy must not be reused.
-  const DECK_VERSION = '58';
+  const DECK_VERSION = '59';
 
   const THEMES = [
     { id: 'aurora', label: 'Aurora' },
@@ -411,4 +411,22 @@
     setTheme, cycleTheme, themes: THEMES,
     toggleOverview, toggleFullscreen, toggleBlack, toggleTimer, openPresenter
   };
+
+  /* ---------- live reload (serve.py only) ---------- */
+
+  // serve.py answers /__livereload with the newest file mtime; reload when
+  // it changes; the hash keeps slide and fragment. Plain http.server and
+  // GitHub Pages answer 404, which ends polling.
+  if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) {
+    let stamp = null;
+    const poll = () => fetch('__livereload', { cache: 'no-store' })
+      .then((r) => (r.ok ? r.text() : Promise.reject()))
+      .then((t) => {
+        if (stamp !== null && t !== stamp) return location.reload();
+        stamp = t;
+        setTimeout(poll, 1000);
+      })
+      .catch(() => { if (stamp !== null) setTimeout(poll, 3000); });
+    poll();
+  }
 })();

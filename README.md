@@ -8,8 +8,12 @@ Reines HTML/CSS/JS, kein Build, keine Abhängigkeiten. Folien werden in
 Im Projektordner:
 
 ```bash
-python -m http.server 8777
+python serve.py
 ```
+
+`serve.py` lädt die Präsentation bei jeder gespeicherten Änderung automatisch neu
+(Folie und Fragment bleiben erhalten). `python -m http.server 8777` geht auch, dann ohne
+Live-Reload.
 
 (macOS/Linux ggf. `python3`.)
 

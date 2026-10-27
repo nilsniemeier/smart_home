@@ -1,6 +1,6 @@
 # Handoff — Iteration am Smart-Home-Deck
 
-Stand: 2026-10-27 · 173 Folien · Cache-Version 58
+Stand: 2026-10-27 · 173 Folien · Cache-Version 59
 
 ## Projekt
 
@@ -15,7 +15,8 @@ Stand: 2026-10-27 · 173 Folien · Cache-Version 58
 
 ## Server und Verifikation
 
-Server im Projektordner mit `python -m http.server 8777` starten. Falls die Sandbox
+Server im Projektordner mit `python serve.py` starten (Port 8777, Live-Reload: Browser
+lädt bei jeder gespeicherten Änderung neu, Folie bleibt). Falls die Sandbox
 keine Ports binden darf, über ein Preview-Tool starten (eine `.claude/launch.json` ist
 im aktuellen Checkout nicht vorhanden und müsste neu angelegt werden).
 Danach `http://localhost:8777/index.html?r=<version>#/<folie>` ansteuern.
