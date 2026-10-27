@@ -1,6 +1,6 @@
 # Handoff — Iteration am Smart-Home-Deck
 
-Stand: 2026-10-27 · 172 Folien · Cache-Version 60
+Stand: 2026-10-27 · 172 Folien · Cache-Version 61
 
 ## Projekt
 
@@ -84,9 +84,10 @@ Themes stylen `.slide li` und `.slide p` — eigene Komponenten brauchen oft
    auf dem Beamer sichtbar weich. Höher aufgelöste Datei ersetzen.
 6. **Ungenutzte Bilddateien** in `images/`: `img-012-005`, `img-024-011`, `img-026-013`,
    `img-030-015`, `img-032-016`, `img-038-017`, `img-051-030`, `img-090-059`,
-   `pages/page-16.png`. Die ersten beiden Architektur-PNGs wurden durch natives SVG ersetzt;
-   `page-16.png` gehörte zur gelöschten Bildfolie „Beispiel für den Ablauf"; der Rest war
-   schon im Original nie eingebunden. Löschen oder behalten ist offen.
+   `pages/page-16.png`, `img-017-006`, `img-019-007`, `img-020-008`. Die ersten beiden
+   Architektur-PNGs wurden durch natives SVG ersetzt; `page-16.png` gehörte zur gelöschten
+   Bildfolie „Beispiel für den Ablauf"; `img-017-006`/`-019-007`/`-020-008` waren die Code-Screenshots, jetzt
+   als Text (`pre.codeblock`); der Rest war schon im Original nie eingebunden. Löschen oder behalten ist offen.
 7. **Vereinfachung** auf Folie 28, Zeile „Lokaler Betrieb": Tuya ist dort pauschal „nein".
    Über ein Zigbee-Gateway laufen manche Automatisierungen lokal, mit Home Assistant
    ohnehin. Vertretbar, aber angreifbar.

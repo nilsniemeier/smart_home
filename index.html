@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Smart Home — Nils Niemeier</title>
-<link rel="stylesheet" href="css/core.css?v=60">
+<link rel="stylesheet" href="css/core.css?v=61">
 <link rel="stylesheet" href="css/themes/aurora.css" id="theme-css">
 </head>
 <body>
@@ -417,10 +417,30 @@
 <section class="slide" data-transition="fade">
   <p class="kicker">Exkurs</p>
   <h2>Einfaches Python Script</h2>
-  <figure>
-    <img src="images/img-017-006.png" alt="Python-Quelltext: Zufallstemperatur und Endlosschleife zur Heizungssteuerung">
-  </figure>
-  <div class="notes">Minimale, simulierte Steuerungslogik ohne echte Hardware: Zufallstemperatur zwischen 18,0 und 22,0 °C. Ab 20,0 °C „AUS“, sonst „EIN“, danach 60 Sekunden warten.</div>
+  <pre class="codeblock codeblock--sm"><span class="tk-k">import</span> time
+<span class="tk-k">import</span> random  <span class="tk-c"># Nur für dieses Beispiel, um Temperaturänderungen zu simulieren</span>
+
+<span class="tk-k">def</span> messe_temperatur():
+    <span class="tk-c"># Hier würde im echten Code die Abfrage deines echten Thermostats stehen</span>
+    <span class="tk-k">return</span> round(random.uniform(<span class="tk-n">18.0</span>, <span class="tk-n">22.0</span>), <span class="tk-n">1</span>)
+
+<span class="tk-k">def</span> steuere_heizung(status):
+    <span class="tk-c"># Hier würde der Befehl stehen, der das Signal an deinen Heizkörper sendet</span>
+    print(<span class="tk-s">f"[AKTION] Sende Signal an Heizkörper: {status}"</span>)
+
+<span class="tk-c"># Endlosschleife für die automatische Steuerung</span>
+<span class="tk-k">while</span> <span class="tk-k">True</span>:
+    <span class="tk-v">aktuelle_temp</span> = messe_temperatur()
+    print(<span class="tk-s">f"\nAktuelle Raumtemperatur: {aktuelle_temp}°C"</span>)
+
+    <span class="tk-k">if</span> aktuelle_temp &gt;= <span class="tk-n">20.0</span>:
+        steuere_heizung(<span class="tk-s">"AUS"</span>)
+    <span class="tk-k">else</span>:
+        steuere_heizung(<span class="tk-s">"EIN"</span>)
+
+    <span class="tk-c"># Warte 60 Sekunden bis zur nächsten Überprüfung</span>
+    time.sleep(<span class="tk-n">60</span>)</pre>
+  <div class="notes">Minimale, simulierte Steuerungslogik ohne echte Hardware: Zufallstemperatur zwischen 18,0 und 22,0 °C. Ab 20,0 °C „AUS“, sonst „EIN“, danach 60 Sekunden warten. Der Code stand früher als Screenshot auf der Folie (images/img-017-006.png) und ist jetzt als Text gesetzt.</div>
 </section>
 
 <section class="slide" data-transition="slide">
@@ -495,19 +515,55 @@
 <section class="slide" data-transition="fade">
   <p class="kicker">Exkurs</p>
   <h2>Einfaches Python Script mit Hysterese</h2>
-  <figure class="shot">
-    <img src="images/img-019-007.png" alt="Python-Quelltext mit Konfiguration von Soll-Temperatur und Hysterese">
-  </figure>
-  <div class="notes">Oben werden SOLL_TEMPERATUR = 20.0 und HYSTERESE = 0.5 konfiguriert, daraus entstehen EINSCHALT_PUNKT (19,5 °C) und AUSSCHALT_PUNKT (20,5 °C). Startzustand: heizung_ist_an ist False.</div>
+  <pre class="codeblock"><span class="tk-k">import</span> time
+
+<span class="tk-c"># Konfiguration der Soll-Temperatur und der Hysterese</span>
+<span class="tk-v">SOLL_TEMPERATUR</span> = <span class="tk-n">20.0</span>
+<span class="tk-v">HYSTERESE</span> = <span class="tk-n">0.5</span>  <span class="tk-c"># Schaltet bei +- 0.5°C ab/an</span>
+
+<span class="tk-c"># Berechnete Schwellenwerte (Einschalt- und Ausschaltpunkt)</span>
+<span class="tk-v">EINSCHALT_PUNKT</span> = <span class="tk-v">SOLL_TEMPERATUR</span> - <span class="tk-v">HYSTERESE</span>  <span class="tk-c"># 19.5 °C</span>
+<span class="tk-v">AUSSCHALT_PUNKT</span> = <span class="tk-v">SOLL_TEMPERATUR</span> + <span class="tk-v">HYSTERESE</span>  <span class="tk-c"># 20.5 °C</span>
+
+<span class="tk-c"># Aktueller Zustand der Heizung (Startzustand)</span>
+<span class="tk-v">heizung_ist_an</span> = <span class="tk-k">False</span>
+
+
+<span class="tk-k">def</span> messe_temperatur():
+    <span class="tk-c"># Platzhalter: Hier wird dein echter Sensor abgefragt</span>
+    <span class="tk-c"># Für den Test kannst du hier manuell Werte eintragen</span>
+    <span class="tk-k">return</span> <span class="tk-n">19.4</span></pre>
+  <div class="notes">Oben werden SOLL_TEMPERATUR = 20.0 und HYSTERESE = 0.5 konfiguriert, daraus entstehen EINSCHALT_PUNKT (19,5 °C) und AUSSCHALT_PUNKT (20,5 °C). Startzustand: heizung_ist_an ist False. Der Code stand früher als Screenshot auf der Folie (images/img-019-007.png) und ist jetzt als Text gesetzt.</div>
 </section>
 
 <section class="slide" data-transition="fade">
   <p class="kicker">Exkurs</p>
   <h2>Die Scriptlogik (Python)</h2>
-  <figure class="shot">
-    <img src="images/img-020-008.png" alt="Python-Quelltext der Hysterese-Regelungslogik mit Schleife">
-  </figure>
-  <div class="notes">Bei eingeschalteter Heizung wird erst ab dem Ausschaltpunkt abgeschaltet, bei ausgeschalteter erst unterhalb des Einschaltpunkts wieder eingeschaltet. Jede Aktion gibt eine Statusmeldung aus, danach wartet das Skript 60 Sekunden.</div>
+  <pre class="codeblock codeblock--sm"><span class="tk-c"># Steuerungslogik mit Hysterese</span>
+print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}°C | Aus: &gt;={AUSSCHALT_PUNKT}°C)"</span>)
+
+<span class="tk-k">while</span> <span class="tk-k">True</span>:
+    <span class="tk-v">aktuelle_temp</span> = messe_temperatur()
+    print(<span class="tk-s">f"\nGemessene Temperatur: {aktuelle_temp}°C"</span>)
+
+    <span class="tk-k">if</span> heizung_ist_an:
+        <span class="tk-c"># Wenn die Heizung AN ist, warten wir, bis es warm genug ist</span>
+        <span class="tk-k">if</span> aktuelle_temp &gt;= <span class="tk-v">AUSSCHALT_PUNKT</span>:
+            <span class="tk-v">heizung_ist_an</span> = <span class="tk-k">False</span>
+            print(<span class="tk-s">f"[AKTION] -&gt; Heizkörper wird AUSGESCHALTET (Ziel erreicht)."</span>)
+        <span class="tk-k">else</span>:
+            print(<span class="tk-s">"[STATUS] -&gt; Heizkörper bleibt AN (Heizphase)."</span>)
+    <span class="tk-k">else</span>:
+        <span class="tk-c"># Wenn die Heizung AUS ist, warten wir, bis es zu kalt wird</span>
+        <span class="tk-k">if</span> aktuelle_temp &lt; <span class="tk-v">EINSCHALT_PUNKT</span>:
+            <span class="tk-v">heizung_ist_an</span> = <span class="tk-k">True</span>
+            print(<span class="tk-s">f"[AKTION] -&gt; Heizkörper wird EINGESCHALTET (Zu kalt)."</span>)
+        <span class="tk-k">else</span>:
+            print(<span class="tk-s">"[STATUS] -&gt; Heizkörper bleibt AUS (Raum ist warm genug)."</span>)
+
+    <span class="tk-c"># Wartezeit für den nächsten Messzyklus</span>
+    time.sleep(<span class="tk-n">60</span>)</pre>
+  <div class="notes">Bei eingeschalteter Heizung wird erst ab dem Ausschaltpunkt abgeschaltet, bei ausgeschalteter erst unterhalb des Einschaltpunkts wieder eingeschaltet. Jede Aktion gibt eine Statusmeldung aus, danach wartet das Skript 60 Sekunden. Der Code stand früher als Screenshot auf der Folie (images/img-020-008.png); dort war die zweite Zeile rechts abgeschnitten nach „>={AUSSCHALT_“, das Ende „PUNKT}°C)")“ ist sinngemäß ergänzt.</div>
 </section>
 
 <section class="slide" data-transition="fade">
@@ -3064,7 +3120,7 @@
 
 <script src="js/engine.js"></script>
 <script src="js/tools.js"></script>
-<script src="js/hysterese.js?v=60"></script>
-<script src="js/ifttt.js?v=60"></script>
+<script src="js/hysterese.js?v=61"></script>
+<script src="js/ifttt.js?v=61"></script>
 </body>
 </html>
