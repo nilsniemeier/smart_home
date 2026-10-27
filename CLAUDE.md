@@ -20,6 +20,8 @@ python -m http.server 8777
 If `python` resolves to the Windows Store alias (error "Python was not found"), use the full path: `& "$env:LOCALAPPDATA\Programs\Python\Python312\python.exe" -m http.server 8777`.
 Open `http://localhost:8777/index.html?r=<version>#/<slide>` (`F` = fullscreen). A server is required — themes/fonts load via CSS `@import` and the presenter view (`presenter.html`, key `S`) talks to the deck via `BroadcastChannel`, both of which fail under `file://`. There is no `.claude/launch.json` preview config in this checkout.
 
+**Deployment:** The deck is published via GitHub Pages from `master` / root at `https://nilsniemeier.github.io/smart_home/` (repo `https://github.com/nilsniemeier/smart_home`). Every push to `master` goes live, including `.notes` (visible in page source) and any leftover `.slide-badge`/`.postit`. Git is available at `$env:LOCALAPPDATA\GitHubDesktop\app-*\resources\app\git\cmd\git.exe`; for push/fetch set `$env:GCM_INTERACTIVE='always'` (the session defaults to `never`, which blocks the credential manager).
+
 Verify every change visually in the browser (screenshot) before calling it done; reveal fragments one keypress (`Right`) at a time. Check overflow especially in the `brutal` theme (`Deck.setTheme('brutal')`), which has the largest headings.
 
 ## Mandatory after any CSS/JS change (cache busting)
