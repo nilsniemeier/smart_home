@@ -115,5 +115,6 @@ im `THEMES`-Array in `js/engine.js`.
   beim Weiterklicken nicht in die URL.
 - Kein PDF-Export.
 - Nach CSS/JS-Änderungen `DECK_VERSION` in `js/engine.js` hochzählen und
-  in `index.html` `css/core.css?v=`, `js/hysterese.js?v=` und
-  `js/ifttt.js?v=` angleichen, sonst zieht der Browser alte Dateien.
+  in `index.html` `css/core.css?v=`, `js/hysterese.js?v=`,
+  `js/ifttt.js?v=` und `js/smarthome.js?v=` angleichen, sonst zieht der
+  Browser alte Dateien.

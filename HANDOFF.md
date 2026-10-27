@@ -1,15 +1,16 @@
 # Handoff — Iteration am Smart-Home-Deck
 
-Stand: 2026-10-27 · 172 Folien · Cache-Version 61
+Stand: 2026-10-27 · 173 Folien · Cache-Version 62
 
 ## Projekt
 
 - Git-Repo (Branch `master`), aktuell unter Windows ausgecheckt. `git` liegt dort nicht
   im PATH der PowerShell.
-- `index.html` ist die **einzige** Quelle der Folien (172 `<section class="slide">`).
+- `index.html` ist die **einzige** Quelle der Folien (173 `<section class="slide">`).
   `build/part-*.html` sind historische Zwischenstände und werden **nicht** gepflegt.
 - `css/core.css` (Layout + alle Komponenten), `js/engine.js` (Navigation, Fragmente,
-  Skalierung), `js/tools.js`, `js/hysterese.js`, `js/ifttt.js` (zwei animierte Schaubilder).
+  Skalierung), `js/tools.js`, `js/hysterese.js`, `js/ifttt.js` (zwei animierte Schaubilder),
+  `js/smarthome.js` (bedienbare Smart-Home-OS-Demo nach den Home-Assistant-Folien, `.shos`).
 - Folien werden in 1920x1080 gesetzt und skaliert. Inhalt muss in 1080 px Höhe passen —
   Überlauf ist der häufigste Fehler.
 
@@ -29,7 +30,7 @@ zuverlässig verarbeitet, lieber einzelne Tastendrücke.
 ## Pflicht nach CSS/JS-Änderungen
 
 `DECK_VERSION` in `js/engine.js` hochzählen **und** in `index.html` alle drei Query-Parameter
-angleichen: `core.css?v=`, `hysterese.js?v=`, `ifttt.js?v=`. Sonst zieht der Browser alte Dateien.
+angleichen: `core.css?v=`, `hysterese.js?v=`, `ifttt.js?v=`, `smarthome.js?v=`. Sonst zieht der Browser alte Dateien.
 
 ## Arbeitsweise, die sich bewährt hat
 
@@ -70,8 +71,8 @@ Themes stylen `.slide li` und `.slide p` — eigene Komponenten brauchen oft
 1. **Bedienebene dreifach.** Folie 13 (Original), 14 (Layout-Vorschlag A, Spektrum),
    15 (Layout-Vorschlag B, Konvergenz). Nils muss eine wählen; die anderen beiden samt
    Badges löschen. Empfehlung war B.
-2. **Veraltete Folienverweise** im sichtbaren Text auf 15 Folien: 57, 126–130, 137, 139,
-   141, 165–169, 172. Alle stammen aus der Nummerierung des Ursprungsdokuments und zeigen
+2. **Veraltete Folienverweise** im sichtbaren Text auf 15 Folien: 57, 127–131, 138, 140,
+   142, 166–170, 173. Alle stammen aus der Nummerierung des Ursprungsdokuments und zeigen
    nach den Umbauten ins Leere. Empfehlung: durch inhaltliche Formulierungen ersetzen
    („wie eben bei den Kommunikationswegen") statt umzurechnen — sonst bricht es beim
    nächsten Umbau erneut.

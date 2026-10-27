@@ -1829,3 +1829,113 @@ body.overview .deck-ink { display: none; }
   max-width: none;
   word-break: break-all;
 }
+
+/* ---------- Smart-home OS demo (after the Home Assistant slides) ----------
+   Left: a clickable dashboard; right: a drawn room whose actors react.
+   Logic in js/smarthome.js. Warm light is a physical colour, not a theme
+   colour, so it gets its own variable. */
+
+.slide .shos {
+  --sh-warm: #ffc95c;
+  display: grid;
+  grid-template-columns: 880px minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+  font-family: var(--font-body);
+}
+.slide .shos-ui {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px;
+  background: var(--bg-alt);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+}
+.slide .shos-bar { display: flex; align-items: baseline; gap: 26px; font-family: var(--font-mono); font-size: 20px; color: var(--fg-dim); }
+.slide .shos-bar b { font-family: var(--font-body); font-size: 26px; color: var(--fg); margin-right: auto; }
+.slide .shos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.slide .shos-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px 20px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+.slide .shos-tile__head { display: flex; justify-content: space-between; align-items: baseline; font-size: 24px; font-weight: 700; color: var(--fg); }
+.slide .shos-state { font-family: var(--font-mono); font-size: 18px; font-weight: 400; color: var(--fg-dim); letter-spacing: 0.04em; }
+.slide .shos-state.is-on { color: var(--accent); }
+.slide .shos-row { display: flex; align-items: center; gap: 12px; font-size: 21px; color: var(--fg); }
+.slide .shos-row > span:first-child { margin-right: auto; }
+.slide .shos-row small { font-family: var(--font-mono); font-size: 17px; color: var(--fg-dim); }
+
+.slide .shos button {
+  font: inherit;
+  font-size: 19px;
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 7px 16px;
+  cursor: pointer;
+  line-height: 1.1;
+}
+.slide .shos button:hover { border-color: var(--accent); }
+.slide .shos button.is-on { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.slide .shos button.shos-round { width: 44px; height: 44px; padding: 0; font-size: 26px; }
+/* Toggle switch */
+.slide .shos button.shos-sw { width: 66px; height: 36px; padding: 0; position: relative; }
+.slide .shos button.shos-sw::after {
+  content: ""; position: absolute; top: 5px; left: 5px; width: 24px; height: 24px;
+  border-radius: 50%; background: var(--fg-dim); transition: transform 0.2s var(--ease), background 0.2s;
+}
+.slide .shos button.shos-sw.is-on::after { transform: translateX(30px); background: var(--bg); }
+
+.slide .shos-temp { display: flex; align-items: center; justify-content: space-between; }
+.slide .shos-temp__val { text-align: center; font-size: 22px; color: var(--fg-dim); }
+.slide .shos-temp__val b { display: block; font-family: var(--font-head); font-size: 54px; line-height: 1; color: var(--fg); }
+.slide .shos-seg { display: flex; gap: 8px; }
+.slide .shos-seg button { flex: 1; }
+.slide .shos-blind { display: flex; align-items: center; gap: 14px; }
+.slide .shos-blind__bar { flex: 1; height: 14px; border-radius: 7px; background: var(--rule); overflow: hidden; }
+.slide .shos-blind__bar i { display: block; height: 100%; width: 0; background: var(--accent); }
+.slide .shos-scenes { display: flex; align-items: center; gap: 12px; font-size: 21px; color: var(--fg-dim); }
+.slide .shos-scenes button { padding: 9px 22px; }
+
+.slide .shos-room { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.slide .shos-room svg { width: 100%; height: auto; display: block; }
+.slide .shos-log { list-style: none; margin: 0; padding: 0; font-family: var(--font-mono); }
+/* Themes decorate `.slide ul li` (borders, cards, counters) — not wanted here. */
+.slide .shos-log li { all: unset; display: block; font-size: 18px; color: var(--fg-dim); line-height: 1.5; }
+.slide .shos-log li::before { content: none; }
+.slide .shos-log li:first-child { color: var(--fg); }
+
+/* Room drawing */
+.sh-wall    { fill: var(--bg-alt); stroke: var(--rule); stroke-width: 2; }
+.sh-floor   { stroke: var(--fg-dim); stroke-width: 3; }
+.sh-line    { fill: none; stroke: var(--fg-dim); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.sh-solid   { fill: var(--bg); stroke: var(--fg-dim); stroke-width: 3; }
+.sh-sky     { fill: var(--accent); opacity: 0.22; }
+.sh-slat    { fill: var(--fg-dim); }
+.sh-beam    { fill: var(--sh-warm); }
+.sh-glow    { fill: url(#sh-glow); transition: opacity 0.3s; }
+.sh-stop0   { stop-color: var(--sh-warm); stop-opacity: 0.6; }
+.sh-stop1   { stop-color: var(--sh-warm); stop-opacity: 0; }
+.sh-bulb    { fill: var(--fg-dim); transition: fill 0.3s; }
+.sh-bulb.is-on { fill: var(--sh-warm); }
+.sh-label   { font-family: var(--font-mono); font-size: 17px; fill: var(--fg-dim); }
+.sh-label.is-on { fill: var(--fg); }
+.sh-led     { fill: var(--rule); }
+.sh-led.is-on { fill: var(--ok); }
+.sh-screen  { fill: var(--bg); stroke: var(--fg-dim); stroke-width: 3; transition: fill 0.4s; }
+.sh-screen.is-on { fill: var(--accent); }
+.sh-air     { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 14 12; opacity: 0; transition: opacity 0.4s; }
+.sh-air.is-heat { stroke: var(--bad); opacity: 1; animation: sh-flow 1s linear infinite; }
+.sh-air.is-cool { stroke: var(--accent); opacity: 1; animation: sh-flow 1s linear infinite; }
+.sh-steam   { fill: none; stroke: var(--fg-dim); stroke-width: 3; stroke-linecap: round; opacity: 0; }
+.sh-steam.is-on { animation: sh-steam 1.6s ease-in-out infinite; }
+.sh-steam.is-on + .sh-steam.is-on { animation-delay: 0.8s; }
+@keyframes sh-flow  { to { stroke-dashoffset: -26; } }
+@keyframes sh-steam { 0% { opacity: 0; transform: translateY(8px); } 40% { opacity: 0.9; } 100% { opacity: 0; transform: translateY(-14px); } }

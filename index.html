@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Smart Home — Nils Niemeier</title>
-<link rel="stylesheet" href="css/core.css?v=61">
+<link rel="stylesheet" href="css/core.css?v=62">
 <link rel="stylesheet" href="css/themes/aurora.css" id="theme-css">
 </head>
 <body>
@@ -1992,6 +1992,133 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <div class="notes">Ein fest installiertes Wanddisplay mit individuellen Räumen und Statusinformationen. Das Dashboard ist hier nach Räumen gegliedert.</div>
 </section>
 
+<section class="slide" data-transition="fade">
+  <p class="kicker">Demo · zum Ausprobieren</p>
+  <h2>Smart Home OS</h2>
+  <div class="shos" data-smarthome>
+    <div class="shos-ui">
+      <div class="shos-bar"><b>Wohnzimmer</b><span>Verbrauch <span data-el="power">0 W</span></span><span data-el="clock">--:--</span></div>
+      <div class="shos-grid">
+        <div class="shos-tile">
+          <div class="shos-tile__head"><span>Klima</span><span class="shos-state" data-el="hvac-state">aus</span></div>
+          <div class="shos-temp">
+            <button class="shos-round" data-act="temp" data-v="-0.5" aria-label="Solltemperatur senken">−</button>
+            <div class="shos-temp__val"><b data-el="target">21,0 °C</b>Ist <span data-el="current">19,5 °C</span></div>
+            <button class="shos-round" data-act="temp" data-v="0.5" aria-label="Solltemperatur erhöhen">+</button>
+          </div>
+          <div class="shos-seg">
+            <button data-act="mode" data-v="heat">Heizen</button>
+            <button data-act="mode" data-v="cool">Kühlen</button>
+            <button data-act="mode" data-v="off">Aus</button>
+          </div>
+        </div>
+        <div class="shos-tile">
+          <div class="shos-tile__head"><span>Licht</span><span class="shos-state" data-el="light-state">aus</span></div>
+          <div class="shos-row"><span>Deckenlicht</span><button class="shos-sw" data-act="toggle" data-v="ceiling" aria-label="Deckenlicht schalten"></button></div>
+          <div class="shos-row"><span>Helligkeit</span><button class="shos-round" data-act="dim" data-v="-10" aria-label="dunkler">−</button><small data-el="bri">70 %</small><button class="shos-round" data-act="dim" data-v="10" aria-label="heller">+</button></div>
+          <div class="shos-row"><span>Stehlampe</span><button class="shos-sw" data-act="toggle" data-v="floor" aria-label="Stehlampe schalten"></button></div>
+        </div>
+        <div class="shos-tile">
+          <div class="shos-tile__head"><span>Steckdosen</span><span class="shos-state" data-el="plug-state">aus</span></div>
+          <div class="shos-row"><span>Kaffeemaschine</span><small data-el="coffee-w">0 W</small><button class="shos-sw" data-act="toggle" data-v="coffee" aria-label="Kaffeemaschine schalten"></button></div>
+          <div class="shos-row"><span>Fernseher</span><small data-el="tv-w">0 W</small><button class="shos-sw" data-act="toggle" data-v="tv" aria-label="Fernseher schalten"></button></div>
+        </div>
+        <div class="shos-tile">
+          <div class="shos-tile__head"><span>Jalousie</span><span class="shos-state" data-el="blind-state">offen</span></div>
+          <div class="shos-blind"><div class="shos-blind__bar"><i data-el="blind-bar"></i></div><small class="shos-state" data-el="blind-pct">0 %</small></div>
+          <div class="shos-seg">
+            <button data-act="blind" data-v="up">Auf</button>
+            <button data-act="blind" data-v="stop">Stopp</button>
+            <button data-act="blind" data-v="down">Ab</button>
+          </div>
+        </div>
+      </div>
+      <div class="shos-scenes"><span>Szenen</span>
+        <button data-act="scene" data-v="morning">Morgen</button>
+        <button data-act="scene" data-v="cinema">Kino</button>
+        <button data-act="scene" data-v="off">Alles aus</button>
+      </div>
+    </div>
+    <div class="shos-room">
+      <svg viewBox="0 0 720 560" role="img" aria-label="Wohnzimmer mit Fenster und Jalousie, Deckenlicht, Stehlampe, Klimagerät, Fernseher und Kaffeemaschine; die Geräte zeigen ihren Zustand.">
+        <defs>
+          <radialGradient id="sh-glow"><stop offset="0" class="sh-stop0"></stop><stop offset="1" class="sh-stop1"></stop></radialGradient>
+          <clipPath id="sh-win"><rect x="50" y="70" width="240" height="260"></rect></clipPath>
+        </defs>
+        <rect class="sh-wall" x="0" y="0" width="720" height="520"></rect>
+
+        <!-- window, blind and daylight -->
+        <rect class="sh-sky" x="50" y="70" width="240" height="260"></rect>
+        <polygon class="sh-beam" data-el="beam" points="50,330 290,330 480,520 200,520" opacity="0.28"></polygon>
+        <g clip-path="url(#sh-win)">
+          <g data-el="blind" transform="translate(0,-260)">
+            <rect class="sh-slat" x="50" y="70"  width="240" height="14"></rect>
+            <rect class="sh-slat" x="50" y="90"  width="240" height="14"></rect>
+            <rect class="sh-slat" x="50" y="110" width="240" height="14"></rect>
+            <rect class="sh-slat" x="50" y="130" width="240" height="14"></rect>
+            <rect class="sh-slat" x="50" y="150" width="240" height="14"></rect>
+            <rect class="sh-slat" x="50" y="170" width="240" height="14"></rect>
+            <rect class="sh-slat" x="50" y="190" width="240" height="14"></rect>
+            <rect class="sh-slat" x="50" y="210" width="240" height="14"></rect>
+            <rect class="sh-slat" x="50" y="230" width="240" height="14"></rect>
+            <rect class="sh-slat" x="50" y="250" width="240" height="14"></rect>
+            <rect class="sh-slat" x="50" y="270" width="240" height="14"></rect>
+            <rect class="sh-slat" x="50" y="290" width="240" height="14"></rect>
+            <rect class="sh-slat" x="50" y="310" width="240" height="14"></rect>
+          </g>
+        </g>
+        <rect class="sh-line" x="50" y="70" width="240" height="260"></rect>
+        <line class="sh-line" x1="170" y1="70" x2="170" y2="330"></line>
+        <rect class="sh-solid" x="40" y="56" width="260" height="14"></rect>
+        <text class="sh-label" data-el="lbl-blind" x="40" y="44">Jalousie · 0 %</text>
+
+        <!-- ceiling light -->
+        <circle class="sh-glow" data-el="glow-ceiling" cx="470" cy="120" r="190" opacity="0"></circle>
+        <line class="sh-line" x1="470" y1="0" x2="470" y2="60"></line>
+        <path class="sh-solid" d="M440 60 H500 L520 100 H420 Z"></path>
+        <circle class="sh-bulb" data-el="bulb-ceiling" cx="470" cy="106" r="11"></circle>
+        <text class="sh-label" data-el="lbl-ceiling" x="330" y="160">Deckenlicht · aus</text>
+
+        <!-- HVAC wall unit -->
+        <rect class="sh-solid" x="560" y="40" width="140" height="52" rx="10"></rect>
+        <text class="sh-label" data-el="ac-temp" x="630" y="72" text-anchor="middle">19,5°</text>
+        <path class="sh-air" data-el="air" d="M585 104 q12 28 0 56"></path>
+        <path class="sh-air" data-el="air" d="M630 104 q12 28 0 56"></path>
+        <path class="sh-air" data-el="air" d="M675 104 q12 28 0 56"></path>
+        <text class="sh-label" data-el="lbl-hvac" x="700" y="28" text-anchor="end">Klima · aus</text>
+
+        <!-- floor lamp -->
+        <circle class="sh-glow" data-el="glow-floor" cx="650" cy="330" r="140" opacity="0"></circle>
+        <line class="sh-line" x1="650" y1="330" x2="650" y2="514"></line>
+        <path class="sh-solid" d="M628 280 H672 L690 326 H610 Z"></path>
+        <circle class="sh-bulb" data-el="bulb-floor" cx="650" cy="332" r="9"></circle>
+        <ellipse class="sh-solid" cx="650" cy="516" rx="34" ry="6"></ellipse>
+
+        <!-- counter with coffee machine -->
+        <rect class="sh-solid" x="30" y="430" width="250" height="90"></rect>
+        <path class="sh-steam" data-el="steam" d="M122 338 q-9 -12 0 -24 q9 -12 0 -24"></path>
+        <path class="sh-steam" data-el="steam" d="M142 338 q-9 -12 0 -24 q9 -12 0 -24"></path>
+        <rect class="sh-solid" x="92" y="350" width="80" height="80" rx="6"></rect>
+        <rect class="sh-solid" x="117" y="402" width="28" height="24" rx="3"></rect>
+        <circle class="sh-led" data-el="coffee-led" cx="158" cy="364" r="6"></circle>
+
+        <!-- sideboard with TV -->
+        <rect class="sh-solid" x="330" y="450" width="220" height="70"></rect>
+        <line class="sh-line" x1="440" y1="430" x2="440" y2="450"></line>
+        <rect class="sh-screen" data-el="tv" x="350" y="330" width="180" height="100" rx="6"></rect>
+        <circle class="sh-led" data-el="tv-led" cx="530" cy="466" r="6"></circle>
+
+        <line class="sh-floor" x1="0" y1="520" x2="720" y2="520"></line>
+        <text class="sh-label" data-el="lbl-coffee" x="30" y="550">Kaffeemaschine · aus</text>
+        <text class="sh-label" data-el="lbl-tv" x="330" y="550">TV · aus</text>
+        <text class="sh-label" data-el="lbl-floor" x="720" y="550" text-anchor="end">Stehlampe · aus</text>
+      </svg>
+      <ul class="shos-log" data-el="log"></ul>
+    </div>
+  </div>
+  <div class="notes">Live-Demo einer Smart-Home-Oberfläche, läuft komplett offline im Browser, ohne Server-Logik und ohne echte Geräte. Links bedienen, rechts reagieren die Aktoren im Raum: Klima (Heizen/Kühlen, Solltemperatur in 0,5-°C-Schritten, die Ist-Temperatur läuft simuliert hinterher), Deckenlicht dimmbar und Stehlampe, zwei Zwischenstecker (Kaffeemaschine, Fernseher) und eine Jalousie mit Auf/Stopp/Ab. Die Szenen zeigen, dass ein Tastendruck mehrere Geräte zugleich schaltet: „Morgen“ öffnet die Jalousie, Licht auf 100 %, Kaffeemaschine an, Heizen auf 21 °C; „Kino“ schließt die Jalousie, Stehlampe und TV an; „Alles aus“ schaltet Licht, Steckdosen und Klima ab. Die Zeile unter dem Raum ist das Ereignisprotokoll, wie es auch eine echte Zentrale führt. Die Watt-Angaben sind Beispielwerte, keine Messungen. Tasten auf der Folie fangen den Klick ab, weitergeblättert wird mit Pfeiltaste oder Klick neben die Oberfläche.</div>
+</section>
+
 <section class="slide slide--center" data-transition="zoom">
   <p class="kicker">Home Assistant</p>
   <h2>Fazit Home Assistant</h2>
@@ -3120,7 +3247,8 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
 
 <script src="js/engine.js"></script>
 <script src="js/tools.js"></script>
-<script src="js/hysterese.js?v=61"></script>
-<script src="js/ifttt.js?v=61"></script>
+<script src="js/hysterese.js?v=62"></script>
+<script src="js/ifttt.js?v=62"></script>
+<script src="js/smarthome.js?v=62"></script>
 </body>
 </html>
