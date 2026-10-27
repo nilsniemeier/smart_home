@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Smart Home — Nils Niemeier</title>
-<link rel="stylesheet" href="css/core.css?v=64">
+<link rel="stylesheet" href="css/core.css?v=65">
 <link rel="stylesheet" href="css/themes/aurora.css" id="theme-css">
 </head>
 <body>
@@ -2217,6 +2217,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
             <linearGradient id="sh-cone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="sh-stop0"></stop><stop offset="1" class="sh-stop1"></stop></linearGradient>
             <linearGradient id="sh-isky" x1="0" y1="0" x2="0" y2="1"><stop data-el="isky0" offset="0" stop-color="#4a95e6"></stop><stop data-el="isky1" offset="1" stop-color="#c4e6ff"></stop></linearGradient>
             <clipPath id="sh-win"><rect x="50" y="70" width="240" height="260"></rect></clipPath>
+            <clipPath id="sh-tvclip"><rect x="356" y="332" width="168" height="86" rx="3"></rect></clipPath>
           </defs>
 
           <!-- room shell -->
@@ -2286,9 +2287,14 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
           <line class="sh-line" x1="440" y1="450" x2="440" y2="498"></line>
           <rect class="sh-obj" x="430" y="424" width="20" height="12"></rect>
           <rect class="sh-screen" data-el="tv" x="350" y="326" width="180" height="98" rx="6"></rect>
-          <g class="sh-tvui" data-el="tv-ui">
-            <path d="M424 360l30 15-30 15z"></path>
-            <rect x="372" y="402" width="136" height="6" rx="3"></rect>
+          <g class="sh-tvshow" data-el="tv-ui" clip-path="url(#sh-tvclip)">
+            <rect class="sh-tv-sky" x="356" y="332" width="168" height="86"></rect>
+            <circle class="sh-tv-sun" cx="372" cy="358" r="9"></circle>
+            <g class="sh-tv-cloud"><ellipse cx="0" cy="350" rx="15" ry="5"></ellipse><ellipse cx="10" cy="346" rx="9" ry="5"></ellipse></g>
+            <path class="sh-tv-far" d="M356 398q21-22 42 0t42 0t42 0t42 0t42 0t42 0t42 0t42 0V420H356Z"></path>
+            <path class="sh-tv-near" d="M356 410q14-14 28 0t28 0t28 0t28 0t28 0t28 0t28 0t28 0t28 0t28 0t28 0t28 0V420H356Z"></path>
+            <rect class="sh-tv-track" x="356" y="414" width="168" height="4"></rect>
+            <rect class="sh-tv-prog" x="356" y="414" width="168" height="4"></rect>
           </g>
           <circle class="sh-led" data-el="tv-led" cx="544" cy="472" r="5"></circle>
 
@@ -2329,7 +2335,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
       </div>
     </div>
   </div>
-  <div class="notes">Live-Demo einer Smart-Home-Oberfläche als Vollbild, läuft komplett offline im Browser, ohne Server-Logik und ohne echte Geräte. Oben links das Haus im Garten: Der Himmel, Sonne und Mond, Wolken, Regen, Schnee und Gewitter folgen der simulierten Uhrzeit und dem gewählten Wetter; die Fenster leuchten, wenn drinnen das Licht an ist (Wohnzimmer, Schlafzimmer, Küche bei laufender Kaffeemaschine), nachts deutlich stärker. Das Außenlicht (Garten- und Hauslampe) leuchtet im Dunkeln, der Lüfter der Wärmepumpe dreht sich, solange die Klimaanlage arbeitet, und beim Heizen steigt Rauch aus dem Schornstein. Die Jalousie fährt im Wohnzimmerfenster des Hauses mit. Unten links das Dashboard mit drei Reitern. Reiter „Geräte“: Klima (Heizen/Kühlen, Solltemperatur in 0,5-°C-Schritten, die Ist-Temperatur läuft simuliert hinterher), vier Lichter (Deckenlicht dimmbar, Stehlampe, Schlafzimmer, Außenlicht), zwei Zwischenstecker (Kaffeemaschine, Fernseher) und die Jalousie mit Auf/Stopp/Ab. Die Szenen zeigen, dass ein Tastendruck mehrere Geräte zugleich schaltet: „Morgen“ öffnet die Jalousie, Licht auf 100 %, Kaffeemaschine an, Heizen auf 21 °C; „Kino“ schließt die Jalousie, Stehlampe und TV an; „Alles aus“ schaltet Licht, Steckdosen und Klima ab. Reiter „Routinen“: Eine Routine ist ein gespeicherter Satz von Aktionen mit einem Auslöser, nämlich einer Uhrzeit, Sonnenauf- und -untergang, einer Raumtemperatur, einem Wetterwechsel oder einem Knopfdruck. Vorgegeben sind „Guten Morgen“ (07:00: Jalousie auf, Licht 100 %, Kaffeemaschine an, Heizen auf 21 °C), „Außenlicht-Automatik“ (Außenlicht an bei Sonnenuntergang um 20:30 Uhr, aus bei Sonnenaufgang um 06:30 Uhr), „Kino-Abend“ (20:00: Jalousie zu, Stehlampe und TV an), „Gute Nacht“ (22:30: alles aus, Jalousie zu), „Hitzeschutz“ (Raumtemperatur über 24 °C: Jalousie auf 70 % zu, Klima kühlt auf 22 °C) und „Gewitterschutz“ (bei Gewitter: Jalousie zu, Kaffeemaschine und Fernseher aus). Jede Routine lässt sich mit dem Schalter pausieren und mit dem Pfeil sofort starten; „Zustand als Routine speichern“ legt aus dem aktuellen Zustand eine eigene Routine an (bis zu acht insgesamt, mit dem Kreuz wieder löschbar). Reiter „Umwelt“: Wetter wählen (Sonnig, Bewölkt, Regen, Gewitter, Schnee), die Tageszeit springen (Sonnenaufgang, Mittag, Sonnenuntergang, Nacht) und die Geschwindigkeit der Uhr einstellen. Die Uhr oben ist simuliert und startet bei 19:50; sie läuft erst nach Druck auf die Wiedergabetaste, „Vorspulen“ springt fünf Minuten vor die nächste Zeit-Routine und startet sie. Für den Hitzeschutz im Reiter „Geräte“ Heizen wählen und die Solltemperatur auf 26 °C stellen: Sobald die Raumtemperatur 24 °C überschreitet, greift die Routine, kühlt und fährt die Jalousie teilweise zu. Die Außentemperatur folgt Tageszeit und Wetter und wirkt auf die Raumtemperatur, wenn die Klimaanlage aus ist. Das Banner über dem Wohnzimmer zeigt, welche Routine oder Szene zuletzt gelaufen ist, darunter steht das Ereignisprotokoll, wie es auch eine echte Zentrale führt. Die Watt- und Temperaturangaben sind Beispielwerte, keine Messungen. Tasten auf der Folie fangen den Klick ab, weitergeblättert wird mit Pfeiltaste oder Klick neben die Oberfläche.</div>
+  <div class="notes">Live-Demo einer Smart-Home-Oberfläche als Vollbild, läuft komplett offline im Browser, ohne Server-Logik und ohne echte Geräte. Oben links das Haus im Garten: Der Himmel, Sonne und Mond, Wolken, Regen, Schnee und Gewitter folgen der simulierten Uhrzeit und dem gewählten Wetter; die Fenster leuchten, wenn drinnen das Licht an ist (Wohnzimmer, Schlafzimmer, Küche bei laufender Kaffeemaschine), nachts deutlich stärker. Das Außenlicht (Garten- und Hauslampe) leuchtet im Dunkeln, der Lüfter der Wärmepumpe dreht sich, solange die Klimaanlage arbeitet, und beim Heizen steigt Rauch aus dem Schornstein. Die Jalousie fährt im Wohnzimmerfenster des Hauses mit. Unten links das Dashboard mit drei Reitern. Reiter „Geräte“: Klima (Heizen/Kühlen, Solltemperatur in 0,5-°C-Schritten, die Ist-Temperatur läuft simuliert hinterher), vier Lichter (Deckenlicht dimmbar, Stehlampe, Schlafzimmer, Außenlicht), zwei Zwischenstecker (Kaffeemaschine, Fernseher) und die Jalousie mit Auf/Stopp/Ab. Sobald der Fernseher läuft, spielt er eine kleine Endlosanimation ab (Landschaft mit wechselnder Himmelsfarbe, wandernder Sonne und Wolke, scrollenden Hügeln und einem Fortschrittsbalken), im Haus flackert dazu das Wohnzimmerfenster bläulich. Die Szenen zeigen, dass ein Tastendruck mehrere Geräte zugleich schaltet: „Morgen“ öffnet die Jalousie, Licht auf 100 %, Kaffeemaschine an, Heizen auf 21 °C; „Kino“ schließt die Jalousie, Stehlampe und TV an; „Alles aus“ schaltet Licht, Steckdosen und Klima ab. Reiter „Routinen“: Eine Routine ist ein gespeicherter Satz von Aktionen mit einem Auslöser, nämlich einer Uhrzeit, Sonnenauf- und -untergang, einer Raumtemperatur, einem Wetterwechsel oder einem Knopfdruck. Vorgegeben sind „Guten Morgen“ (07:00: Jalousie auf, Licht 100 %, Kaffeemaschine an, Heizen auf 21 °C), „Außenlicht-Automatik“ (Außenlicht an bei Sonnenuntergang um 20:30 Uhr, aus bei Sonnenaufgang um 06:30 Uhr), „Kino-Abend“ (20:00: Jalousie zu, Stehlampe und TV an), „Gute Nacht“ (22:30: alles aus, Jalousie zu), „Hitzeschutz“ (Raumtemperatur über 24 °C: Jalousie auf 70 % zu, Klima kühlt auf 22 °C) und „Gewitterschutz“ (bei Gewitter: Jalousie zu, Kaffeemaschine und Fernseher aus). Jede Routine lässt sich mit dem Schalter pausieren und mit dem Pfeil sofort starten; „Zustand als Routine speichern“ legt aus dem aktuellen Zustand eine eigene Routine an (bis zu acht insgesamt, mit dem Kreuz wieder löschbar). Reiter „Umwelt“: Wetter wählen (Sonnig, Bewölkt, Regen, Gewitter, Schnee), die Tageszeit springen (Sonnenaufgang, Mittag, Sonnenuntergang, Nacht) und die Geschwindigkeit der Uhr einstellen. Die Uhr oben ist simuliert und startet bei 19:50; sie läuft erst nach Druck auf die Wiedergabetaste, „Vorspulen“ springt fünf Minuten vor die nächste Zeit-Routine und startet sie. Für den Hitzeschutz im Reiter „Geräte“ Heizen wählen und die Solltemperatur auf 26 °C stellen: Sobald die Raumtemperatur 24 °C überschreitet, greift die Routine, kühlt und fährt die Jalousie teilweise zu. Die Außentemperatur folgt Tageszeit und Wetter und wirkt auf die Raumtemperatur, wenn die Klimaanlage aus ist. Das Banner über dem Wohnzimmer zeigt, welche Routine oder Szene zuletzt gelaufen ist, darunter steht das Ereignisprotokoll, wie es auch eine echte Zentrale führt. Die Watt- und Temperaturangaben sind Beispielwerte, keine Messungen. Tasten auf der Folie fangen den Klick ab, weitergeblättert wird mit Pfeiltaste oder Klick neben die Oberfläche.</div>
 </section>
 
 <section class="slide slide--center" data-transition="zoom">
@@ -3460,8 +3466,8 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
 
 <script src="js/engine.js"></script>
 <script src="js/tools.js"></script>
-<script src="js/hysterese.js?v=64"></script>
-<script src="js/ifttt.js?v=64"></script>
-<script src="js/smarthome.js?v=64"></script>
+<script src="js/hysterese.js?v=65"></script>
+<script src="js/ifttt.js?v=65"></script>
+<script src="js/smarthome.js?v=65"></script>
 </body>
 </html>

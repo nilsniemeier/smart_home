@@ -2193,8 +2193,27 @@ body.overview .deck-ink { display: none; }
 .sh-led.is-on { fill: var(--ok); opacity: 1; }
 .sh-screen    { fill: var(--sh-night); stroke: var(--fg-dim); stroke-width: 3; transition: fill 0.4s; }
 .sh-screen.is-on { fill: var(--accent); }
-.sh-tvui      { fill: var(--bg); opacity: 0; transition: opacity 0.4s; }
-.sh-tvui.is-on { opacity: 0.85; }
+/* TV programme: a looping landscape (sky cycles, sun and cloud drift, hills scroll, progress bar). Runs only while the TV is on. */
+.sh-tvshow     { opacity: 0; transition: opacity 0.4s; }
+.sh-tvshow.is-on { opacity: 1; }
+.sh-tv-sky     { fill: #4aa3ff; }
+.sh-tv-sun     { fill: #ffe27a; }
+.sh-tv-cloud   { fill: #fff; opacity: 0.9; }
+.sh-tv-far     { fill: #2f7a55; }
+.sh-tv-near    { fill: #1f5a3c; }
+.sh-tv-track   { fill: #000; opacity: 0.35; }
+.sh-tv-prog    { fill: #ff5b5b; transform-box: fill-box; transform-origin: left center; transform: scaleX(0); }
+.sh-tvshow.is-on .sh-tv-sky   { animation: sh-tvsky 9s ease-in-out infinite alternate; }
+.sh-tvshow.is-on .sh-tv-sun   { animation: sh-tvsun 9s ease-in-out infinite alternate; }
+.sh-tvshow.is-on .sh-tv-cloud { animation: sh-tvcloud 16s linear infinite; }
+.sh-tvshow.is-on .sh-tv-far   { animation: sh-tvscroll 7s linear infinite; }
+.sh-tvshow.is-on .sh-tv-near  { animation: sh-tvscroll 3.5s linear infinite; }
+.sh-tvshow.is-on .sh-tv-prog  { animation: sh-tvprog 20s linear infinite; }
+@keyframes sh-tvsky    { 0% { fill: #4aa3ff; } 50% { fill: #ff9b5e; } 100% { fill: #6a5cff; } }
+@keyframes sh-tvsun    { from { transform: translate(0, 4px); } to { transform: translate(138px, -12px); } }
+@keyframes sh-tvcloud  { from { transform: translateX(350px); } to { transform: translateX(560px); } }
+@keyframes sh-tvscroll { from { transform: translateX(0); } to { transform: translateX(-168px); } }
+@keyframes sh-tvprog   { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 .sh-temp      { font-family: var(--font-mono); font-size: 22px; font-weight: 700; fill: var(--fg); }
 .sh-vent      { fill: var(--rule); opacity: 0.7; }
 
