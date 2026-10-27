@@ -1387,6 +1387,8 @@ body.overview .deck-ink { display: none; }
   margin-bottom: 7px;
 }
 
+.slide .reason .src { margin-top: 16px; font-family: var(--font-mono); font-size: 17px; line-height: 1.35; color: var(--fg-dim); }
+
 .slide .reasons-foot {
   margin-top: 34px;
   display: flex;
@@ -1445,6 +1447,8 @@ body.overview .deck-ink { display: none; }
 .slide--photo .band h2 { color: #fff; }
 .slide--photo .band .lead { color: rgba(255, 255, 255, 0.9); max-width: 34em; }
 .slide--photo .band strong { color: #ff8d84; }
+/* Source line: what a legal statement rests on, small and quiet. */
+.slide--photo .band .src { margin: 28px 0 0; max-width: none; font-family: var(--font-mono); font-size: 20px; line-height: 1.4; color: rgba(255, 255, 255, 0.72); }
 .slide--photo .credit {
   position: absolute;
   right: 28px; bottom: 24px;

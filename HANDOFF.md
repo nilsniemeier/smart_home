@@ -1,12 +1,12 @@
 # Handoff — Iteration am Smart-Home-Deck
 
-Stand: 2026-10-27 · 173 Folien · Cache-Version 65
+Stand: 2026-10-27 · 168 Folien · Cache-Version 66
 
 ## Projekt
 
 - Git-Repo (Branch `master`), aktuell unter Windows ausgecheckt. `git` liegt dort nicht
   im PATH der PowerShell.
-- `index.html` ist die **einzige** Quelle der Folien (173 `<section class="slide">`).
+- `index.html` ist die **einzige** Quelle der Folien (168 `<section class="slide">`).
   `build/part-*.html` sind historische Zwischenstände und werden **nicht** gepflegt.
 - `css/core.css` (Layout + alle Komponenten), `js/engine.js` (Navigation, Fragmente,
   Skalierung), `js/tools.js`, `js/hysterese.js`, `js/ifttt.js` (zwei animierte Schaubilder),
@@ -72,15 +72,20 @@ Themes stylen `.slide li` und `.slide p` — eigene Komponenten brauchen oft
    15 (Layout-Vorschlag B, Konvergenz). Nils muss eine wählen; die anderen beiden samt
    Badges löschen. Empfehlung war B.
 2. **Veraltete Folienverweise** im sichtbaren Text auf 15 Folien: 57, 127–131, 138, 140,
-   142, 166–170, 173. Alle stammen aus der Nummerierung des Ursprungsdokuments und zeigen
+   142, 161–165, 168. Alle stammen aus der Nummerierung des Ursprungsdokuments und zeigen
    nach den Umbauten ins Leere. Empfehlung: durch inhaltliche Formulierungen ersetzen
    („wie eben bei den Kommunikationswegen") statt umzurechnen — sonst bricht es beim
    nächsten Umbau erneut.
 3. **Folie 37 „Abschluss Teil 3"** wiederholt die Matrix von Folie 28 eins zu eins, mit
    veralteten Werten („sehr günstig" statt „günstig"). Angleichen oder streichen.
-4. **Unbelegte Rechtsaussagen** auf den China-Folien (ca. 41/42): Angemessenheitsbeschluss,
-   Art. 7 chin. Geheimdienstgesetz, TIA-Ergebnis. Steht als offen auf den Belegfolien
-   am Ende. Vor einem öffentlichen Vortrag belegen oder abschwächen.
+4. **China-Folien (41/42), Quellen vor dem Vortrag gegenprüfen.** Belegt mit Quellen auf den
+   Folien und in den Notizen: DPC-Entscheidung gegen TikTok (02.05.2025, 485 Mio. € nach
+   Art. 46 Abs. 1 DSGVO; von TikTok angefochten), Liste der Angemessenheitsbeschlüsse der
+   EU-Kommission (China nicht enthalten), Nachrichtendienstgesetz Art. 7 (Übersetzung China Law
+   Translate; Reichweite umstritten). Nicht im Volltext geprüft: DSGVO Art. 44–46, EuGH
+   C‑311/18, SCC-Klausel 14. „Allermeisten Fällen unzulässig“ und „deutsche Aufsichtsbehörden
+   fast immer negativ“ wurden gestrichen (nicht belegt). Die Belegfolien am Ende führen die
+   Punkte 2–5 noch unter der Quellen-Nummerierung („Folie 57“).
 5. **Titelporträt** `images/nils.jpg` ist nur 96x96 px und wird auf 150 px hochskaliert —
    auf dem Beamer sichtbar weich. Höher aufgelöste Datei ersetzen.
 6. **Ungenutzte Bilddateien** in `images/`: `img-012-005`, `img-024-011`, `img-026-013`,
@@ -92,6 +97,13 @@ Themes stylen `.slide li` und `.slide p` — eigene Komponenten brauchen oft
 7. **Vereinfachung** auf Folie 28, Zeile „Lokaler Betrieb": Tuya ist dort pauschal „nein".
    Über ein Zigbee-Gateway laufen manche Automatisierungen lokal, mit Home Assistant
    ohnehin. Vertretbar, aber angreifbar.
+8. **Gelöschte Energie-Folien** (früher 155–158: Datengrundlage, ehrlicher Vorschlag,
+   Aufhänger prüfen, Aufhänger Trägt die Zahl?). Die Belegfolie „10a · Takten“ und die Folie
+   „Spart das wirklich Energie?“ am Ende verweisen noch darauf; Folie 153 sagt in den Notizen
+   „die nächsten Folien zeigen … welche Daten schon vorliegen“. Anpassen oder streichen.
+9. **Gelöschte Folie „Was in diesem Vortrag offen bleibt“** (früher Gesamt-Fazit nach den
+   vier Fazit-Folien). Die Notizen der Folie „Die Risiken sind nicht nur Datenschutz“ enden
+   noch mit „Weiter mit dem, was in diesem Vortrag offen bleibt“.
 
 ## Stil
 
