@@ -79,14 +79,18 @@ Themes stylen `.slide li` und `.slide p` — eigene Komponenten brauchen oft
 3. ~~Folie „Abschluss Teil 3"~~ **Erledigt (2026-10-28):** gestrichen, weil sie die Matrix der
    Folie „Vergleichsmatrix: Tuya, Zigbee, Matter" mit veralteten Werten wiederholte
    („sehr günstig" statt „günstig"). Hinweis darauf steht in den Notizen der Merksatz-Folie.
-4. **China-Folien (41/42), Quellen vor dem Vortrag gegenprüfen.** Belegt mit Quellen auf den
-   Folien und in den Notizen: DPC-Entscheidung gegen TikTok (02.05.2025, 485 Mio. € nach
-   Art. 46 Abs. 1 DSGVO; von TikTok angefochten), Liste der Angemessenheitsbeschlüsse der
-   EU-Kommission (China nicht enthalten), Nachrichtendienstgesetz Art. 7 (Übersetzung China Law
-   Translate; Reichweite umstritten). Nicht im Volltext geprüft: DSGVO Art. 44–46, EuGH
-   C‑311/18, SCC-Klausel 14. „Allermeisten Fällen unzulässig“ und „deutsche Aufsichtsbehörden
-   fast immer negativ“ wurden gestrichen (nicht belegt). Die Belegfolien am Ende führen die
-   Punkte 2–5 noch unter der Quellen-Nummerierung („Folie 57“).
+4. **China-Folien, Quellen geprüft am 2026-10-28, kurz vor dem Vortrag erneut.** Bestätigt auf den
+   Seiten der Quellen: DPC-Pressemitteilung 02.05.2025 (530 Mio. € gesamt, davon 485 Mio. € nach
+   Art. 46 Abs. 1 DSGVO und 45 Mio. € nach Art. 13), Liste der Angemessenheitsbeschlüsse (17
+   Einträge, China nicht dabei), EDSA-Empfehlungen 01/2020 v2.0 (18.06.2021). **Neu seit der
+   letzten Fassung:** Der irische High Court hat am 03.06.2026 ([2026] IEHC 347) die Verstöße im
+   Wesentlichen bestätigt; die Bußgeldhöhe wird in einem gesonderten Urteil entschieden, die
+   Aussetzungsanordnung geht zur Neuprüfung an die DPC. Folien und Notizen sind angepasst. Das
+   Urteil selbst ist nur über Zusammenfassungen belegt (Volltext prüfen), und ob das separate
+   Bußgeldurteil inzwischen vorliegt, vor dem Vortrag nachsehen. Art. 7 NIG nur über Suchtreffer
+   bestätigt (Seite lieferte 403). Nicht im Volltext geprüft: DSGVO Art. 44–46, EuGH C‑311/18,
+   SCC-Klausel 14. Die Belegfolien am Ende führen die Punkte 2–5 inzwischen unter
+   Folientiteln statt Nummern.
 5. **Titelporträt** `images/nils.jpg` ist nur 96x96 px und wird auf 150 px hochskaliert —
    auf dem Beamer sichtbar weich. Höher aufgelöste Datei ersetzen.
 6. **Ungenutzte Bilddateien** in `images/`: `img-012-005`, `img-024-011`, `img-026-013`,
