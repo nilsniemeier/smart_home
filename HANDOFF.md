@@ -1,6 +1,6 @@
 # Handoff — Iteration am Smart-Home-Deck
 
-Stand: 2026-10-28 · 169 Folien · Cache-Version 72
+Stand: 2026-10-28 · 168 Folien · Cache-Version 72
 
 ## Projekt
 
@@ -76,8 +76,9 @@ Themes stylen `.slide li` und `.slide p` — eigene Komponenten brauchen oft
    „Offene Belege"-Folien (Umbruch), und die Zuordnung der Bildquellen auf der Quellen-Folie
    („Folien zu den Anbietern und zu Home Assistant") gegenprüfen. Die HTML-Kommentare
    `<!-- Folie 25 -->` usw. vor den Folien tragen noch die alte Nummerierung (nur im Quelltext).
-3. **Folie 37 „Abschluss Teil 3"** wiederholt die Matrix von Folie 28 eins zu eins, mit
-   veralteten Werten („sehr günstig" statt „günstig"). Angleichen oder streichen.
+3. ~~Folie „Abschluss Teil 3"~~ **Erledigt (2026-10-28):** gestrichen, weil sie die Matrix der
+   Folie „Vergleichsmatrix: Tuya, Zigbee, Matter" mit veralteten Werten wiederholte
+   („sehr günstig" statt „günstig"). Hinweis darauf steht in den Notizen der Merksatz-Folie.
 4. **China-Folien (41/42), Quellen vor dem Vortrag gegenprüfen.** Belegt mit Quellen auf den
    Folien und in den Notizen: DPC-Entscheidung gegen TikTok (02.05.2025, 485 Mio. € nach
    Art. 46 Abs. 1 DSGVO; von TikTok angefochten), Liste der Angemessenheitsbeschlüsse der
