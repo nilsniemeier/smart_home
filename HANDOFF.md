@@ -1,6 +1,6 @@
 # Handoff — Iteration am Smart-Home-Deck
 
-Stand: 2026-10-28 · 168 Folien · Cache-Version 75
+Stand: 2026-10-28 · 168 Folien · Cache-Version 77
 
 ## Projekt
 
@@ -99,9 +99,21 @@ Themes stylen `.slide li` und `.slide p` — eigene Komponenten brauchen oft
    `img-038-017` Serverstandort-Tabelle, `img-017-006`/`-019-007`/`-020-008` Code-Screenshots,
    `pages/page-16.png`); in git wiederherstellbar. Die Quelldokumente `Smart Home*.md` verlinken
    einen Teil davon, deren Vorschaubilder fehlen jetzt. Bewusst behalten, weil winzig und ungenutzt:
-   `img-024-011`, `img-026-013`, `img-051-030`, `img-090-059`, `img-048-023` (homee-Logo),
-   `img-049-025` (wibutler-Logo). Die Notizen der Code-Folien nennen die gelöschten
+   `img-024-011`, `img-026-013`, `img-051-030`, `img-090-059`. (Die Logos `img-048-023`/`-049-025`
+   sind inzwischen gelöscht, siehe Punkt 10.) Die Notizen der Code-Folien nennen die gelöschten
    Screenshot-Pfade noch als Herkunftshinweis.
+10. **Web-Bilder durch eigene Zeichnungen ersetzt (2026-10-28).** Hersteller- und Pressebilder der
+   Folien „DSGVO-konform", „Deutsche Anbieter" (AVM, tado°, Homematic IP, homee, wibutler, Partner,
+   Bosch) und „Home Assistant" (Banner, Raspberry Pi, Proxmox, Integrationen, Dashboard, Smartphone,
+   Wanddisplay) sind durch inline-SVG ersetzt (Klasse `illu` in `core.css`, Farben aus den Theme-
+   Tokens, in allen fünf Themes per Screenshot geprüft). Logos stehen als Schriftzug (`.wordmark`),
+   das Partnerraster als Textchips (`.chips`); die Home-Assistant-Oberfläche ist nachgezeichnet, kein
+   Original-Screenshot. Die 17 Originaldateien sind per `git rm` gelöscht (im Verlauf weiter
+   vorhanden). **Noch Web-Bilder, Herkunft/Lizenz offen:** `img-001-000` (Einstieg), `img-002-001`
+   (Was ist Smart Home?), `img-009-002`/`-010-003`/`-011-004` (Kabelsysteme: Netzwerkkabel,
+   EIB-Kabel mit Herstellerschrift, Schaltschrank). Ersatz: eigene Fotos oder Unsplash/Wikimedia.
+   Wer lieber echte Screenshots der eigenen Home-Assistant-Installation zeigt, ersetzt die
+   nachgezeichneten Folien.
 7. **Vereinfachung** auf Folie 28, Zeile „Lokaler Betrieb": Tuya ist dort pauschal „nein".
    Über ein Zigbee-Gateway laufen manche Automatisierungen lokal, mit Home Assistant
    ohnehin. Vertretbar, aber angreifbar.

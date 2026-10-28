@@ -260,6 +260,43 @@ body.is-blacked > .deck-chrome { visibility: hidden; }
 .slide.slide--poster { padding: 0; }
 .slide.slide--poster figure { width: 100%; height: 100%; }
 .slide.slide--poster img { width: 100%; height: 100%; max-width: none; max-height: none; border-radius: 0; object-fit: contain; }
+/* ---------- Hand-drawn illustrations: inline SVG, colours from theme tokens ----------
+   Replace vendor/press images. Font sizes are set per text element (attribute),
+   so the rules below only set fonts and fills. */
+.slide svg.illu { display: block; height: 680px; width: auto; max-width: 100%; margin: 0 auto; overflow: visible; }
+.slide svg.illu--m { height: 560px; }
+.slide svg.illu--s { height: 460px; }
+.slide .trio svg.illu { width: 100%; height: auto; max-height: 520px; }
+.slide figure.seal svg.illu { width: 100%; height: 100%; max-height: none; }
+.illu .st  { fill: none; stroke: var(--fg); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.illu .sd  { fill: none; stroke: var(--fg-dim); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.illu .sg  { fill: none; stroke: var(--bg); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; opacity: 0.75; }
+.illu .fb  { fill: var(--bg); stroke: var(--fg); stroke-width: 4; stroke-linejoin: round; }
+.illu .fs  { fill: var(--accent); fill-opacity: 0.16; stroke: var(--accent); stroke-width: 2.5; }
+.illu .fv  { fill: var(--bg); stroke: var(--rule); stroke-width: 2.5; }
+.illu .fa  { fill: var(--accent); }
+.illu .fx  { fill: var(--accent-2); }
+.illu .fd  { fill: var(--fg-dim); }
+.illu .ff  { fill: var(--fg); }
+.illu .fo  { fill: var(--ok, #4f9d69); }
+.illu .fm  { fill: var(--mid, #cf8a3c); }
+.illu .fw  { fill: var(--bg); }
+.illu .fh  { fill: var(--fg-dim); fill-opacity: 0.22; }
+.illu text { font-family: var(--font-body); fill: var(--fg); }
+.illu text.tb { font-weight: 700; }
+.illu text.td { fill: var(--fg-dim); }
+.illu text.tc { fill: var(--bg); }
+.illu text.tw { fill: var(--bg-alt); }
+.illu text.tm { font-family: var(--font-mono); }
+/* Provider names set as plain text on a dark tile (no vendor logos). */
+.slide .wordmark { font-family: var(--font-head); font-weight: 700; color: #fff; font-size: 96px; line-height: 1; letter-spacing: 0.02em; }
+.slide figure.logo-tile.logo-sub .wordmark { font-size: 140px; }
+.slide .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px 26px; max-width: 1500px; margin: 0 auto; }
+.slide .chips span { padding: 14px 36px; border: 2px solid var(--rule); border-radius: var(--radius); background: var(--bg-alt); color: var(--fg); font-size: 42px; font-weight: 700; }
+
+.slide .chips--dense { gap: 14px 16px; max-width: 1640px; margin-bottom: 30px; }
+.slide .chips--dense span { padding: 8px 22px; font-size: 30px; }
+
 /* Waving dolphin: flipper layer on top of the body layer, rotated about the shoulder. */
 .slide.slide--poster figure { display: flex; justify-content: center; }
 .slide.slide--poster .wave { position: relative; height: 100%; aspect-ratio: 430 / 460; }
