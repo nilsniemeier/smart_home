@@ -1,6 +1,6 @@
-﻿# Handoff — Iteration am Smart-Home-Deck
+# Handoff — Iteration am Smart-Home-Deck
 
-Stand: 2026-10-27 · 168 Folien · Cache-Version 67
+Stand: 2026-10-28 · 169 Folien · Cache-Version 70
 
 ## Projekt
 
