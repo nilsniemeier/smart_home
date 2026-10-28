@@ -16,7 +16,7 @@
   'use strict';
 
   // Bump when CSS changes and a cached copy must not be reused.
-  const DECK_VERSION = '72';
+  const DECK_VERSION = '73';
 
   const THEMES = [
     { id: 'aurora', label: 'Aurora' },
