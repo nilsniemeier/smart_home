@@ -648,9 +648,9 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
 
     <!-- ===== part-03 ===== -->
 
-<!-- Teil 3 — Systeme im Vergleich (Folien 25–42) -->
+<!-- Teil 3 — Systeme im Vergleich -->
 
-<!-- Folie 25 -->
+<!-- Systeme im Vergleich -->
 <section class="slide slide--center" data-transition="zoom">
   <p class="kicker">TEIL 3</p>
   <h1>Systeme im Vergleich</h1>
@@ -658,7 +658,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <div class="notes">Kapiteltrennung. Drei Systeme, drei Philosophien – wir gehen sie der Reihe nach durch: Tuya, Zigbee, Matter.</div>
 </section>
 
-<!-- Folie 26 (1/4): Dramaturgie -->
+<!-- Drei Systeme auf einen Blick -->
 <section class="slide" data-transition="slide">
   <p class="kicker">Teil 3 · Vergleich</p>
   <h2>Drei Systeme auf einen Blick</h2>
@@ -667,7 +667,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <div class="notes">Die Reihenfolge der drei Systeme ist bewusst gewählt: schlecht, gut, besser. Als Nächstes die Vergleichsmatrix auf einer Folie.</div>
 </section>
 
-<!-- Folie 26 (2/4): Vergleichsmatrix Kriterien 1–2 -->
+<!-- Vergleichsmatrix: Tuya, Zigbee, Matter -->
 <section class="slide" data-transition="slide">
   <p class="kicker">Teil 3 · Vergleich</p>
   <h2>Vergleichsmatrix: Tuya, Zigbee, Matter</h2>
@@ -762,9 +762,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <div class="notes">Diese Folie fasst die früheren Detailfolien zu Tuya, Zigbee und Matter zusammen; diese sind entfallen, ihr Inhalt steht am Ende dieser Notiz. Alle sechs Kriterien auf einer Folie, damit pro Zeile sofort sichtbar ist, wer vorn liegt. Die Werte sind ausschließlich aus den Vorteile/Nachteile-Folien der drei Systeme abgeleitet, es sind keine zusätzlichen Daten hinzugefügt. Zu den Zeilen im Detail: Lokaler Betrieb — Tuya nein, Steuerung läuft über die Tuya Cloud; Zigbee ja, Befehle werden direkt im Haus verarbeitet; Matter ja, Steuerung komplett lokal im Heimnetzwerk. Hub / Zentrale — Tuya bei WLAN-Geräten nein, für Zigbee-Geräte ein Tuya-Gateway; Zigbee ja, zwingend (Bridge oder Zigbee-USB-Stick); Matter ja, Matter-Controller, für Thread zusätzlich ein Thread Border Router. Cloud-Zwang — Tuya ja, ohne Internet fallen Routinen und Fernsteuerung aus; Zigbee nein, funktioniert unabhängig vom Internet; Matter nein, keine Cloud-Verbindung für die Schaltung nötig. Herstelleroffen — die Zeile fragt bewusst nach Ökosystemen, nicht nach Marken: Über Marken hinweg ist Tuya sogar offen, Lidl, Nedis und Luminea liegen in derselben App. Gebunden ist man an die Tuya-Plattform selbst, eine Kombination mit Apple Home oder Google Home als gleichberechtigter Steuerung gibt es nicht. Einschränkung für die Vorbereitung: Neuere Tuya-Geräte können teilweise Matter sprechen und sind dann doch einbindbar — wer danach gefragt wird, sollte das erwähnen. Zigbee teilweise, Zigbee teilweise, „Kompatibilitäts-Inseln“, Geräte verschiedener Hersteller lassen sich nicht immer an derselben Zentrale anlernen; Matter ja, garantierter Parallelbetrieb mit Apple Home, Google Home, Alexa, SmartThings („Multi-Admin“). Energiebedarf — Tuya hoch, WLAN verbraucht mehr Strom und belastet den Router; Zigbee niedrig, Batteriesensoren halten oft jahrelang mit einer Knopfzelle; Matter niedrig über Thread, höher über WLAN. Preisniveau — Tuya günstig; Zigbee günstig; Matter höher, Matter-Hardware ist aktuell meist teurer als einfache Tuya- oder reine Zigbee-Komponenten. Die Tortendiagramme unten zeigen, wie sich die sechs Bewertungen je System verteilen: Tuya 2 gut / 0 okay / 4 schlecht, Zigbee 4 / 2 / 0, Matter 3 / 2 / 1. Das ist eine Verteilung der sechs Zeilen, keine Gesamtnote. — Inhalte der entfallenen Detailfolien: Tuya liefert die Software-Infrastruktur für tausende White-Label-Hersteller (wie Lidl Livarno, Luminea, Nedis); gesteuert meist über die Tuya Smart oder die Smart Life App. Vorteile: riesige Produktauswahl, extrem viele, sehr günstige Geräte (Leuchtmittel, Stecker, Kameras); einfacher Einstieg über einfaches WLAN, oft keine teure separate Zentrale (Bridge/Hub) nötig; gute App-Funktionen mit umfangreichen Automatisierungsmöglichkeiten und Szenen. Nachteile: Cloud-Zwang, ohne Internet oder Tuya-Cloud fallen Routinen und Fernsteuerung aus (Hauptkritikpunkt); Datenschutz, globale Cloud-Plattform, Nutzungsdaten wandern über externe Server; WLAN-Überlastung, viele günstige WLAN-Geräte können den Router schnell überlasten. Die drei Tuya-Kommunikationswege: Standard-Weg (WLAN-Geräte): Smartphone App → Internet → Tuya Cloud → Internet/Router → Tuya WLAN-Gerät. Brücken-Weg (Zigbee/Bluetooth-Geräte): Smartphone App → Internet → Tuya Cloud → Internet → Tuya Zigbee Gateway → Lokaler Funk → Zigbee-Sensor. Drittanbieter-Weg (Sprachassistenten): Sprachbefehl („Alexa...“) → Amazon/Google Cloud → Cloud-to-Cloud Kopplung → Tuya Cloud → Endgerät. Alle drei Wege führen über die Tuya Cloud; nur die letzte Strecke vom Gateway zum Zigbee-Sensor ist lokaler Funk. Zigbee ist ein etablierter, energiesparender Funkstandard, genutzt u. a. von Philips Hue, IKEA Home smart und Aqara — der Gegenentwurf zu Tuya. Vorteile: lokaler Betrieb, Befehle direkt im Haus verarbeitet, extrem schnell, unabhängig vom Internet; Mesh-Netzwerk, Dauerstrom-Geräte (z. B. Lampen) wirken als Signalverstärker, Reichweite steigt enorm; extrem energiesparend, Batteriesensoren halten oft jahrelang mit einer Knopfzelle. Nachteile: zwingend ein Gateway, z. B. Philips Hue Bridge oder Zigbee-USB-Stick; Kompatibilitäts-Inseln, Geräte verschiedener Hersteller lassen sich nicht immer an derselben Zentrale anlernen — das löst später Matter. Matter ist der neueste, vom Branchenkonsortium (Apple, Google, Amazon, Samsung u. a.) entwickelte Standard und soll die Fragmentierung des Smart-Homes endgültig beenden; Transportwege: bestehendes WLAN oder das moderne, energiesparende Thread-Funknetzwerk. Vorteile: herstellerübergreifend, Apple Home, Google Home, Amazon Alexa, Samsung SmartThings parallel („Multi-Admin“); zukunftssicher und lokal, komplett lokal im Heimnetzwerk, schnell und ausfallsicher, ohne Cloud-Zwang; hohe Sicherheit, moderne Verschlüsselung und Sicherheitsmechanismen bei der Geräte-Inbetriebnahme. Nachteile: noch in Entwicklung, Geräteklassen wie komplexe Kameras oder Spezial-Sensoren nicht perfekt abgedeckt; Updates der Hersteller verzögern sich oft; Thread-Geräte brauchen einen kompatiblen „Thread Border Router“, Beispiele: neuerer Apple HomePod, Google Nest Hub, Amazon Echo; höherer Preis, Matter-Hardware aktuell meist teurer als einfache Tuya- oder reine Zigbee-Komponenten.</div>
 </section>
 
-<!-- Folie 26 (3/4): Vergleichsmatrix Kriterien 3–4 -->
-<!-- Folie 26 (4/4): Vergleichsmatrix Kriterien 5–6 -->
-<!-- Folie 30 -->
+<!-- System-Architektur &amp; Kommunikationswege -->
 <section class="slide" data-transition="fade">
   <p class="kicker">Tuya</p>
   <h2>System-Architektur &amp; Kommunikationswege</h2>
@@ -831,7 +829,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <div class="notes">Grafik ist jetzt nativ auf der Folie, nicht mehr als Screenshot — dadurch skaliert sie sauber und folgt dem Theme. Rot heißt: Der Weg verlässt das Haus. Grün heißt: bleibt im Haus. Alle primären Wege laufen über die Tuya Cloud; ohne Internet verlieren App und WLAN-Geräte die Verbindung. Nur die Strecke vom Gateway zum Zigbee-Endgerät ist rein lokal. Quellenlage: Die Architektur ist durch Tuyas eigene Entwicklerdokumentation gedeckt — Geräte ohne eigenen Internetzugang (Zigbee, Bluetooth) hängen als Sub-Devices an einem Gateway, das selbst per MQTT mit der Cloud spricht. Belege: developer.tuya.com, Seiten „Zigbee Gateway“ und „Tuya MQTT Standard Protocol“.</div>
 </section>
 
-<!-- Folie 33 -->
+<!-- Architektur &amp; lokaler Kommunikationsgraph -->
 <section class="slide" data-transition="fade">
   <p class="kicker">Zigbee</p>
   <h2>Architektur &amp; lokaler Kommunikationsgraph</h2>
@@ -898,7 +896,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <div class="notes">Grafik ist jetzt nativ auf der Folie statt als Screenshot. Grün umrandet: alles, was ohne Internet funktioniert. Der Mesh braucht kein Internet; Router (Lampe, Steckdose) hängen am Dauerstrom und leiten weiter, der Batterie-Sensor ist Endgerät und schläft dazwischen. Die App erreicht die Zentrale über das lokale IP-Netz. Quellenlage: Die drei Geräterollen Coordinator, Router und End Device sind in der Zigbee-Spezifikation der Connectivity Standards Alliance definiert; für den Vortrag genügt der Verweis darauf.</div>
 </section>
 
-<!-- Folie 37 -->
+<!-- Matter und Thread: zwei Dinge, die oft verwechselt werden -->
 <section class="slide" data-transition="slide">
   <p class="kicker">Teil 3 · Gliederung</p>
   <h2>Matter und Thread: zwei Dinge, die oft verwechselt werden</h2>
@@ -945,7 +943,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <div class="notes">Die Controller synchronisieren den Gerätestatus direkt lokal untereinander. Das ist der Kern von Multi-Admin.</div>
 </section>
 
-<!-- Folie 38 -->
+<!-- Der Thread Border Router (Die Funk-Brücke) -->
 <section class="slide" data-transition="slide">
   <p class="kicker">Matter</p>
   <h2>Der Thread Border Router (Die Funk-Brücke)</h2>
@@ -955,7 +953,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <div class="notes">Der Border Router ist die Brücke zwischen Thread-Funknetz und normalem Heimnetz. Oft steckt er schon im Controller.</div>
 </section>
 
-<!-- Folie 39 -->
+<!-- Die Matter-Endgeräte (WLAN oder Thread) -->
 <section class="slide" data-transition="slide">
   <p class="kicker">Matter</p>
   <h2>Die Matter-Endgeräte (WLAN oder Thread)</h2>
@@ -972,7 +970,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <div class="notes">Große Stromverbraucher nutzen WLAN, kleine, sparsame Geräte Thread. Das Thread-Mesh funktioniert ähnlich wie bei Zigbee.</div>
 </section>
 
-<!-- Folie 40 -->
+<!-- Ablauf eines typischen Schaltbefehls -->
 <section class="slide" data-transition="slide">
   <p class="kicker">Matter</p>
   <h2>Ablauf eines typischen Schaltbefehls</h2>
@@ -1025,7 +1023,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <div class="notes">Der Ablauf als Prozesskette, Schritt für Schritt einblenden. Beschriftet sind die Übergänge, denn darum geht es: von der App über lokales WLAN zum Controller, der zugleich Thread Border Router ist; von dort per Thread-Funk zur Lampe, die am Dauerstrom hängt und deshalb als Thread-Router weiterleitet; von der Lampe per Thread-Funk zum Heizkörperthermostat, das den Befehl ausführt. Der gesamte Weg bleibt lokal, keine Cloud beteiligt.</div>
 </section>
 
-<!-- Folie 41 -->
+<!-- Lokal vs. Cloud: Der entscheidende Vorteil -->
 <section class="slide" data-transition="rise">
   <p class="kicker">Teil 3</p>
   <h2>Lokal vs. Cloud: Der entscheidende Vorteil</h2>
@@ -1046,7 +1044,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <div class="notes">Bei Matter fließen alle Daten nahtlos durch dieselbe lokale Netzwerkstruktur. Tuya ist das Gegenteil (siehe Folien zu den Kommunikationswegen). Das ist der Übergang zu Teil 4. Die frühere Abschlussfolie mit der wiederholten Vergleichsmatrix ist entfallen; die Matrix steht vollständig auf der Folie „Vergleichsmatrix: Tuya, Zigbee, Matter“.</div>
 </section>
 
-<!-- Folie 42 (Merksatz) -->
+<!-- Merksatz -->
 <section class="slide slide--center" data-transition="fade">
   <p class="kicker">Teil 3</p>
   <h2>Merksatz</h2>
@@ -3170,11 +3168,11 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <div class="cols cols--3">
     <div class="card" data-fragment="1" data-fragment-style="grow">
       <h3>Screenshots</h3>
-      <p>Alle Screenshots (Xiaomi Home, Google Home, Heizkreis, Energiemonitoring, tado°, Kamera Hauseingang) und die Automatisierungs-Beispiele aus Teil 2 stammen aus der eigenen Installation des Vortragenden.</p>
+      <p>Alle Screenshots (Xiaomi Home, Google Home, Heizkreis, Energiemonitoring, Wärmeerzeuger, tado°) und die Folie „Beispiel: Automatisierung Keller Bad“ stammen aus der eigenen Installation des Vortragenden.</p>
     </div>
     <div class="card" data-fragment="2" data-fragment-style="grow">
       <h3>Produktbilder und Logos</h3>
-      <p>Folien zu den Anbietern und zu Home Assistant: Herstellermaterial.</p>
+      <p>Folien zu den deutschen Anbietern (AVM, tado°, Homematic IP, homee, wibutler, Bosch Smart Home) und zu Home Assistant: Herstellermaterial.</p>
     </div>
     <div class="card" data-fragment="3" data-fragment-style="grow">
       <h3>Fotos</h3>
@@ -3194,12 +3192,12 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
       <p><strong>Quelle nachzutragen</strong> (Fachliteratur Heizungstechnik oder Herstellerdokumentation).</p>
     </div>
     <div class="card" data-fragment="2" data-fragment-style="grow">
-      <h3>2 · China-Hosting (Folie „Drittland-Risiko China: drei Gründe“)</h3>
+      <h3>2 · China-Hosting (China-Folie „drei Gründe“)</h3>
       <p>„Hosten personenbezogener Daten in China … in den allermeisten Fällen unzulässig“ — Formulierung auf der Folie abgeschwächt.</p>
       <p><strong>Belegt</strong> über die DPC-Entscheidung gegen TikTok vom 02.05.2025 (485 Mio. € nach Art. 46 Abs. 1 DSGVO). Vom High Court im Juni 2026 im Wesentlichen bestätigt, Bußgeldhöhe offen; kein pauschales Verbot.</p>
     </div>
     <div class="card" data-fragment="3" data-fragment-style="grow">
-      <h3>3 · Angemessenheitsbeschluss (Folie „Drittland-Risiko China: drei Gründe“)</h3>
+      <h3>3 · Angemessenheitsbeschluss (China-Folie „drei Gründe“)</h3>
       <p>Kein Angemessenheitsbeschluss der EU-Kommission für China.</p>
       <p><strong>Belegt</strong> über die Liste der Angemessenheitsbeschlüsse der EU-Kommission (China nicht enthalten).</p>
     </div>
@@ -3212,12 +3210,12 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <h2>Offene Belege — vor dem Vortrag zu klären</h2>
   <div class="cols">
     <div class="card" data-fragment="1" data-fragment-style="grow">
-      <h3>4 · Geheimdienstgesetz (Folie „Drittland-Risiko China: drei Gründe“)</h3>
+      <h3>4 · Geheimdienstgesetz (China-Folie „drei Gründe“)</h3>
       <p>„Artikel 7 des chinesischen Geheimdienstgesetzes“ verpflichtet zur Kooperation.</p>
       <p><strong>Belegt</strong> über die Übersetzung von China Law Translate (2017, Art. 7). Reichweite der Pflicht umstritten; amtlichen Text gegenprüfen.</p>
     </div>
     <div class="card" data-fragment="2" data-fragment-style="grow">
-      <h3>5 · TIA-Pflicht (Folie „Drittland-Risiko China: drei Gründe“)</h3>
+      <h3>5 · TIA-Pflicht (China-Folie „drei Gründe“)</h3>
       <p>Zwingende TIA-Pflicht und „fast immer negatives Ergebnis“ deutscher Aufsichtsbehörden.</p>
       <p><strong>TIA-Pflicht gestützt</strong> (Art. 46 DSGVO, EuGH C‑311/18, EDSA 01/2020). „Fast immer“ <strong>gestrichen</strong>, da nicht belegt.</p>
     </div>
@@ -3230,17 +3228,17 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <h2>Offene Belege — vor dem Vortrag zu klären</h2>
   <div class="cols cols--3">
     <div class="card" data-fragment="1" data-fragment-style="grow">
-      <h3>6 · CLOUD Act (Folie „Gefahren und Fallstricke von Cloudanbietern“, Bildinhalt)</h3>
-      <p>CLOUD-Act-Risiko bei US-Anbietern mit Servern in Frankfurt. Stammt aus der abgebildeten Tabelle.</p>
+      <h3>6 · CLOUD Act (Folie „Gefahren und Fallstricke“)</h3>
+      <p>CLOUD-Act-Risiko bei US-Anbietern mit Servern in Frankfurt. Stammt aus der Tabelle der Folie (früher ein Screenshot).</p>
       <p><strong>Primärquelle der Tabelle nicht genannt.</strong></p>
     </div>
     <div class="card" data-fragment="2" data-fragment-style="grow">
-      <h3>7 · IT-Sicherheit (Folie „IT-Sicherheit: die zweite Risikoebene“)</h3>
+      <h3>7 · IT-Sicherheit (Folie „IT-Sicherheit“)</h3>
       <p>IT-Sicherheitsgrundsätze (offene Ports, Firmware-Updates, Botnetze). Neu ergänzt, ohne Zitat.</p>
       <p><strong>Mit BSI-Empfehlungen zu Smart Home / IoT unterfüttern.</strong></p>
     </div>
     <div class="card" data-fragment="3" data-fragment-style="grow">
-      <h3>8 · Abgeschaltete Cloud (Folie „Der Härtefall: die Cloud wird abgeschaltet“)</h3>
+      <h3>8 · Abgeschaltete Cloud (Folie „Der Härtefall“)</h3>
       <p>Konkreter Fall einer abgeschalteten Hersteller-Cloud.</p>
       <p><strong>Bewusst kein Beispiel benannt</strong>, weil die Präsentation keines nennt. Für den Vortrag ein belegtes Beispiel ergänzen.</p>
     </div>
@@ -3257,11 +3255,11 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
       <p><strong>Vollständig offen</strong>, alle Felder Platzhalter.</p>
     </div>
     <div class="card" data-fragment="2" data-fragment-style="grow">
-      <h3>10 · Einsparungszahlen (Folie „Energieeinsparung: was noch zu belegen ist“)</h3>
+      <h3>10 · Einsparungszahlen (Folie „Energieeinsparung“)</h3>
       <p><strong>Vollständig offen</strong>; Datengrundlage aus dem eigenen Energiemonitoring vorhanden.</p>
     </div>
     <div class="card" data-fragment="3" data-fragment-style="grow">
-      <h3>10a · Takten (Folie „Energieeinsparung: was noch zu belegen ist“)</h3>
+      <h3>10a · Takten (Folie „Energieeinsparung“)</h3>
       <p>Verhältnis Brennerstarts zu Betriebsstunden. <strong>Nicht belegt.</strong> Ausgangswerte aus einem Screenshot abgelesen, nicht exportiert; Zählweise des Geräts unbekannt.</p>
       <p>Am Gerät verifizieren, bevor die Zahl im Vortrag genannt wird.</p>
     </div>
@@ -3279,7 +3277,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
       <p>Die Passage ist aus dem Vortrag herausgenommen; falls sie zurückkehrt, ist die Bezeichnung zu prüfen.</p>
     </div>
     <div class="card" data-fragment="2" data-fragment-style="grow">
-      <h3>12 · Praxis-Screenshots (Folie „Praxis-Screenshots aus dem Betrieb“ und folgende)</h3>
+      <h3>12 · Praxis-Screenshots (Folien „Praxis-Screenshots“)</h3>
       <p>Zuordnung der Screenshots zu Anbietern: teilweise nur aus dem Bildinhalt abgeleitet.</p>
       <p><strong>Anbieter vom Vortragenden bestätigen lassen.</strong></p>
     </div>

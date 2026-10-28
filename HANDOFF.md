@@ -71,11 +71,12 @@ Themes stylen `.slide li` und `.slide p` — eigene Komponenten brauchen oft
 1. **Bedienebene dreifach.** Folie 13 (Original), 14 (Layout-Vorschlag A, Spektrum),
    15 (Layout-Vorschlag B, Konvergenz). Nils muss eine wählen; die anderen beiden samt
    Badges löschen. Empfehlung war B.
-2. ~~Veraltete Folienverweise~~ **Erledigt (2026-10-28):** sichtbarer Text und Notizen verweisen
-   jetzt auf Folientitel statt Nummern. Offen: Sichtprüfung der längeren Überschriften auf den
-   „Offene Belege"-Folien (Umbruch), und die Zuordnung der Bildquellen auf der Quellen-Folie
-   („Folien zu den Anbietern und zu Home Assistant") gegenprüfen. Die HTML-Kommentare
-   `<!-- Folie 25 -->` usw. vor den Folien tragen noch die alte Nummerierung (nur im Quelltext).
+2. ~~Veraltete Folienverweise~~ **Erledigt (2026-10-28):** sichtbarer Text, Notizen und die
+   HTML-Kommentare vor den Folien verweisen jetzt auf Folientitel statt Nummern. Die Überschriften
+   der „Offene Belege"-Karten sind gekürzt; die Sichtprüfung im Browser (Umbruch, Theme `brutal`)
+   steht noch aus. Die Herkunftsangaben auf der Quellen-Folie sind aus den Folieninhalten
+   abgeleitet; ob die Home-Assistant- und Anbieter-Bilder wirklich Herstellermaterial sind, kann
+   nur Nils bestätigen.
 3. ~~Folie „Abschluss Teil 3"~~ **Erledigt (2026-10-28):** gestrichen, weil sie die Matrix der
    Folie „Vergleichsmatrix: Tuya, Zigbee, Matter" mit veralteten Werten wiederholte
    („sehr günstig" statt „günstig"). Hinweis darauf steht in den Notizen der Merksatz-Folie.
