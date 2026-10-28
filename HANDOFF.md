@@ -120,16 +120,17 @@ Themes stylen `.slide li` und `.slide p` — eigene Komponenten brauchen oft
    nachgezeichneten Folien. Die Folien „Einstieg" (isometrisches Haus, SVG) und „Was ist Smart
    Home?" (Unsplash-Foto von Duc Van, `images/haus-nacht.jpg`, zugeschnitten, Nachweis auf der
    Folie) sind ebenfalls ersetzt.
-7. **Vereinfachung** auf Folie 28, Zeile „Lokaler Betrieb": Tuya ist dort pauschal „nein".
-   Über ein Zigbee-Gateway laufen manche Automatisierungen lokal, mit Home Assistant
-   ohnehin. Vertretbar, aber angreifbar.
-8. **Gelöschte Energie-Folien** (früher 155–158: Datengrundlage, ehrlicher Vorschlag,
-   Aufhänger prüfen, Aufhänger Trägt die Zahl?). Die Belegfolie „10a · Takten“ und die Folie
-   „Spart das wirklich Energie?“ am Ende verweisen noch darauf; Folie 153 sagt in den Notizen
-   „die nächsten Folien zeigen … welche Daten schon vorliegen“. Anpassen oder streichen.
-9. **Gelöschte Folie „Was in diesem Vortrag offen bleibt“** (früher Gesamt-Fazit nach den
-   vier Fazit-Folien). Die Notizen der Folie „Die Risiken sind nicht nur Datenschutz“ enden
-   noch mit „Weiter mit dem, was in diesem Vortrag offen bleibt“.
+7. ~~Vereinfachung Tuya „Lokaler Betrieb"~~ **Erledigt (2026-10-28):** Die Zeile bleibt bei „nein“,
+   die Zelle nennt jetzt die Ausnahme („nur Gateway-Szenen auch lokal"), „Cloud-Zwang" sagt
+   „Fernsteuerung und viele Routinen fallen aus". Begründung und Quellen (Gerätehandbuch, Blog, nicht
+   Tuya-Entwicklerdoku) stehen in der Notiz der Matrix-Folie; die genauen Voraussetzungen für lokale
+   Szenen vor dem Vortrag gegen aktuelle Tuya-Unterlagen prüfen.
+8. ~~Gelöschte Energie-Folien~~ **Erledigt (2026-10-28):** Notiz der Folie „Energieeinsparung" nennt die
+   nächste Folie und das Energiemonitoring als Datengrundlage; die Belegkarte „10a · Takten" sagt, dass
+   die Folie dazu entfallen ist. Die Q&A-Zeile „Spart das wirklich Energie?" passt weiter.
+9. ~~Gelöschte Folie „Was in diesem Vortrag offen bleibt"~~ **Erledigt (2026-10-28):** Die Notiz der
+   Folie „Die Risiken sind nicht nur Datenschutz" verweist auf Quellen und Fragerunde. Die fünf Folien
+   „Offene Belege" sind Arbeitsfolien und vor dem Vortrag zu entfernen oder abzuarbeiten.
 
 ## Stil
 
