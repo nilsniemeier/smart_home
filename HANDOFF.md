@@ -93,12 +93,14 @@ Themes stylen `.slide li` und `.slide p` — eigene Komponenten brauchen oft
    Folientiteln statt Nummern.
 5. **Titelporträt** `images/nils.jpg` ist nur 96x96 px und wird auf 150 px hochskaliert —
    auf dem Beamer sichtbar weich. Höher aufgelöste Datei ersetzen.
-6. **Ungenutzte Bilddateien** in `images/`: `img-012-005`, `img-024-011`, `img-026-013`,
-   `img-030-015`, `img-032-016`, `img-038-017`, `img-051-030`, `img-090-059`,
-   `pages/page-16.png`, `img-017-006`, `img-019-007`, `img-020-008`. Die ersten beiden
-   Architektur-PNGs wurden durch natives SVG ersetzt; `page-16.png` gehörte zur gelöschten
-   Bildfolie „Beispiel für den Ablauf"; `img-017-006`/`-019-007`/`-020-008` waren die Code-Screenshots, jetzt
-   als Text (`pre.codeblock`); der Rest war schon im Original nie eingebunden. Löschen oder behalten ist offen.
+6. ~~Ungenutzte Bilddateien~~ **Erledigt (2026-10-28):** die 8 ersetzten Dateien sind per `git rm`
+   gelöscht (`img-012-005` Instagram-Screenshot, `img-030-015`/`-032-016` Architektur-Diagramme,
+   `img-038-017` Serverstandort-Tabelle, `img-017-006`/`-019-007`/`-020-008` Code-Screenshots,
+   `pages/page-16.png`); in git wiederherstellbar. Die Quelldokumente `Smart Home*.md` verlinken
+   einen Teil davon, deren Vorschaubilder fehlen jetzt. Bewusst behalten, weil winzig und ungenutzt:
+   `img-024-011`, `img-026-013`, `img-051-030`, `img-090-059`, `img-048-023` (homee-Logo),
+   `img-049-025` (wibutler-Logo). Die Notizen der Code-Folien nennen die gelöschten
+   Screenshot-Pfade noch als Herkunftshinweis.
 7. **Vereinfachung** auf Folie 28, Zeile „Lokaler Betrieb": Tuya ist dort pauschal „nein".
    Über ein Zigbee-Gateway laufen manche Automatisierungen lokal, mit Home Assistant
    ohnehin. Vertretbar, aber angreifbar.
