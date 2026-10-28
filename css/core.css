@@ -266,8 +266,7 @@ body.is-blacked > .deck-chrome { visibility: hidden; }
 .slide svg.illu { display: block; height: 680px; width: auto; max-width: 100%; margin: 0 auto; overflow: visible; }
 .slide svg.illu--m { height: 560px; }
 .slide svg.illu--s { height: 460px; }
-.slide .trio svg.illu { width: 100%; height: auto; max-height: 520px; }
-.slide figure.seal svg.illu { width: 100%; height: 100%; max-height: none; }
+.slide .trio svg.illu { width: 100%; height: auto; max-height: 520px; }.slide figure.seal svg.illu { width: 100%; height: 100%; max-height: none; }
 .illu .st  { fill: none; stroke: var(--fg); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
 .illu .sd  { fill: none; stroke: var(--fg-dim); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 .illu .sg  { fill: none; stroke: var(--bg); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; opacity: 0.75; }
@@ -296,6 +295,30 @@ body.is-blacked > .deck-chrome { visibility: hidden; }
 
 .slide .chips--dense { gap: 14px 16px; max-width: 1640px; margin-bottom: 30px; }
 .slide .chips--dense span { padding: 8px 22px; font-size: 30px; }
+
+/* Photo with animated lighting: soft warm glows over the lit windows and lamps
+   (slide "Was ist Smart Home?"). Positions are percentages of the photo. */
+.slide .lights { position: relative; }
+.slide .lights .glow {
+  position: absolute; transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none;
+  mix-blend-mode: screen; opacity: 0;
+  background: radial-gradient(closest-side, rgba(255, 222, 165, 0.7), rgba(255, 196, 120, 0.18) 42%, transparent 82%);
+}
+.slide.is-active .lights .glow { animation: glow-cycle 9s ease-in-out infinite; animation-delay: var(--d, 0s); }
+@keyframes glow-cycle {
+  0% { opacity: 0; } 9% { opacity: 0.95; } 30% { opacity: 0.55; } 55% { opacity: 1; } 84% { opacity: 0.75; } 95% { opacity: 0; } 100% { opacity: 0; }
+}
+.glow--w1 { left: 10.9%; top: 38.2%; width: 30.0%; height: 48.5%; --d: 0s; }
+.glow--w2 { left: 32.0%; top: 34.1%; width: 23.6%; height: 48.5%; --d: 0.3s; }
+.glow--w3 { left: 62.2%; top: 29.7%; width: 23.6%; height: 48.5%; --d: 0.6s; }
+.glow--w4 { left: 79.5%; top: 27.2%; width: 24.5%; height: 48.5%; --d: 0.9s; }
+.glow--g1 { left: 70.9%; top: 68.8%; width: 41.8%; height: 29.4%;   --d: 1.2s; }
+.glow--g2 { left: 27.3%; top: 72.1%; width: 29.1%; height: 23.5%; --d: 1.5s; }
+.glow--l1 { left: 10.0%; top: 75.7%; width: 12.7%; height: 20.6%; --d: 1.8s; }
+.glow--l2 { left: 45.0%; top: 74.3%; width: 12.7%; height: 20.6%; --d: 2.1s; }
+.glow--l3 { left: 96.2%; top: 71.3%; width: 12.7%; height: 20.6%; --d: 2.4s; }
+.glow--eave { left: 39.1%; top: 63.2%; width: 81.8%; height: 10.3%; --d: 0.2s; }
+@media (prefers-reduced-motion: reduce) { .slide.is-active .lights .glow { animation: none; opacity: 0.5; } }
 
 /* Waving dolphin: flipper layer on top of the body layer, rotated about the shoulder. */
 .slide.slide--poster figure { display: flex; justify-content: center; }
@@ -1664,6 +1687,8 @@ body.overview .deck-ink { display: none; }
 .slide--media--wide { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); column-gap: 80px; }
 .slide--media--wide img { max-height: none; width: 100%; }
 .slide--media--wide > div { max-width: none; }
+/* Photo slide with a larger, tightly cropped picture ("Was ist Smart Home?"). */
+.slide--media--xl { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); column-gap: 70px; }
 
 /* ---------- Title slide portrait ---------- */
 

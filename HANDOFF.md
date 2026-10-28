@@ -1,6 +1,6 @@
 # Handoff — Iteration am Smart-Home-Deck
 
-Stand: 2026-10-28 · 168 Folien · Cache-Version 77
+Stand: 2026-10-28 · 168 Folien · Cache-Version 82
 
 ## Projekt
 
@@ -109,11 +109,13 @@ Themes stylen `.slide li` und `.slide p` — eigene Komponenten brauchen oft
    Tokens, in allen fünf Themes per Screenshot geprüft). Logos stehen als Schriftzug (`.wordmark`),
    das Partnerraster als Textchips (`.chips`); die Home-Assistant-Oberfläche ist nachgezeichnet, kein
    Original-Screenshot. Die 17 Originaldateien sind per `git rm` gelöscht (im Verlauf weiter
-   vorhanden). **Noch Web-Bilder, Herkunft/Lizenz offen:** `img-002-001`
-   (Was ist Smart Home?), `img-009-002`/`-010-003`/`-011-004` (Kabelsysteme: Netzwerkkabel,
+   vorhanden). **Noch Web-Bilder, Herkunft/Lizenz offen:**
+   `img-009-002`/`-010-003`/`-011-004` (Kabelsysteme: Netzwerkkabel,
    EIB-Kabel mit Herstellerschrift, Schaltschrank). Ersatz: eigene Fotos oder Unsplash/Wikimedia.
    Wer lieber echte Screenshots der eigenen Home-Assistant-Installation zeigt, ersetzt die
-   nachgezeichneten Folien.
+   nachgezeichneten Folien. Die Folien „Einstieg" (isometrisches Haus, SVG) und „Was ist Smart
+   Home?" (Unsplash-Foto von Duc Van, `images/haus-nacht.jpg`, zugeschnitten, Nachweis auf der
+   Folie) sind ebenfalls ersetzt.
 7. **Vereinfachung** auf Folie 28, Zeile „Lokaler Betrieb": Tuya ist dort pauschal „nein".
    Über ein Zigbee-Gateway laufen manche Automatisierungen lokal, mit Home Assistant
    ohnehin. Vertretbar, aber angreifbar.
