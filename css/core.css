@@ -266,6 +266,8 @@ body.is-blacked > .deck-chrome { visibility: hidden; }
 .slide svg.illu { display: block; height: 680px; width: auto; max-width: 100%; margin: 0 auto; overflow: visible; }
 .slide svg.illu--m { height: 560px; }
 .slide svg.illu--s { height: 460px; }
+.img-row--two { --n: 2; }
+.img-row svg.illu { width: 100%; height: auto; max-height: 430px; }
 .slide .trio svg.illu { width: 100%; height: auto; max-height: 520px; }.slide figure.seal svg.illu { width: 100%; height: 100%; max-height: none; }
 .illu .st  { fill: none; stroke: var(--fg); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
 .illu .sd  { fill: none; stroke: var(--fg-dim); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }

@@ -1,6 +1,6 @@
 # Handoff — Iteration am Smart-Home-Deck
 
-Stand: 2026-10-28 · 168 Folien · Cache-Version 82
+Stand: 2026-10-28 · 168 Folien · Cache-Version 83
 
 ## Projekt
 
@@ -109,10 +109,14 @@ Themes stylen `.slide li` und `.slide p` — eigene Komponenten brauchen oft
    Tokens, in allen fünf Themes per Screenshot geprüft). Logos stehen als Schriftzug (`.wordmark`),
    das Partnerraster als Textchips (`.chips`); die Home-Assistant-Oberfläche ist nachgezeichnet, kein
    Original-Screenshot. Die 17 Originaldateien sind per `git rm` gelöscht (im Verlauf weiter
-   vorhanden). **Noch Web-Bilder, Herkunft/Lizenz offen:**
-   `img-009-002`/`-010-003`/`-011-004` (Kabelsysteme: Netzwerkkabel,
-   EIB-Kabel mit Herstellerschrift, Schaltschrank). Ersatz: eigene Fotos oder Unsplash/Wikimedia.
-   Wer lieber echte Screenshots der eigenen Home-Assistant-Installation zeigt, ersetzt die
+   vorhanden). **Es gibt keine Web-Bilder mit offener Herkunft mehr:** Die Folie „Kabelsysteme"
+   zeigt zwei selbst gezeichnete SVG-Grafiken statt Fotos: eine KNX-Busleitung mit beschrifteten
+   Adern (rot/schwarz = Bus, Daten und Strom auf denselben Adern; gelb/weiß = Reserve, z. B.
+   Hilfsspannung) und einen Schaltschrank mit KNX-Komponenten (Netzteil mit Drossel, IP-Router,
+   Schalt-, Jalousie-, Heizungs-, Dimmaktor, Binäreingang). Fachliche Quellen stehen in den Notizen;
+   Adernbelegung und Busspannung (rund 30 V, manche Quellen 29 V) vor dem Vortrag gegen KNX-Unterlagen
+   prüfen. Die Folie „Aufbau des Schaltschranks" danach zeigt noch das Unsplash-Foto eines normalen
+   Verteilers (Mark Kats) ohne KNX-Komponenten. Wer lieber echte Screenshots der eigenen Home-Assistant-Installation zeigt, ersetzt die
    nachgezeichneten Folien. Die Folien „Einstieg" (isometrisches Haus, SVG) und „Was ist Smart
    Home?" (Unsplash-Foto von Duc Van, `images/haus-nacht.jpg`, zugeschnitten, Nachweis auf der
    Folie) sind ebenfalls ersetzt.
