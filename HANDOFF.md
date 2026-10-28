@@ -71,11 +71,11 @@ Themes stylen `.slide li` und `.slide p` — eigene Komponenten brauchen oft
 1. **Bedienebene dreifach.** Folie 13 (Original), 14 (Layout-Vorschlag A, Spektrum),
    15 (Layout-Vorschlag B, Konvergenz). Nils muss eine wählen; die anderen beiden samt
    Badges löschen. Empfehlung war B.
-2. **Veraltete Folienverweise** im sichtbaren Text auf 15 Folien: 57, 127–131, 138, 140,
-   142, 161–165, 168. Alle stammen aus der Nummerierung des Ursprungsdokuments und zeigen
-   nach den Umbauten ins Leere. Empfehlung: durch inhaltliche Formulierungen ersetzen
-   („wie eben bei den Kommunikationswegen") statt umzurechnen — sonst bricht es beim
-   nächsten Umbau erneut.
+2. ~~Veraltete Folienverweise~~ **Erledigt (2026-10-28):** sichtbarer Text und Notizen verweisen
+   jetzt auf Folientitel statt Nummern. Offen: Sichtprüfung der längeren Überschriften auf den
+   „Offene Belege"-Folien (Umbruch), und die Zuordnung der Bildquellen auf der Quellen-Folie
+   („Folien zu den Anbietern und zu Home Assistant") gegenprüfen. Die HTML-Kommentare
+   `<!-- Folie 25 -->` usw. vor den Folien tragen noch die alte Nummerierung (nur im Quelltext).
 3. **Folie 37 „Abschluss Teil 3"** wiederholt die Matrix von Folie 28 eins zu eins, mit
    veralteten Werten („sehr günstig" statt „günstig"). Angleichen oder streichen.
 4. **China-Folien (41/42), Quellen vor dem Vortrag gegenprüfen.** Belegt mit Quellen auf den

@@ -1188,7 +1188,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <p class="kicker">Bezug zum Smart Home</p>
   <h2>Tuya: Serverstandort wird praktisch relevant</h2>
   <p class="lead">Tuya ist eine globale Cloud-Plattform: Nutzungsdaten wandern über externe Server. Genau hier wird die Frage des Serverstandorts praktisch relevant.</p>
-  <div class="notes">Rückbezug auf den Tuya-Teil. Der frühere Verweis auf „Folie 39“ war falsch und wurde entfernt — die Folienzahl stimmte nach den Umbauten nicht mehr. Überleitung zur Leitfrage: Welche Daten verlassen das Haus?</div>
+  <div class="notes">Rückbezug auf den Tuya-Teil. Überleitung zur Leitfrage: Welche Daten verlassen das Haus?</div>
 </section>
 
 <section class="slide slide--center" data-transition="zoom">
@@ -1229,7 +1229,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
       <p><span class="tell">Verrät</span>Gesichter, Besucher, Nachbarn</p>
     </div>
   </div>
-  <div class="notes">Die beiden früheren Folien auf einer, sechs Karten in zwei Reihen, einzeln einblendbar. Fundstellen im Vortrag: Temperatur und Luftfeuchtigkeit Folie 31 (Tuya-Automatisierung) sowie Folie 95/104 (Heizung, tado°); Schaltvorgänge Folie 89/92 (Xiaomi, Google Home); Fenster- und Türkontakte Folie 11, Folie 23, Folie 157; Anwesenheit/Geofencing Folie 104 (tado° „HOME Geofencing“); Energieverbrauch Folie 98/101 (Energiemonitoring); Kamerabilder Folie 107. Diese Folienangaben stammen aus der Quellnummerierung und sind nach den Umbauten nicht mehr deckungsgleich.</div>
+  <div class="notes">Die beiden früheren Folien auf einer, sechs Karten in zwei Reihen, einzeln einblendbar. Fundstellen im Vortrag: Temperatur und Luftfeuchtigkeit in der Tuya-Automatisierung („Keller Bad“) sowie bei Heizkreis und tado°; Schaltvorgänge bei Xiaomi Home und Google Home; Fenster- und Türkontakte in den Gewerke-Folien der drei Fälle; Anwesenheit/Geofencing bei tado° („HOME Geofencing“); Energieverbrauch im Energiemonitoring; Kamerabilder bei „Kamera Hauseingang“.</div>
 </section>
 
 <section class="slide" data-transition="rise">
@@ -1324,7 +1324,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
       </svg>
     </div>
   </div>
-  <div class="notes">Einfallstor 1 von 3. Das Schaubild ist selbst gezeichnet, nicht aus dem Netz übernommen — oben der rote Weg: eine Portweiterleitung schlägt ein Loch in die Router-Firewall, durch das jeder Scanner direkt auf Kamera oder Dashboard kommt. Unten der grüne Weg: ein VPN-Tunnel ins Heimnetz, ohne offenen Port. Allgemein anerkannter Sicherheitsgrundsatz; Beleg z. B. BSI-Empfehlungen zu Smart Home (Quellenfolie 107).</div>
+  <div class="notes">Einfallstor 1 von 3. Das Schaubild ist selbst gezeichnet, nicht aus dem Netz übernommen — oben der rote Weg: eine Portweiterleitung schlägt ein Loch in die Router-Firewall, durch das jeder Scanner direkt auf Kamera oder Dashboard kommt. Unten der grüne Weg: ein VPN-Tunnel ins Heimnetz, ohne offenen Port. Allgemein anerkannter Sicherheitsgrundsatz; Beleg z. B. BSI-Empfehlungen zu Smart Home.</div>
 </section>
 
 <section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
@@ -1344,7 +1344,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
     <p class="clipping__body">Als die Schutzsoftware auf den Windows-Rechnern den Verschlüsselungstrojaner stoppte, durchsuchten die Angreifer das Netz nach einem anderen Weg. Sie fanden eine <strong>ungepatchte Überwachungskamera</strong> mit bekannten kritischen Sicherheitslücken, die auf einem schlanken Linux lief und auf der keine Schutzsoftware installiert werden konnte. Über diese Kamera verschlüsselten sie die Dateifreigaben im gesamten Netzwerk. Weil niemand das Gerät überwachte, fiel der auffällige Datenverkehr der IT-Abteilung nicht auf. Analyse der Sicherheitsfirma S-RM.</p>
     <p class="clipping__link">bleepingcomputer.com/news/security/akira-ransomware-encrypted-network-from-a-webcam-to-bypass-edr/</p>
   </div>
-  <div class="notes">Einfallstor 2 von 3. Der Zeitungsausschnitt ist der Beleg für genau diese Folie: Ein Gerät ohne Updates wird zum Einstiegspunkt ins Netz. Ablauf des Falls: Die Angreifer waren über einen exponierten Fernzugang bereits im Netz, ihr Verschlüsselungstrojaner wurde auf den Windows-Rechnern aber von der Schutzsoftware blockiert. Daraufhin scannten sie das Netz, fanden eine ungepatchte Überwachungskamera mit bekannten kritischen Lücken, die auf einem schlanken Linux lief, und verschlüsselten über dieses Gerät die Dateifreigaben. Zwei Dinge kamen zusammen: fehlende Updates und fehlende Überwachung des Geräts. Quelle: BleepingComputer, März 2025, nach einer Analyse der Sicherheitsfirma S-RM; derselbe Fall wurde unter anderem von SecurityAffairs und ThaiCERT aufgegriffen. Allgemein anerkannter Sicherheitsgrundsatz; Beleg z. B. BSI-Empfehlungen zu Smart Home (Quellenfolie 107).</div>
+  <div class="notes">Einfallstor 2 von 3. Der Zeitungsausschnitt ist der Beleg für genau diese Folie: Ein Gerät ohne Updates wird zum Einstiegspunkt ins Netz. Ablauf des Falls: Die Angreifer waren über einen exponierten Fernzugang bereits im Netz, ihr Verschlüsselungstrojaner wurde auf den Windows-Rechnern aber von der Schutzsoftware blockiert. Daraufhin scannten sie das Netz, fanden eine ungepatchte Überwachungskamera mit bekannten kritischen Lücken, die auf einem schlanken Linux lief, und verschlüsselten über dieses Gerät die Dateifreigaben. Zwei Dinge kamen zusammen: fehlende Updates und fehlende Überwachung des Geräts. Quelle: BleepingComputer, März 2025, nach einer Analyse der Sicherheitsfirma S-RM; derselbe Fall wurde unter anderem von SecurityAffairs und ThaiCERT aufgegriffen. Allgemein anerkannter Sicherheitsgrundsatz; Beleg z. B. BSI-Empfehlungen zu Smart Home.</div>
 </section>
 
 <section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
@@ -1357,7 +1357,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
     <li data-fragment="2">Geräte in ein eigenes Netzsegment (Gäste-WLAN / VLAN) legen</li>
     <li data-fragment="3">Internetzugang für Geräte sperren, die ihn nicht brauchen</li>
   </ul>
-  <div class="notes">Einfallstor 3 von 3. Allgemein anerkannter Sicherheitsgrundsatz; Beleg z. B. BSI-Empfehlungen zu Smart Home (Quellenfolie 107).</div>
+  <div class="notes">Einfallstor 3 von 3. Allgemein anerkannter Sicherheitsgrundsatz; Beleg z. B. BSI-Empfehlungen zu Smart Home.</div>
 </section>
 
 <section class="slide slide--center" data-transition="fade">
@@ -1371,7 +1371,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <p class="kicker">Teil 4 · Risiken</p>
   <h2>Lebensdauer-Risiko: wenn der Hersteller abschaltet</h2>
   <p class="lead">Beim Cloud-<strong>Ausfall</strong> gilt: Fällt das Internet oder die Tuya-Cloud aus, funktionieren viele Routinen und die Fernsteuerung nicht mehr. Das ist der harmlose Fall — er ist vorübergehend.</p>
-  <div class="notes">Abgrenzung: Ausfall ist vorübergehend, Abschaltung ist endgültig. Der frühere Verweis auf „Folie 39“ war falsch und wurde entfernt. Nächste Folie: der Härtefall.</div>
+  <div class="notes">Abgrenzung: Ausfall ist vorübergehend, Abschaltung ist endgültig. Nächste Folie: der Härtefall.</div>
 </section>
 
 <section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
@@ -1383,7 +1383,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
     <li data-fragment="2">fällt die App aus, und mit ihr <strong>jede Automatisierung</strong></li>
     <li data-fragment="3">bleibt physisch intakte Hardware zurück, die <strong>nichts mehr tut</strong> — Elektroschrank statt Elektronik</li>
   </ul>
-  <div class="notes">Konkrete Abschaltfälle nennt die Präsentation bewusst nicht; für den Vortrag ein belegtes Beispiel ergänzen (Quellenfolie 107). Mechanismus ergibt sich aus den Kommunikationswegen auf Folie 40/41.</div>
+  <div class="notes">Konkrete Abschaltfälle nennt die Präsentation bewusst nicht; für den Vortrag ein belegtes Beispiel ergänzen (siehe „Offene Belege“, Punkt 8). Mechanismus ergibt sich aus den Kommunikationswegen („Ablauf eines typischen Schaltbefehls“, „Lokal vs. Cloud“).</div>
 </section>
 
 <section class="slide slide--center" data-transition="fade">
@@ -1455,7 +1455,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
 <section class="slide slide--center" data-transition="fade">
   <p class="kicker">Für den Entscheider</p>
   <h2>Bei KNX wird in Jahrzehnten gerechnet</h2>
-  <p class="lead">(siehe Folie 129: „hält jahrzehntelang“)</p>
+  <p class="lead">(wie beim Neubau: „hält jahrzehntelang“)</p>
   <p class="lead" data-fragment="1">Bei einer Cloud-Plattform rechnet niemand in Jahrzehnten.</p>
   <p class="lead" data-fragment="2">Wer eine Immobilie ausstattet, trifft damit keine Produkt-, sondern eine Zeithorizont-Entscheidung.</p>
   <div class="notes">Schlusspunkt von Teil 4: Zeithorizont statt Produktwahl.</div>
@@ -2346,7 +2346,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <p class="kicker">Home Assistant</p>
   <h2>Fazit Home Assistant</h2>
   <p class="lead">Home Assistant bietet maximale Freiheit, absolute Datensicherheit und wächst flexibel mit jedem Projekt – vom Einsteiger bis zum Experten.</p>
-  <div class="notes">Das Fazit bezieht sich nur auf Home Assistant. Das Gesamt-Fazit des Vortrags folgt später auf Folie 176.</div>
+  <div class="notes">Das Fazit bezieht sich nur auf Home Assistant. Das Gesamt-Fazit des Vortrags folgt später im Schlussteil („Die vier Sätze, die aus diesem Vortrag bleiben sollten“).</div>
 </section>
 
     <!-- ===== part-06a ===== -->
@@ -2663,10 +2663,10 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
     <li data-fragment="1">Statik setzt Grenzen: tragende Wände und alte Betondecken nicht unbegrenzt horizontal aufschlitzen</li>
     <li data-fragment="2">Dicke Kabelbündel lassen sich so oft nicht verlegen</li>
     <li data-fragment="3">Ausweichen auf Abhängdecken (Trockenbau) oder Vorsatzschalen für Busleitungen und Sternverkabelung</li>
-    <li data-fragment="4">Neubau (Folie 129): Schlitze und Durchbrüche von Anfang an eingeplant</li>
+    <li data-fragment="4">Im Neubau: Schlitze und Durchbrüche von Anfang an eingeplant</li>
     <li data-fragment="5">Kabeltrassen über den Rohboden, keine Einschränkung bei der Platzierung von Schaltern</li>
   </ul>
-  <div class="notes">In der Kernsanierung setzt die Statik die Grenze fürs Schlitzen. Zum Vergleich der Neubau von Folie 129, wo der Architekt Schlitze und Durchbrüche von Anfang an einplant.</div>
+  <div class="notes">In der Kernsanierung setzt die Statik die Grenze fürs Schlitzen. Zum Vergleich der Neubau, wo der Architekt Schlitze und Durchbrüche von Anfang an einplant.</div>
 </section>
 
 <section class="slide" data-transition="slide" data-fragment-mode="dim-prior">
@@ -2677,7 +2677,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
     <li data-fragment="2">Neuer, riesiger Schaltschrank muss oft in engen Kellerflur oder Nische</li>
     <li data-fragment="3">Extrem präzise Platzplanung im Vorfeld nötig</li>
     <li data-fragment="4">Manchmal Aktoren dezentral in tiefe Elektronikdosen in die Räume auslagern</li>
-    <li data-fragment="5">Neubau (Folie 129): Hausanschlussraum von Anfang an groß genug geplant</li>
+    <li data-fragment="5">Im Neubau: Hausanschlussraum von Anfang an groß genug geplant</li>
   </ul>
   <div class="notes">Im Neubau ist der Hausanschlussraum groß genug für alle Aktoren und Netzteile. In der Kernsanierung entscheidet die Platzplanung vorab.</div>
 </section>
@@ -2689,7 +2689,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
     <li data-fragment="1">Raumhöhe oft begrenzt, alter Estrich nicht beliebig dick ersetzbar</li>
     <li data-fragment="2">Bei nachträglicher Fußbodenheizung oder Dünnbettsystem: <strong>kein Platz auf dem Boden für Smart-Home-Kabel</strong></li>
     <li data-fragment="3">Kabel müssen komplett über Decke oder Wände umgeleitet werden</li>
-    <li data-fragment="4">Neubau (Folie 132): Fußbodenaufbau meist 14–16 cm hoch, Kabel und Heizungsrohre nebeneinander</li>
+    <li data-fragment="4">Im Neubau: Fußbodenaufbau meist 14–16 cm hoch, Kabel und Heizungsrohre nebeneinander</li>
   </ul>
   <div class="notes">Die Fußbodenheizung wird nachträglich eingefräst oder als Dünnbettsystem genutzt. Dann bleibt für Kabel nur der Weg über Decke oder Wände.</div>
 </section>
@@ -2702,7 +2702,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
     <li data-fragment="2">Dann extrem wenig Platz für elektrische Rollladenkästen</li>
     <li data-fragment="3">Kabel für Fensterkontakte nachträglich in bestehende Rahmen einbohren</li>
     <li data-fragment="4">Erfordert chirurgische Präzision, damit die Dichtigkeit nicht leidet</li>
-    <li data-fragment="5">Neubau (Folie 134): Reed-Kontakte und Stromzuleitungen für Raffstores/Rollläden ab Werk integriert</li>
+    <li data-fragment="5">Im Neubau: Reed-Kontakte und Stromzuleitungen für Raffstores/Rollläden ab Werk integriert</li>
   </ul>
   <div class="notes">Im Neubau werden Reed-Kontakte und Zuleitungen ab Werk in die Maße der Rohbauöffnungen integriert. In der Kernsanierung geht das nur mit Präzisionsarbeit am Bestand.</div>
 </section>
@@ -2711,13 +2711,13 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <p class="kicker">FALL 2 · KERNSANIERUNG</p>
   <h2>Sicherheit &amp; Zutritt</h2>
   <ul>
-    <li data-fragment="1">Motorschloss in der Haustür: unverändert möglich wie im Neubau (Folie 136)</li>
+    <li data-fragment="1">Motorschloss in der Haustür: unverändert möglich wie im Neubau</li>
     <li data-fragment="2">Fensterkontakte: nur unproblematisch, wenn auch die Fenster neu bestellt werden</li>
-    <li data-fragment="3">Bleiben die alten Rahmen, gilt die Einschränkung von Folie 146</li>
+    <li data-fragment="3">Bleiben die alten Rahmen, müssen die Kabel nachträglich eingebohrt werden</li>
     <li data-fragment="4">PoE-Kameras an Hausecken: möglich, wenn Weg für Kabelführung nach außen existiert</li>
     <li data-fragment="5">Präsenzmelder an der Decke: nur mit abgehängter Decke oder Vorsatzschale wirtschaftlich</li>
   </ul>
-  <div class="notes">Diese Folie ist abgeleitet, nicht aus dem Original übernommen; sie schließt die Lücke im Raster für alle drei Fälle. Die Haustür wird bei einer Kernsanierung in der Regel ohnehin ersetzt; als Kabelwege nach außen kommen Leerrohr, Durchbruch oder Fassadendämmung im gleichen Zug in Frage; Präsenzmelder siehe Folie 143.</div>
+  <div class="notes">Diese Folie ist abgeleitet, nicht aus dem Original übernommen; sie schließt die Lücke im Raster für alle drei Fälle. Die Haustür wird bei einer Kernsanierung in der Regel ohnehin ersetzt; als Kabelwege nach außen kommen Leerrohr, Durchbruch oder Fassadendämmung im gleichen Zug in Frage.</div>
 </section>
 
 <section class="slide" data-transition="slide">
@@ -2816,7 +2816,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
     <li data-fragment="4">Schnittstelle zur Wärmepumpe oder Lüftungsanlage (Modbus / SG-Ready)</li>
     <li data-fragment="5">Alles setzt Zugriff auf Anlagentechnik voraus, die nicht dem Bewohner gehört</li>
   </ul>
-  <p>Funk-Thermostate arbeiten laut Folie 132 weniger präzise als kabelgebundene Stellventile: der Preis der Rückbaubarkeit.</p>
+  <p>Funk-Thermostate arbeiten weniger präzise als kabelgebundene Stellventile: der Preis der Rückbaubarkeit.</p>
   <div class="notes">Alles Entfallende setzt Zugriff auf die Anlagentechnik voraus. Die geringere Präzision der Funk-Thermostate ist der Preis der Rückbaubarkeit.</div>
 </section>
 
@@ -2850,7 +2850,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
     <li data-fragment="4">Decken-Präsenzmelder (Bohren in die Decke, Stromzuführung)</li>
     <li data-fragment="5">Ersatz: freistehende oder geklebte Funk-Bewegungsmelder</li>
   </ul>
-  <p>Einschränkung (Folie 134): Bewegungsmelder erkennen stillsitzende Personen nicht.</p>
+  <p>Einschränkung: Bewegungsmelder erkennen stillsitzende Personen nicht.</p>
   <div class="notes">Die Beschattung entfällt als Gewerk komplett. Für Präsenzmelder gibt es nur den Ersatz durch Funk-Bewegungsmelder, mit der bekannten Einschränkung.</div>
 </section>
 
@@ -2871,7 +2871,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <p class="kicker">FALL 3 · MIETWOHNUNG</p>
   <h2>Zutritt &amp; Sicherheit: Was entfällt</h2>
   <ul>
-    <li data-fragment="1">Kabelgebundenes Motorschloss in der Haustür (Folie 136)</li>
+    <li data-fragment="1">Kabelgebundenes Motorschloss in der Haustür</li>
     <li data-fragment="2">Wohnungstür darf nicht umgebaut werden, Haustür gehört allen Mietern</li>
     <li data-fragment="3">Reed-Kontakte ab Werk im Fensterrahmen</li>
     <li data-fragment="4">PoE-Überwachungskameras an den Hausecken</li>
@@ -3211,18 +3211,18 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <div class="cols cols--3">
     <div class="card" data-fragment="1" data-fragment-style="grow">
       <h3>Screenshots</h3>
-      <p>Alle Screenshots aus Teil 5 (Folien 89–107) und Teil 2 (Folien 26, 22–24) stammen aus der eigenen Installation des Vortragenden.</p>
+      <p>Alle Screenshots (Xiaomi Home, Google Home, Heizkreis, Energiemonitoring, tado°, Kamera Hauseingang) und die Automatisierungs-Beispiele aus Teil 2 stammen aus der eigenen Installation des Vortragenden.</p>
     </div>
     <div class="card" data-fragment="2" data-fragment-style="grow">
       <h3>Produktbilder und Logos</h3>
-      <p>Folien 79–85 und 108: Herstellermaterial.</p>
+      <p>Folien zu den Anbietern und zu Home Assistant: Herstellermaterial.</p>
     </div>
     <div class="card" data-fragment="3" data-fragment-style="grow">
-      <h3>Instagram-Beispiel</h3>
-      <p>Folie 18: vom Elektrobetrieb domhoeferelektrotechnik.</p>
+      <h3>Fotos</h3>
+      <p>Schaltschrank-, China- und Kamera-Folien: Unsplash (Mark Kats, Aleksandr Lyaptsev, Sou Jest, Turquo Cabbit), Nennung jeweils auf der Folie.</p>
     </div>
   </div>
-  <div class="notes">Herkunft der Abbildungen. Folienangaben beziehen sich auf die Nummerierung der Quelle.</div>
+  <div class="notes">Herkunft der Abbildungen.</div>
 </section>
 
 <section class="slide" data-transition="slide">
@@ -3230,22 +3230,22 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <h2>Offene Belege — vor dem Vortrag zu klären</h2>
   <div class="cols cols--3">
     <div class="card" data-fragment="1" data-fragment-style="grow">
-      <h3>1 · Hysterese (Folie 27)</h3>
+      <h3>1 · Hysterese (Folie „Hysterese“)</h3>
       <p>Definition und Zweck der Hysterese. Das Original verwies auf „[1, 2]“; ein Literaturverzeichnis existiert nicht, die Marker lösen nirgends auf.</p>
       <p><strong>Quelle nachzutragen</strong> (Fachliteratur Heizungstechnik oder Herstellerdokumentation).</p>
     </div>
     <div class="card" data-fragment="2" data-fragment-style="grow">
-      <h3>2 · China-Hosting (Folie 57)</h3>
+      <h3>2 · China-Hosting (Folie „Drittland-Risiko China: drei Gründe“)</h3>
       <p>„Hosten personenbezogener Daten in China … in den allermeisten Fällen unzulässig“ — Formulierung auf der Folie abgeschwächt.</p>
       <p><strong>Belegt</strong> über die DPC-Entscheidung gegen TikTok vom 02.05.2025 (485 Mio. € nach Art. 46 Abs. 1 DSGVO). Angefochten, kein pauschales Verbot.</p>
     </div>
     <div class="card" data-fragment="3" data-fragment-style="grow">
-      <h3>3 · Angemessenheitsbeschluss (Folie 57)</h3>
+      <h3>3 · Angemessenheitsbeschluss (Folie „Drittland-Risiko China: drei Gründe“)</h3>
       <p>Kein Angemessenheitsbeschluss der EU-Kommission für China.</p>
       <p><strong>Belegt</strong> über die Liste der Angemessenheitsbeschlüsse der EU-Kommission (China nicht enthalten).</p>
     </div>
   </div>
-  <div class="notes">Belege 1 bis 3. Beleg 1 (Hysterese) ist offen. Die Belege 2 und 3 sind inzwischen mit Quellen unterlegt (Links in den Notizen der China-Folien); vor dem Vortrag gegenprüfen. Folienangaben beziehen sich auf die Nummerierung der Quelle (die China-Folien sind in der Präsentation die Folien 41 und 42).</div>
+  <div class="notes">Belege 1 bis 3. Beleg 1 (Hysterese) ist offen. Die Belege 2 und 3 sind inzwischen mit Quellen unterlegt (Links in den Notizen der China-Folien); vor dem Vortrag gegenprüfen. Die China-Folien sind „Drittland-Risiko am Beispiel China“ und „Drittland-Risiko China: drei Gründe“.</div>
 </section>
 
 <section class="slide" data-transition="slide">
@@ -3253,12 +3253,12 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <h2>Offene Belege — vor dem Vortrag zu klären</h2>
   <div class="cols">
     <div class="card" data-fragment="1" data-fragment-style="grow">
-      <h3>4 · Geheimdienstgesetz (Folie 57)</h3>
+      <h3>4 · Geheimdienstgesetz (Folie „Drittland-Risiko China: drei Gründe“)</h3>
       <p>„Artikel 7 des chinesischen Geheimdienstgesetzes“ verpflichtet zur Kooperation.</p>
       <p><strong>Belegt</strong> über die Übersetzung von China Law Translate (2017, Art. 7). Reichweite der Pflicht umstritten; amtlichen Text gegenprüfen.</p>
     </div>
     <div class="card" data-fragment="2" data-fragment-style="grow">
-      <h3>5 · TIA-Pflicht (Folie 57)</h3>
+      <h3>5 · TIA-Pflicht (Folie „Drittland-Risiko China: drei Gründe“)</h3>
       <p>Zwingende TIA-Pflicht und „fast immer negatives Ergebnis“ deutscher Aufsichtsbehörden.</p>
       <p><strong>TIA-Pflicht gestützt</strong> (Art. 46 DSGVO, EuGH C‑311/18, EDSA 01/2020). „Fast immer“ <strong>gestrichen</strong>, da nicht belegt.</p>
     </div>
@@ -3271,17 +3271,17 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <h2>Offene Belege — vor dem Vortrag zu klären</h2>
   <div class="cols cols--3">
     <div class="card" data-fragment="1" data-fragment-style="grow">
-      <h3>6 · CLOUD Act (Folie 56, Bildinhalt)</h3>
+      <h3>6 · CLOUD Act (Folie „Gefahren und Fallstricke von Cloudanbietern“, Bildinhalt)</h3>
       <p>CLOUD-Act-Risiko bei US-Anbietern mit Servern in Frankfurt. Stammt aus der abgebildeten Tabelle.</p>
       <p><strong>Primärquelle der Tabelle nicht genannt.</strong></p>
     </div>
     <div class="card" data-fragment="2" data-fragment-style="grow">
-      <h3>7 · IT-Sicherheit (Folie 65)</h3>
+      <h3>7 · IT-Sicherheit (Folie „IT-Sicherheit: die zweite Risikoebene“)</h3>
       <p>IT-Sicherheitsgrundsätze (offene Ports, Firmware-Updates, Botnetze). Neu ergänzt, ohne Zitat.</p>
       <p><strong>Mit BSI-Empfehlungen zu Smart Home / IoT unterfüttern.</strong></p>
     </div>
     <div class="card" data-fragment="3" data-fragment-style="grow">
-      <h3>8 · Abgeschaltete Cloud (Folie 70)</h3>
+      <h3>8 · Abgeschaltete Cloud (Folie „Der Härtefall: die Cloud wird abgeschaltet“)</h3>
       <p>Konkreter Fall einer abgeschalteten Hersteller-Cloud.</p>
       <p><strong>Bewusst kein Beispiel benannt</strong>, weil die Präsentation keines nennt. Für den Vortrag ein belegtes Beispiel ergänzen.</p>
     </div>
@@ -3294,15 +3294,15 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <h2>Offene Belege — vor dem Vortrag zu klären</h2>
   <div class="cols cols--3">
     <div class="card" data-fragment="1" data-fragment-style="grow">
-      <h3>9 · Kostenangaben (Folie 166)</h3>
+      <h3>9 · Kostenangaben (Folie „Gesamtkosten je Fall“)</h3>
       <p><strong>Vollständig offen</strong>, alle Felder Platzhalter.</p>
     </div>
     <div class="card" data-fragment="2" data-fragment-style="grow">
-      <h3>10 · Einsparungszahlen (Folie 170)</h3>
+      <h3>10 · Einsparungszahlen (Folie „Energieeinsparung: was noch zu belegen ist“)</h3>
       <p><strong>Vollständig offen</strong>; Datengrundlage aus dem eigenen Energiemonitoring vorhanden.</p>
     </div>
     <div class="card" data-fragment="3" data-fragment-style="grow">
-      <h3>10a · Takten (Folie 170)</h3>
+      <h3>10a · Takten (Folie „Energieeinsparung: was noch zu belegen ist“)</h3>
       <p>Verhältnis Brennerstarts zu Betriebsstunden. <strong>Nicht belegt.</strong> Ausgangswerte aus einem Screenshot abgelesen, nicht exportiert; Zählweise des Geräts unbekannt.</p>
       <p>Am Gerät verifizieren, bevor die Zahl im Vortrag genannt wird.</p>
     </div>
@@ -3315,12 +3315,12 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <h2>Offene Belege — vor dem Vortrag zu klären</h2>
   <div class="cols">
     <div class="card" data-fragment="1" data-fragment-style="grow">
-      <h3>11 · „Moonshot AI (Kimi K3)“ (Anhang, gestrichene F43)</h3>
+      <h3>11 · „Moonshot AI (Kimi K3)“ (Anhang, gestrichene Folie)</h3>
       <p><strong>Modellbezeichnung zweifelhaft — nicht bestätigen.</strong></p>
       <p>Die Passage ist aus dem Vortrag herausgenommen; falls sie zurückkehrt, ist die Bezeichnung zu prüfen.</p>
     </div>
     <div class="card" data-fragment="2" data-fragment-style="grow">
-      <h3>12 · Praxis-Screenshots (Folien 94–107)</h3>
+      <h3>12 · Praxis-Screenshots (Folie „Praxis-Screenshots aus dem Betrieb“ und folgende)</h3>
       <p>Zuordnung der Screenshots zu Anbietern: teilweise nur aus dem Bildinhalt abgeleitet.</p>
       <p><strong>Anbieter vom Vortragenden bestätigen lassen.</strong></p>
     </div>
@@ -3341,12 +3341,12 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <p class="kicker">Fragen / Q&amp;A</p>
   <h2>Was gern gefragt werden darf</h2>
   <ul>
-    <li data-fragment="1">Welches System für meinen konkreten Fall? → Folie 163</li>
-    <li data-fragment="2">Was kostet das? → Folie 166 (Zahlen offen, ehrlich gesagt)</li>
-    <li data-fragment="3">Spart das wirklich Energie? → Folie 170 (Messdaten vorhanden, Zahl noch nicht gerechnet)</li>
-    <li data-fragment="4">Was passiert mit meinen Daten? → Folie 60</li>
+    <li data-fragment="1">Welches System für meinen konkreten Fall? → „Welches System für welchen Fall?“</li>
+    <li data-fragment="2">Was kostet das? → „Gesamtkosten je Fall“ (Zahlen offen, ehrlich gesagt)</li>
+    <li data-fragment="3">Spart das wirklich Energie? → „Energieeinsparung“ (Messdaten vorhanden, Zahl noch nicht gerechnet)</li>
+    <li data-fragment="4">Was passiert mit meinen Daten? → „Welche Daten verlassen das Haus?“</li>
   </ul>
-  <div class="notes">Erwartbare Fragen mit Verweis auf die passende Folie. Folienangaben beziehen sich auf die Nummerierung der Quelle.</div>
+  <div class="notes">Erwartbare Fragen mit Verweis auf die passende Folie.</div>
 </section>
 
 <section class="slide slide--center" data-transition="zoom">
