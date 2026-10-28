@@ -109,7 +109,7 @@ Themes stylen `.slide li` und `.slide p` — eigene Komponenten brauchen oft
    Tokens, in allen fünf Themes per Screenshot geprüft). Logos stehen als Schriftzug (`.wordmark`),
    das Partnerraster als Textchips (`.chips`); die Home-Assistant-Oberfläche ist nachgezeichnet, kein
    Original-Screenshot. Die 17 Originaldateien sind per `git rm` gelöscht (im Verlauf weiter
-   vorhanden). **Noch Web-Bilder, Herkunft/Lizenz offen:** `img-001-000` (Einstieg), `img-002-001`
+   vorhanden). **Noch Web-Bilder, Herkunft/Lizenz offen:** `img-002-001`
    (Was ist Smart Home?), `img-009-002`/`-010-003`/`-011-004` (Kabelsysteme: Netzwerkkabel,
    EIB-Kabel mit Herstellerschrift, Schaltschrank). Ersatz: eigene Fotos oder Unsplash/Wikimedia.
    Wer lieber echte Screenshots der eigenen Home-Assistant-Installation zeigt, ersetzt die
