@@ -27,7 +27,7 @@ Verify every change visually in the browser (screenshot) before calling it done;
 
 ## Mandatory after any CSS/JS change (cache busting)
 
-Bump `DECK_VERSION` in `js/engine.js` **and** update all four query params in `index.html` to the same value: `css/core.css?v=`, `js/hysterese.js?v=`, `js/ifttt.js?v=`, `js/smarthome.js?v=`. Theme CSS gets the version appended by the engine automatically.
+Bump `DECK_VERSION` in `js/engine.js` **and** update all five query params in `index.html` to the same value: `css/core.css?v=`, `js/hysterese.js?v=`, `js/ifttt.js?v=`, `js/smarthome.js?v=`, `js/dolphin.js?v=`. Theme CSS gets the version appended by the engine automatically.
 
 ## Architecture
 
