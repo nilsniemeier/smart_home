@@ -2344,3 +2344,9 @@ body.overview .deck-ink { display: none; }
 .sh-tag.is-on circle { fill: var(--accent); opacity: 1; }
 .sh-tag text  { font-family: var(--font-mono); font-size: 17px; fill: var(--fg-dim); }
 .sh-tag.is-on text { fill: var(--fg); }
+
+/* Folie "Was ist Smart Home?": Icon-Liste kompakter, damit sie in allen Themes in 1080 px passt */
+.slide.slide--media--xl .icon-list li { margin-bottom: 12px; padding-top: 0; padding-bottom: 8px; font-size: 36px; grid-template-columns: 72px minmax(0, 1fr); column-gap: 26px; }
+.slide.slide--media--xl .icon-list li:last-child { margin-bottom: 0; }
+.slide.slide--media--xl .icon-list .ico { width: 72px; height: 72px; }
+.slide.slide--media--xl .icon-list .ico svg { width: 38px; height: 38px; }
