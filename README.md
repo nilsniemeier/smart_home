@@ -31,6 +31,7 @@ reicht nicht zuverlässig).
 | `build/part-*.html` | Zwischenstände je Vortragsteil, aus denen `index.html` zusammengesetzt wurde |
 | `js/engine.js` | Navigation, Fragmente, Skalierung, Themes, Overview, Deep Links |
 | `js/tools.js` | Laser, Spotlight, Zeichnen |
+| `js/interaktiv.js` | Klickbare Schaubilder, Quiz, Mini-Demos, Inhaltsverzeichnis, Notizen-Panel |
 | `css/core.css` | Layout, Transitions, Bedien-Oberfläche (themeneutral) |
 | `css/themes/*.css` | 5 Designvarianten |
 | `presenter.html` | Referentenansicht (zweites Fenster) |
@@ -40,7 +41,7 @@ reicht nicht zuverlässig).
 **Navigation** — `→` / `Space` / Klick / Wischen vor · `←` zurück ·
 `1`–`9` Folie direkt · `Home` / `End` · `O` oder `Tab` Übersichtsraster ·
 `F` Vollbild · `B` Schwarzbild · `T` Timer · `S` Referentenansicht ·
-`?` Hilfe · `Esc` Modus beenden.
+`I` Inhaltsverzeichnis · `K` Notizen & Quellen · `?` Hilfe · `Esc` Modus beenden.
 
 **Werkzeuge** — `D` Zeichnen · `1`–`6` Farbe/Marker (im Zeichenmodus) ·
 `Z` letzter Strich zurück · `X` Folie leeren · `⇧X` alles leeren ·
@@ -91,6 +92,16 @@ document.addEventListener('deck:enter', (e) => {
 API im Konsolenzugriff: `Deck.next()`, `Deck.show(3)`, `Deck.setTheme('glass')`,
 `DeckTools.setLaser(true)`.
 
+## Interaktive Bausteine (`js/interaktiv.js`)
+
+Attribute am HTML schalten sie ein, die Farben kommen aus den Theme-Variablen:
+
+- `table[data-interaktiv="matrix"]`: Spalten-/Zeilenkopf anklicken hebt hervor.
+- `ol[data-interaktiv="layers"]` mit `data-ziel="<Anfang der Zielüberschrift>"` je `li`: Klick springt zur Detailfolie.
+- `.quiz[data-quiz][data-richtig="n"]` mit `.quiz__opt`-Buttons und einem `.quiz__explain[data-fragment="1"]`: Klick zählt Stimmen, Weiter (→) löst auf.
+- `[data-demo="hysterese-regler"]` und `[data-demo="internet"]`: bedienbare Mini-Demos.
+- `I` öffnet das Inhaltsverzeichnis (aus den Kapitelfolien mit Kicker „TEIL n“), `K` die Notizen der Folie.
+
 ## Referentenansicht
 
 `S` öffnet `presenter.html` in einem zweiten Fenster: Notizen, nächste
@@ -116,5 +127,5 @@ im `THEMES`-Array in `js/engine.js`.
 - Kein PDF-Export.
 - Nach CSS/JS-Änderungen `DECK_VERSION` in `js/engine.js` hochzählen und
   in `index.html` `css/core.css?v=`, `js/hysterese.js?v=`,
-  `js/ifttt.js?v=` und `js/smarthome.js?v=` angleichen, sonst zieht der
+  `js/ifttt.js?v=` `js/smarthome.js?v=` und `js/interaktiv.js?v=` angleichen, sonst zieht der
   Browser alte Dateien.

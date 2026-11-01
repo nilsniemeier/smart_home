@@ -1,6 +1,6 @@
 # Handoff — Iteration am Smart-Home-Deck
 
-Stand: 2026-10-30 · 168 Folien · Cache-Version 84
+Stand: 2026-11-01 · 173 Folien · Cache-Version 85
 
 ## Projekt
 
@@ -29,8 +29,8 @@ zuverlässig verarbeitet, lieber einzelne Tastendrücke.
 
 ## Pflicht nach CSS/JS-Änderungen
 
-`DECK_VERSION` in `js/engine.js` hochzählen **und** in `index.html` alle drei Query-Parameter
-angleichen: `core.css?v=`, `hysterese.js?v=`, `ifttt.js?v=`, `smarthome.js?v=`. Sonst zieht der Browser alte Dateien.
+`DECK_VERSION` in `js/engine.js` hochzählen **und** in `index.html` alle Query-Parameter
+angleichen: `core.css?v=`, `hysterese.js?v=`, `ifttt.js?v=`, `smarthome.js?v=`, `interaktiv.js?v=`. Sonst zieht der Browser alte Dateien.
 
 ## Arbeitsweise, die sich bewährt hat
 
@@ -65,6 +65,33 @@ Ebenso ist `.slide` ein Column-Flexbox; Varianten mit seitlichem Layout brauchen
 explizit `flex-direction: row`.
 Themes stylen `.slide li` und `.slide p` — eigene Komponenten brauchen oft
 `.slide`-Präfix in der Selektorkette, sonst gewinnt das Theme.
+
+## Interaktiv-Pilot (2026-11-01)
+
+Neues Modul `js/interaktiv.js` plus ein CSS-Abschnitt „Interaktiv-Pilot“ am Ende von `core.css` (alle Farben aus den
+Theme-Variablen, in allen fünf Themes per Screenshot geprüft, auch `brutal`). Fünf neue Folien, zwei vorhandene Folien
+sind angebunden. Folien werden im Modul **nach Überschrift** gefunden, nie nach Nummer.
+
+| Baustein | Wo | Kern |
+|---|---|---|
+| Klickbare Matrix | `table[data-interaktiv="matrix"]` auf „Vergleichsmatrix: Tuya, Zigbee, Matter“ | Spalten- oder Zeilenkopf anklicken: der Rest wird abgedunkelt, zweiter Klick hebt auf; Hinweis steht absolut oben rechts, damit die Folienhöhe nicht wächst |
+| Klickbares Schichtenmodell | `ol[data-interaktiv="layers"]`, je `li` ein `data-ziel="<Anfang der Zielüberschrift>"`, auf „Der Aufbau von SH“ | Nur eingeblendete Schichten sind klickbar; Sprung zur Detailfolie (Übertragungs-, Steuerungs-, Bedienebene), danach Chip „↩ Zurück zur Übersicht“. Die Feldebene hat keine Detailfolie |
+| Quiz mit Abstimmung | `.quiz[data-quiz][data-richtig="<Index>"]` mit `.quiz__opt`; Folienklasse `slide--quiz` | Klick = +1 Stimme (Umschalt/Alt+Klick = −1, Zähler nur im Speicher), die Auflösung ist ein Fragment (`.quiz__explain[data-fragment="1"]`): → löst auf, ← macht es rückgängig. Drei Quizfolien: „Welche Schicht ist das?“ (nach Teil 1), „Wozu ist die Hysterese gut?“ (Exkurs), „Wer braucht die Cloud?“ (Teil 3) |
+| Hysterese-Regler | `[data-demo="hysterese-regler"]` am Ende des Exkurses | Zwei Regler (Soll, Hysterese) rechnen Kurve, Heizstreifen und Zähler live neu; gleiches Raummodell wie `hysterese.js` plus Sensorrauschen ±0,045 °C, ab mehr als 12 Einschaltvorgängen erscheint „Der Regler klappert“. Die Pfeiltasten verstellen den Regler und blättern nicht weiter |
+| Internet-Schalter | `[data-demo="internet"]` am Ende von Teil 3 | Schalter „Internet an/aus“, drei Lampen (Tuya, Zigbee, Matter); die Tuya-Lampe wirkt ohne Internet nicht, Zigbee und Matter laufen lokal weiter. Aussagen stammen aus „Lokal vs. Cloud“ und der Matrix; die Einschränkung zu Tuya-Gateway-Szenen steht auf der Folie und in den Notizen |
+| Navigation | `I` Inhaltsverzeichnis, `K` Notizen & Quellen, Schaltflächen ☰ und ✎ unten links | Das Verzeichnis entsteht aus den Kapitelfolien (`h1` mit Kicker „TEIL n“, dazu Start und „Fragen?“) und markiert das aktuelle Kapitel; das Panel zeigt die `.notes` der aktuellen Folie (Adressen anklickbar) |
+
+Hinweise für Weiterarbeit und Tests:
+- Neue Bausteine hängt `interaktiv.js` an Attribute: `data-interaktiv="matrix|layers"`, `data-quiz`, `data-demo="hysterese-regler|internet"`. Container klicken die Engine nicht weiter (`stopPropagation`); Eingaben fangen auch Tasten ab.
+- Die Engine belegt `n` und `p` (weiter/zurück), außerdem `f o b t c v s h d l m z x`; frei und jetzt genutzt sind `I` und `K`.
+- Screenshot-Tests im Headless-Edge: Mit einer Testseite außerhalb des Repos (`<base href="http://localhost:8777/">`) muss
+  `history.replaceState` überschrieben werden, sonst wirft die Engine beim Hash-Abgleich eine SecurityError und `Deck` bleibt
+  undefiniert. Außerdem laufen CSS-Übergänge im Zeitraffer nicht weiter: zum Prüfen von Endzuständen `* { transition: none !important }` setzen.
+- **Nicht abgenommen:** Der Pilot ist von Nils noch nicht gesehen. Bedient (Maus, Tastatur, Projektor) wurde er nicht, geprüft sind
+  die Zustände per Screenshot. Die Quizfragen und ihre Auflösungen sind aus den Folieninhalten abgeleitet; die falschen
+  Antworten sind bewusst plausibel formuliert, aber frei gewählt.
+- Mögliche Übertragung auf weitere Folien: IFTTT-Schaubild als Baukasten, „Welches System für welchen Fall?“ als Auswahlhilfe,
+  „Welche Daten verlassen das Haus?“ als klickbare Karten, Kostenfolien mit Schiebern.
 
 ## Offene Punkte
 

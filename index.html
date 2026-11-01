@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Smart Home — Nils Niemeier</title>
-<link rel="stylesheet" href="css/core.css?v=84">
+<link rel="stylesheet" href="css/core.css?v=85">
 <link rel="stylesheet" href="css/themes/aurora.css" id="theme-css">
 </head>
 <body>
@@ -128,8 +128,8 @@
     <p>Der <strong>Aufbau eines Smart Homes</strong> lässt sich am besten als ein Vier-Schichten-Modell verstehen.</p>
     <p>Damit aus normalen Geräten ein intelligentes Zuhause wird, müssen Hardware, Übertragungswege, die zentrale Logik und die Benutzeroberfläche nahtlos zusammenarbeiten.</p>
   </div>
-  <ol class="layers layers--stack">
-    <li data-fragment="4">
+  <ol class="layers layers--stack" data-interaktiv="layers">
+    <li data-fragment="4" data-ziel="4. Die Bedienebene">
       <span class="num">4</span>
       <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.6" y="2.4" width="10.8" height="19.2" rx="2.2"/><path d="M10.4 5.4h3.2"/><circle cx="12" cy="18" r="1.2"/></svg></span>
       <span class="body">
@@ -137,7 +137,7 @@
         <span class="sub">Die Benutzeroberfläche — App, Taster, Sprache, Automatik.</span>
       </span>
     </li>
-    <li data-fragment="3">
+    <li data-fragment="3" data-ziel="3. Die Steuerungsebene">
       <span class="num">3</span>
       <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3"/><rect x="9.4" y="9.4" width="5.2" height="5.2" rx="1.2"/><path d="M9.4 2.6v2.4M14.6 2.6v2.4M9.4 19v2.4M14.6 19v2.4M2.6 9.4H5M2.6 14.6H5M19 9.4h2.4M19 14.6h2.4"/></svg></span>
       <span class="body">
@@ -145,7 +145,7 @@
         <span class="sub">Die Zentrale — hier liegt die Logik, die aus Messwerten Entscheidungen macht.</span>
       </span>
     </li>
-    <li data-fragment="2">
+    <li data-fragment="2" data-ziel="Funksysteme">
       <span class="num">2</span>
       <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.6 9.4a14 14 0 0 1 18.8 0"/><path d="M5.9 12.9a9.4 9.4 0 0 1 12.2 0"/><path d="M9.1 16.4a4.8 4.8 0 0 1 5.8 0"/><circle cx="12" cy="19.8" r="1.1"/></svg></span>
       <span class="body">
@@ -406,6 +406,26 @@
   <div class="notes">Beispiel Schritt für Schritt: Fenster auf, Zigbee-Funk, Zentrale wendet die Regel an, Thermostat schließt das Ventil. Übergang zu Teil 2: Wie die Zentrale denkt. — Aus der entfallenen Bildfolie davor (gleiche Überschrift, Grafik images/pages/page-16.png): Vier Pfeil-Kacheln von links nach rechts: Fenstersensor, Zigbee-Funk, Smart-Home-Gehirn, Heizkörperthermostat. Der Pfeil zeigt den Informationsfluss vom Messen bis zum Schalten.</div>
 </section>
 
+<section class="slide slide--quiz" data-transition="rise">
+  <p class="kicker">Quiz · Teil 1</p>
+  <h2>Welche Schicht ist das?</h2>
+  <p class="lead">Ein Fenstersensor meldet „Fenster offen“. Zu welcher Schicht des Modells gehört das Gerät?</p>
+  <div class="quiz" data-quiz data-richtig="1">
+      <button class="quiz__opt" type="button" data-opt="0"><span class="quiz__key">A</span><span class="quiz__text">Übertragungsebene</span><span class="quiz__n">0</span><span class="quiz__bar"><i></i></span></button>
+      <button class="quiz__opt" type="button" data-opt="1"><span class="quiz__key">B</span><span class="quiz__text">Feldebene</span><span class="quiz__n">0</span><span class="quiz__bar"><i></i></span></button>
+      <button class="quiz__opt" type="button" data-opt="2"><span class="quiz__key">C</span><span class="quiz__text">Bedienebene</span><span class="quiz__n">0</span><span class="quiz__bar"><i></i></span></button>
+      <button class="quiz__opt" type="button" data-opt="3"><span class="quiz__key">D</span><span class="quiz__text">Steuerungsebene</span><span class="quiz__n">0</span><span class="quiz__bar"><i></i></span></button>
+    <div class="quiz__tools">
+      <span class="quiz__total">Noch keine Stimmen</span>
+      <span class="spacer"></span>
+      <button class="quiz__btn quiz__btn--leise" type="button" data-act="reset">Zurücksetzen</button>
+      <button class="quiz__btn" type="button" data-act="aufloesen">Auflösen ▸</button>
+    </div>
+    <div class="quiz__explain" data-fragment="1"><strong>Feldebene.</strong> Sensoren („Sinnesorgane“) messen, Aktoren („Muskeln“) schalten. Ein Fenstersensor ist ein Sensor und damit Hardware auf der untersten Schicht.</div>
+  </div>
+  <div class="notes">Mitmach-Quiz zum Abschluss von Teil 1. So läuft es: Frage vorlesen, die Antworten per Handzeichen abfragen und pro Hand den Zähler der Antwort anklicken (Umschalt+Klick nimmt eine Stimme zurück). Mit → wird aufgelöst, ← macht die Auflösung rückgängig, „Zurücksetzen“ leert die Zähler. Inhalt: Folie „Der Aufbau von SH“, Schicht 1 (Feldebene: Sensoren messen, Aktoren schalten; Beispiele dort: Fensterkontakt, Rauch, Bewegung, Temperatur).</div>
+</section>
+
     <!-- ===== part-02 ===== -->
 
 <section class="slide slide--center" data-transition="zoom">
@@ -646,6 +666,51 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <div class="notes">Die Animation läuft beim Aufschlagen der Folie automatisch los, „nochmal“ startet sie erneut. Links die gemessene Feuchtigkeit, in der Mitte die zwei Regeln aus der Tuya-App, rechts der geschaltete Lüfter. Die Kurve ist eine echte Regelstrecke: Die Dusche bringt laufend Feuchtigkeit ein, der Lüfter zieht sie ab — aber erst nach einer Totzeit, und er läuft langsam hoch. Deshalb steigt der Wert nach dem Einschalten bei 80 % noch bis gut 82 % weiter und sinkt nach dem Abschalten bei 77 % noch bis etwa 74 % nach. Genau dieses Überschwingen ist der Grund, warum man die beiden Schaltpunkte auseinanderzieht: Das graue Totband zwischen 77 % und 80 % fängt es auf, ohne dass der Lüfter taktet. Gleiches Prinzip wie bei der Heizung, nur mit Feuchtigkeit statt Temperatur. Ende des Exkurses, weiter mit Teil 3.</div>
 </section>
 
+<section class="slide" data-transition="rise">
+  <p class="kicker">Hysterese · Selbst ausprobieren</p>
+  <h2>Regler: Wie groß soll die Hysterese sein?</h2>
+  <div class="hr" data-demo="hysterese-regler">
+    <div class="hr__ctrl">
+      <label><span class="hr__lab">Solltemperatur <output data-o="soll"></output></span><input type="range" min="18" max="26" step="0.5" value="22" data-i="soll" aria-label="Solltemperatur"></label>
+      <label><span class="hr__lab">Hysterese <output data-o="hyst"></output></span><input type="range" min="0" max="2" step="0.1" value="0.5" data-i="hyst" aria-label="Hysterese"></label>
+      <div class="hr__btns">
+        <button type="button" data-set="22,0.5">Beispiel 22 °C ± 0,5</button>
+        <button type="button" data-set="22,0">ohne Hysterese</button>
+        <button type="button" data-set="22,1.5">sehr groß ± 1,5</button>
+      </div>
+    </div>
+    <svg viewBox="0 0 1640 420" role="img" aria-label="Diagramm: simulierter Temperaturverlauf um die Solltemperatur und darunter die Schaltzustände der Heizung, je nach eingestellter Hysterese">
+      <g data-el="plot"></g>
+    </svg>
+    <div class="hr__read">
+      <div>Einschaltvorgänge<b data-o="count"></b></div>
+      <div>Heizung an<b data-o="duty"></b></div>
+      <div>Temperatur danach<b data-o="range"></b></div>
+      <p class="hr__warn">Der Regler klappert: Das Relais schaltet ständig.</p>
+    </div>
+  </div>
+  <div class="notes">Interaktive Fortsetzung der Hysterese-Folie: mit den zwei Reglern Solltemperatur und Hysterese verändern, die Kurve und die Zähler rechnen sofort neu. Ausprobieren: „ohne Hysterese“ (Hysterese 0) zeigt das Relais-Rattern, „Beispiel“ entspricht der Animation (22 °C, ± 0,5 °C), „sehr groß“ zeigt, dass eine zu große Hysterese die Temperatur stark schwanken lässt. Das Modell ist dasselbe vereinfachte Raummodell wie in der Animation (Totzeit, Trägheit der Heizung) und der Fühler rauscht um etwa ±0,045 °C wie im unteren Streifen der Animation; der Regler entscheidet auf dem gemessenen Wert. Ohne Hysterese reicht dieses Rauschen für das Relais-Rattern. Die Werte sind eine Veranschaulichung, keine Messung. Gezählt werden die Einschaltvorgänge des Schaltbefehls in 560 Simulationsschritten; ab etwa 12 Einschaltvorgängen erscheint der Hinweis „Regler klappert“. Der Anzeigewert „Temperatur danach“ ist der Bereich ab Schritt 120, also nach dem ersten Aufheizen. Bedienung: Die Pfeiltasten verstellen den fokussierten Regler und blättern dann nicht weiter.</div>
+</section>
+
+<section class="slide slide--quiz" data-transition="rise">
+  <p class="kicker">Quiz · Exkurs</p>
+  <h2>Wozu ist die Hysterese gut?</h2>
+  <p class="lead">Ein Thermostat schaltet die Heizung bei 21,5 °C ein und bei 22,5 °C aus. Warum ist dieser Abstand eingebaut?</p>
+  <div class="quiz" data-quiz data-richtig="1">
+      <button class="quiz__opt" type="button" data-opt="0"><span class="quiz__key">A</span><span class="quiz__text">Damit die Raumtemperatur exakt auf dem Sollwert bleibt</span><span class="quiz__n">0</span><span class="quiz__bar"><i></i></span></button>
+      <button class="quiz__opt" type="button" data-opt="1"><span class="quiz__key">B</span><span class="quiz__text">Damit die Heizung nicht ständig ein- und ausschaltet</span><span class="quiz__n">0</span><span class="quiz__bar"><i></i></span></button>
+      <button class="quiz__opt" type="button" data-opt="2"><span class="quiz__key">C</span><span class="quiz__text">Damit das Thermostat weniger Strom verbraucht</span><span class="quiz__n">0</span><span class="quiz__bar"><i></i></span></button>
+    <div class="quiz__tools">
+      <span class="quiz__total">Noch keine Stimmen</span>
+      <span class="spacer"></span>
+      <button class="quiz__btn quiz__btn--leise" type="button" data-act="reset">Zurücksetzen</button>
+      <button class="quiz__btn" type="button" data-act="aufloesen">Auflösen ▸</button>
+    </div>
+    <div class="quiz__explain" data-fragment="1"><strong>Gegen das ständige Takten.</strong> Die Hysterese verhindert das ständige, nervige An- und Ausschalten („Takten“ oder „Relais-Rattern“) bei winzigen Temperaturschwankungen. Zwischen Ein- und Ausschaltpunkt bleibt der Zustand der Heizung unverändert.</div>
+  </div>
+  <div class="notes">Mitmach-Quiz zum Exkurs, direkt nach dem Hysterese-Regler. Bedienung wie bei jedem Quiz: Handzeichen zählen (Klick = +1, Umschalt+Klick = −1), mit → auflösen, ← zurück. Die Auflösung gibt die Aussage der Folie „Hysterese“ wieder (Zweck: verhindert Takten bzw. Relais-Rattern).</div>
+</section>
+
     <!-- ===== part-03 ===== -->
 
 <!-- Teil 3 — Systeme im Vergleich -->
@@ -671,7 +736,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
 <section class="slide" data-transition="slide">
   <p class="kicker">Teil 3 · Vergleich</p>
   <h2>Vergleichsmatrix: Tuya, Zigbee, Matter</h2>
-  <table class="matrix">
+  <table class="matrix" data-interaktiv="matrix">
     <colgroup><col class="c-dim"><col><col><col></colgroup>
     <thead>
       <tr>
@@ -1042,6 +1107,61 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
     </div>
   </div>
   <div class="notes">Bei Matter fließen alle Daten nahtlos durch dieselbe lokale Netzwerkstruktur. Tuya ist das Gegenteil (siehe Folien zu den Kommunikationswegen). Das ist der Übergang zu Teil 4. Die frühere Abschlussfolie mit der wiederholten Vergleichsmatrix ist entfallen; die Matrix steht vollständig auf der Folie „Vergleichsmatrix: Tuya, Zigbee, Matter“.</div>
+</section>
+
+<section class="slide" data-transition="rise">
+  <p class="kicker">Teil 3 · Selbst ausprobieren</p>
+  <h2>Was passiert, wenn das Internet ausfällt?</h2>
+  <div class="net" data-demo="internet">
+    <button class="net__switch" type="button" role="switch" aria-checked="true" data-act="internet"><span class="net__knob"></span><span class="net__swtext">Internet: an</span></button>
+    <div class="net__devs">
+      <div class="net__dev" data-cloud="ja">
+        <div class="net__lamp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></div>
+        <h3>Tuya</h3>
+        <p class="net__path">App → Internet → Tuya Cloud → WLAN-Lampe</p>
+        <p class="net__status" data-on="Läuft über die Tuya Cloud." data-off="Keine Verbindung: App und WLAN-Geräte verlieren die Verbindung."></p>
+        <button class="net__btn" type="button">Licht schalten</button>
+        <p class="net__hint" hidden>Der Befehl erreicht die Lampe nicht.</p>
+      </div>
+      <div class="net__dev" data-cloud="nein">
+        <div class="net__lamp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></div>
+        <h3>Zigbee</h3>
+        <p class="net__path">Zentrale im Haus → Zigbee-Funk → Lampe</p>
+        <p class="net__status" data-on="Läuft lokal im Haus." data-off="Läuft weiter: Der Funkgraph arbeitet autark."></p>
+        <button class="net__btn" type="button">Licht schalten</button>
+        <p class="net__hint" hidden></p>
+      </div>
+      <div class="net__dev" data-cloud="nein">
+        <div class="net__lamp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg></div>
+        <h3>Matter</h3>
+        <p class="net__path">Controller im Heimnetz → Matter → Lampe</p>
+        <p class="net__status" data-on="Läuft lokal im Heimnetzwerk." data-off="Läuft weiter: keine Cloud-Verbindung nötig."></p>
+        <button class="net__btn" type="button">Licht schalten</button>
+        <p class="net__hint" hidden></p>
+      </div>
+    </div>
+    <p class="net__note">Vereinfacht nach den Folien „Lokal vs. Cloud“ und „Vergleichsmatrix“. Tuya-Szenen hinter einem Gateway können auch lokal laufen (siehe Notizen der Matrix-Folie).</p>
+  </div>
+  <div class="notes">Interaktive Zusammenfassung von „Lokal vs. Cloud“: Mit dem Schalter oben das Internet aus- und einschalten. Jede Lampe lässt sich mit „Licht schalten“ ein- und ausschalten. Bei ausgeschaltetem Internet bleibt die Tuya-Lampe ohne Wirkung (Wackeln, Hinweis „Der Befehl erreicht die Lampe nicht“), Zigbee und Matter schalten weiter. Aussagen laut Folien: Zigbee „läuft der Funkgraph autark weiter“, Matter „komplett lokal, ganz ohne Cloud-Verbindung“, Tuya „Ohne Internet verlieren App und WLAN-Geräte die Verbindung“. Einschränkung (wie in der Matrix-Folie): Szenen zwischen Geräten hinter demselben Tuya-Gateway können als lokale Verknüpfung auch ohne Internet laufen, wenn sie dafür eingerichtet sind; die Demo zeigt den Normalfall mit einer WLAN-Lampe ohne Gateway. Beim Betreten der Folie startet die Demo immer mit „Internet: an“.</div>
+</section>
+
+<section class="slide slide--quiz" data-transition="rise">
+  <p class="kicker">Quiz · Teil 3</p>
+  <h2>Wer braucht die Cloud?</h2>
+  <p class="lead">Welches System braucht für die normale Steuerung per App die Cloud des Herstellers?</p>
+  <div class="quiz" data-quiz data-richtig="1">
+      <button class="quiz__opt" type="button" data-opt="0"><span class="quiz__key">A</span><span class="quiz__text">Zigbee</span><span class="quiz__n">0</span><span class="quiz__bar"><i></i></span></button>
+      <button class="quiz__opt" type="button" data-opt="1"><span class="quiz__key">B</span><span class="quiz__text">Tuya</span><span class="quiz__n">0</span><span class="quiz__bar"><i></i></span></button>
+      <button class="quiz__opt" type="button" data-opt="2"><span class="quiz__key">C</span><span class="quiz__text">Matter</span><span class="quiz__n">0</span><span class="quiz__bar"><i></i></span></button>
+    <div class="quiz__tools">
+      <span class="quiz__total">Noch keine Stimmen</span>
+      <span class="spacer"></span>
+      <button class="quiz__btn quiz__btn--leise" type="button" data-act="reset">Zurücksetzen</button>
+      <button class="quiz__btn" type="button" data-act="aufloesen">Auflösen ▸</button>
+    </div>
+    <div class="quiz__explain" data-fragment="1"><strong>Tuya.</strong> Die normale Steuerung läuft über die Tuya Cloud; nur Szenen hinter einem Tuya-Gateway können auch ohne Internet lokal laufen. Zigbee und Matter schalten lokal im Haus, ohne Cloud.</div>
+  </div>
+  <div class="notes">Mitmach-Quiz am Ende von Teil 3, direkt nach dem Internet-Schalter. Bedienung: Handzeichen zählen (Klick = +1, Umschalt+Klick = −1), mit → auflösen, ← zurück. Grundlage ist die Folie „Vergleichsmatrix: Tuya, Zigbee, Matter“ mit der Einschränkung zu Tuya-Gateway-Szenen (siehe Notizen dort).</div>
 </section>
 
 <!-- Merksatz -->
@@ -3359,6 +3479,8 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
         <tr><td><kbd>C</kbd></td><td>Theme-Auswahl</td></tr>
         <tr><td><kbd>V</kbd></td><td>nächstes Theme</td></tr>
         <tr><td><kbd>S</kbd></td><td>Referentenansicht</td></tr>
+        <tr><td><kbd>I</kbd></td><td>Inhaltsverzeichnis</td></tr>
+        <tr><td><kbd>K</kbd></td><td>Notizen &amp; Quellen</td></tr>
         <tr><td><kbd>Esc</kbd></td><td>Werkzeug / Modus beenden</td></tr>
       </table>
     </div>
@@ -3367,8 +3489,9 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
 
 <script src="js/engine.js"></script>
 <script src="js/tools.js"></script>
-<script src="js/hysterese.js?v=84"></script>
-<script src="js/ifttt.js?v=84"></script>
-<script src="js/smarthome.js?v=84"></script>
+<script src="js/hysterese.js?v=85"></script>
+<script src="js/ifttt.js?v=85"></script>
+<script src="js/smarthome.js?v=85"></script>
+<script src="js/interaktiv.js?v=85"></script>
 </body>
 </html>
