@@ -102,6 +102,8 @@ Hinweise für Weiterarbeit und Tests:
 
 ## Offene Punkte
 
+0. **Interaktiv-Übertragung (2026-11-01) nur teilweise geprüft.** Per Screenshot gesehen: Ablauf (aurora, brutal), Datenschalter (aurora), Entscheidungshelfer (aurora, brutal), Quiz D und ctable Folie 45 (brutal). Noch offen: Quiz E (Folie 151), ctable Folie 62, Terminal/Glass/Editorial, Klick-Test Matrix Folie 32 (Zellklick darf weiterblättern, wo vorgesehen).
+
 1. **Bedienebene dreifach.** Folie 13 (Original), 14 (Layout-Vorschlag A, Spektrum),
    15 (Layout-Vorschlag B, Konvergenz). Nils muss eine wählen; die anderen beiden samt
    Badges löschen. Empfehlung war B.
