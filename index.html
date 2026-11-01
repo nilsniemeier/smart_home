@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Smart Home — Nils Niemeier</title>
-<link rel="stylesheet" href="css/core.css?v=85">
+<link rel="stylesheet" href="css/core.css?v=86">
 <link rel="stylesheet" href="css/themes/aurora.css" id="theme-css">
 </head>
 <body>
@@ -404,6 +404,40 @@
     </div>
   </div>
   <div class="notes">Beispiel Schritt für Schritt: Fenster auf, Zigbee-Funk, Zentrale wendet die Regel an, Thermostat schließt das Ventil. Übergang zu Teil 2: Wie die Zentrale denkt. — Aus der entfallenen Bildfolie davor (gleiche Überschrift, Grafik images/pages/page-16.png): Vier Pfeil-Kacheln von links nach rechts: Fenstersensor, Zigbee-Funk, Smart-Home-Gehirn, Heizkörperthermostat. Der Pfeil zeigt den Informationsfluss vom Messen bis zum Schalten.</div>
+</section>
+
+<section class="slide slide--tool" data-transition="rise">
+  <p class="kicker">Teil 1 · Selbst auslösen</p>
+  <h2>Ablauf: Fenster öffnen, Heizung aus</h2>
+  <div class="ab" data-demo="ablauf">
+    <div class="cols cols--4">
+      <div class="card ab__step">
+        <span class="layer-tag">Schicht 1</span>
+        <h3>Sensor</h3>
+        <p>Der Fenstersensor registriert, dass das Fenster im Schlafzimmer geöffnet wird.</p>
+      </div>
+      <div class="card ab__step">
+        <span class="layer-tag">Schicht 2</span>
+        <h3>Protokoll</h3>
+        <p>Er sendet diese Information via Zigbee-Funk an die Zentrale.</p>
+      </div>
+      <div class="card ab__step">
+        <span class="layer-tag">Schicht 3</span>
+        <h3>Zentrale</h3>
+        <p>Das Smart-Home-Gehirn hat die Logik gespeichert: „Wenn Fenster offen, dann Heizung aus“. Es sendet einen Befehl zurück.</p>
+      </div>
+      <div class="card ab__step">
+        <span class="layer-tag">Schicht 1</span>
+        <h3>Aktor</h3>
+        <p>Das Heizkörperthermostat empfängt den Befehl und dreht das Ventil zu.</p>
+      </div>
+    </div>
+    <div class="ab__ctrl">
+      <button class="ab__go" type="button">Fenster öffnen ▸</button>
+      <p class="ab__state"></p>
+    </div>
+  </div>
+  <div class="notes">Interaktive Fassung der Folie „Beispiel für den Ablauf“, direkt davor. Mit dem Knopf löst man den Ablauf selbst aus: Jeder Klick zündet die nächste Schicht (Sensor, Protokoll, Zentrale, Aktor), die Texte sind dieselben wie auf der Vorgängerfolie. Nach dem vierten Schritt steht der Knopf auf „Von vorn“. Die Regel „Wenn Fenster offen, dann Heizung aus“ stammt aus der Vorgängerfolie. Das Schließen des Fensters und das Wiedereinschalten der Heizung kommen in den Folien nicht vor und sind deshalb nicht dargestellt. Beim Betreten der Folie startet der Ablauf immer von vorn.</div>
 </section>
 
 <section class="slide slide--quiz" data-transition="rise">
@@ -1186,7 +1220,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <h2>Gefahren und Fallstricke von Cloudanbietern</h2>
   <p class="subhead">Warum der Serverstandort wichtig, aber nicht alles ist</p>
   <p>Beim Hosting und der Cloud-Nutzung müssen Unternehmen differenzieren, <strong>wo die Daten physisch liegen</strong> und <strong>wer theoretisch darauf zugreifen kann</strong>.</p>
-  <table class="ctable">
+  <table class="ctable" data-interaktiv="matrix">
     <colgroup><col class="c-crit"><col><col></colgroup>
     <thead>
       <tr>
@@ -1280,6 +1314,11 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <p class="kicker">Leitfrage</p>
   <h2>Welche Daten verlassen das Haus?</h2>
   <p class="lead">Sechs Datenarten, die in diesem Vortrag vorkommen — und was sie im Klartext über die Bewohner verraten.</p>
+  <div class="ix-modus" data-interaktiv="daten">
+    <span class="ix-modus__lab">Wohin gehen die Daten?</span>
+    <button type="button" data-modus="lokal" aria-pressed="false">Lokal: Zigbee, Matter, Home Assistant</button>
+    <button type="button" data-modus="cloud" aria-pressed="false">Cloud: Tuya, Xiaomi, Google</button>
+  </div>
   <div class="cols cols--3 data-grid">
     <div class="card card--data" data-fragment="1" data-fragment-style="grow">
       <h3>Temperatur &amp; Luftfeuchtigkeit pro Raum</h3>
@@ -1499,7 +1538,7 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
 <section class="slide" data-transition="fade">
   <p class="kicker">Lebensdauer-Risiko · Alternative</p>
   <h2>Das stärkste Argument für lokale Systeme</h2>
-  <table class="ctable">
+  <table class="ctable" data-interaktiv="matrix">
     <colgroup><col class="c-crit"><col><col></colgroup>
     <thead>
       <tr>
@@ -1536,6 +1575,26 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <p class="lead" data-fragment="1">Bei einer Cloud-Plattform rechnet niemand in Jahrzehnten.</p>
   <p class="lead" data-fragment="2">Wer eine Immobilie ausstattet, trifft damit keine Produkt-, sondern eine Zeithorizont-Entscheidung.</p>
   <div class="notes">Schlusspunkt von Teil 4: Zeithorizont statt Produktwahl.</div>
+</section>
+
+<section class="slide slide--quiz" data-transition="rise">
+  <p class="kicker">Quiz · Teil 4</p>
+  <h2>Welches Einfallstor?</h2>
+  <p class="lead">Jemand öffnet im Router einen Port nach außen, damit die Kamera von unterwegs erreichbar ist. Welches Einfallstor ist das?</p>
+  <div class="quiz" data-quiz data-richtig="1">
+      <button class="quiz__opt" type="button" data-opt="0"><span class="quiz__key">A</span><span class="quiz__text">Fehlende Firmware-Updates</span><span class="quiz__n">0</span><span class="quiz__bar"><i></i></span></button>
+      <button class="quiz__opt" type="button" data-opt="1"><span class="quiz__key">B</span><span class="quiz__text">Offene Ports / Portweiterleitung</span><span class="quiz__n">0</span><span class="quiz__bar"><i></i></span></button>
+      <button class="quiz__opt" type="button" data-opt="2"><span class="quiz__key">C</span><span class="quiz__text">Botnetze aus Billigkameras</span><span class="quiz__n">0</span><span class="quiz__bar"><i></i></span></button>
+      <button class="quiz__opt" type="button" data-opt="3"><span class="quiz__key">D</span><span class="quiz__text">Lebensdauer-Risiko</span><span class="quiz__n">0</span><span class="quiz__bar"><i></i></span></button>
+    <div class="quiz__tools">
+      <span class="quiz__total">Noch keine Stimmen</span>
+      <span class="spacer"></span>
+      <button class="quiz__btn quiz__btn--leise" type="button" data-act="reset">Zurücksetzen</button>
+      <button class="quiz__btn" type="button" data-act="aufloesen">Auflösen ▸</button>
+    </div>
+    <div class="quiz__explain" data-fragment="1"><strong>Offene Ports / Portweiterleitung.</strong> Wer einen Port nach außen öffnet, stellt das Gerät dem gesamten Internet zur Verfügung. Der richtige Weg: VPN ins Heimnetz oder der Reverse-Proxy des Herstellers.</div>
+  </div>
+  <div class="notes">Mitmach-Quiz zum Abschluss von Teil 4. Bedienung: Handzeichen zählen (Klick = +1, Umschalt+Klick = −1), mit → auflösen, ← zurück. Grundlage ist die Folie „Offene Ports / Portweiterleitung“ aus den drei häufigsten Einfallstoren im Heimnetz (die anderen beiden: fehlende Firmware-Updates, Botnetze aus Billigkameras); das Lebensdauer-Risiko ist ein eigenes Risiko, kein Einfallstor.</div>
 </section>
 
     <!-- ===== part-05a ===== -->
@@ -3025,6 +3084,26 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   <div class="notes">Abschluss von Fall 3: rückstandslos entfernbar, Preis und Vorteil nebeneinander. Pointe: Beim Auszug zieht das Smart Home mit um, bei KNX bleibt es in der Wand.</div>
 </section>
 
+<section class="slide slide--quiz" data-transition="rise">
+  <p class="kicker">Quiz · Workshop</p>
+  <h2>Welcher Weg für die Mietwohnung?</h2>
+  <p class="lead">Eine Mietwohnung wird nachgerüstet. Welchen Übertragungsweg empfiehlt die Entscheidungshilfe?</p>
+  <div class="quiz" data-quiz data-richtig="1">
+      <button class="quiz__opt" type="button" data-opt="0"><span class="quiz__key">A</span><span class="quiz__text">KNX-Busleitung (Kabel)</span><span class="quiz__n">0</span><span class="quiz__bar"><i></i></span></button>
+      <button class="quiz__opt" type="button" data-opt="1"><span class="quiz__key">B</span><span class="quiz__text">Matter/Thread oder Zigbee (Funk)</span><span class="quiz__n">0</span><span class="quiz__bar"><i></i></span></button>
+      <button class="quiz__opt" type="button" data-opt="2"><span class="quiz__key">C</span><span class="quiz__text">Loxone mit neuen Leitungen</span><span class="quiz__n">0</span><span class="quiz__bar"><i></i></span></button>
+      <button class="quiz__opt" type="button" data-opt="3"><span class="quiz__key">D</span><span class="quiz__text">Tuya für alles</span><span class="quiz__n">0</span><span class="quiz__bar"><i></i></span></button>
+    <div class="quiz__tools">
+      <span class="quiz__total">Noch keine Stimmen</span>
+      <span class="spacer"></span>
+      <button class="quiz__btn quiz__btn--leise" type="button" data-act="reset">Zurücksetzen</button>
+      <button class="quiz__btn" type="button" data-act="aufloesen">Auflösen ▸</button>
+    </div>
+    <div class="quiz__explain" data-fragment="1"><strong>Funk: Matter/Thread oder Zigbee.</strong> Lokal, energiesparend und rückstandslos entfernbar. Beim Auszug zieht das Smart Home mit um, bei KNX bleibt es in der Wand.</div>
+  </div>
+  <div class="notes">Mitmach-Quiz am Ende des Workshops. Bedienung: Handzeichen zählen (Klick = +1, Umschalt+Klick = −1), mit → auflösen, ← zurück. Grundlage sind die Folien „Entscheidungshilfe: Welches System für welchen Fall?“ (Mietwohnung: Funk, Matter/Thread oder Zigbee; lokal, energiesparend, rückstandslos entfernbar) und die Pointe zum Auszug am Ende des Falls Mietwohnung.</div>
+</section>
+
     <!-- ===== part-07 ===== -->
 
 <section class="slide slide--center" data-transition="zoom">
@@ -3085,6 +3164,35 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
   </ol>
   <p data-fragment="4"><strong>Faustregel:</strong> Je unbeweglicher die Komponente, desto eher Kabel. Je kritischer die Funktion (Türschloss, Kamera, Heizung), desto eher lokal.</p>
   <div class="notes">Drei Fragen genügen für die Vorentscheidung. Die Faustregel zum Mitnehmen: unbeweglich gleich Kabel, kritisch gleich lokal.</div>
+</section>
+
+<section class="slide slide--tool" data-transition="rise">
+  <p class="kicker">Entscheidungshilfe · Selbst ausprobieren</p>
+  <h2>Welches System passt zu Ihrem Fall?</h2>
+  <div class="wahl" data-demo="wahl">
+    <div class="wahl__q">
+      <p class="wahl__qt">1. Wie tief darf ich in das Gebäude eingreifen?</p>
+      <div class="wahl__chips"><button class="wahl__chip" type="button" data-q="1" data-a="neubau" aria-pressed="false">Wände offen (Neubau)</button><button class="wahl__chip" type="button" data-q="1" data-a="kernsanierung" aria-pressed="false">Teilweise (Kernsanierung)</button><button class="wahl__chip" type="button" data-q="1" data-a="miete" aria-pressed="false">Gar nicht (Mietwohnung)</button></div>
+    </div>
+    <div class="wahl__q">
+      <p class="wahl__qt">2. Muss das System ohne Internet funktionieren?</p>
+      <div class="wahl__chips"><button class="wahl__chip" type="button" data-q="2" data-a="ja" aria-pressed="false">Ja</button><button class="wahl__chip" type="button" data-q="2" data-a="nein" aria-pressed="false">Nein</button></div>
+    </div>
+    <div class="wahl__q">
+      <p class="wahl__qt">3. Ist Datenschutz das Hauptkriterium?</p>
+      <div class="wahl__chips"><button class="wahl__chip" type="button" data-q="3" data-a="ja" aria-pressed="false">Ja</button><button class="wahl__chip" type="button" data-q="3" data-a="nein" aria-pressed="false">Nein</button></div>
+    </div>
+    <div class="wahl__out">
+      <div class="wahl__row" data-q="1"><b></b><span></span></div>
+      <div class="wahl__row" data-q="2"><b></b><span></span></div>
+      <div class="wahl__row" data-q="3"><b></b><span></span></div>
+    </div>
+    <div class="wahl__foot">
+      <p class="wahl__faust"><strong>Faustregel:</strong> Je unbeweglicher die Komponente, desto eher Kabel. Je kritischer die Funktion (Türschloss, Kamera, Heizung), desto eher lokal.</p>
+      <button class="wahl__reset" type="button" data-act="reset">Zurücksetzen</button>
+    </div>
+  </div>
+  <div class="notes">Interaktive Fassung der Entscheidungshilfe: die drei Fragen von der Folie „Die drei Fragen, die die Entscheidung tragen“ als Auswahl, darunter die jeweils passende Empfehlung. Die Empfehlungen sind wörtlich aus den Folien „Entscheidungshilfe: Welches System für welchen Fall?“ (Neubau, Kernsanierung, Mietwohnung), „Welches System für welchen Fall?“ (Tuya nur bewusst und für Unkritisches; Datenschutz als Hauptkriterium: Home Assistant oder deutscher Anbieter) und der Matrix übernommen; die Zuordnung zu den Antworten ist eine Zusammenfassung dieser Folien, keine neue Aussage. Es ist keine Kaufberatung und ersetzt nicht die Planung im Einzelfall. Ein zweiter Klick auf eine gewählte Antwort nimmt sie zurück, „Zurücksetzen“ leert alles. Die Kostenfolien danach sind weiter Platzhalter.</div>
 </section>
 
 <section class="slide" data-transition="fade">
@@ -3489,9 +3597,9 @@ print(<span class="tk-s">f"Hysterese-Regelung aktiv (Ein: &lt;{EINSCHALT_PUNKT}�
 
 <script src="js/engine.js"></script>
 <script src="js/tools.js"></script>
-<script src="js/hysterese.js?v=85"></script>
-<script src="js/ifttt.js?v=85"></script>
-<script src="js/smarthome.js?v=85"></script>
-<script src="js/interaktiv.js?v=85"></script>
+<script src="js/hysterese.js?v=86"></script>
+<script src="js/ifttt.js?v=86"></script>
+<script src="js/smarthome.js?v=86"></script>
+<script src="js/interaktiv.js?v=86"></script>
 </body>
 </html>

@@ -71,7 +71,6 @@
      ============================================================ */
 
   function initMatrix(table) {
-    stopClicks(table);
     const rows = Array.from(table.rows);
     let col = -1;
     let row = -1;
@@ -102,11 +101,14 @@
       const th = e.target.closest('th');
       if (!th) return;
       const tr = th.parentElement;
+      // Eine Zeile, die noch nicht eingeblendet ist, ist nicht bedienbar: der Klick blättert weiter.
+      if (tr.hasAttribute('data-fragment') && !tr.classList.contains('is-shown')) return;
       const r = rows.indexOf(tr);
       const c = Array.from(tr.cells).indexOf(th);
       if (r === 0 && c > 0) col = col === c ? -1 : c;
       else if (c === 0 && r > 0) row = row === r ? -1 : r;
       else return;
+      e.stopPropagation();
       paint();
     });
 
@@ -375,6 +377,134 @@
   }
 
   /* ============================================================
+     3c. Ablauf zum Mitklicken: Fenster öffnen, Heizung aus
+     Die Texte sind die der Folie „Beispiel für den Ablauf“.
+     ============================================================ */
+
+  function initAblauf(root) {
+    stopClicks(root);
+    const steps = Array.from(root.querySelectorAll('.ab__step'));
+    const go = root.querySelector('.ab__go');
+    const state = root.querySelector('.ab__state');
+    const TEXT = [
+      'Noch passiert nichts. Mit „Fenster öffnen“ geht es los.',
+      'Schicht 1: Der Fenstersensor registriert, dass das Fenster geöffnet wird.',
+      'Schicht 2: Die Information läuft per Zigbee-Funk zur Zentrale.',
+      'Schicht 3: Die Zentrale kennt die Regel „Wenn Fenster offen, dann Heizung aus“ und sendet einen Befehl zurück.',
+      'Schicht 1: Das Heizkörperthermostat empfängt den Befehl und dreht das Ventil zu. Die Heizung ist aus.'
+    ];
+    let n = 0;
+    const paint = () => {
+      steps.forEach((s, i) => {
+        s.classList.toggle('is-on', i < n);
+        s.classList.toggle('is-now', i === n - 1);
+      });
+      state.textContent = TEXT[n];
+      go.textContent = n === 0 ? 'Fenster öffnen ▸' : n < steps.length ? 'Nächster Schritt ▸' : '↺ Von vorn';
+    };
+    go.addEventListener('click', () => {
+      n = n >= steps.length ? 0 : n + 1;
+      paint();
+    });
+    root.closest('.slide').addEventListener('deck:enter', () => {
+      n = 0;
+      paint();
+    });
+    paint();
+  }
+
+  /* ============================================================
+     3d. Datenarten: lokal oder Cloud (Folie „Welche Daten verlassen das Haus?“)
+     Aussage laut Folie „Die Antwort hängt allein an der Architektur“:
+     lokal verlassen die Daten das Haus gar nicht, über eine Cloud bei jedem Schaltvorgang.
+     ============================================================ */
+
+  function initDaten(root) {
+    stopClicks(root);
+    const slide = root.closest('.slide');
+    const cards = Array.from(slide.querySelectorAll('.card--data'));
+    const chips = cards.map((c) => {
+      const s = el('span', 'ix-chip');
+      s.hidden = true;
+      c.appendChild(s);
+      return s;
+    });
+    const btns = Array.from(root.querySelectorAll('[data-modus]'));
+    const TXT = { lokal: '✓ bleibt im Haus', cloud: '↗ verlässt das Haus' };
+    let mode = '';
+    const paint = () => {
+      btns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.modus === mode)));
+      chips.forEach((chip, i) => {
+        chip.hidden = !mode;
+        chip.textContent = mode ? TXT[mode] : '';
+        cards[i].classList.toggle('ix-lokal', mode === 'lokal');
+        cards[i].classList.toggle('ix-cloud', mode === 'cloud');
+      });
+    };
+    btns.forEach((b) => b.addEventListener('click', () => {
+      mode = mode === b.dataset.modus ? '' : b.dataset.modus;
+      paint();
+    }));
+    slide.addEventListener('deck:enter', () => {
+      mode = '';
+      paint();
+    });
+    paint();
+  }
+
+  /* ============================================================
+     3e. Entscheidungshelfer: drei Fragen, eine Empfehlung
+     Alle Empfehlungen stammen aus den Folien „Entscheidungshilfe: Welches System
+     für welchen Fall?“, „Welches System für welchen Fall?“ und „Die drei Fragen …“.
+     ============================================================ */
+
+  function initWahl(root) {
+    stopClicks(root);
+    const ANTW = {
+      1: {
+        neubau: ['Kabel (Bus)', 'KNX oder Loxone, Zentrale lokal (z. B. Home Assistant). Die Wände sind offen: eine einmalige Chance.'],
+        kernsanierung: ['Kabel, wo möglich; sonst Hybrid', 'Bus für die Festinstallation, Funk für Wandtaster. Statik und Platz setzen Grenzen, Schlitzen ist der Kostentreiber.'],
+        miete: ['Funk', 'Matter/Thread oder Zigbee: lokal, energiesparend, rückstandslos entfernbar.']
+      },
+      2: {
+        ja: ['Lokal statt Cloud', 'Ohne Internet läuft nur ein lokales System: Bus, Zigbee oder Matter. Bei Tuya fallen Fernsteuerung und viele Routinen ohne Internet aus.'],
+        nein: ['Cloud ist möglich', 'Für einzelne Geräte, den Einstieg oder ein knappes Budget: WLAN mit Tuya, bewusst und nur für Unkritisches. Sehr günstig, riesige Auswahl, aber Cloud-Zwang.']
+      },
+      3: {
+        ja: ['Lokale Zentrale', 'Home Assistant oder ein deutscher Anbieter (Teil 5). Der Übertragungsweg ist beliebig, die Daten verlassen das Haus nicht.'],
+        nein: ['Kein zusätzliches Kriterium', 'Dann entscheiden die Eingriffstiefe und die Frage nach dem Internet.']
+      }
+    };
+    const chips = Array.from(root.querySelectorAll('.wahl__chip'));
+    const rows = {};
+    root.querySelectorAll('.wahl__row').forEach((r) => { rows[r.dataset.q] = r; });
+    const choice = { 1: '', 2: '', 3: '' };
+
+    const paint = () => {
+      chips.forEach((c) => c.setAttribute('aria-pressed', String(choice[c.dataset.q] === c.dataset.a)));
+      Object.keys(rows).forEach((q) => {
+        const a = ANTW[q][choice[q]];
+        rows[q].classList.toggle('is-leer', !a);
+        rows[q].querySelector('b').textContent = a ? a[0] : '—';
+        rows[q].querySelector('span').textContent = a ? a[1] : 'Noch nicht gewählt.';
+      });
+    };
+    chips.forEach((c) => c.addEventListener('click', () => {
+      choice[c.dataset.q] = choice[c.dataset.q] === c.dataset.a ? '' : c.dataset.a;
+      paint();
+    }));
+    root.querySelector('[data-act="reset"]').addEventListener('click', () => {
+      choice[1] = choice[2] = choice[3] = '';
+      paint();
+    });
+    root.closest('.slide').addEventListener('deck:enter', () => {
+      choice[1] = choice[2] = choice[3] = '';
+      paint();
+    });
+    paint();
+  }
+
+  /* ============================================================
      4a. Inhaltsverzeichnis (I)
      ============================================================ */
 
@@ -496,4 +626,7 @@
   document.querySelectorAll('[data-quiz]').forEach(initQuiz);
   document.querySelectorAll('[data-demo="hysterese-regler"]').forEach(initHysterese);
   document.querySelectorAll('[data-demo="internet"]').forEach(initInternet);
+  document.querySelectorAll('[data-demo="ablauf"]').forEach(initAblauf);
+  document.querySelectorAll('[data-demo="wahl"]').forEach(initWahl);
+  document.querySelectorAll('[data-interaktiv="daten"]').forEach(initDaten);
 })();

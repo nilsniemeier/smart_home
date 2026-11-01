@@ -99,7 +99,7 @@ Attribute am HTML schalten sie ein, die Farben kommen aus den Theme-Variablen:
 - `table[data-interaktiv="matrix"]`: Spalten-/Zeilenkopf anklicken hebt hervor.
 - `ol[data-interaktiv="layers"]` mit `data-ziel="<Anfang der Zielüberschrift>"` je `li`: Klick springt zur Detailfolie.
 - `.quiz[data-quiz][data-richtig="n"]` mit `.quiz__opt`-Buttons und einem `.quiz__explain[data-fragment="1"]`: Klick zählt Stimmen, Weiter (→) löst auf.
-- `[data-demo="hysterese-regler"]` und `[data-demo="internet"]`: bedienbare Mini-Demos.
+- `[data-demo="hysterese-regler"]`, `[data-demo="internet"]`, `[data-demo="ablauf"]` und `[data-demo="wahl"]`: bedienbare Mini-Demos; `[data-interaktiv="daten"]`: Lokal/Cloud-Schalter für Datenkarten.
 - `I` öffnet das Inhaltsverzeichnis (aus den Kapitelfolien mit Kicker „TEIL n“), `K` die Notizen der Folie.
 
 ## Referentenansicht

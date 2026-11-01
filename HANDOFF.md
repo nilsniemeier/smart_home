@@ -1,6 +1,6 @@
 # Handoff — Iteration am Smart-Home-Deck
 
-Stand: 2026-11-01 · 173 Folien · Cache-Version 85
+Stand: 2026-11-01 · 177 Folien · Cache-Version 86
 
 ## Projekt
 
@@ -80,9 +80,16 @@ sind angebunden. Folien werden im Modul **nach Überschrift** gefunden, nie nach
 | Hysterese-Regler | `[data-demo="hysterese-regler"]` am Ende des Exkurses | Zwei Regler (Soll, Hysterese) rechnen Kurve, Heizstreifen und Zähler live neu; gleiches Raummodell wie `hysterese.js` plus Sensorrauschen ±0,045 °C, ab mehr als 12 Einschaltvorgängen erscheint „Der Regler klappert“. Die Pfeiltasten verstellen den Regler und blättern nicht weiter |
 | Internet-Schalter | `[data-demo="internet"]` am Ende von Teil 3 | Schalter „Internet an/aus“, drei Lampen (Tuya, Zigbee, Matter); die Tuya-Lampe wirkt ohne Internet nicht, Zigbee und Matter laufen lokal weiter. Aussagen stammen aus „Lokal vs. Cloud“ und der Matrix; die Einschränkung zu Tuya-Gateway-Szenen steht auf der Folie und in den Notizen |
 | Navigation | `I` Inhaltsverzeichnis, `K` Notizen & Quellen, Schaltflächen ☰ und ✎ unten links | Das Verzeichnis entsteht aus den Kapitelfolien (`h1` mit Kicker „TEIL n“, dazu Start und „Fragen?“) und markiert das aktuelle Kapitel; das Panel zeigt die `.notes` der aktuellen Folie (Adressen anklickbar) |
+| Ablauf zum Mitklicken | `[data-demo="ablauf"]`, Folie „Ablauf: Fenster öffnen, Heizung aus“ (Klasse `slide--tool`) | Knopf „Nächster Schritt“ führt Sensor → Protokoll → Zentrale → Aktor, je Schritt ein erklärender Satz; „Von vorn“ am Ende; Reset beim Betreten der Folie |
+| Lokal/Cloud-Schalter | `[data-interaktiv="daten"]`, Folie „Welche Daten verlassen das Haus?“ (Kartenraster) | Schalter färbt alle Datenkarten grün („bleibt im Haus“) oder rot („verlässt das Haus“) |
+| Entscheidungshelfer | `[data-demo="wahl"]`, Folie „Welches System passt zu Ihrem Fall?“ vor „Kosten: Größenordnungen“ | Drei Fragen mit Chips, Empfehlungen aus den Folien „Entscheidungshilfe…“ und „Welches System für welchen Fall?“ |
+| Quiz D und E | „Welches Einfallstor?“ (Teil 4), „Welcher Weg für die Mietwohnung?“ | gleiche Quiz-Mechanik wie A–C |
+| Matrix-Fokus für `ctable` | `data-interaktiv="matrix"` an den Tabellen „Gefahren und Fallstricke von Cloudanbietern“ und „Das stärkste Argument für lokale Systeme“ | Klick auf Kopfzelle hebt Spalte hervor; Zeilen mit `data-fragment` werden erst nach dem Einblenden bedienbar |
+
+Bewusst nicht interaktiv: die Kostenfolien (Zahlen sind Platzhalter, ein Regler würde Werte erfinden).
 
 Hinweise für Weiterarbeit und Tests:
-- Neue Bausteine hängt `interaktiv.js` an Attribute: `data-interaktiv="matrix|layers"`, `data-quiz`, `data-demo="hysterese-regler|internet"`. Container klicken die Engine nicht weiter (`stopPropagation`); Eingaben fangen auch Tasten ab.
+- Neue Bausteine hängt `interaktiv.js` an Attribute: `data-interaktiv="matrix|layers|daten"`, `data-quiz`, `data-demo="hysterese-regler|internet|ablauf|wahl"`. Container klicken die Engine nicht weiter (`stopPropagation`); Eingaben fangen auch Tasten ab.
 - Die Engine belegt `n` und `p` (weiter/zurück), außerdem `f o b t c v s h d l m z x`; frei und jetzt genutzt sind `I` und `K`.
 - Screenshot-Tests im Headless-Edge: Mit einer Testseite außerhalb des Repos (`<base href="http://localhost:8777/">`) muss
   `history.replaceState` überschrieben werden, sonst wirft die Engine beim Hash-Abgleich eine SecurityError und `Deck` bleibt

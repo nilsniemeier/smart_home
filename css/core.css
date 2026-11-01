@@ -2690,3 +2690,103 @@ body.overview .ix-actions, body.is-blacked .ix-actions { display: none; }
 .ix-notes__body { flex: 1; overflow: auto; line-height: 1.5; color: var(--fg-dim); overflow-wrap: anywhere; }
 .ix-notes__body a { color: var(--accent); }
 .ix-notes__leer { font-style: italic; }
+
+
+/* ============================================================
+   Interaktiv, Übertragung auf weitere Folien (js/interaktiv.js)
+   ============================================================ */
+
+/* Folien mit Bedienelementen: von oben beginnen, damit alles in 1080 px passt */
+.slide.slide--tool { justify-content: flex-start; padding-top: 70px; padding-bottom: 46px; }
+
+/* ---------- Ablauf zum Mitklicken ---------- */
+
+.slide .ab { display: grid; gap: 26px; margin-top: 14px; }
+.slide .ab .card { opacity: 0.28; outline: 3px solid transparent; outline-offset: 0; transition: opacity 0.3s, outline-color 0.3s; }
+.slide .ab .card.is-on { opacity: 1; }
+.slide .ab .card.is-now { outline-color: var(--accent); }
+.slide .ab__ctrl { display: flex; align-items: center; gap: 30px; }
+.slide .ab__go {
+  flex: none;
+  min-width: 360px;
+  padding: 14px 34px;
+  border: 3px solid var(--accent);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg);
+  font: inherit;
+  font-size: 32px;
+  cursor: pointer;
+}
+.slide .ab__go:hover { background: var(--accent); color: var(--bg); }
+.slide .ab__state { margin: 0; max-width: none; min-height: 2.6em; font-size: 30px; line-height: 1.3; color: var(--fg-dim); }
+
+/* ---------- Datenarten: lokal oder Cloud ---------- */
+
+.slide .ix-modus { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin: 0 0 16px; }
+.slide .ix-modus__lab { font-size: 26px; color: var(--fg-dim); margin-right: 6px; }
+.slide .ix-modus button {
+  padding: 8px 22px;
+  border: 2px solid var(--rule);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg);
+  font: inherit;
+  font-size: 26px;
+  cursor: pointer;
+}
+.slide .ix-modus button:hover { border-color: var(--accent); }
+.slide .ix-modus button[aria-pressed="true"][data-modus="lokal"] { border-color: var(--ok); background: color-mix(in srgb, var(--ok) 16%, transparent); }
+.slide .ix-modus button[aria-pressed="true"][data-modus="cloud"] { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 16%, transparent); }
+.slide .ix-chip { display: inline-block; margin-top: 10px; padding: 3px 16px; border-radius: 999px; font-size: 24px; font-weight: 600; }
+.slide .ix-chip[hidden] { display: none; }
+.slide .card.ix-lokal .ix-chip { color: var(--ok); background: color-mix(in srgb, var(--ok) 16%, transparent); }
+.slide .card.ix-cloud .ix-chip { color: var(--bad); background: color-mix(in srgb, var(--bad) 16%, transparent); }
+.slide .card.ix-lokal { outline: 3px solid var(--ok); outline-offset: -3px; }
+.slide .card.ix-cloud { outline: 3px solid var(--bad); outline-offset: -3px; }
+
+/* ---------- Entscheidungshelfer ---------- */
+
+.slide .wahl { display: grid; gap: 16px; margin-top: 14px; }
+.slide .wahl__q { display: grid; grid-template-columns: 640px 1fr; gap: 24px; align-items: center; }
+.slide .wahl__qt { margin: 0; max-width: none; font-size: 30px; font-weight: 600; line-height: 1.2; }
+.slide .wahl__chips { display: flex; flex-wrap: wrap; gap: 12px; }
+.slide .wahl__chip {
+  padding: 10px 24px;
+  border: 2px solid var(--rule);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg);
+  font: inherit;
+  font-size: 27px;
+  cursor: pointer;
+}
+.slide .wahl__chip:hover { border-color: var(--accent); }
+.slide .wahl__chip[aria-pressed="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 22%, transparent); }
+.slide .wahl__out {
+  display: grid;
+  gap: 12px;
+  margin-top: 6px;
+  padding: 22px 30px;
+  border: 3px solid var(--rule);
+  border-radius: var(--radius);
+  background-color: var(--bg);
+  background-image: linear-gradient(var(--bg-alt), var(--bg-alt));
+}
+.slide .wahl__row { display: grid; grid-template-columns: 330px 1fr; gap: 24px; align-items: baseline; font-size: 27px; line-height: 1.3; }
+.slide .wahl__row b { color: var(--accent); }
+.slide .wahl__row.is-leer b, .slide .wahl__row.is-leer span { color: var(--fg-dim); }
+.slide .wahl__foot { display: flex; align-items: center; gap: 24px; margin-top: 4px; }
+.slide .wahl__faust { flex: 1; margin: 0; max-width: none; font-size: 25px; line-height: 1.3; color: var(--fg-dim); }
+.slide .wahl__reset {
+  flex: none;
+  padding: 8px 22px;
+  border: 2px solid var(--rule);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg-dim);
+  font: inherit;
+  font-size: 24px;
+  cursor: pointer;
+}
+.slide .wahl__reset:hover { border-color: var(--accent); color: var(--fg); }
