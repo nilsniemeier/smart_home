@@ -2,6 +2,16 @@
 
 Stand: 2026-11-02 · 175 Folien · Cache-Version 86
 
+## Zuletzt (2026-11-02)
+
+- Bedienebene: Variante B (Konvergenz) übernommen, Originalfolie und Variante A gelöscht, Badge und
+  Hinweis in den Notizen entfernt. Commit `7ac916d`, gepusht nach `origin/master` (live auf GitHub Pages).
+- Noch **nicht** per Screenshot in allen fünf Themes geprüft (nur im Browser geöffnet), besonders `brutal` auf Überlauf.
+- `.spectrum*` in `core.css` ist ungenutzt und kann entfernt werden (danach `DECK_VERSION` und die `?v=`-Parameter erhöhen).
+- Nächste offene Punkte: Titelporträt `images/nils.jpg` (zu klein), fünf Arbeitsfolien „Offene Belege",
+  China-Quellen vor dem Vortrag erneut prüfen, Interaktiv-Pilot von Nils abnehmen lassen.
+- Git: `git.exe` liegt unter `%LOCALAPPDATA%\GitHubDesktop\app-*\resources\app\git\cmd\`; für Push `$env:GCM_INTERACTIVE='always'`.
+
 ## Projekt
 
 - Git-Repo (Branch `master`), aktuell unter Windows ausgecheckt. `git` liegt dort nicht
