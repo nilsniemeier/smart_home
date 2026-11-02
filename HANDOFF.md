@@ -1,6 +1,6 @@
 # Handoff — Iteration am Smart-Home-Deck
 
-Stand: 2026-11-01 · 177 Folien · Cache-Version 86
+Stand: 2026-11-02 · 175 Folien · Cache-Version 86
 
 ## Projekt
 
@@ -104,9 +104,9 @@ Hinweise für Weiterarbeit und Tests:
 
 0. ~~Interaktiv-Übertragung prüfen~~ **Erledigt (2026-11-01):** Quiz E, ctable Folie 62, Ablauf/Datenschalter/Entscheidungshelfer in aurora, brutal, terminal, glass, editorial gesichtet, kein Überlauf. Klicktest Matrix (Folien 32, 45, 62): Spaltenüberschrift hebt hervor und blättert nicht weiter, Klick auf Eckzelle oder Datenzelle blättert weiter. Im Theme editorial ist die Ablauf-Karte „Zentrale“ hoch (schmale Spalten), passt aber in 1080 px.
 
-1. **Bedienebene dreifach.** Folie 13 (Original), 14 (Layout-Vorschlag A, Spektrum),
-   15 (Layout-Vorschlag B, Konvergenz). Nils muss eine wählen; die anderen beiden samt
-   Badges löschen. Empfehlung war B.
+1. ~~Bedienebene dreifach~~ **Erledigt (2026-11-02):** Variante B (Konvergenz) übernommen, Badge
+   und Hinweis in den Notizen entfernt; Originalfolie und Variante A (Spektrum) gelöscht. Das CSS
+   `.spectrum*` in `core.css` ist jetzt ungenutzt (bewusst stehen gelassen, kein Versions-Bump nötig).
 2. ~~Veraltete Folienverweise~~ **Erledigt (2026-10-28):** sichtbarer Text, Notizen und die
    HTML-Kommentare vor den Folien verweisen jetzt auf Folientitel statt Nummern. Die Überschriften
    der „Offene Belege"-Karten sind gekürzt; die Sichtprüfung im Browser (Umbruch, Theme `brutal`)
